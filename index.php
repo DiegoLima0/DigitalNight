@@ -9,7 +9,7 @@
 </html>
 
 <?php
-require_once '../app/config/database.php';
+require_once 'includes/database.php';
 
 $nombre = $_POST["nombre"];
 $contra = $_POST["contra"];
