@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #2f2f2f; 
+    background: linear-gradient(#111425, rgb(0, 12, 119));
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -20,10 +20,17 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 15px 40px;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
 }
 
 header img {
     height: 60px;
+}
+
+header nav{
+    display: flex;
+    gap: 2em;
 }
 
 header nav a {
@@ -44,32 +51,39 @@ header div {
 }
 
 header button, #MainPrincipal button {
-    border: none;
+    border: 1px solid white;
     padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 header a:first-child button, #MainPrincipal button {
-    background-color: #444;
+    background: linear-gradient(to right, rgba(0, 18, 179, 0.336), rgba(174, 187, 255, 0.308));
     color: white;
 }
 
 header a:nth-child(2) button {
-    background-color: #fff;
+    background: linear-gradient(to right, rgba(0, 7, 66, 0.336), rgba(174, 187, 255, 0.171));
+    color: #ffffff;
+}
+
+header a:first-child button:hover,
+#MainPrincipal button:hover,
+header a:nth-child(2) button:hover {
+    background: white;
     color: #000;
 }
+
 
 footer {
     background-color: #111425;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     margin: 0;
 }
 
 footer img {
-    height: 40px;
+    height: 30px;
     margin-bottom: 10px;
 }
 
@@ -89,6 +103,7 @@ footer a:hover {
 }
 
 footer p {
+    margin-top: 10px;
     font-size: 12px;
     color: #ffffff;
 }
@@ -99,10 +114,16 @@ footer p {
     flex-direction: column;
     align-items: center;
     gap: 2em;
+    margin-top: 50px;
 }
 
 #MainPrincipal h1{
     color: white;
+    font-size: 32px;
+}
+
+#MainPrincipal button {
+    font-size: 19px; 
 }
 
 #ImagenJuegos{

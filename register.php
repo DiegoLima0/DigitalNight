@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <img src="" alt="Logo Digital Night">
+            <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
             <nav>
                 <a href="">Tienda</a>
                 <a href="">Biblioteca</a>
@@ -27,7 +27,6 @@
                 <a href="register.php">
                     <button>Registrarse</button>
                 </a>
-                <a href=""><img src="" alt="foto de perfil"></a>
             </div>
         </header>
 
@@ -48,13 +47,13 @@
         </main>
         
         <footer>
-            <img src="" alt="Logo Digital Night">
-           
+            <img src="img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
+       
             <div>
                 <a href="">Sobre nosotros</a>
                 <a href="">Soporte</a>
             </div>
-           
+            <hr>
             <p>Penta-core</p>
         </footer>
     </body>

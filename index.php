@@ -30,7 +30,6 @@
     </header>
 
     <main id="MainPrincipal">
-        <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night" id="logoDN">
 
         <h1 id="TextoPaginaPrincipal">¿Listo para jugar?</h1>
 
@@ -48,7 +47,7 @@
             <a href="">Sobre nosotros</a>
             <a href="">Soporte</a>
         </div>
-       
+        <hr>
         <p>Penta-core</p>
     </footer>
 </body>
