@@ -1,7 +1,7 @@
+/*Estilo general de la pagina*/
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -12,18 +12,18 @@ body {
     min-height: 100vh;
 }
 
-
 header {
-    background-color: #1c1c1c;
+    background-color: #111425;
     color: white;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 15px 40px;
 }
 
 header img {
-    height: 40px;
+    height: 60px;
 }
 
 header nav a {
@@ -43,7 +43,7 @@ header div {
     gap: 10px;
 }
 
-header button {
+header button, #MainPrincipal button {
     border: none;
     padding: 6px 12px;
     border-radius: 5px;
@@ -51,7 +51,7 @@ header button {
     font-size: 14px;
 }
 
-header a:first-child button {
+header a:first-child button, #MainPrincipal button {
     background-color: #444;
     color: white;
 }
@@ -61,14 +61,61 @@ header a:nth-child(2) button {
     color: #000;
 }
 
-header div img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: #ccc;
+footer {
+    background-color: #111425;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
 }
 
-main {
+footer img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+footer div {
+    margin-bottom: 10px;
+}
+
+footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/*PAGINA PRINCIPAL (Index.php)*/
+#MainPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+#MainPrincipal h1{
+    color: white;
+}
+
+#ImagenJuegos{
+    width: 90%;
+    margin: 0;
+}
+
+#logoDN{
+    width: 30%;
+}
+
+/*Main de register.php y login.php*/
+.MainFormulario { 
     flex: 1;
     display: flex;
     justify-content: center;
@@ -76,7 +123,7 @@ main {
     padding: 40px 20px;
 }
 
-main > div {
+.MainFormulario > div {
     background-color: #e6e6e6;
     padding: 30px 40px;
     border-radius: 6px;
@@ -85,7 +132,7 @@ main > div {
     width: 100%;
 }
 
-main h1 {
+.MainFormulario h1 {
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -123,44 +170,12 @@ form input[type="submit"]:hover {
     background-color: #333;
 }
 
-main a {
+.MainFormulario a {
     font-size: 13px;
     color: #000;
     text-decoration: none;
 }
 
-main a:hover {
+.MainFormulario a:hover {
     text-decoration: underline;
-}
-
-
-footer {
-    background-color: #e6e6e6;
-    text-align: center;
-    padding: 20px;
-}
-
-footer img {
-    height: 40px;
-    margin-bottom: 10px;
-}
-
-footer div {
-    margin-bottom: 10px;
-}
-
-footer a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-footer p {
-    font-size: 12px;
-    color: #333;
 }
