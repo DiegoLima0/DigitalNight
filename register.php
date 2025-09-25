@@ -31,19 +31,29 @@
         </header>
 
         <main class="MainFormulario">
-            <div>
-                <h1>Crear cuenta</h1>
-                <form action="index.php" method="post">
-                    Nombre de usuario <input type="text" name="nombre" requiere>
-               
-                    Correo electronico <input type="mail" name="correo" requiere>
-               
-                    Contraseña <input type="password" name="contraseña" requiere>
-                   
+            <form action="" method="post">
+                <label class="titulo">Crear cuenta</label>    
+            
+                <div>
+                    <label for="nombre">Nombre de usuario</label>
+                    <input type="text" name="nombre" placeholder="Nombre de usuario">
+                </div>
+
+                <div>
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
+                </div>
+                
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" placeholder="Ingrese una contraseña" required>
+                </div>
+
+                <div>
                     <input type="submit" value="Registrarse">
-                </form>
-                <a href="login.php">¿Ya tenes una cuenta?</a>
-            </div>
+                    <a href="login.php">¿Ya tenes una cuenta?</a>
+                </div>
+            </form>
         </main>
         
         <footer>

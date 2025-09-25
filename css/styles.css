@@ -159,23 +159,40 @@ footer p {
     font-weight: bold;
 }
 
-form {
+.MainFormulario form {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 15px;
-    margin-bottom: 15px;
-    text-align: left;
-    font-size: 14px;
+    background-color: #ffffffc4;
+    padding: 30px 40px;
+    border-radius: 6px;
+    max-width: 400px;
+    width: 100%;
 }
 
-form input[type="mail"],
-form input[type="password"] {
+.titulo{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.MainFormulario form div{
+    text-align: left;
+    margin: 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     border-radius: 4px;
+    box-sizing: border-box;
 }
+
 
 form input[type="submit"] {
     background-color: #000;
@@ -185,6 +202,7 @@ form input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 15px;
+    width: 100%;
 }
 
 form input[type="submit"]:hover {

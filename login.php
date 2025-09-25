@@ -31,17 +31,24 @@
         </header>
         
         <main class="MainFormulario">
-            <div>
-                <h1>Iniciar sesion</h1>
-                <form action="index.php" method="post">
-                    Correo electronico <input type="mail" name="correo" requiere>
-               
-                    Contraseña <input type="password" name="contraseña" requiere>
+                <form action="" method="post">
+                    <label class="titulo">Iniciar sesion</label>
+
+                    <div>
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
+                    </div>
+                    
+                    <div>
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" placeholder="Ingrese una contraseña" required>
+                    </div>
+                    
                    
                     <input type="submit" value="Iniciar sesión">
+
+                    <a href="register.php">¿Aún no tienes una cuenta?</a>
                 </form>
-                <a href="register.php">¿Aún no tienes una cuenta?</a>
-            </div>
         </main>
 
         <footer>
