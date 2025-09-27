@@ -12,7 +12,9 @@
     </head>
     <body>
         <header>
-            <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            <a href="index.php">
+                <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            </a>
             <nav>
                 <a href="">Tienda</a>
                 <a href="">Biblioteca</a>
@@ -31,7 +33,7 @@
         </header>
         
         <main class="MainFormulario">
-                <form action="" method="post">
+                <form action="profile.php" method="post">
                     <label class="titulo">Iniciar sesion</label>
 
                     <div>
@@ -43,11 +45,11 @@
                         <label for="password">Contraseña</label>
                         <input type="password" name="password" placeholder="Ingrese una contraseña" required>
                     </div>
-                    
-                   
-                    <input type="submit" value="Iniciar sesión">
 
-                    <a href="register.php">¿Aún no tienes una cuenta?</a>
+                    <div>
+                        <a href="register.php">¿Aún no tienes una cuenta?</a>
+                        <input type="submit" value="Iniciar sesión">
+                    </div>
                 </form>
         </main>
 

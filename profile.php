@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Night</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -21,27 +21,26 @@
             <a href="">Soporte</a>
         </nav>
            
-        <div>
-            <a href="login.php">
-                <button>Iniciar sesión</button>
-            </a>
-            <a href="register.php">
-                <button>Registrarse</button>
-            </a>
-        </div>
+        <img src="img/icons8-test-account-96.png" alt="Imagen de perfil" id="perfilFoto">
     </header>
-
-    <main id="MainPrincipal">
-
-        <h1 id="TextoPaginaPrincipal">¿Listo para jugar?</h1>
-
-        <a href="login.php">
-            <button>Iniciar sesión</button>
-        </a>
-
-        <img src="img/IndexJuegosImg.png" alt="Juegos imagen" id="ImagenJuegos">
+    <main id="mainPerfil">
+        <section>
+            <div id="perfil">
+                <img src="img/icons8-test-account-96.png" alt="">
+                <div id="contenidoPerfil">
+                    <p>@Usuario</p>
+                    <div>
+                        <p>Biografia</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <nav id="navPerfil">
+                <a href="">Juegos</a>
+                <a href="">Publicaciones</a>
+            </nav>
+        </section>
     </main>
-
     <footer>
         <img src="img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
        
@@ -54,4 +53,3 @@
     </footer>
 </body>
 </html>
-

@@ -12,7 +12,9 @@
     </head>
     <body>
         <header>
-            <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            <a href="index.php">
+                <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            </a>
             <nav>
                 <a href="">Tienda</a>
                 <a href="">Biblioteca</a>
@@ -50,8 +52,8 @@
                 </div>
 
                 <div>
-                    <input type="submit" value="Registrarse">
                     <a href="login.php">¿Ya tenes una cuenta?</a>
+                    <input type="submit" value="Registrarse">
                 </div>
             </form>
         </main>

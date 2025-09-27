@@ -1,4 +1,8 @@
 /*Estilo general de la pagina*/
+:root{
+    --fondoAzul: #111425;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +14,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header {
-    background-color: #111425;
+    background-color: var(--fondoAzul);
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -33,14 +39,14 @@ header nav{
     gap: 2em;
 }
 
-header nav a {
+header a {
     color: white;
     margin: 0 15px;
     text-decoration: none;
     font-size: 15px;
 }
 
-header nav a:hover {
+ nav a:hover {
     text-decoration: underline;
 }
 
@@ -74,6 +80,9 @@ header a:nth-child(2) button:hover {
     color: #000;
 }
 
+main{
+    flex: 1;
+}
 
 footer {
     background-color: #111425;
@@ -142,6 +151,8 @@ footer p {
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    background-size: cover;
+    background-image: url("../img/FormBackground.jpg");
 }
 
 .MainFormulario > div {
@@ -162,11 +173,14 @@ footer p {
 .MainFormulario form {
     display: flex;
     flex-direction: column;
-    background-color: #ffffffc4;
+    background-color: #ffffff7e;
     padding: 30px 40px;
     border-radius: 6px;
     max-width: 400px;
     width: 100%;
+    color: white;
+    border: 1px solid white;
+    backdrop-filter: blur(10px);
 }
 
 .titulo{
@@ -175,11 +189,16 @@ footer p {
     text-align: center;
 }
 
-.MainFormulario form div{
+form div{
     text-align: left;
     margin: 10px 0px 10px;
     display: flex;
     flex-direction: column;
+    gap: 5px;
+}
+
+form div>a{
+    color: white;
 }
 
 form input[type="text"],
@@ -195,7 +214,7 @@ form select {
 
 
 form input[type="submit"] {
-    background-color: #000;
+    background: linear-gradient(to right, #111425, rgb(0, 12, 119));
     color: white;
     border: none;
     padding: 10px;
@@ -211,10 +230,43 @@ form input[type="submit"]:hover {
 
 .MainFormulario a {
     font-size: 13px;
-    color: #000;
+    color: white;
     text-decoration: none;
 }
 
 .MainFormulario a:hover {
     text-decoration: underline;
+}
+
+/*Pagina Perfil (profile.php)*/
+#perfilFoto{
+    width: 50px;
+    height: 50px;
+}
+
+#perfil{
+    display: flex;
+    color: white;
+    gap: 1em;
+    padding: 20px;
+    background: linear-gradient(to right, rgba(7, 11, 44, 0.336), rgb(25, 32, 63));
+}
+
+#contenidoPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 10px;
+}
+
+#navPerfil {
+    background-color: var(--fondoAzul);
+    display: flex;
+    align-items: center;   
+    justify-content: center; 
+    padding: 10px;
+    width: 100%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
 }

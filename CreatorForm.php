@@ -12,7 +12,9 @@
     </head>
     <body>
         <header>
-            <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            <a href="index.php">
+                <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            </a>
             <nav>
                 <a href="">Tienda</a>
                 <a href="">Biblioteca</a>
@@ -29,19 +31,6 @@
                 </a>
             </div>
         </header>
-
-<!--Lo que iría en el formulario sería:
--nombre del creador o del estudio✅
--nombre completo de cada integrante ✅
--pais✅ (Capaz seria mejor una lista desplegable idk)
--titulo del juego✅
--genero principal✅
--estado del proyecto del juego✅
--descripcion corta del juego✅
--imagenes✅
--espacio para enviar el juego (opcional por si ya tiene listo el juego o no)
--checkbox con términos y condiciones 
--correo-->
 
         <main class="MainFormulario">
             <form action="" method="post">
