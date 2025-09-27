@@ -46,7 +46,7 @@ header a {
     font-size: 15px;
 }
 
- nav a:hover {
+nav a:hover {
     text-decoration: underline;
 }
 
@@ -262,6 +262,7 @@ form input[type="submit"]:hover {
 #navPerfil {
     background-color: var(--fondoAzul);
     display: flex;
+    gap: 1em;
     align-items: center;   
     justify-content: center; 
     padding: 10px;
@@ -269,4 +270,13 @@ form input[type="submit"]:hover {
     border-top: 1px solid;
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
+}
+
+#navPerfil a{
+    color: white;
+    text-decoration: none;
+}
+
+#navPerfil a:hover{
+    text-decoration: underline;
 }

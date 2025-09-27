@@ -33,7 +33,7 @@
         </header>
 
         <main class="MainFormulario">
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <label class="titulo">Crear cuenta</label>    
             
                 <div>
