@@ -6,7 +6,7 @@ if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
     $password = $_POST["password"];
 
-    $sql = "SELECT username, email, profile_picture, description FROM register WHERE email='$correo' AND password='$password'";
+    $sql = "SELECT username, email FROM register WHERE email='$correo' AND password='$password'";
 
     $resultado = $conexion->query($sql);
 

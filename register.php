@@ -5,10 +5,8 @@ if(isset($_POST['correo'])){
     $nombre = $_POST["nombre"];
     $correo = $_POST["correo"];
     $password = $_POST["password"];
-    $biografia = isset($_POST["biografia"]) ? $_POST["biografia"] : '';
-    $foto_perfil = 'default.jpg';
 
-    $sql = "INSERT INTO register (username, email, password, description, profile_picture) VALUES ('$nombre', '$correo', '$password', '$biografia', '$foto_perfil')";
+    $sql = "INSERT INTO register (username, email, password) VALUES ('$nombre', '$correo', '$password')";
 
     if ($conexion->query($sql)) {
         echo "Alumno guardado correctamente.";
@@ -67,10 +65,6 @@ if(isset($_POST['correo'])){
                 <div>
                     <label for="password">Contraseña</label>
                     <input type="password" name="password" placeholder="Ingrese una contraseña" required>
-                </div>
-    <div>
-                    <label for="biografia">Biografía (opcional)</label>
-                    <textarea name="biografia" placeholder="Escribe algo sobre ti..."></textarea>
                 </div>
                 
                 <div>
