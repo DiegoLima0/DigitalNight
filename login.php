@@ -1,4 +1,22 @@
 <?php
+require_once 'includes/database.php';
+
+if(isset($_POST['correo'])){
+    $correo = $_POST["correo"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT * FROM register WHERE email='$correo' AND password='$password'";
+
+    $resultado = $conexion->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        echo "ingresaste correctamente";
+    } else {
+        echo "Usuario o/y contraseña incorrectos.";
+    }
+} else {
+    echo "\n rellene el formulario";
+}
 ?>
 
 
@@ -33,7 +51,7 @@
         </header>
         
         <main class="MainFormulario">
-                <form action="profile.php" method="post">
+                <form action="login.php" method="post">
                     <label class="titulo">Iniciar sesion</label>
 
                     <div>
@@ -65,6 +83,3 @@
         </footer>
     </body>
 </html>
-
-
-

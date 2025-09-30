@@ -1,6 +1,22 @@
 <?php
-?>
+if(isset($_POST['correo'])){
+    require_once 'includes/database.php';
 
+    $nombre = $_POST["nombre"];
+    $correo = $_POST["correo"];
+    $password = $_POST["password"];
+
+    $sql = "INSERT INTO register (username, email, password) VALUES ('$nombre', '$correo', '$password')";
+
+    if ($conexion->query($sql)) {
+        echo "Alumno guardado correctamente.";
+    } else {
+        echo "Error: " . $conexion->error;
+    }
+} else {
+    echo "\n rellene el formulario";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +49,7 @@
         </header>
 
         <main class="MainFormulario">
-            <form action="login.php" method="post">
+            <form action="register.php" method="post">
                 <label class="titulo">Crear cuenta</label>    
             
                 <div>
@@ -70,6 +86,3 @@
         </footer>
     </body>
 </html>
-
-
-
