@@ -1,24 +1,32 @@
 <?php
+session_start();
 require_once 'includes/database.php';
 
 if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM register WHERE email='$correo' AND password='$password'";
+    $sql = "SELECT username, email, profile_picture, description FROM register WHERE email='$correo' AND password='$password'";
 
     $resultado = $conexion->query($sql);
 
     if ($resultado->num_rows > 0) {
-        echo "ingresaste correctamente";
+        $usuario = $resultado->fetch_assoc();
+
+        $_SESSION['logged_in'] = true;
+        $_SESSION['username'] = $usuario['username'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['profile_picture'] = $usuario['profile_picture'];
+        $_SESSION['description'] = $usuario['description'];
+
+        header("Location: profile.php");
+        exit();
+
     } else {
         echo "Usuario o/y contraseña incorrectos.";
     }
-} else {
-    echo "\n rellene el formulario";
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
