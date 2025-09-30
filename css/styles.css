@@ -1,6 +1,13 @@
 /*Estilo general de la pagina*/
-:root{
+:root {
     --fondoAzul: #111425;
+    --bg-1: #071033;
+    --bg-2: #0f2b59;
+    --accent: #00a3ff;
+    --muted: rgba(255, 255, 255, 0.08);
+    --card-gray: rgba(200, 200, 200, 0.18);
+    --glass: rgba(255, 255, 255, 0.06);
+    --radius: 10px;
 }
 
 * {
@@ -34,7 +41,7 @@ header img {
     height: 60px;
 }
 
-header nav{
+header nav {
     display: flex;
     gap: 2em;
 }
@@ -56,14 +63,16 @@ header div {
     gap: 10px;
 }
 
-header button, #MainPrincipal button {
+header button,
+#MainPrincipal button {
     border: 1px solid white;
     padding: 6px 12px;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
-header a:first-child button, #MainPrincipal button {
+header a:first-child button,
+#MainPrincipal button {
     background: linear-gradient(to right, rgba(0, 18, 179, 0.336), rgba(174, 187, 255, 0.308));
     color: white;
 }
@@ -80,7 +89,7 @@ header a:nth-child(2) button:hover {
     color: #000;
 }
 
-main{
+main {
     flex: 1;
 }
 
@@ -118,7 +127,7 @@ footer p {
 }
 
 /*PAGINA PRINCIPAL (Index.php)*/
-#MainPrincipal{
+#MainPrincipal {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,26 +135,26 @@ footer p {
     margin-top: 50px;
 }
 
-#MainPrincipal h1{
+#MainPrincipal h1 {
     color: white;
     font-size: 32px;
 }
 
 #MainPrincipal button {
-    font-size: 19px; 
+    font-size: 19px;
 }
 
-#ImagenJuegos{
+#ImagenJuegos {
     width: 90%;
     margin: 0;
 }
 
-#logoDN{
+#logoDN {
     width: 30%;
 }
 
 /*Main de register.php y login.php*/
-.MainFormulario { 
+.MainFormulario {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -155,7 +164,7 @@ footer p {
     background-image: url("../img/FormBackground.jpg");
 }
 
-.MainFormulario > div {
+.MainFormulario>div {
     background-color: #e6e6e6;
     padding: 30px 40px;
     border-radius: 6px;
@@ -183,13 +192,13 @@ footer p {
     backdrop-filter: blur(10px);
 }
 
-.titulo{
+.titulo {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
 }
 
-form div{
+form div {
     text-align: left;
     margin: 10px 0px 10px;
     display: flex;
@@ -197,7 +206,7 @@ form div{
     gap: 5px;
 }
 
-form div>a{
+form div>a {
     color: white;
 }
 
@@ -239,12 +248,12 @@ form input[type="submit"]:hover {
 }
 
 /*Pagina Perfil (profile.php)*/
-#perfilFoto{
+#perfilFoto {
     width: 50px;
     height: 50px;
 }
 
-#perfil{
+#perfil {
     display: flex;
     color: white;
     gap: 1em;
@@ -252,7 +261,7 @@ form input[type="submit"]:hover {
     background: linear-gradient(to right, rgba(7, 11, 44, 0.336), rgb(25, 32, 63));
 }
 
-#contenidoPerfil{
+#contenidoPerfil {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -263,8 +272,8 @@ form input[type="submit"]:hover {
     background-color: var(--fondoAzul);
     display: flex;
     gap: 1em;
-    align-items: center;   
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     width: 100%;
     border-top: 1px solid;
@@ -272,11 +281,288 @@ form input[type="submit"]:hover {
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
 }
 
-#navPerfil a{
+#navPerfil a {
     color: white;
     text-decoration: none;
 }
 
-#navPerfil a:hover{
+#navPerfil a:hover {
     text-decoration: underline;
+}
+
+/*Página Tienda (Shop.php)*/
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px
+}
+
+.user {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #1f2a4a, #0d1630);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.hero {
+    height: 200px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    margin-bottom: 28px;
+}
+
+.hero__image {
+    width: 95%;
+    height: 85%;
+    border-radius: 8px;
+    background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.06) 0 16px, rgba(255, 255, 255, 0.00) 16px 32px);
+    background-color: rgba(200, 200, 200, 0.06);
+    border-radius: 8px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15)
+}
+
+.dot--active {
+    background: var(--accent)
+}
+
+h2.section-title {
+    font-size: 20px;
+    margin: 14px 0 10px;
+    text-align: center
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 16px
+}
+
+.filter-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 0;
+    background: var(--glass);
+    color: #eaf4ff;
+    font-weight: 600;
+    cursor: pointer
+}
+
+.filter-btn--active {
+    background: var(--accent);
+    color: #ffffff
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 6px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.6)
+}
+
+.card__thumb {
+    width: 100%;
+    height: 140px;
+    /* altura de la tarjeta */
+    border-radius: 8px;
+    background: var(--card-gray);
+    overflow: hidden;
+    /* evita que la imagen sobresalga */
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* mantiene la imagen completa */
+    background: var(--card-gray);
+}
+
+.card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%
+}
+
+.card__title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #eaf4ff
+}
+
+.card__details {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px
+}
+
+.card__price {
+    margin-left: auto;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-weight: 700
+    
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 28px 0
+}
+
+.pagination__btn {
+    background: var(--glass);
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #eaf4ff
+}
+
+.pagination__btn--active {
+    background: var(--accent);
+    color: #031126
+}
+
+@media (max-width:1100px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px
+    }
+
+    .search {
+        min-width: 220px
+    }
+}
+
+@media (max-width:760px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .topbar {
+        padding: 12px 16px
+    }
+
+    .nav {
+        position: static;
+        transform: none;
+        margin: 8px 0;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width:480px) {
+    .grid {
+        grid-template-columns: 1fr
+    }
+
+    .container {
+        padding: 0 12px
+    }
+
+    .hero {
+        height: 140px
+    }
+}
+
+.filtros {
+    margin: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.filtros input {
+    position: absolute;
+    left: -9999px;
+}
+
+.filtros-btn {
+    background: #555;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+}
+
+.filtros-panel {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background: rgba(128, 128, 128, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    gap: 40px;
+    flex-wrap: wrap;
+    min-width: 300px;
+    z-index: 100;
+}
+
+#toggle-filtros:checked~.filtros-panel {
+    display: flex;
+}
+
+
+.filtros-col h4 {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.filtros-col p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
 }
