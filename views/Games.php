@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle de Juego</title>
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php include("includes/header.php"); ?>
+    <?php include("../includes/header.php"); ?>
 
     <section class="game-hero">
         <div class="game-cover"></div>

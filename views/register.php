@@ -24,12 +24,12 @@ if(isset($_POST['correo'])){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Digital Night - Crear cuenta</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
         <header>
             <a href="index.php">
-                <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+                <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
             </a>
             <nav>
                 <a href="">Tienda</a>
@@ -75,7 +75,7 @@ if(isset($_POST['correo'])){
         </main>
         
         <footer>
-            <img src="img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
+            <img src="../img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
        
             <div>
                 <a href="">Sobre nosotros</a>

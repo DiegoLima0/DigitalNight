@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DigitalNight - Mockup (HTML + CSS)</title>
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -116,7 +116,7 @@
 
             <article class="card card--item" aria-label="producto 3">
                 <div class="card__thumb">
-                    <img src="img/mgs3delta.jpeg" alt="Nombre del juego 3">
+                    <img src="../img/mgs3delta.jpeg" alt="Nombre del juego 3">
                 </div>
 
                 <div class="card__meta">
@@ -131,7 +131,7 @@
 
             <article class="card card--item" aria-label="producto 4">
                 <div class="card__thumb">
-                    <img src="img/repo.jpg" alt="Nombre del juego 4">
+                    <img src="../img/repo.jpg" alt="Nombre del juego 4">
                 </div>
 
                 <div class="card__meta">
@@ -146,7 +146,7 @@
 
             <article class="card card--item" aria-label="producto 5">
                 <div class="card__thumb">
-                    <img src="img/little.c0546c16-c1b2-4f91-921f-762c88c3ab54.jpg" alt="Nombre del juego 5">
+                    <img src="../img/little.c0546c16-c1b2-4f91-921f-762c88c3ab54.jpg" alt="Nombre del juego 5">
                 </div>
 
                 <div class="card__meta">
@@ -160,7 +160,7 @@
 
             <article class="card card--item" aria-label="producto 6">
                 <div class="card__thumb">
-                    <img src="img/luto.webp" alt="Nombre del juego 6">
+                    <img src="../img/luto.webp" alt="Nombre del juego 6">
                 </div>
                 <div class="card__meta">
                     <div style="display:flex;align-items:center;gap:8px;width:100%">
@@ -174,7 +174,7 @@
 
             <article class="card card--item" aria-label="producto 7">
                 <div class="card__thumb">
-                    <img src="img/minecraft.avif" alt="Nombre del juego 7">
+                    <img src="../img/minecraft.avif" alt="Nombre del juego 7">
                 </div>
                 
                 <div class="card__meta">
@@ -189,7 +189,7 @@
 
             <article class="card card--item" aria-label="producto 8">
                 <div class="card__thumb">
-                    <img src="img/terraria.png" alt="Nombre del juego 8">
+                    <img src="../img/terraria.png" alt="Nombre del juego 8">
                 </div>
                 
                 <div class="card__meta">
