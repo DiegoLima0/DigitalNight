@@ -11,7 +11,7 @@
 <body>
     <header class="topbar">
         <div class="logo" aria-label="logo">
-            <img src="../src/img/Digital Night logo blanco horizontal.png" alt="DigitalNight logo" class="logo__img">
+            <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="DigitalNight logo" class="logo__img">
         </div>
 
         <nav class="nav" aria-label="principal">
@@ -83,10 +83,11 @@
         </div>
 
         <section class="grid" id="productGrid" aria-label="lista de productos">
-
+             
+            <a href="#">
             <article class="card card--item" aria-label="producto 1">
                 <div class="card__thumb">
-                    <img src="img/fallout 4.avif" alt="Fallout4">
+                    <img src="../img/fallout4.jpg" alt="Fallout4">
                 </div>
 
                 <div class="card__meta">
@@ -98,10 +99,12 @@
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 2">
                 <div class="card__thumb">
-                    <img src="img/rdr2.avif" alt="Nombre del juego 2">
+                    <img src="../img/rdr2.jpg" alt="Nombre del juego 2">
                 </div>
 
                 <div class="card__meta">
@@ -113,10 +116,12 @@
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 3">
                 <div class="card__thumb">
-                    <img src="../img/mgs3delta.jpeg" alt="Nombre del juego 3">
+                    <img src="../img/metalgear.jpg" alt="Nombre del juego 3">
                 </div>
 
                 <div class="card__meta">
@@ -128,7 +133,9 @@
                     <div class="card__details">Pc • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 4">
                 <div class="card__thumb">
                     <img src="../img/repo.jpg" alt="Nombre del juego 4">
@@ -143,10 +150,12 @@
                     <div class="card__details">PC • Ingles</div>
                 </div>
             </article>
-
+            </a>
+            
+            <a href="#">
             <article class="card card--item" aria-label="producto 5">
                 <div class="card__thumb">
-                    <img src="../img/little.c0546c16-c1b2-4f91-921f-762c88c3ab54.jpg" alt="Nombre del juego 5">
+                    <img src="../img/little.jpg" alt="Nombre del juego 5">
                 </div>
 
                 <div class="card__meta">
@@ -157,10 +166,12 @@
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 6">
                 <div class="card__thumb">
-                    <img src="../img/luto.webp" alt="Nombre del juego 6">
+                    <img src="../img/luto.jpg" alt="Nombre del juego 6">
                 </div>
                 <div class="card__meta">
                     <div style="display:flex;align-items:center;gap:8px;width:100%">
@@ -171,25 +182,29 @@
                     <div class="card__details">PC • Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 7">
                 <div class="card__thumb">
-                    <img src="../img/minecraft.avif" alt="Nombre del juego 7">
+                    <img src="../img/doom.jpg" alt="Nombre del juego 7">
                 </div>
                 
                 <div class="card__meta">
                     <div style="display:flex;align-items:center;gap:8px;width:100%">
-                        <div class="card__title">Minecraft</div>
+                        <div class="card__title">Doom</div>
                         <div class="card__price">$20 usd</div>
                     </div>
                     
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 8">
                 <div class="card__thumb">
-                    <img src="../img/terraria.png" alt="Nombre del juego 8">
+                    <img src="../img/terraria.jpg" alt="Nombre del juego 8">
                 </div>
                 
                 <div class="card__meta">
@@ -201,55 +216,46 @@
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 9">
                 <div class="card__thumb">
-                    <img src="img/death strandign.jpeg" alt="Nombre del juego 9">
+                    <img src="../img/overcooked2.jpg" alt="Nombre del juego 9">
                 </div>
                
                 <div class="card__meta">
                     <div style="display:flex;align-items:center;gap:8px;width:100%">
-                        <div class="card__title">Death stranding</div>
+                        <div class="card__title">overcooked 2</div>
                         <div class="card__price">$20 usd</div>
                     </div>
                
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 10">
                 <div class="card__thumb">
-                    <img src="img/need for speed.b0d37a76-e4fa-495e-abac-6697ee4b5887.jpg" alt="Nombre del juego 10">
+                    <img src="../img/peak.jpg" alt="Nombre del juego 10">
                 </div>
                
                 <div class="card__meta">
                     <div style="display:flex;align-items:center;gap:8px;width:100%">
-                        <div class="card__title">Need for speed</div>
-                        <div class="card__price">$15 usd</div>
+                        <div class="card__title">Peak</div>
+                        <div class="card__price">$7.49 usd</div>
                     </div>
                
                     <div class="card__details">PC • Español e Ingles</div>
                 </div>
             </article>
+            </a>
 
+            <a href="#">
             <article class="card card--item" aria-label="producto 11">
                 <div class="card__thumb">
-                    <img src="img/resident evil 4.avif" alt="Nombre del juego 11">
-                </div>
-                
-                <div class="card__meta">
-                    <div style="display:flex;align-items:center;gap:8px;width:100%">
-                        <div class="card__title">Resident evil 4</div>
-                        <div class="card__price">$22 usd</div>
-                    </div>
-                
-                    <div class="card__details">PC • Español e Ingles</div>
-                </div>
-            </article>
-
-            <article class="card card--item" aria-label="producto 12">
-                <div class="card__thumb">
-                    <img src="img/Sons_of_the_Forest.jpg" alt="Nombre del juego 12">
+                    <img src="../img/sons of the forest.jpg" alt="Nombre del juego 11">
                 </div>
                 
                 <div class="card__meta">
@@ -258,19 +264,35 @@
                         <div class="card__price">$12 usd</div>
                     </div>
                 
+                    <div class="card__details">PC • Español e Ingles</div>
+                </div>
+            </article>
+            </a>
+            <a href="#">
+            <article class="card card--item" aria-label="producto 12">
+                <div class="card__thumb">
+                    <img src="../img/schedule.jpg" alt="Nombre del juego 12">
+                </div>
+                
+                <div class="card__meta">
+                    <div style="display:flex;align-items:center;gap:8px;width:100%">
+                        <div class="card__title">Schedule I</div>
+                        <div class="card__price">$7.40 usd</div>
+                    </div>
+                
                     <div class="card__details">PC • Españo e Ingles</div>
                 </div>
             </article>
-
+            </a>
         </section>
 
 
-        <div class="pagination" role="navigation" aria-label="paginacion">
-            <button class="pagination__btn" aria-label="anterior">&lt;</button>
-            <button class="pagination__btn pagination__btn--active">1</button>
-            <button class="pagination__btn">2</button>
-            <button class="pagination__btn">3</button>
-            <button class="pagination__btn" aria-label="siguiente">&gt;</button>
+        <div class="pag-nav" role="navigation" aria-label="paginacion">
+            <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
+            <button class="pag-nav__btn pag-nav__btn--active">1</button>
+            <button class="pag-nav__btn">2</button>
+            <button class="pag-nav__btn">3</button>
+            <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
         </div>
     </main>
 
