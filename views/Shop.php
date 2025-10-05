@@ -62,16 +62,24 @@
             </div>
         </div>
 
-
-        <section class="hero" aria-label="slider">
-            <div class="hero__image" role="img" aria-label="imagen destacada placeholder"></div>
-
-            <div class="dots" role="tablist">
-                <div class="dot dot--active" aria-hidden="true"></div>
-                <div class="dot" aria-hidden="true"></div>
-                <div class="dot" aria-hidden="true"></div>
+       <section class="container-carrusel">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slider-1" src="../img/rdr2.jpg" alt="">
+                    <img id="slider-2" src="../img/metalgear.jpg" alt="">
+                    <img id="slider-3" src="../img/overcooked2.jpg" alt="">
+                    <img id="slider-4" src="../img/sons of the forest.jpg" alt="">
+                </div>
+                <div class="slider-nav">
+                    <a href="#slider-1"></a>
+                    <a href="#slider-2"></a>
+                    <a href="#slider-3"></a>
+                    <a href="#slider-4"></a>
+                </div>
             </div>
-        </section>
+
+       </section>
+       
 
         <h2 class="section-title">Recomendados para ti</h2>
 
