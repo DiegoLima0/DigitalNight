@@ -4,7 +4,7 @@ session_start();
 
 // Si el usuario no ha iniciado sesión, lo redirige al login
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 ?>
@@ -20,7 +20,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 <body>
     <header>
         <a href="index.php">
-            <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+            <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
         </a>
         <nav>
             <a href="">Tienda</a>
@@ -52,11 +52,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         </section>
     </main>
     <footer>
-        <img src="img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
+        <img src="../img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
        
         <div>
             <a href="">Sobre nosotros</a>
             <a href="">Soporte</a>
+            <a href="../logout.php">Cerrar sesión</a>
+            <a href="view_users.php">pagina de testeo</a>
         </div>
         <hr>
         <p>Penta-core</p>

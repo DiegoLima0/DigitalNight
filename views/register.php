@@ -1,18 +1,36 @@
 <?php
 if(isset($_POST['correo'])){
-    require_once 'includes/database.php';
+    session_start();
+    require_once '../includes/database.php';
 
-    $nombre = $_POST["nombre"];
-    $correo = $_POST["correo"];
+    $username = $_POST["nombre"];
+    $email = $_POST["correo"];
     $password = $_POST["password"];
 
-    $sql = "INSERT INTO register (username, email, password) VALUES ('$nombre', '$correo', '$password')";
+    $sql = "INSERT INTO register (username, email, password, type) VALUES ('$username', '$email', '$password','user')";
 
     if ($conexion->query($sql)) {
-        echo "Alumno guardado correctamente.";
+        $nuevo_id = $conexion->insert_id;
+
+        $sql = "SELECT * FROM register WHERE id = $nuevo_id";
+        $resultado = $conexion->query($sql);
+        $usuario = $resultado->fetch_assoc();
+
+        $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
+        $_SESSION['username'] = $usuario['username'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['profile_picture'] = $usuario['profile_picture'];
+        $_SESSION['description'] = $usuario['description'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['profile_picture'] = $usuario['profile_picture'];
+        $_SESSION['description'] = $usuario['description'];
+
+        header("Location: profile.php");
+        exit();
     } else {
         echo "Error: " . $conexion->error;
     }
+    
 } else {
     echo "\n rellene el formulario";
 }
@@ -80,6 +98,8 @@ if(isset($_POST['correo'])){
             <div>
                 <a href="">Sobre nosotros</a>
                 <a href="">Soporte</a>
+                <a href="../logout.php">Cerrar sesión</a>
+                <a href="view_users.php">pagina de testeo</a>
             </div>
             <hr>
             <p>Penta-core</p>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/database.php';
+require_once '../includes/database.php';
 
 if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
@@ -13,8 +13,11 @@ if(isset($_POST['correo'])){
     if ($resultado->num_rows > 0) {
         $usuario = $resultado->fetch_assoc();
 
-        $_SESSION['logged_in'] = true;
+        $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
         $_SESSION['username'] = $usuario['username'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['profile_picture'] = $usuario['profile_picture'];
+        $_SESSION['description'] = $usuario['description'];
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['profile_picture'] = $usuario['profile_picture'];
         $_SESSION['description'] = $usuario['description'];
@@ -39,7 +42,7 @@ if(isset($_POST['correo'])){
     <body>
         <header>
             <a href="index.php">
-                <img src="img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
+                <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
             </a>
             <nav>
                 <a href="">Tienda</a>
@@ -80,11 +83,13 @@ if(isset($_POST['correo'])){
         </main>
 
         <footer>
-            <img src="img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
+            <img src="../img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
        
             <div>
                 <a href="">Sobre nosotros</a>
                 <a href="">Soporte</a>
+                <a href="../logout.php">Cerrar sesión</a>
+                <a href="view_users.php">pagina de testeo</a>
             </div>
             <hr>
             <p>Penta-core</p>

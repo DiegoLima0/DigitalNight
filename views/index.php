@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+        $header_variable = 'oculto';
+    }
+    else {
+        $header_variable = '';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +55,8 @@
         <div>
             <a href="">Sobre nosotros</a>
             <a href="">Soporte</a>
+            <a href="../logout.php">Cerrar sesión</a>
+            <a href="view_users.php">pagina de testeo</a>
         </div>
         <hr>
         <p>Penta-core</p>
