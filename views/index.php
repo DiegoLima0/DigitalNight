@@ -1,10 +1,14 @@
 <?php
 session_start();
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-        $header_variable = 'oculto';
+        $clase_variable = 'oculto';
+        $id_variable = 'borrar';
+        $id_intercalable = 'cambiar';
     }
     else {
-        $header_variable = '';
+        $clase_variable = '';
+        $id_variable = '';
+        $id_intercalable = 'ImagenJuegos';
     }
 ?>
 
@@ -28,7 +32,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
             <a href="">Soporte</a>
         </nav>
            
-        <div>
+        <div class="<?php echo $clase_variable; ?>">
             <a href="login.php">
                 <button>Iniciar sesión</button>
             </a>
@@ -42,11 +46,11 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
 
         <h1 id="TextoPaginaPrincipal">¿Listo para jugar?</h1>
 
-        <a href="login.php">
-            <button>Iniciar sesión</button>
+        <a href="login.php" id="<?php echo $id_variable; ?>">
+            <button >Iniciar sesión</button>
         </a>
 
-        <img src="../img/IndexJuegosImg.png" alt="Juegos imagen" id="ImagenJuegos">
+        <img src="../img/IndexJuegosImg.png" alt="Juegos imagen" id="<?php echo $id_intercalable; ?>">
     </main>
 
     <footer>
