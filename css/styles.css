@@ -325,14 +325,7 @@ form input[type="submit"]:hover {
     margin-bottom: 28px;
 }
 
-.hero__image {
-    width: 95%;
-    height: 85%;
-    border-radius: 8px;
-    background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.06) 0 16px, rgba(255, 255, 255, 0.00) 16px 32px);
-    background-color: rgba(200, 200, 200, 0.06);
-    border-radius: 8px;
-}
+
 
 .dots {
     position: absolute;
@@ -567,4 +560,51 @@ h2.section-title {
     font-size: 13px;
     color: #fff;
     cursor: pointer;
+}
+
+.slider-wrapper{
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.slider{
+    display: flex;
+    /*aspect-ratio: 21 / 9;*/
+    height: 300px;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 .25rem .5rem #21212126;
+    border-radius: .5rem;
+}
+
+.slider img{
+    flex:1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+
+}
+
+.slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a{
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: .75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover{
+    opacity: 100%;
 }
