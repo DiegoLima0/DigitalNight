@@ -17,8 +17,14 @@
 }
 .oculto{
     opacity: 0;
-     background: linear-gradient(#111425, rgb(0, 12, 119));
-    display: none;
+}
+#borrar{
+    opacity: 0.1;
+}
+#cambiar{
+    width: 90%;
+    margin: 0;
+    border-bottom: 3px solid rgb(255, 255, 255);
 }
 
 body {
