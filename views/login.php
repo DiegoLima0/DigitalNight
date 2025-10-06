@@ -44,6 +44,7 @@ if(isset($_POST['correo'])){
             <a href="index.php">
                 <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
             </a>
+
             <nav>
                 <a href="">Tienda</a>
                 <a href="">Biblioteca</a>
@@ -55,6 +56,7 @@ if(isset($_POST['correo'])){
                 <a href="login.php">
                     <button>Iniciar sesión</button>
                 </a>
+
                 <a href="register.php">
                     <button>Registrarse</button>
                 </a>
@@ -62,24 +64,24 @@ if(isset($_POST['correo'])){
         </header>
         
         <main class="MainFormulario">
-                <form action="login.php" method="post">
-                    <label class="titulo">Iniciar sesion</label>
+            <form action="login.php" method="post">
+                <label class="titulo">Iniciar sesion</label>
 
-                    <div>
-                        <label for="correo">Correo electrónico</label>
-                        <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
-                    </div>
+                <div>
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
+                </div>
                     
-                    <div>
-                        <label for="password">Contraseña</label>
-                        <input type="password" name="password" placeholder="Ingrese una contraseña" required>
-                    </div>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" placeholder="Ingrese una contraseña" required>
+                </div>
 
-                    <div>
-                        <a href="register.php">¿Aún no tienes una cuenta?</a>
-                        <input type="submit" value="Iniciar sesión">
-                    </div>
-                </form>
+                <div>
+                    <a href="register.php">¿Aún no tienes una cuenta?</a>
+                    <input type="submit" value="Iniciar sesión">
+                </div>
+            </form>
         </main>
 
         <footer>

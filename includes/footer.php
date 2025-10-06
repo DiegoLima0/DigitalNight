@@ -1,6 +1,6 @@
 <html>
     <footer>
-        <img src="img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
+        <img src="../img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
        
         <div>
             <a href="">Sobre nosotros</a>

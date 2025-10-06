@@ -21,26 +21,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header>
-        <a href="index.php">
-            <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
-        </a>
-        <nav>
-            <a href="">Tienda</a>
-            <a href="">Biblioteca</a>
-            <a href="">Sobre nosotros</a>
-            <a href="">Soporte</a>
-        </nav>
-           
-        <div class="<?php echo $clase_variable; ?>">
-            <a href="login.php">
-                <button>Iniciar sesión</button>
-            </a>
-            <a href="register.php">
-                <button>Registrarse</button>
-            </a>
-        </div>
-    </header>
+    <?php require_once '../includes/header.php'; ?>
 
     <main id="MainPrincipal">
 

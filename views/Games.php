@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <?php include("../includes/header.php"); ?>
+    <?php require_once '../includes/header.php'; ?>
 
     <div class="page-grid">
-       
+
         <section class="banner-grid">
             <div class="game-banner">
                 <div class="game-cover">
@@ -20,11 +20,12 @@
                 </div>
                 <div class="game-info">
                     <h1>Red dead redemption 2</h1>
-                    <p class="descripcion">América, 1899. Arthur Morgan y la banda de Van der Linde son forajidos en busca y captura. Mientras los agentes federales y los mejores cazarrecompensas de la nación les pisan los talones, la banda deberá abrirse camino por el abrupto territorio del corazón de América y sobrevivir a base de robos y peleas. Mientras las divisiones internas aumentan y amenazan con separarlos a todos, Arthur deberá elegir entre sus propios ideales y la lealtad a la banda que lo vio crecer.
+                    <p class="descripcion">América, 1899. Arthur Morgan y la banda de Van der Linde son forajidos en busca
+                        y captura. Mientras los agentes federales y los mejores cazarrecompensas de la nación les pisan los talones, la banda deberá abrirse camino por el abrupto territorio del corazón de América y sobrevivir a base de robos y peleas. Mientras las divisiones internas aumentan y amenazan con separarlos a todos, Arthur deberá elegir entre sus propios ideales y la lealtad a la banda que lo vio crecer.
 
-Con más de 175 premios al Juego del año y más de 250 valoraciones perfectas, Red Dead Redemption 2 es una historia épica sobre el honor y la lealtad en el umbral de una nueva era.
+                        Con más de 175 premios al Juego del año y más de 250 valoraciones perfectas, Red Dead Redemption 2 es una historia épica sobre el honor y la lealtad en el umbral de una nueva era.
 
-Red Dead Redemption 2 también incluye Red Dead Online, la experiencia multijugador basada en el mundo vivo de Red Dead Redemption 2. Cabalga en solitario o forma una cuadrilla; vende licor; enfréntate a agentes de la ley, bandas de forajidos, feroces animales salvajes y mucho más mientras forjas tu destino en el Oeste</p>
+                        Red Dead Redemption 2 también incluye Red Dead Online, la experiencia multijugador basada en el mundo vivo de Red Dead Redemption 2. Cabalga en solitario o forma una cuadrilla; vende licor; enfréntate a agentes de la ley, bandas de forajidos, feroces animales salvajes y mucho más mientras forjas tu destino en el Oeste</p>
                 </div>
             </div>
         </section>
@@ -51,10 +52,12 @@ Red Dead Redemption 2 también incluye Red Dead Online, la experiencia multijuga
                         <h4>@Usuario</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget turpis ultricies mauris.</p>
                     </div>
+
                     <div class="comment">
                         <h4>@Usuario</h4>
                         <p>Comentario con más detalle sobre el juego y sus características.</p>
                     </div>
+
                     <div class="comment">
                         <h4>@Usuario</h4>
                         <p>Otro comentario sobre el juego. Suspendisse eget turpis ultricies mauris.</p>
@@ -71,9 +74,9 @@ Red Dead Redemption 2 también incluye Red Dead Online, la experiencia multijuga
         </section>
     </div>
 
-    <?php include("../includes/footer.php"); ?>
+    <?php
+    require_once '../includes/footer.php';
+    ?>
 </body>
-
-
 
 </html>
