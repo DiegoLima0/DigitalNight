@@ -614,3 +614,242 @@ h2.section-title {
 .slider-nav a:hover{
     opacity: 100%;
 }
+
+/*Pagina games*/
+
+.game-banner {
+      background: #06122b;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .game-cover {
+      width: 180px;
+      height: 240px;
+      border-radius: 10px;
+    }
+
+    .game-info {
+      flex: 1;
+      background-color: gray;
+    }
+
+    .game-info h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #4da3ff;
+    }
+
+    .game-gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 20px;
+      background: #0e2047;
+    }
+
+    .game-gallery div {
+      min-width: 200px;
+      height: 120px;
+      background: #1c2a55;
+      border-radius: 10px;
+    }
+
+    .content {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .sidebar, .recommendations {
+      flex: 1;
+      background: #0e2047;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .main {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .comment {
+      background: #1c2a55;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .comment h4 {
+      margin: 0 0 10px;
+      color: #4da3ff;
+    }
+
+    .recommendation-item {
+      background: #1c2a55;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+.game-banner {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+
+  
+  background: url("../img/red\ dead\ baner.jpg_large") no-repeat center center;
+  background-size: cover; 
+}
+
+
+
+.img-banner {
+  position: absolute;
+  right: 0;        
+  top: -40px;     
+  z-index: 0;      
+  opacity: 0.2;   
+}
+
+.img-banner img {
+  max-width: 600px;   
+  border-radius: 10px;
+}
+
+
+
+
+.img-banner img {
+  height: auto;       
+  object-fit: contain;
+  max-height: 200px; 
+  width: auto;         
+  object-fit: contain; 
+
+
+}
+
+
+.page-grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+
+
+.banner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #06122b;
+}
+
+
+.content-grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.page-grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+
+
+.banner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #06122b;
+    position: relative;
+    height: 400px; 
+}
+
+
+.content-grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    padding-top: 200px; 
+}
+
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+}
+
+
+.game-hero {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+.game-banner {
+    height: 100%;
+    display: flex;
+    align-items: flex-end; 
+    padding: 40px 20px;    
+    background-size: cover;
+    background-position: center;
+}
+
+.descripcion{
+    color: white;
+    background-color: gray;
+}
+
+
+.game-cover img {
+   
+    width: 200px;  
+    height: 200px;  
+    object-fit: fill; 
+    display: block;
+    border-radius: 20px
+}
+
+.game-gallery div {
+    min-width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden; /* evita que la imagen sobresalga */
+}
+
+.game-gallery div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ocupa todo el espacio sin deformar */
+    display: block;
+}
