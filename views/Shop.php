@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DigitalNight - Mockup (HTML + CSS)</title>
     <link href="../css/styles.css" rel="stylesheet">
+    <link rel="icon" href="../img/digitalNightLogo.png">
 </head>
 
 <body>

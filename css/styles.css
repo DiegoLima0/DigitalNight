@@ -15,13 +15,16 @@
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-.oculto{
+
+.oculto {
     opacity: 0;
 }
-#borrar{
+
+#borrar {
     opacity: 0.1;
 }
-#cambiar{
+
+#cambiar {
     width: 90%;
     margin: 0;
     border-bottom: 3px solid rgb(255, 255, 255);
@@ -446,7 +449,6 @@ h2.section-title {
     padding: 6px 8px;
     border-radius: 8px;
     font-weight: 700
-    
 }
 
 .pag-nav {
@@ -566,13 +568,13 @@ h2.section-title {
     cursor: pointer;
 }
 
-.slider-wrapper{
+.slider-wrapper {
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.slider{
+.slider {
     display: flex;
     /*aspect-ratio: 21 / 9;*/
     height: 300px;
@@ -583,14 +585,14 @@ h2.section-title {
     border-radius: .5rem;
 }
 
-.slider img{
-    flex:1 0 100%;
+.slider img {
+    flex: 1 0 100%;
     scroll-snap-align: start;
     object-fit: cover;
 
 }
 
-.slider-nav{
+.slider-nav {
     display: flex;
     column-gap: 1rem;
     position: absolute;
@@ -600,7 +602,7 @@ h2.section-title {
     z-index: 1;
 }
 
-.slider-nav a{
+.slider-nav a {
     width: .5rem;
     height: .5rem;
     border-radius: 50%;
@@ -609,127 +611,123 @@ h2.section-title {
     transition: opacity ease 250ms;
 }
 
-.slider-nav a:hover{
+.slider-nav a:hover {
     opacity: 100%;
 }
 
 /*Pagina games*/
 
 .game-banner {
-      background: #06122b;
-      padding: 20px;
-      display: flex;
-      gap: 20px;
-    }
-
-    .game-cover {
-      width: 180px;
-      height: 240px;
-      border-radius: 10px;
-    }
-
-    .game-info {
-      flex: 1;
-      background-color: gray;
-    }
-
-    .game-info h1 {
-      margin: 0;
-      font-size: 26px;
-      color: #4da3ff;
-    }
-
-    .game-gallery {
-      display: flex;
-      overflow-x: auto;
-      gap: 15px;
-      padding: 20px;
-      background: #0e2047;
-    }
-
-    .game-gallery div {
-      min-width: 200px;
-      height: 120px;
-      background: #1c2a55;
-      border-radius: 10px;
-    }
-
-    .content {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .sidebar, .recommendations {
-      flex: 1;
-      background: #0e2047;
-      border-radius: 10px;
-      padding: 15px;
-    }
-
-    .main {
-      flex: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .comment {
-      background: #1c2a55;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .comment h4 {
-      margin: 0 0 10px;
-      color: #4da3ff;
-    }
-
-    .recommendation-item {
-      background: #1c2a55;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-.game-banner {
-  position: relative;
-  padding: 20px;
-  display: flex;
-  gap: 20px;
-
-  
-  background: url("../img/red\ dead\ baner.jpg_large") no-repeat center center;
-  background-size: cover; 
+    background: #06122b;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
 }
 
+.game-cover {
+    width: 180px;
+    height: 240px;
+    border-radius: 10px;
+}
 
+.game-info {
+    flex: 1;
+    background-color: gray;
+}
+
+.game-info h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #4da3ff;
+}
+
+.game-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 20px;
+    background: #0e2047;
+}
+
+.game-gallery div {
+    min-width: 200px;
+    height: 120px;
+    background: #1c2a55;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar,
+.recommendations {
+    flex: 1;
+    background: #0e2047;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.main {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment {
+    background: #1c2a55;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.comment h4 {
+    margin: 0 0 10px;
+    color: #4da3ff;
+}
+
+.recommendation-item {
+    background: #1c2a55;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.game-banner {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+
+
+    background: url("../img/red\ dead\ baner.jpg_large") no-repeat center center;
+    background-size: cover;
+}
 
 .img-banner {
-  position: absolute;
-  right: 0;        
-  top: -40px;     
-  z-index: 0;      
-  opacity: 0.2;   
+    position: absolute;
+    right: 0;
+    top: -40px;
+    z-index: 0;
+    opacity: 0.2;
 }
 
 .img-banner img {
-  max-width: 600px;   
-  border-radius: 10px;
+    max-width: 600px;
+    border-radius: 10px;
 }
-
-
-
 
 .img-banner img {
-  height: auto;       
-  object-fit: contain;
-  max-height: 200px; 
-  width: auto;         
-  object-fit: contain; 
+    height: auto;
+    object-fit: contain;
+    max-height: 200px;
+    width: auto;
+    object-fit: contain;
 
 
 }
-
 
 .page-grid {
     display: grid;
@@ -750,7 +748,6 @@ h2.section-title {
     grid-template-rows: auto 1fr;
     gap: 20px;
 }
-
 
 .content {
     display: grid;
@@ -776,15 +773,14 @@ h2.section-title {
     grid-template-columns: 1fr;
     background: #06122b;
     position: relative;
-    height: 400px; 
+    height: 400px;
 }
-
 
 .content-grid {
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 20px;
-    padding-top: 200px; 
+    padding-top: 200px;
 }
 
 
@@ -793,7 +789,6 @@ h2.section-title {
     grid-template-columns: 1fr 2fr 1fr;
     gap: 20px;
 }
-
 
 .game-hero {
     height: 100%;
@@ -804,36 +799,32 @@ h2.section-title {
     background-position: center;
 }
 
-
 @media (max-width: 900px) {
     .content {
         grid-template-columns: 1fr;
     }
 }
 
-
-
-
 .game-banner {
     height: 100%;
     display: flex;
-    align-items: flex-end; 
-    padding: 40px 20px;    
+    align-items: flex-end;
+    padding: 40px 20px;
     background-size: cover;
     background-position: center;
 }
 
-.descripcion{
+.descripcion {
     color: white;
     background-color: gray;
 }
 
 
 .game-cover img {
-   
-    width: 200px;  
-    height: 200px;  
-    object-fit: fill; 
+
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
     display: block;
     border-radius: 20px
 }
@@ -842,12 +833,14 @@ h2.section-title {
     min-width: 200px;
     height: 120px;
     border-radius: 10px;
-    overflow: hidden; /* evita que la imagen sobresalga */
+    overflow: hidden;
+    /* evita que la imagen sobresalga */
 }
 
 .game-gallery div img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ocupa todo el espacio sin deformar */
+    object-fit: cover;
+    /* ocupa todo el espacio sin deformar */
     display: block;
 }

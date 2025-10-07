@@ -18,50 +18,30 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header>
-        <a href="index.php">
-            <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="Logo Digital Night">
-        </a>
-        <nav>
-            <a href="">Tienda</a>
-            <a href="">Biblioteca</a>
-            <a href="">Sobre nosotros</a>
-            <a href="">Soporte</a>
-        </nav>
-           
-        <a href="profile.php" id="perfilFoto">
-            <img src="img/<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Imagen de perfil">
-        </a>
-    </header>
+    <?php require_once '../includes/header.php';?>
+
     <main id="mainPerfil">
         <section>
             <div id="perfil">
                 <img src="img/<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Imagen de perfil">
+               
                 <div id="contenidoPerfil">
                     <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
+                    
                     <div>
                         <p>Biografia</p>
                         <p><?php echo nl2br(htmlspecialchars($_SESSION['description'])); ?></p>
                     </div>
                 </div>
             </div>
+            
             <nav id="navPerfil">
                 <a href="">Juegos</a>
                 <a href="">Publicaciones</a>
             </nav>
         </section>
     </main>
-    <footer>
-        <img src="../img/Digital Night logo blanco letras.png" alt="Logo Digital Night">
-       
-        <div>
-            <a href="">Sobre nosotros</a>
-            <a href="">Soporte</a>
-            <a href="../logout.php">Cerrar sesión</a>
-            <a href="view_users.php">pagina de testeo</a>
-        </div>
-        <hr>
-        <p>Penta-core</p>
-    </footer>
+    
+    <?php require_once '../includes/footer.php'; ?>
 </body>
 </html>
