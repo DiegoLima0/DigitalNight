@@ -293,7 +293,7 @@
                             <div class="card__price">$7.40 usd</div>
                         </div>
 
-                        <div class="card__details">PC • Españo e Ingles</div>
+                        <div class="card__details">PC • Español e Ingles</div>
                     </div>
                 </article>
             </a>
@@ -309,9 +309,7 @@
         </div>
     </main>
 
-    <footer>
-        <div class="small">DIGITALNIGHT • Tienda &nbsp; Bibliotéca &nbsp; Sobre nosotros &nbsp; Soporte</div>
-    </footer>
+    <?php require_once '../includes/footer.php'; ?>
 
 </body>
 </html>

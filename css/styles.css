@@ -37,6 +37,7 @@ body {
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
 
 header {
@@ -735,13 +736,11 @@ h2.section-title {
     gap: 20px;
 }
 
-
 .banner-grid {
     display: grid;
     grid-template-columns: 1fr;
     background: #06122b;
 }
-
 
 .content-grid {
     display: grid;
@@ -767,7 +766,6 @@ h2.section-title {
     gap: 20px;
 }
 
-
 .banner-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -782,7 +780,6 @@ h2.section-title {
     gap: 20px;
     padding-top: 200px;
 }
-
 
 .content {
     display: grid;
@@ -819,7 +816,6 @@ h2.section-title {
     background-color: gray;
 }
 
-
 .game-cover img {
 
     width: 200px;
@@ -843,4 +839,62 @@ h2.section-title {
     object-fit: cover;
     /* ocupa todo el espacio sin deformar */
     display: block;
+}
+
+/*Pagina Configuración configurationPublicProfile.php y */
+#mainConfig{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+}
+
+#mainConfig section{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.perfilConfig{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#navYconfiguracion{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#navYconfiguracion nav{
+    display: flex;
+    flex-direction: column;
+}
+
+#publicProfileConfig, #accountConfig{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+#publicProfile, #cuenta{
+    display: flex;
+    flex-direction: column;
+}
+
+#publicProfileConfig form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#fotoPerfil{
+    display: flex;
+    flex-direction: column;
+}
+
+.datos, #perfilCuenta{
+    display: flex;
+    justify-content: space-between;
 }
