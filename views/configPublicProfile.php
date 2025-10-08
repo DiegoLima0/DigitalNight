@@ -22,8 +22,8 @@
 
             <div id="navYconfiguracion"><!--nav y perfil publico en flex column-->
                 <nav><!--flex column-->
-                    <a href="configAccount.php">Cuenta</a>
-                    <a href="configPublicProfile.php">Perfil publico</a>
+                    <a href="configAccount.php" class="seccionConfig seccion1">Cuenta</a>
+                    <a href="configPublicProfile.php" class="seccionConfig seccion2">Perfil publico</a>
                 </nav>
 
                 <div id="publicProfile"><!--flex column-->
@@ -36,15 +36,15 @@
                             <input type="text" name="Nombre" id="nombre">
 
                             <label for="biografia">Biografía</label>
-                            <textarea name="biografia" id="biografia" cols="30" rows="10"></textarea>
+                            <textarea name="biografia" id="biografia" cols="50" rows="5"></textarea>
 
-                            <input type="button" value="Enviar">
+                            <input type="button" value="Enviar" class="btn azul">
                         </form>
 
                         <div id="fotoPerfil">
                             <p>Foto de perfil</p>
                             <img src="img/<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Imagen de perfil">
-                            <button>Editar</button>
+                            <button class="btn azul">Editar</button>
                         </div>
                     </div>
                 </div>

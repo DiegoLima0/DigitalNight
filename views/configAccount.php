@@ -22,8 +22,8 @@
 
             <div id="navYconfiguracion"><!--nav y perfil publico en flex column-->
                 <nav><!--flex column-->
-                    <a href="configAccount.php">Cuenta</a>
-                    <a href="configPublicProfile.php">Perfil publico</a>
+                    <a href="configAccount.php" class="seccionConfig seccion1">Cuenta</a>
+                    <a href="configPublicProfile.php" class="seccionConfig seccion2">Perfil publico</a>
                 </nav>
 
                 <div id="cuenta"><!--flex column-->
@@ -36,22 +36,22 @@
 
                             <p>@usuario</p>
                         </div>
-                        <button>Editar Perfil</button>
+                        <button class="btn azul">Editar Perfil</button>
                     </div>
 
                     <div class="datos">
                         <p>Nombre de usuario: Nombre (@usuario)</p>
-                        <button>Editar</button>
+                        <button class="btn azul">Editar</button>
                     </div>
 
                     <div class="datos">
                         <p>Correo electrónico: correo@dominio.com</p>
-                        <button>Cambiar</button>
+                        <button class="btn azul">Cambiar</button>
                     </div>
 
                     <div class="datos">
                         <p>Contraseña: ******</p>
-                        <button>Cambiar</button>
+                        <button class="btn azul">Cambiar</button>
                     </div>
                 </div>
             </div>

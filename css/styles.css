@@ -78,30 +78,32 @@ header div {
     gap: 10px;
 }
 
-header button,
-#MainPrincipal button {
+.btn {
     border: 1px solid white;
     padding: 6px 12px;
     border-radius: 10px;
     transition: all 0.3s ease;
+    width: 100px;
+    height: max-content;
 }
 
-header a:first-child button,
-#MainPrincipal button {
+.azul {
     background: linear-gradient(to right, rgba(0, 18, 179, 0.336), rgba(174, 187, 255, 0.308));
     color: white;
 }
 
-header a:nth-child(2) button {
-    background: linear-gradient(to right, rgba(0, 7, 66, 0.336), rgba(174, 187, 255, 0.171));
-    color: #ffffff;
-}
-
-header a:first-child button:hover,
-#MainPrincipal button:hover,
-header a:nth-child(2) button:hover {
+.btn:hover {
     background: white;
     color: #000;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 main {
@@ -157,6 +159,7 @@ footer p {
 
 #MainPrincipal button {
     font-size: 19px;
+    width: 150px;
 }
 
 #ImagenJuegos {
@@ -228,7 +231,8 @@ form div>a {
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
-form select {
+form select,
+textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ffffff;
@@ -294,15 +298,6 @@ form input[type="submit"]:hover {
     border-top: 1px solid;
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
-}
-
-#navPerfil a {
-    color: white;
-    text-decoration: none;
-}
-
-#navPerfil a:hover {
-    text-decoration: underline;
 }
 
 /*Página Tienda (Shop.php)*/
@@ -726,8 +721,6 @@ h2.section-title {
     max-height: 200px;
     width: auto;
     object-fit: contain;
-
-
 }
 
 .page-grid {
@@ -841,30 +834,40 @@ h2.section-title {
     display: block;
 }
 
-/*Pagina Configuración configurationPublicProfile.php y */
+/*Página Configuración configurationPublicProfile.php y */
 #mainConfig{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5%;
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 1000px; 
+    width: 100%;
 }
 
 #mainConfig section{
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
 }
 
 .perfilConfig{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    gap: 1em;
+    margin: 20px 0px 20px;
 }
 
 #navYconfiguracion{
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 2em;
+    width: 100%;
+    align-items: flex-start;
 }
 
 #navYconfiguracion nav{
@@ -872,15 +875,30 @@ h2.section-title {
     flex-direction: column;
 }
 
+.seccionConfig{
+    padding: 10px;
+    border: 1px rgba(255, 255, 255, 0) solid;
+}
+
+.seccionConfig:hover{
+    background-color: rgba(255, 255, 255, 0.253);
+    border: 1px white solid;
+    border-radius: 15px;
+}
+
 #publicProfileConfig, #accountConfig{
     display: flex;
     flex-direction: row;
     gap: 2em;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-#publicProfile, #cuenta{
+#cuenta, #publicProfile{
+    flex: 1;
     display: flex;
     flex-direction: column;
+    gap: 1em;
 }
 
 #publicProfileConfig form{
@@ -892,9 +910,15 @@ h2.section-title {
 #fotoPerfil{
     display: flex;
     flex-direction: column;
+    gap: 1em;
+    align-items: center;
 }
 
 .datos, #perfilCuenta{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 1em;
 }

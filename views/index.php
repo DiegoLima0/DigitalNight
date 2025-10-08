@@ -31,7 +31,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
 
         <a href="login.php" id="<?php echo $id_variable; ?>">
             <a href="login.php">
-                <button >Iniciar sesión</button>
+                <button class="btn azul">Iniciar sesión</button>
             </a>
         </a>
 

@@ -29,7 +29,6 @@
     </header>
 
     <main class="container">
-
         <div class="filtros">
             <input type="checkbox" id="toggle-filtros">
             <label for="toggle-filtros" class="filtros-btn">Filtros ▾</label>
