@@ -1,10 +1,7 @@
 /*Estilo general de la pagina*/
 :root {
-    --fondoAzul: #111425;
-    --bg-1: #071033;
-    --bg-2: #0f2b59;
+    --fondoAzulOscuro: #111425;
     --accent: #00a3ff;
-    --muted: rgba(255, 255, 255, 0.08);
     --card-gray: rgba(200, 200, 200, 0.18);
     --glass: rgba(255, 255, 255, 0.06);
     --radius: 10px;
@@ -31,7 +28,7 @@
 }
 
 body {
-    background: linear-gradient(#111425, rgb(0, 12, 119));
+    background: var(--fondoAzulOscuro);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -41,7 +38,7 @@ body {
 }
 
 header {
-    background-color: var(--fondoAzul);
+    background-color: var(--fondoAzulOscuro);
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -59,6 +56,11 @@ header img {
 header nav {
     display: flex;
     gap: 2em;
+    flex-wrap: wrap;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 header a {
@@ -66,10 +68,6 @@ header a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 15px;
-}
-
-nav a:hover {
-    text-decoration: underline;
 }
 
 header div {
@@ -92,6 +90,15 @@ header div {
     color: white;
 }
 
+.transparente{
+    background-color: #191D33;
+    width: 200px;
+    height: 50px;
+    color: white;
+    border-color: #ffffff00;
+    font-weight: bold;
+}
+
 .btn:hover {
     background: white;
     color: #000;
@@ -111,7 +118,7 @@ main {
 }
 
 footer {
-    background-color: #111425;
+    background: linear-gradient(#111425, #283058);
     text-align: center;
     padding: 15px;
     margin: 0;
@@ -150,6 +157,7 @@ footer p {
     align-items: center;
     gap: 2em;
     margin-top: 50px;
+    background: linear-gradient(#111425, rgb(0, 12, 119));
 }
 
 #MainPrincipal h1 {
@@ -288,7 +296,7 @@ form input[type="submit"]:hover {
 }
 
 #navPerfil {
-    background-color: var(--fondoAzul);
+    background-color: var(--fondoAzulOscuro);
     display: flex;
     gap: 1em;
     align-items: center;
@@ -328,26 +336,6 @@ form input[type="submit"]:hover {
     box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.03);
     margin-bottom: 28px;
-}
-
-.dots {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15)
-}
-
-.dot--active {
-    background: var(--accent)
 }
 
 h2.section-title {
@@ -921,4 +909,56 @@ h2.section-title {
     align-items: center;
     padding: 10px;
     gap: 1em;
+}
+
+/*Página Soporte support.php*/
+#soporte{
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    gap: 1em;
+}
+
+#soporte::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(17, 20, 37)), url("../img/SupportImg.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1; 
+}
+
+#textoYbtn{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+#textoYbtn h1{
+    font-size: 50px;
+}
+
+#textoYbtn h2{
+    font-size: medium;
+}
+
+#textoYbtn>div{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#botones{
+    display: flex;
+    gap: 1em;
+    align-items: center;   
+    justify-content: center;
 }

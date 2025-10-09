@@ -6,6 +6,6 @@
         <a href="shop.php">Tienda</a>
         <a href="">Biblioteca</a>
         <a href="">Sobre nosotros</a>
-        <a href="">Soporte</a>
+        <a href="support.php">Soporte</a>
     </nav>
 </header>

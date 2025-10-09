@@ -4,7 +4,7 @@
        
         <div>
             <a href="">Sobre nosotros</a>
-            <a href="">Soporte</a>
+            <a href="support.php">Soporte</a>
         </div>
         <hr>
         <p>Penta-core</p>
