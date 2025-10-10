@@ -6,7 +6,7 @@ if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
     $password = $_POST["password"];
 
-    $sql = "SELECT username, email FROM register WHERE email='$correo' AND password='$password'";
+    $sql = "SELECT userName, email FROM user WHERE email='$correo' AND password='$password'";
 
     $resultado = $conexion->query($sql);
 
@@ -14,7 +14,7 @@ if(isset($_POST['correo'])){
         $usuario = $resultado->fetch_assoc();
 
         $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
-        $_SESSION['username'] = $usuario['username'];
+        $_SESSION['userName'] = $usuario['userName'];
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['profile_picture'] = $usuario['profile_picture'];
         $_SESSION['description'] = $usuario['description'];

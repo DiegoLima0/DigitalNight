@@ -5,6 +5,7 @@
         <div>
             <a href="">Sobre nosotros</a>
             <a href="support.php">Soporte</a>
+            <a href="../logout.php">Cerrar Sesión</a>
         </div>
         <hr>
         <p>Penta-core</p>

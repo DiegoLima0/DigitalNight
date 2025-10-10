@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2025 a las 20:21:05
+-- Tiempo de generación: 10-10-2025 a las 20:46:43
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `creator`
 --
-
+DROP TABLE IF EXISTS `creator`;
 CREATE TABLE `creator` (
   `creatorName` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `creator` (
 --
 -- Estructura de tabla para la tabla `game`
 --
-
+DROP TABLE IF EXISTS `game`;
 CREATE TABLE `game` (
   `tittle` varchar(255) DEFAULT NULL,
   `genre` varchar(255) DEFAULT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `game` (
 --
 -- Estructura de tabla para la tabla `register`
 --
-
+DROP TABLE IF EXISTS `register`;
 CREATE TABLE `register` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -66,6 +66,39 @@ CREATE TABLE `register` (
   `id` int(11) NOT NULL,
   `type` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `register`
+--
+
+INSERT INTO `register` (`username`, `email`, `password`, `id`, `type`) VALUES
+('dgo', 'a@gmail.com', 'a', 1, NULL),
+('wiliam', 'w@gmail.com', 'w', 3, 'user'),
+('test', 'test@gmail.com', 'test', 4, 'user'),
+('z', 'z@gmail.com', 'z', 5, 'user'),
+('x', 'x@gmail.com', 'x', 7, 'user'),
+('d', 'd@gmail.com', 'd', 8, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `userName` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `idUser` int(11) NOT NULL,
+  `type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`) VALUES
+('a', 'a@gmail.com', 'a', 1, 'user');
 
 --
 -- Índices para tablas volcadas
@@ -91,6 +124,13 @@ ALTER TABLE `register`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`idUser`),
+  ADD UNIQUE KEY `userName` (`userName`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -98,7 +138,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT de la tabla `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -108,7 +154,7 @@ ALTER TABLE `register`
 -- Filtros para la tabla `creator`
 --
 ALTER TABLE `creator`
-  ADD CONSTRAINT `fk_Creator_User` FOREIGN KEY (`idCreator`) REFERENCES `register` (`id`);
+  ADD CONSTRAINT `fk_Creator_User` FOREIGN KEY (`idCreator`) REFERENCES `user` (`idUser`);
 
 --
 -- Filtros para la tabla `game`

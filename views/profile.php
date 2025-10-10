@@ -26,7 +26,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <img src="img/<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Imagen de perfil">
                
                 <div id="contenidoPerfil">
-                    <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
+                    <p>@<?php echo htmlspecialchars($_SESSION['userName']); ?></p>
                     
                     <div>
                         <p>Biografia</p>

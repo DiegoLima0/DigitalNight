@@ -3,21 +3,21 @@ if(isset($_POST['correo'])){
     session_start();
     require_once '../includes/database.php';
 
-    $username = $_POST["nombre"];
+    $userName = $_POST["nombre"];
     $email = $_POST["correo"];
     $password = $_POST["password"];
 
-    $sql = "INSERT INTO register (username, email, password, type) VALUES ('$username', '$email', '$password','user')";
+    $sql = "INSERT INTO user (userName, email, password, type) VALUES ('$userName', '$email', '$password','user')";
 
     if ($conexion->query($sql)) {
         $nuevo_id = $conexion->insert_id;
 
-        $sql = "SELECT * FROM register WHERE id = $nuevo_id";
+        $sql = "SELECT * FROM user WHERE idUser = $nuevo_id";
         $resultado = $conexion->query($sql);
         $usuario = $resultado->fetch_assoc();
 
         $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
-        $_SESSION['username'] = $usuario['username'];
+        $_SESSION['userName'] = $usuario['username'];
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['profile_picture'] = $usuario['profile_picture'];
         $_SESSION['description'] = $usuario['description'];
