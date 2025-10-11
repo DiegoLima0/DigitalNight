@@ -76,18 +76,26 @@ header div {
     gap: 10px;
 }
 
-.btn {
+.btn{
     border: 1px solid white;
     padding: 6px 12px;
     border-radius: 10px;
     transition: all 0.3s ease;
     width: 100px;
     height: max-content;
+    color: white;
 }
 
 .azul {
     background: linear-gradient(to right, rgba(0, 18, 179, 0.336), rgba(174, 187, 255, 0.308));
-    color: white;
+}
+
+.btn2colores{
+    background: linear-gradient(to right, rgb(58, 80, 118), rgb(45, 42, 91));
+    border-color: transparent;
+    font-size: medium;
+    width: max-content;
+    padding: 10px;
 }
 
 .transparente{
@@ -829,13 +837,13 @@ h2.section-title {
     align-items: center;
     margin: 0 auto;
     padding: 2em;
-    max-width: 1000px; 
+    max-width: 1000px;
     width: 100%;
 }
 
 #mainConfig section{
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -874,7 +882,8 @@ h2.section-title {
     border-radius: 15px;
 }
 
-#publicProfileConfig, #accountConfig{
+#publicProfileConfig,
+#accountConfig{
     display: flex;
     flex-direction: row;
     gap: 2em;
@@ -882,7 +891,8 @@ h2.section-title {
     padding: 20px;
 }
 
-#cuenta, #publicProfile{
+#cuenta,
+#publicProfile{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -902,7 +912,8 @@ h2.section-title {
     align-items: center;
 }
 
-.datos, #perfilCuenta{
+.datos,
+#perfilCuenta{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -930,7 +941,7 @@ h2.section-title {
     background-size: cover;
     background-position: center;
     filter: blur(8px);
-    z-index: -1; 
+    z-index: -1;
 }
 
 #textoYbtn{
@@ -959,6 +970,74 @@ h2.section-title {
 #botones{
     display: flex;
     gap: 1em;
-    align-items: center;   
+    align-items: center;
     justify-content: center;
+}
+
+#faqYtemas{
+    display:flex;
+    flex-direction:row;
+    gap:5em;
+    width: 75%;
+    height: 500px;
+    padding: 1em;
+}
+
+#temas{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 25%;
+    margin-left: 20px;
+}
+
+#faq-list{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+.faq{
+    background: rgba(46, 50, 73, 0.726);
+    border: 1px solid rgba(255, 255, 255, 0.404);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+    width: 70%;
+}
+
+.ques{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8em 1em;
+}
+
+.ques::after{
+    content: "˅";
+    transition: transform 0.3s ease;
+    font-size: 1.2em;
+}
+
+.faq.active .ques::after{
+    transform: rotate(180deg);
+}
+
+.ans{
+    max-height: 0;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 1em;
+}
+
+.faq.active .ans{
+    max-height: 500px;
+    padding: 0.6em 1em 1em;
+}
+
+.ans a{
+    display: block;
+    padding: 1em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.425);
 }
