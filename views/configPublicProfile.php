@@ -11,26 +11,26 @@
 
 <body>
     <?php require_once '../includes/header.php'; ?>
-    <!--Notas para hacer el css luego-->
-    <main id="mainConfig"><!--@usuario y ft de perfil flex column-->
+    
+    <main id="mainConfig">
         <section>
-            <div class="perfilConfig"><!--nav y perfil publico en flex row-->
+            <div class="perfilConfig">
                 <img src="img/" alt="Imagen de perfil">
 
                 <p>@usuario</p>
             </div>
 
-            <div id="navYconfiguracion"><!--nav y perfil publico en flex column-->
-                <nav><!--flex column-->
+            <div id="navYconfiguracion">
+                <nav>
                     <a href="configAccount.php" class="seccionConfig seccion1">Cuenta</a>
                     <a href="configPublicProfile.php" class="seccionConfig seccion2">Perfil publico</a>
                 </nav>
 
-                <div id="publicProfile"><!--flex column-->
+                <div id="publicProfile">
                     <h1>Perfil publico</h1>
                     <hr>
 
-                    <div id="publicProfileConfig"><!--Flex row-->
+                    <div id="publicProfileConfig">
                         <form action="">
                             <label for="nombre">Nombre</label>
                             <input type="text" name="Nombre" id="nombre">
