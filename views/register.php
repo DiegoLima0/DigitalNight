@@ -24,6 +24,7 @@ if(isset($_POST['correo'])){
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['profile_picture'] = $usuario['profile_picture'];
         $_SESSION['description'] = $usuario['description'];
+        $_SESSION['idUser'] = $usuario['idUser'];
 
         header("Location: profile.php");
         exit();

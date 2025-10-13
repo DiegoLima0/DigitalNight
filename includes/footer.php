@@ -6,6 +6,7 @@
             <a href="">Sobre nosotros</a>
             <a href="support.php">Soporte</a>
             <a href="../logout.php">Cerrar Sesión</a>
+            <a href="../views/CreatorForm.php">formulario creador</a>
         </div>
         <hr>
         <p>Penta-core</p>

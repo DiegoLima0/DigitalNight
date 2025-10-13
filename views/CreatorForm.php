@@ -1,3 +1,30 @@
+<<?php
+session_start();
+require_once '../includes/database.php';
+$email_old = $_SESSION['email'];
+
+if(isset($_POST['correo'])){
+    $correo = $_POST["correo"];
+
+    $sql = "SELECT email FROM user WHERE email='$correo'";
+
+    $resultado = $conexion->query($sql);
+    if ($resultado->num_rows < 1 || $correo==$email_old) {
+
+        $creatorName = $_POST["nombre"];
+        $email = $_POST["correo"];
+        $country = $_POST["país"];
+        $idCreator = $_SESSION['idUser'];
+
+        $sql = "INSERT INTO creator (creatorName, correo, country, idCreator) VALUES ('$creatorName', '$email', '$country','$idCreator')";
+
+        $resultado = $conexion->query($sql);
+    }
+    else {
+        echo "correo ya existente.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

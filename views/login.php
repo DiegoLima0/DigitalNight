@@ -6,7 +6,7 @@ if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
     $password = $_POST["password"];
 
-    $sql = "SELECT userName, email FROM user WHERE email='$correo' AND password='$password'";
+    $sql = "SELECT idUser ,userName, email FROM user WHERE email='$correo' AND password='$password'";
 
     $resultado = $conexion->query($sql);
 
@@ -21,6 +21,7 @@ if(isset($_POST['correo'])){
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['profile_picture'] = $usuario['profile_picture'];
         $_SESSION['description'] = $usuario['description'];
+        $_SESSION['idUser'] = $usuario['idUser'];
 
         header("Location: profile.php");
         exit();
