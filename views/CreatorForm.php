@@ -3,6 +3,11 @@ session_start();
 require_once '../includes/database.php';
 $email_old = $_SESSION['email'];
 
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: index.php");
+    exit();
+}
+
 if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
 
@@ -23,6 +28,8 @@ if(isset($_POST['correo'])){
     else {
         echo "correo ya existente.";
     }
+}
+else{echo "rellene el formulario";
 }
 ?>
 <!DOCTYPE html>
