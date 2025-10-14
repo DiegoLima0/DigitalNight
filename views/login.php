@@ -1,34 +1,6 @@
-<<?php
-session_start();
-require_once '../includes/database.php';
-
-if(isset($_POST['correo'])){
-    $correo = $_POST["correo"];
-    $password = $_POST["password"];
-
-    $sql = "SELECT userName, email FROM user WHERE email='$correo' AND password='$password'";
-
-    $resultado = $conexion->query($sql);
-
-    if ($resultado->num_rows > 0) {
-        $usuario = $resultado->fetch_assoc();
-
-        $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
-        $_SESSION['userName'] = $usuario['userName'];
-        $_SESSION['email'] = $usuario['email'];
-        $_SESSION['profile_picture'] = $usuario['profile_picture'];
-        $_SESSION['description'] = $usuario['description'];
-        $_SESSION['email'] = $usuario['email'];
-        $_SESSION['profile_picture'] = $usuario['profile_picture'];
-        $_SESSION['description'] = $usuario['description'];
-
-        header("Location: profile.php");
-        exit();
-
-    } else {
-        echo "Usuario o/y contraseña incorrectos.";
-    }
-}
+<?php
+require_once '../login_processor.php';
+require_once '../includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +20,10 @@ if(isset($_POST['correo'])){
             <form action="login.php" method="post">
                 <label class="titulo">Iniciar sesion</label>
 
+                <?php if (isset($error_mensaje)): ?>
+                    <p style="color: red; text-align: center;"><?php echo $error_mensaje; ?></p>
+                <?php endif; ?>
+
                 <div>
                     <label for="correo">Correo electrónico</label>
                     <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
@@ -64,7 +40,7 @@ if(isset($_POST['correo'])){
                 </div>
             </form>
         </main>
-
+        
         <?php require_once '../includes/footer.php'; ?>
     </body>
 </html>

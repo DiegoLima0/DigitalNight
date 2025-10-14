@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2025 a las 20:46:43
+-- Tiempo de generación: 13-10-2025 a las 02:40:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `creator`
 --
-DROP TABLE IF EXISTS `creator`;
+
 CREATE TABLE `creator` (
   `creatorName` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `creator` (
 --
 -- Estructura de tabla para la tabla `game`
 --
-DROP TABLE IF EXISTS `game`;
+
 CREATE TABLE `game` (
   `tittle` varchar(255) DEFAULT NULL,
   `genre` varchar(255) DEFAULT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `game` (
 --
 -- Estructura de tabla para la tabla `register`
 --
-DROP TABLE IF EXISTS `register`;
+
 CREATE TABLE `register` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -84,21 +84,22 @@ INSERT INTO `register` (`username`, `email`, `password`, `id`, `type`) VALUES
 --
 -- Estructura de tabla para la tabla `user`
 --
-DROP TABLE IF EXISTS `user`;
+
 CREATE TABLE `user` (
   `userName` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `idUser` int(11) NOT NULL,
-  `type` varchar(255) DEFAULT NULL
+  `type` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`) VALUES
-('a', 'a@gmail.com', 'a', 1, 'user');
+INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`) VALUES
+('a', 'a@gmail.com', 'a', 1, 'user', NULL);
 
 --
 -- Índices para tablas volcadas
