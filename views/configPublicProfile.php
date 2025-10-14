@@ -37,11 +37,21 @@
     </head>
 <body>
     <?php require_once '../includes/header.php'; ?>
+<<<<<<< HEAD
     <main id="mainConfig">
         <section>
             <div class="perfilConfig">
                 <img src="../img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
                 <p>@<?php echo htmlspecialchars($username_actual); ?></p>
+=======
+    
+    <main id="mainConfig">
+        <section>
+            <div class="perfilConfig">
+                <img src="img/" alt="Imagen de perfil">
+
+                <p>@usuario</p>
+>>>>>>> 27abe582652cc8c7551c4f21578c13b81bada71b
             </div>
 
             <div id="navYconfiguracion">
@@ -59,9 +69,13 @@
                     <?php endif; ?>
 
                     <div id="publicProfileConfig">
+<<<<<<< HEAD
                         <form action="configPublicProfile.php" method="POST" id="form_perfil">
                             <input type="hidden" name="actualizar_perfil" value="1">
                             
+=======
+                        <form action="">
+>>>>>>> 27abe582652cc8c7551c4f21578c13b81bada71b
                             <label for="nombre">Nombre</label>
                             <input type="text" name="nombre" id="nombre" value="<?php echo $nombre_actual; ?>">
 

@@ -34,8 +34,14 @@ require_once '../includes/header.php';
     <main id="mainConfig">
         <section>
             <div class="perfilConfig">
+<<<<<<< HEAD
                 <img src="../img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
                 <p>@<?php echo $username_actual; ?></p>
+=======
+                <img src="img/" alt="Imagen de perfil">
+
+                <p>@usuario</p>
+>>>>>>> 27abe582652cc8c7551c4f21578c13b81bada71b
             </div>
 
             <div id="navYconfiguracion">

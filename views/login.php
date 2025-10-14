@@ -1,6 +1,41 @@
+<<<<<<< HEAD
 <?php
 require_once '../login_processor.php';
 require_once '../includes/header.php';
+=======
+<<?php
+session_start();
+require_once '../includes/database.php';
+
+if(isset($_POST['correo'])){
+    $correo = $_POST["correo"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT idUser ,userName, email FROM user WHERE email='$correo' AND password='$password'";
+
+    $resultado = $conexion->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        $usuario = $resultado->fetch_assoc();
+
+        $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
+        $_SESSION['userName'] = $usuario['userName'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['profile_picture'] = $usuario['profile_picture'];
+        $_SESSION['description'] = $usuario['description'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['profile_picture'] = $usuario['profile_picture'];
+        $_SESSION['description'] = $usuario['description'];
+        $_SESSION['idUser'] = $usuario['idUser'];
+
+        header("Location: profile.php");
+        exit();
+
+    } else {
+        echo "Usuario o/y contraseña incorrectos.";
+    }
+}
+>>>>>>> 27abe582652cc8c7551c4f21578c13b81bada71b
 ?>
 
 <!DOCTYPE html>
