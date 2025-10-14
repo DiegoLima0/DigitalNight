@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2025 a las 02:40:58
+-- Tiempo de generación: 14-10-2025 a las 19:21:22
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `creator` (
 --
 
 CREATE TABLE `game` (
-  `tittle` varchar(255) DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
   `genre` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -91,15 +91,20 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL,
   `idUser` int(11) NOT NULL,
   `type` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL
+  `description` varchar(255) DEFAULT NULL,
+  `profile_picture` varchar(255) NOT NULL DEFAULT 'default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`) VALUES
-('a', 'a@gmail.com', 'a', 1, 'user', NULL);
+INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`) VALUES
+('a', 'a@gmail.com', 'a', 1, 'user', 'a', '1_1760460476.png'),
+('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png'),
+('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png'),
+('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png'),
+('cuentanueva', 'nueva@gmail.com', 'nueva', 5, 'user', NULL, 'default.png');
 
 --
 -- Índices para tablas volcadas
@@ -145,7 +150,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
