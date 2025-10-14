@@ -1,12 +1,6 @@
 <?php
-// Inicia la sesión de PHP para poder acceder a los datos
-session_start();
-
-// Si el usuario no ha iniciado sesión, lo redirige al login
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: index.php");
-    exit();
-}
+require_once '../profile_processor.php';
+require_once '../includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +10,18 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario</title>
     <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        #perfil img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #5d5d5d;
+            margin-right: 20px;
+        }
+    </style>
+    
 </head>
 <body>
     <?php require_once '../includes/header.php';?>
@@ -23,14 +29,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <main id="mainPerfil">
         <section>
             <div id="perfil">
-                <img src="img/<?php echo htmlspecialchars($_SESSION['profile_picture']); ?>" alt="Imagen de perfil">
+                <img src="../img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
                
                 <div id="contenidoPerfil">
                     <p>@<?php echo htmlspecialchars($_SESSION['userName']); ?></p>
                     
                     <div>
                         <p>Biografia</p>
-                        <p><?php echo nl2br(htmlspecialchars($_SESSION['description'])); ?></p>
+                        <p><?php echo nl2br(htmlspecialchars($biografia_a_mostrar)); ?></p>
                     </div>
                 </div>
             </div>
@@ -40,8 +46,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <a href="">Publicaciones</a>
             </nav>
         </section>
+        
+        <?php require_once '../includes/footer.php';?>
     </main>
-    
-    <?php require_once '../includes/footer.php'; ?>
 </body>
 </html>

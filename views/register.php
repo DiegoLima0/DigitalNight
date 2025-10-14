@@ -1,39 +1,5 @@
 <?php
-if(isset($_POST['correo'])){
-    session_start();
-    require_once '../includes/database.php';
-
-    $userName = $_POST["nombre"];
-    $email = $_POST["correo"];
-    $password = $_POST["password"];
-
-    $sql = "INSERT INTO user (userName, email, password, type) VALUES ('$userName', '$email', '$password','user')";
-
-    if ($conexion->query($sql)) {
-        $nuevo_id = $conexion->insert_id;
-
-        $sql = "SELECT * FROM user WHERE idUser = $nuevo_id";
-        $resultado = $conexion->query($sql);
-        $usuario = $resultado->fetch_assoc();
-
-        $_SESSION['logged_in'] = true; //para proteger la pagina (esta logueado)
-        $_SESSION['userName'] = $usuario['username'];
-        $_SESSION['email'] = $usuario['email'];
-        $_SESSION['profile_picture'] = $usuario['profile_picture'];
-        $_SESSION['description'] = $usuario['description'];
-        $_SESSION['email'] = $usuario['email'];
-        $_SESSION['profile_picture'] = $usuario['profile_picture'];
-        $_SESSION['description'] = $usuario['description'];
-
-        header("Location: profile.php");
-        exit();
-    } else {
-        echo "Error: " . $conexion->error;
-    }
-    
-} else {
-    echo "\n rellene el formulario";
-}
+require_once '../register_processor.php';
 ?>
 
 <!DOCTYPE html>

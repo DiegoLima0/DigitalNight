@@ -6,7 +6,7 @@
             <a href="">Sobre nosotros</a>
             <a href="support.php">Soporte</a>
             <a href="../logout.php">Cerrar Sesión</a>
-        </div>
+            <a href="../views/configPublicProfile.php" class="linkFooter">Editar perfil publico</a>
         <hr>
         <p>Penta-core</p>
     </footer>

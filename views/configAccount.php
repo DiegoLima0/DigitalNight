@@ -1,3 +1,8 @@
+<?php
+require_once '../configAccount_processor.php'; 
+require_once '../includes/header.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,50 +12,64 @@
     <title>Configuración</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../img/digitalNightLogo.png">
-</head>
+
+    <style>
+        .perfilConfig img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #5d5d5d;
+        }
+        
+        .datos form {
+            display: inline; 
+        }
+    </style>
+    </head>
 
 <body>
     <?php require_once '../includes/header.php'; ?>
-    <!--Notas para hacer el css luego-->
-    <main id="mainConfig"><!--@usuario y ft de perfil flex column-->
+    
+    <main id="mainConfig">
         <section>
-            <div class="perfilConfig"><!--nav y perfil publico en flex row-->
-                <img src="img/" alt="Imagen de perfil">
-
-                <p>@usuario</p>
+            <div class="perfilConfig">
+                <img src="../img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                <p>@<?php echo $username_actual; ?></p>
             </div>
 
-            <div id="navYconfiguracion"><!--nav y perfil publico en flex column-->
-                <nav><!--flex column-->
+            <div id="navYconfiguracion">
+                <nav>
                     <a href="configAccount.php" class="seccionConfig seccion1">Cuenta</a>
                     <a href="configPublicProfile.php" class="seccionConfig seccion2">Perfil publico</a>
                 </nav>
 
-                <div id="cuenta"><!--flex column-->
+                <div id="cuenta">
                     <h1>Cuenta</h1>
                     <hr>
 
-                    <div id="perfilCuenta"><!--Flex row-->
+                    <div id="perfilCuenta">
                         <div class="perfilConfig">
-                            <img src="img/" alt="Imagen de perfil">
-
-                            <p>@usuario</p>
+                            <img src="../img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                            <p>@<?php echo $username_actual; ?></p>
                         </div>
-                        <button class="btn azul">Editar Perfil</button>
+                        <a href="configPublicProfile.php" class="btn azul" style="text-decoration: none;">Editar Perfil</a>
                     </div>
 
                     <div class="datos">
-                        <p>Nombre de usuario: Nombre (@usuario)</p>
-                        <button class="btn azul">Editar</button>
+                        <p>Nombre de usuario: <?php echo $nombre_real; ?> (@<?php echo $username_actual; ?>)</p>
+                        <form action="configPublicProfile.php" method="GET" style="display:inline;">
+                            <button type="submit" class="btn azul">Editar</button>
+                        </form>
                     </div>
 
                     <div class="datos">
-                        <p>Correo electrónico: correo@dominio.com</p>
+                        <p>Correo electrónico: <?php echo $email_actual; ?></p>
                         <button class="btn azul">Cambiar</button>
                     </div>
 
                     <div class="datos">
-                        <p>Contraseña: ******</p>
+                        <p>Contraseña: <?php echo $password_simulada; ?></p>
                         <button class="btn azul">Cambiar</button>
                     </div>
                 </div>
@@ -62,3 +81,6 @@
 </body>
 
 </html>
+<?php 
+$conexion->close();
+?>
