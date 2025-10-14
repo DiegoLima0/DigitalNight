@@ -1530,10 +1530,8 @@ border: 2px solid transparent;
   grid-template-columns: 140px 1fr; 
   gap: 22px;
   align-items: start;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
   padding: 22px;
   border-radius: 14px;
-  box-shadow: 0 12px 36px rgba(3,8,30,0.6);
   color: #eef2ff;
 }
 
