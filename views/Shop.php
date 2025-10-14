@@ -10,23 +10,7 @@
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="logo" aria-label="logo">
-            <img src="../img/DigitalNightLogo_BlancoHorizontal.png" alt="DigitalNight logo" class="logo__img">
-        </div>
-
-        <nav class="nav" aria-label="principal">
-            <a class="nav__link" href="#">Tienda</a>
-            <a class="nav__link" href="#">Biblioteca</a>
-            <a class="nav__link" href="#">Sobre nosotros</a>
-            <a class="nav__link" href="#">Soporte</a>
-        </nav>
-
-        <div class="actions">
-            <div class="search" role="search"><input class="search__input" placeholder="Buscar..." aria-label="buscar"></div>
-            <div class="user" aria-hidden="true"></div>
-        </div>
-    </header>
+    <?php require_once '../includes/header.php';?>
 
     <main class="container">
         <div class="filtros">
@@ -300,11 +284,21 @@
 
 
         <div class="pag-nav" role="navigation" aria-label="paginacion">
-            <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
+            <a href="#">
+                <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn pag-nav__btn--active">1</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn">2</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn">3</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
+            </a>
         </div>
     </main>
 
