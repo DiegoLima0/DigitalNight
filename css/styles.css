@@ -729,8 +729,6 @@ h2.section-title {
 
 /*games pagina*/
 
-  html, body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#1b234a; color:#fff; }
-
 .page {
 display: grid;
 grid-template-rows: 70vh 28vh 45vh auto;

@@ -9,10 +9,10 @@
   <link rel="icon" href="../img/digitalNightLogo.png">
 </head>
 
-<body>
+<body class="games">
   <?php require_once '../includes/header.php'; ?>
 
-  <div class="page"> 
+ <div class="page">
 
     
     <header class="section fondo-img" role="banner" aria-label="Fondo principal">
@@ -38,7 +38,7 @@
       </div>
     </header>
 
-
+  
     <section class="section carrusel-seccion" aria-label="Carrusel intermedio">
       <div class="content carrusel-contenido">
         <div class="carrusel-wrapper">
@@ -65,10 +65,10 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
       </div>
     </section>
 
-    
+  
     <section class="section cta" aria-label="Sección final - llamada a la acción">
 
-      
+    
       <section class="section bottom-feed" aria-label="Feed y recomendaciones">
         <div class="bottom-grid">
 
@@ -87,11 +87,11 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
             </div>
           </aside>
 
-        
+          
           <main class="col posts">
             
             <article class="post-card">
-              <header class="post-header">
+              <div class="post-h">
                 <div class="avatar" aria-hidden="true">
                   <img class="avatar" src="../img/rockstar-logo.jpg" alt="Avatar de @Usuario creador" width="42" height="42" loading="lazy">
                 </div>
@@ -99,7 +99,7 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
                   <div class="user">Rockstar Games</div>
                   <div class="time">Hace 2h</div>
                 </div>
-              </header>
+              </div>
 
               <p class="post-text">Relatos curiosos del Oeste requerirá una voluntad firme y coraje para enfrentarte a lo insólito, lo retorcido y lo francamente sobrenatural. Embárcate en estas cuatro nuevas misiones por telegrama recogiendo la carta del Sr. Levin en cualquier oficina de correos o en la caja fuerte de tu campamento, y ábrela desde tu zurrón o inicia las misiones por telegrama desde el menú del jugador.</p>
 
@@ -107,10 +107,9 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
                 <img src="../img/reddead-post.png" alt="imagen post 1">
               </div>
             </article>
-
             
             <article class="post-card">
-              <header class="post-header">
+              <div class="post-h">
                 <div class="avatar" aria-hidden="true">
                   <img class="avatar" src="../img/rockstar-logo.jpg" alt="Avatar de @Usuario creador" width="42" height="42" loading="lazy">
                 </div>
@@ -118,9 +117,9 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
                   <div class="user">Rockstar Games</div>
                   <div class="time">Hace 1d</div>
                 </div>
-              </header>
+              </div>
 
-              <p class="post-text">Abastece la frontera con pieles de primera calidad y mucho más, todo ello por un precio justo. Da salida a tu inventario y haz que el trabajo duro se traduzca en cuantiosas recompensas: llévate el triple de RDO$, EXP y EXP de rol en las ventas de Comerciante. No pierdas la ambición: completa al menos cinco ventas para ganar un par de botas gratis.</p>
+              <p class="post-text"> Abastece la frontera con pieles de primera calidad y mucho más, todo ello por un precio justo. Da salida a tu inventario y haz que el trabajo duro se traduzca en cuantiosas recompensas: llévate el triple de RDO$, EXP y EXP de rol en las ventas de Comerciante. No pierdas la ambición: completa al menos cinco ventas para ganar un par de botas gratis.</p>
 
               <div class="post-image">
                 <img src="../img/post2reddead.jpeg" alt="imagen post 2">
@@ -128,12 +127,14 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
             </article>
 
             
+            
+          
             <div class="more-wrap">
               <a class="boton-base more-btn" href="#">Más Información</a>
             </div>
           </main>
 
-          
+        
           <aside class="col recommended">
             <h4>Recomendados</h4>
 
@@ -175,7 +176,7 @@ Después de que un robo termina mal en el pueblo de Blackwater, Arthur Morgan y 
 
   </div>
 
-    <?php require_once '../includes/footer.php';?>
+    
 </body>
 
 </html>

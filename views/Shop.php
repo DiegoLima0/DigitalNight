@@ -10,7 +10,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <?php require_once '../includes/header.php';?>
+=======
+    <?php require_once '../includes/header.php'; ?>
+>>>>>>> c1c329a (subo cambios a shop, games y archivos biblioteca y sobre nosotros)
 
     <main class="container">
         <div class="filtros">
@@ -284,11 +288,21 @@
 
 
         <div class="pag-nav" role="navigation" aria-label="paginacion">
-            <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
+            <a href="#">
+                <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn pag-nav__btn--active">1</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn">2</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn">3</button>
+            </a>
+            <a href="#">
             <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
+            </a>
         </div>
     </main>
 
