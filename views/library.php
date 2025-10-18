@@ -15,7 +15,7 @@
         <h2>Mis juegos</h2>
 
         <div class="lista-juegos">
-          <a href="views/Games.php" class="item-juego">
+          <a href="Games.php" class="item-juego">
             <img src="img/rdr2.jpg" alt="Juego 1">
             <span>Red dead redemption 2</span>
           </a>

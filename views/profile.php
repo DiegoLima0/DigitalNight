@@ -1,6 +1,6 @@
 <?php
 require_once '../profile_processor.php';
-require_once '../includes/header.php';
+require_once 'includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +43,6 @@ require_once '../includes/header.php';
                 <a href="">Publicaciones</a>
             </nav>
         </section>
-        
-        <?php require_once '../includes/footer.php';?>
     </main>
 </body>
 </html>

@@ -34,6 +34,10 @@
     <section class="penta-content">
       <article class="penta-card">
         <h2>Penta-Core: El Equipo Detrás de DigitalNight</h2>
+        
+        <p>Somos Penta-Core, un equipo de cinco jóvenes desarrolladores cursando el 4.º año de la especialización en Computación en la Escuela Técnica Confederación Suiza. Y nos enorgullece aplicar la metodología Scrum para gestionar el desarrollo de DigitalNight, asegurando un flujo de trabajo ágil y eficiente.
+          Nuestro nombre Penta-Core fue elegido estratégicamente:
+          "Penta" refleja la unión de nuestros cinco miembros, mientras que "Core" simboliza el núcleo detrás del proyecto. </p>
       </article>
 
       <div class="penta-lower-row">
@@ -61,4 +65,5 @@
     </section>
   </main>
 </body>
+
 </html>

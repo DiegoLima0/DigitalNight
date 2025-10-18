@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DigitalNight - Mockup (HTML + CSS)</title>
+    <title>Tienda</title>
 </head>
 
 <body>
@@ -90,7 +90,7 @@
                 </article>
             </a>
 
-            <a href="#">
+            <a href="games.php">
                 <article class="card card--item" aria-label="producto 2">
                     <div class="card__thumb">
                         <img src="img/rdr2.jpg" alt="Nombre del juego 2">

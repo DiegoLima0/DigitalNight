@@ -1,5 +1,6 @@
 <?php
     require_once 'register_processor.php';
+
 ?>
 
 <!DOCTYPE html>
