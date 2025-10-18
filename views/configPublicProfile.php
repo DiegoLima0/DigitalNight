@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Público</title>
+    <title>Configuración Perfil Público</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../img/digitalNightLogo.png">
     
@@ -36,7 +36,6 @@
     </style>
     </head>
 <body>
-    <?php require_once '../includes/header.php'; ?>
     <main id="mainConfig">
         <section>
             <div class="perfilConfig">
@@ -93,8 +92,6 @@
             </div>
         </section>
     </main>
-
-    <?php require_once '../includes/footer.php'; ?>
 </body>
 </html>
 <?php 

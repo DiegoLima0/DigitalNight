@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte Digital Night</title>
-    <script src="../js/script.js" defer></script>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" href="../img/digitalNightLogo.png">
+    <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <?php require_once '../includes/header.php'; ?>
-
     <main id="mainSoporte">
         <section id="soporte">
             <div id="textoYbtn">
@@ -86,8 +82,6 @@
             </div>
         </section>
     </main>
-    
-    <?php require_once '../includes/footer.php'; ?>
 </body>
 
 </html>

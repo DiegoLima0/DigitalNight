@@ -9,8 +9,7 @@ require_once '../includes/header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    
+        
     <style>
         #perfil img {
             width: 90px;
@@ -24,8 +23,6 @@ require_once '../includes/header.php';
     
 </head>
 <body>
-    <?php require_once '../includes/header.php';?>
-
     <main id="mainPerfil">
         <section>
             <div id="perfil">

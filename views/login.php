@@ -1,6 +1,5 @@
 <?php
-require_once '../login_processor.php';
-require_once '../includes/header.php';
+    require_once 'login_processor.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,13 +8,9 @@ require_once '../includes/header.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Digital Night - Iniciar sesión</title>
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="icon" href="../img/digitalNightLogo.png">
     </head>
 
     <body>
-        <?php require_once '../includes/header.php'; ?>
-        
         <main class="MainFormulario">
             <form action="login.php" method="post">
                 <label class="titulo">Iniciar sesion</label>
@@ -40,7 +35,5 @@ require_once '../includes/header.php';
                 </div>
             </form>
         </main>
-        
-        <?php require_once '../includes/footer.php'; ?>
     </body>
 </html>

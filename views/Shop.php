@@ -5,13 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DigitalNight - Mockup (HTML + CSS)</title>
-    <link href="../css/styles.css" rel="stylesheet">
-    <link rel="icon" href="../img/digitalNightLogo.png">
 </head>
 
 <body>
-    <?php require_once '../includes/header.php';?>
-
     <main class="container">
         <div class="filtros">
             <input type="checkbox" id="toggle-filtros">
@@ -49,10 +45,10 @@
         <section class="container-carrusel">
             <div class="slider-wrapper">
                 <div class="slider">
-                    <img id="slider-1" src="../img/rdr2.jpg" alt="">
-                    <img id="slider-2" src="../img/metalgear.jpg" alt="">
-                    <img id="slider-3" src="../img/overcooked2.jpg" alt="">
-                    <img id="slider-4" src="../img/sons of the forest.jpg" alt="">
+                    <img id="slider-1" src="img/rdr2.jpg" alt="">
+                    <img id="slider-2" src="img/metalgear.jpg" alt="">
+                    <img id="slider-3" src="img/overcooked2.jpg" alt="">
+                    <img id="slider-4" src="img/sons of the forest.jpg" alt="">
                 </div>
 
                 <div class="slider-nav">
@@ -80,7 +76,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 1">
                     <div class="card__thumb">
-                        <img src="../img/fallout4.jpg" alt="Fallout4">
+                        <img src="img/fallout4.jpg" alt="Fallout4">
                     </div>
 
                     <div class="card__meta">
@@ -97,7 +93,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 2">
                     <div class="card__thumb">
-                        <img src="../img/rdr2.jpg" alt="Nombre del juego 2">
+                        <img src="img/rdr2.jpg" alt="Nombre del juego 2">
                     </div>
 
                     <div class="card__meta">
@@ -114,7 +110,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 3">
                     <div class="card__thumb">
-                        <img src="../img/metalgear.jpg" alt="Nombre del juego 3">
+                        <img src="img/metalgear.jpg" alt="Nombre del juego 3">
                     </div>
 
                     <div class="card__meta">
@@ -131,7 +127,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 4">
                     <div class="card__thumb">
-                        <img src="../img/repo.jpg" alt="Nombre del juego 4">
+                        <img src="img/repo.jpg" alt="Nombre del juego 4">
                     </div>
 
                     <div class="card__meta">
@@ -148,7 +144,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 5">
                     <div class="card__thumb">
-                        <img src="../img/little.jpg" alt="Nombre del juego 5">
+                        <img src="img/little.jpg" alt="Nombre del juego 5">
                     </div>
 
                     <div class="card__meta">
@@ -165,7 +161,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 6">
                     <div class="card__thumb">
-                        <img src="../img/luto.jpg" alt="Nombre del juego 6">
+                        <img src="img/luto.jpg" alt="Nombre del juego 6">
                     </div>
                     
                     <div class="card__meta">
@@ -182,7 +178,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 7">
                     <div class="card__thumb">
-                        <img src="../img/doom.jpg" alt="Nombre del juego 7">
+                        <img src="img/doom.jpg" alt="Nombre del juego 7">
                     </div>
 
                     <div class="card__meta">
@@ -199,7 +195,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 8">
                     <div class="card__thumb">
-                        <img src="../img/terraria.jpg" alt="Nombre del juego 8">
+                        <img src="img/terraria.jpg" alt="Nombre del juego 8">
                     </div>
 
                     <div class="card__meta">
@@ -216,7 +212,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 9">
                     <div class="card__thumb">
-                        <img src="../img/overcooked2.jpg" alt="Nombre del juego 9">
+                        <img src="img/overcooked2.jpg" alt="Nombre del juego 9">
                     </div>
 
                     <div class="card__meta">
@@ -233,7 +229,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 10">
                     <div class="card__thumb">
-                        <img src="../img/peak.jpg" alt="Nombre del juego 10">
+                        <img src="img/peak.jpg" alt="Nombre del juego 10">
                     </div>
 
                     <div class="card__meta">
@@ -250,7 +246,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 11">
                     <div class="card__thumb">
-                        <img src="../img/sons of the forest.jpg" alt="Nombre del juego 11">
+                        <img src="img/sons of the forest.jpg" alt="Nombre del juego 11">
                     </div>
 
                     <div class="card__meta">
@@ -267,7 +263,7 @@
             <a href="#">
                 <article class="card card--item" aria-label="producto 12">
                     <div class="card__thumb">
-                        <img src="../img/schedule.jpg" alt="Nombre del juego 12">
+                        <img src="img/schedule.jpg" alt="Nombre del juego 12">
                     </div>
 
                     <div class="card__meta">
@@ -301,8 +297,5 @@
             </a>
         </div>
     </main>
-
-    <?php require_once '../includes/footer.php'; ?>
-
 </body>
 </html>

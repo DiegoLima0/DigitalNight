@@ -1,5 +1,5 @@
 <?php
-require_once '../register_processor.php';
+    require_once 'register_processor.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,13 +8,9 @@ require_once '../register_processor.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Digital Night - Crear cuenta</title>
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="icon" href="../img/digitalNightLogo.png">
     </head>
 
     <body>
-        <?php require_once '../includes/header.php'; ?>
-
         <main class="MainFormulario">
             <form action="register.php" method="post">
                 <label class="titulo">Crear cuenta</label>    
@@ -40,7 +36,5 @@ require_once '../register_processor.php';
                 </div>
             </form>
         </main>
-        
-        <?php require_once '../includes/footer.php'; ?>
     </body>
 </html>
