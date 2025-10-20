@@ -1,6 +1,5 @@
 //Página Soporte support.php
-
-const faqs=document.querySelectorAll(".faq");
+let faqs = document.querySelectorAll(".faq");
 
 faqs.forEach(faq => {
     faq.querySelector(".ques").addEventListener("click", () => {
@@ -14,3 +13,15 @@ faqs.forEach(faq => {
         faq.classList.add("active");
     });
 });
+
+//Página Sobre Nosotros AboutUs.php
+function mostrarTarjeta(miembroID) {
+    let tarjetas = document.querySelectorAll('.tarjetaMiembro');
+    tarjetas.forEach(t => t.classList.remove('activa'));
+
+    let tarjeta = document.getElementById(miembroID);
+    if (tarjeta) tarjeta.classList.add('activa');
+}
+
+document.querySelector('#tarjetas').scrollIntoView({ behavior: 'smooth' }); //Sirve para no bajar de golpe luego de tocar una de las imagenes
+
