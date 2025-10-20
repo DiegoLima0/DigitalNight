@@ -1,6 +1,6 @@
 <?php
-    include_once '../configPublicProfile_processor.php';
-    require_once '../includes/header.php';
+    include_once 'configPublicProfile_processor.php';
+    require_once 'includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
     <main id="mainConfig">
         <section>
             <div class="perfilConfig">
-                <img src="../img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
+                <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
                 <p>@<?php echo htmlspecialchars($username_actual); ?></p>
             </div>
 
@@ -81,7 +81,7 @@
                             
                             <div id="fotoPerfil">
                                 <p>Foto de perfil</p>
-                                <img src="../img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
+                                <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
                                 
                                 <button type="button" class="btn azul" onclick="document.getElementById('foto_perfil').click()">Editar</button> 
                             </div>

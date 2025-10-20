@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['correo'])){
-    require_once '../includes/database.php';
+    require_once 'includes/database.php';
 
     $userName = $conexion->real_escape_string($_POST["nombre"]);
     $email = $conexion->real_escape_string($_POST["correo"]);

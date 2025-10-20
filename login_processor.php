@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../includes/database.php';
+require_once 'includes/database.php';
 if(isset($_POST['correo'])){
     $correo = $_POST["correo"];
     $password = $_POST["password"];

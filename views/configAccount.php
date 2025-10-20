@@ -1,6 +1,6 @@
 <?php
-require_once '../configAccount_processor.php';
-require_once '../includes/header.php';
+require_once 'configAccount_processor.php';
+require_once 'includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ require_once '../includes/header.php';
 
                     <div id="perfilCuenta">
                         <div class="perfilConfig">
-                            <img src=img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                            <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
                             <p>@<?php echo $username_actual; ?></p>
                         </div>
                         <a href="configPublicProfile.php" class="btn azul" style="text-decoration: none;">Editar Perfil</a>

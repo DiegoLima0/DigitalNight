@@ -7,8 +7,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 
-require_once '../includes/database.php'; 
-require_once '../includes/header.php'; 
+require_once 'includes/database.php'; 
+require_once 'includes/header.php'; 
 
 // 1. Obtener ID del usuario logueado
 if (!isset($_SESSION['user_id'])) {
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Generar un nombre único basado en el ID de usuario y el tiempo
         $nuevo_nombre_archivo = $user_id . '_' . time() . '.' . $file_ext;
-        $destino = '../img/profiles/' . $nuevo_nombre_archivo;
+        $destino = 'img/profiles/' . $nuevo_nombre_archivo;
         
         // 1. Eliminar la foto antigua antes de subir la nueva para evitar la clonación
         delete_old_file($conexion, $user_id);

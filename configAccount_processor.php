@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../includes/database.php'; 
-require_once '../includes/header.php';
+require_once 'includes/database.php'; 
+require_once 'includes/header.php';
 
 
 // 1. Obtener ID del usuario logueado

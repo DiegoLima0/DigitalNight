@@ -1,5 +1,5 @@
 <?php
-require_once '../profile_processor.php';
+require_once 'profile_processor.php';
 require_once 'includes/header.php';
 ?>
 

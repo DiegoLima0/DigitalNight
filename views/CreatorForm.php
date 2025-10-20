@@ -1,6 +1,7 @@
-<<?php
+<?php
     session_start();
-    require_once '../includes/database.php';
+    print_r($_SESSION);
+    require_once 'includes/database.php';
     $email_old = $_SESSION['email'];
 
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -19,7 +20,7 @@
             $creatorName = $_POST["nombre"];
             $email = $_POST["correo"];
             $country = $_POST["país"];
-            $idCreator = $_SESSION['idUser'];
+            $idCreator = $_SESSION['user_id'];
 
             $sql = "INSERT INTO creator (creatorName, correo, country, idCreator) VALUES ('$creatorName', '$email', '$country','$idCreator')";
 
