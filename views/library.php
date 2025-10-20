@@ -15,7 +15,7 @@
         <h2>Mis juegos</h2>
 
         <div class="lista-juegos">
-          <a href="Games.php" class="item-juego">
+          <a href="games.php" class="item-juego">
             <img src="img/rdr2.jpg" alt="Juego 1">
             <span>Red dead redemption 2</span>
           </a>
@@ -53,7 +53,7 @@
           <h3>Agregados recientemente</h3>
 
           <div class="rejilla-juegos">
-            <a href="views/Games.php" class="recuadro-juego">
+            <a href="games.php" class="recuadro-juego">
               <img src="img/rdr2.jpg" alt="Juego 3">
             </a>
 

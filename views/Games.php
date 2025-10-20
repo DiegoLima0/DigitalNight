@@ -16,7 +16,7 @@
       <div class="contenedor">
         <div class="left">
           <h1 class="title">Red dead redemption 2</h1>
-          <p class="subtitle">Revive la leyenda con gráficos modernos, jugabilidad mejorada y la experiencia clásica de espionaje.</p>
+          <p class="subtitle">Revive la leyenda con gráficos modernos, jugabilidad mejorada</p>
 
           <div class="cta-group">
             <a class="boton-base boton-primario" href="#">Comprar</a>

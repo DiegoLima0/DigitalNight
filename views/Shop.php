@@ -16,28 +16,28 @@
             <div class="filtros-panel">
                 <div class="filtros-col">
                     <h4>Géneros</h4>
-                    <p>Acción</p>
-                    <p>Aventura</p>
-                    <p>Simulación</p>
-                    <p>Estrategia</p>
-                    <p>Arcade</p>
-                    <p>Supervivencia</p>
+                    <a href="#"><p>Acción</p></a>
+                    <a href="#"><p>Aventura</p></a>
+                    <a href="#"><p>Simulación</p></a>
+                    <a href="#"><p>Estrategia</p></a>
+                    <a href="#"><p>Arcade</p></a>
+                    <a href="#"><p>Supervivencia</p></a>
                 </div>
 
                 <div class="filtros-col">
                     <h4>Plataforma</h4>
-                    <p>Windows</p>
-                    <p>MacOs</p>
-                    <p>Linux</p>
-                    <p>Android</p>
-                    <p>iOS</p>
+                    <a href="#"><p>Windows</p></a>
+                    <a href="#"><p>MacOs</p></a>
+                    <a href="#"><p>Linux</p></a>
+                    <a href="#"><p>Android</p></a>
+                    <a href="#"><p>iOS</p></a>
                 </div>
 
                 <div class="filtros-col">
                     <h4>Precio</h4>
-                    <p>Gratis</p>
-                    <p>$5 o menos</p>
-                    <p>$10 o menos</p>
+                    <a href="#"><p>Gratis</p></a>
+                    <a href="#"><p>$5 o menos</p></a>
+                    <a href="#"><p>$10 o menos</p></a>
                 </div>
             </div>
         </div>
@@ -65,10 +65,10 @@
         <h2 class="section-title">Recomendados para ti</h2>
 
         <div class="filters" role="tablist">
-            <button class="filter-btn filter-btn--active" data-filter="aventura">Aventura</button>
-            <button class="filter-btn" data-filter="rpg">Rol / RPG</button>
-            <button class="filter-btn" data-filter="estrategia">Estrategia</button>
-            <button class="filter-btn" data-filter="accion">Accion</button>
+            <a href="#"><button class="filter-btn" data-filter="aventura">Aventura</button></a>
+            <a href="#slider-1"><button class="filter-btn" data-filter="rpg">Rol / RPG</button></a>
+            <a href="#slider-1"><button class="filter-btn" data-filter="estrategia">Estrategia</button></a>
+            <a href="#slider-1"><button class="filter-btn" data-filter="accion">Accion</button></a>
         </div>
 
         <section class="grid" id="productGrid" aria-label="lista de productos">
