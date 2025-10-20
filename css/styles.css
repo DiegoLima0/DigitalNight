@@ -348,18 +348,6 @@ form input[type="submit"]:hover{
 }
 
 
-.hero {
-    height: 200px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-    border: 1px solid rgba(255,255,255,0.03);
-    margin-bottom: 28px;
-}
 
 
 h2.section-title {
