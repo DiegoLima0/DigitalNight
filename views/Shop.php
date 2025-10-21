@@ -98,7 +98,7 @@
 
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
-                            <div class="card__title">Red dead redemption 2</div>
+                            <div class="card__title">Red Dead Redemption 2</div>
                             <div class="card__price">$59 usd</div>
                         </div>
 
@@ -132,7 +132,7 @@
 
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
-                            <div class="card__title">R.e.p.o</div>
+                            <div class="card__title">R.E.P.O</div>
                             <div class="card__price">$7 uds</div>
                         </div>
 
@@ -149,7 +149,7 @@
 
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
-                            <div class="card__title">Little nighmers</div>
+                            <div class="card__title">Little Nighmares II</div>
                             <div class="card__price">$10 usd</div>
                         </div>
                        
@@ -217,7 +217,7 @@
 
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
-                            <div class="card__title">overcooked 2</div>
+                            <div class="card__title">Overcooked 2</div>
                             <div class="card__price">$20 usd</div>
                         </div>
 
@@ -251,7 +251,7 @@
 
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
-                            <div class="card__title">Sons of the forest</div>
+                            <div class="card__title">Sons of the Forest</div>
                             <div class="card__price">$12 usd</div>
                         </div>
 

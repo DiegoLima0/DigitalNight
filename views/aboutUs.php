@@ -86,7 +86,7 @@
           <hr>
 
           <p>
-            Falta descripción
+            Administra la Base de Datos, se encarga de definir cómo deben relacionarse y almacenarse los datos, así como de establecer qué información no debe admitirse. Además, también desempeña el rol de Tester, para descubrir posibles errores en aspectos relacionados sobre el flujo de datos.
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@
           <hr>
 
           <p>
-            Falta descripción
+            Descripción
           </p>
         </div>
       </div>
@@ -144,7 +144,7 @@
           <hr>
 
           <p>
-            Falta descripción
+            Descripción
           </p>
         </div>
       </div>
@@ -163,7 +163,7 @@
           <hr>
 
           <p>
-            Falta descripción
+            Como Desarrollador Frontend se encarga de construir y dar estilo a las páginas, asegurando que sean visualmente agradables y funcionen correctamente. Además, como Diseñador UX me ocupo de que la aplicación sea clara, cómoda y fácil de usar para los usuarios.
           </p>
         </div>
       </div>

@@ -96,7 +96,7 @@ a.btn:hover {
 
 .azul {
     background-color: #333777;
-    border: 1px solid white;
+    border: 1px solid #333777;
 }
 
 .btn2colores {
@@ -1482,6 +1482,10 @@ p {
     margin: 0 auto;
     padding: 2em;
     max-width: 1000px;
+    width: 100%;
+}
+
+#mainConfig hr{
     width: 100%;
 }
 
