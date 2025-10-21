@@ -1692,6 +1692,7 @@ p {
     position: relative;
     overflow: hidden;
     gap: 1em;
+    text-align: center;
 }
 
 #soporte::before {
@@ -1743,7 +1744,7 @@ p {
     flex-direction: row;
     gap: 5em;
     width: 75%;
-    height: 500px;
+    height: 750px;
     padding: 1em;
 }
 
@@ -1760,6 +1761,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    height: max-content;
     align-items: center;
 }
 
@@ -1801,8 +1803,8 @@ p {
 }
 
 .faq.active .ans {
-    max-height: 500px;
-    padding: 0.6em 1em 1em;
+    max-height: 800px;
+    padding: 1em;
 }
 
 .ans a {
