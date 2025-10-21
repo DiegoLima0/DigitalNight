@@ -1,18 +1,5 @@
-<?php
-session_start();
-if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-    $clase_variable = 'oculto';
-    $id_variable = 'borrar';
-    $id_intercalable = 'cambiar';
-} else {
-    $clase_variable = '';
-    $id_variable = '';
-    $id_intercalable = 'ImagenJuegos';
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">

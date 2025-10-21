@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Redirigir si no ha iniciado sesión
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {

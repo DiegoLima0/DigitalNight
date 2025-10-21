@@ -25,7 +25,10 @@ main {
 }
 
 #borrar {
-    opacity: 0.1;
+    display: none;
+}
+.borrar {
+    display: none;
 }
 
 #cambiar {

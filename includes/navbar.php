@@ -1,19 +1,44 @@
-<div> 
-    <?php if (isset($_SESSION['user'])): ?>
-        <div id="usuarioMenu">
-            <p>@usuario</p>
-            <img src="img/" alt="Imagen de perfil">
-        </div>
+<?php
 
-    <?php else: ?>
-        <div>
-            <a href="login.php" class="btn azul">
-                Iniciar sesión
-            </a>
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-            <a href="register.php" class="btn azul">
-                Registrarse
+$is_logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
+if ($is_logged_in) {
+    $clase_botones_auth = 'borrar';
+    $clase_perfil = ''; 
+    
+    $username = htmlspecialchars($_SESSION['userName'] ?? 'usuario');
+    $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
+}
+else {
+    $clase_botones_auth = 'btn azul';
+    $clase_perfil = 'borrar'; 
+    
+    $username = '';
+    $profile_pic = 'default.png';
+}
+
+?>
+
+<div id="authContainer">
+    <div>
+        <a href="login.php" class="<?php echo $clase_botones_auth; ?>">
+            Iniciar sesión
+        </a>
+
+        <a href="register.php" class="<?php echo $clase_botones_auth; ?>">
+            Registrarse
+        </a>
+        
+        <div class="<?php echo $clase_perfil; ?>" id="perfilMenu">
+            <p>@<?php echo $username; ?></p>
+            
+            <a href="profile.php">
+                <img src="img/profiles/<?php echo $profile_pic; ?>" alt="Imagen de perfil">
             </a>
         </div>
-    <?php endif; ?>
+    </div>
 </div>
