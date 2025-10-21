@@ -27,6 +27,7 @@ main {
 #borrar {
     display: none;
 }
+
 .borrar {
     display: none;
 }
@@ -1488,7 +1489,7 @@ p {
     width: 100%;
 }
 
-#mainConfig hr{
+#mainConfig hr {
     width: 100%;
 }
 
@@ -1587,7 +1588,8 @@ p {
     text-align: center;
 }
 
-.carruselM { /*Carrusel infornito de los miembros de PentaCore*/
+.carruselM {
+    /*Carrusel infornito de los miembros de PentaCore*/
     margin: 50px auto;
     width: 1000px;
     height: 300px;
@@ -1604,7 +1606,7 @@ p {
     align-items: center;
     justify-content: center;
     gap: 1em;
-    animation: spin 8s infinite linear;
+    animation: spin 10s infinite linear;
     padding-right: 1em;
 }
 
@@ -1626,12 +1628,12 @@ p {
     transition: 0.3s ease;
 }
 
-.cardM:hover{
+.cardM:hover {
     transform: translateY(-6px);
-    
+
 }
 
-@keyframes spin { 
+@keyframes spin {
     from {
         translate: 0;
     }
@@ -1641,7 +1643,7 @@ p {
     }
 }
 
-#miembros {
+#Miembros {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1656,7 +1658,7 @@ p {
 }
 
 .tarjetaMiembro.activa {
-  display: flex;
+    display: flex;
 }
 
 .tarjetaMiembro div {
@@ -1783,6 +1785,7 @@ p {
     align-items: center;
     padding: 10px;
     height: 50px;
+    width: 100%;
 }
 
 .ques::after {
@@ -1791,7 +1794,7 @@ p {
     font-size: 1.2em;
 }
 
-.ques h4{
+.ques h4 {
     margin: 10px;
 }
 
@@ -1816,6 +1819,57 @@ p {
     border-bottom: 1px solid rgba(255, 255, 255, 0.425);
 }
 
+#ayuda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+/*Página respuesta soporte*/
+#mainSoporteAns {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#soporteAns::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(17, 20, 37)), url("../img/SupportImg.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+#soporteAns {
+    display: flex;
+    height: 150px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    gap: 1em;
+    text-align: center;
+    padding: 10px;
+}
+
+.respuesta {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 45%;
+    margin: 0 auto;
+}
+
+.respuesta p {
+    line-height: 30px;
+}
+
 /*Página de biblioteca library.php*/
 body.biblioteca {
     background: linear-gradient(to bottom, #0d1331, #1b234a);
@@ -1832,7 +1886,6 @@ body.biblioteca {
     padding: 20px;
     box-sizing: border-box;
 }
-
 
 .columna-juegos {
     width: 250px;
@@ -1879,7 +1932,6 @@ body.biblioteca {
     margin-right: 10px;
 }
 
-
 .contenido-juegos {
     flex: 1;
     margin-left: 20px;
@@ -1913,7 +1965,6 @@ body.biblioteca {
     background-color: #3b4292;
 }
 
-
 .recuadro-juego {
     display: block;
     position: relative;
@@ -1922,7 +1973,6 @@ body.biblioteca {
     background-color: #1d1f3b;
     height: 180px;
 }
-
 
 .recuadro-juego img {
     width: 100%;

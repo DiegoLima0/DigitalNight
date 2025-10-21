@@ -62,16 +62,7 @@
       </div>
     </section>
 
-    <div class="tarjetaInf">
-      <h2>Penta-Core: El Equipo Detrás de DigitalNight</h2>
-
-      <p>Somos Penta-Core, un equipo de cinco jóvenes desarrolladores cursando el 4.º año de la especialización en Computación en la Escuela Técnica Confederación Suiza. Y nos enorgullece aplicar la metodología Scrum para gestionar el desarrollo de DigitalNight, asegurando un flujo de trabajo ágil y eficiente.
-        Nuestro nombre Penta-Core fue elegido estratégicamente:
-        "Penta" refleja la unión de nuestros cinco miembros, mientras que "Core" simboliza el núcleo detrás del proyecto.
-      </p>
-    </div>
-
-    <section id="miembros">
+    <section id="Miembros">
       <div class="tarjetaMiembro" id="diego">
         <img src="img/integrante.jpg" alt="Miembro" class="miembroImg2">
 
@@ -105,7 +96,7 @@
           <hr>
 
           <p>
-            Se encarga de la <strong>lógica del lado del servidor</strong>, utilizando PHP para gestionar las peticiones del cliente. Su trabajo consiste en interactuar con la base de datos (MySQL), implementar la autenticación de usuarios y asegurar que todas las funcionalidades críticas de la aplicación (como el manejo de perfiles y la tienda) operen de manera eficiente y segura.
+            Se encarga de la lógica del lado del servidor, utilizando PHP para gestionar las peticiones del cliente. Su trabajo consiste en interactuar con la base de datos (MySQL), implementar la autenticación de usuarios y asegurar que todas las funcionalidades críticas de la aplicación (como el manejo de perfiles y la tienda) operen de manera eficiente y segura.
           </p>
         </div>
       </div>
@@ -168,6 +159,15 @@
         </div>
       </div>
     </section>
+
+    <div class="tarjetaInf">
+      <h2>Penta-Core: El Equipo Detrás de DigitalNight</h2>
+
+      <p>Somos Penta-Core, un equipo de cinco jóvenes desarrolladores cursando el 4.º año de la especialización en Computación en la Escuela Técnica Confederación Suiza. Y nos enorgullece aplicar la metodología Scrum para gestionar el desarrollo de DigitalNight, asegurando un flujo de trabajo ágil y eficiente.
+        Nuestro nombre Penta-Core fue elegido estratégicamente:
+        "Penta" refleja la unión de nuestros cinco miembros, mientras que "Core" simboliza el núcleo detrás del proyecto.
+      </p>
+    </div>
   </main>
 </body>
 

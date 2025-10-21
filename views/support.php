@@ -37,17 +37,17 @@
         <section id="faqYtemas">
             <div id="temas">
                 <h3>Temas relacionados con la categoría "Soporte técnico"</h3>
-                <a href="">Soporte general</a>
-                <a href="">Solución de problemas en PC</a>
+                <a href="#general">Soporte general</a>
+                <a href="#problemasPC">Solución de problemas en PC</a>
             </div>
 
             <div id="faq-list">
-                <div class="faq">
+                <div class="faq" id="general">
                     <div class="ques">
                         <h4>Soporte General</h4>
                     </div>
                     <div class="ans">
-                        <a href="">¿Cómo puedo trabajar en Digital Night?</a>
+                        <a href="answerFAQ.php">¿Cómo puedo trabajar en Digital Night?</a>
                         <a href="">¿Cómo encuentro mi ID?</a>
                         <a href="">¿Cómo borro mi cuenta?</a>
                         <a href="">¿Puedo usar imágenes o contenido de Digital Night en mi sitio web o en proyectos personales?</a>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="faq">
+                <div class="faq" id="problemasPC">
 
                     <div class="ques">
                         <h4>Solución de problemas en PC</h4>
@@ -72,12 +72,39 @@
                     </div>
                 </div>
 
-                <a href="">
-                    <button class="btn btn2colores">
-                        <i class="bi bi-chat"></i>
-                        Contacto
-                    </button>
-                </a>
+
+                <div id="ayuda">
+                    <div>
+                        <hr>
+                        <h4>¿Todavía necesitas ayuda?</h4>
+                        <p>Echa un vistazo a estos artículos y herramientas de autoservicio en tendencia o ponte en contacto con nosotros.</p>
+                    </div>
+
+
+                    <a href="">
+                        <button class="btn btn2colores">
+                            <i class="bi bi-chat"></i>
+                            Contacto
+                        </button>
+                    </a>
+
+                    <div>
+                        <form action="" method="post">
+                            <label class="titulo">Contactanos</label>
+                            <div>
+                                <label for="correo">Correo electrónico</label>
+                                <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
+                            </div>
+
+                            <div>
+                                <label for="texto">Describe tu problema</label>
+                                <textarea name="" id="texto" cols="30" rows="10"></textarea>
+                            </div>
+
+                            <input type="submit" value="Iniciar sesión">
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
