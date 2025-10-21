@@ -26,7 +26,7 @@ require_once 'includes/header.php';
     <main id="mainPerfil">
         <section>
             <div id="perfil">
-                <img src="../img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
+                <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
                
                 <div id="contenidoPerfil">
                     <p>@<?php echo htmlspecialchars($_SESSION['userName']); ?></p>
