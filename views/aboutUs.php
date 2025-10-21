@@ -105,7 +105,7 @@
           <hr>
 
           <p>
-            Descripción
+            Se encarga de la <strong>lógica del lado del servidor</strong>, utilizando PHP para gestionar las peticiones del cliente. Su trabajo consiste en interactuar con la base de datos (MySQL), implementar la autenticación de usuarios y asegurar que todas las funcionalidades críticas de la aplicación (como el manejo de perfiles y la tienda) operen de manera eficiente y segura.
           </p>
         </div>
       </div>
