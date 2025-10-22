@@ -42,24 +42,33 @@
             </div>
         </div>
 
-        <section class="container-carrusel">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <img id="slider-1" src="img/rdr2.jpg" alt="">
-                    <img id="slider-2" src="img/metalgear.jpg" alt="">
-                    <img id="slider-3" src="img/overcooked2.jpg" alt="">
-                    <img id="slider-4" src="img/sons of the forest.jpg" alt="">
-                </div>
+      <section class="container-carrusel">
+  <div class="slider-wrapper">
+    <div class="slider">
+  <img id="slider-1" src="img/rdr2.jpg" alt="" data-href="Games.php">
+  <img id="slider-2" src="img/metalgear.jpg" alt="" data-href="metalgear.html">
+  <img id="slider-3" src="img/overcooked2.jpg" alt="" data-href="overcooked2.html">
+  <img id="slider-4" src="img/sons of the forest.jpg" alt="" data-href="sons.html">
+</div>
 
-                <div class="slider-nav">
-                    <a href="#slider-1"></a>
-                    <a href="#slider-2"></a>
-                    <a href="#slider-3"></a>
-                    <a href="#slider-4"></a>
-                </div>
-            </div>
 
-        </section>
+   
+    <div class="arrow left" id="prev" aria-hidden="true">
+      <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path d="M12.7 15.3 7.4 10l5.3-5.3-1.4-1.4L4.6 10l6.7 6.7z"/></svg>
+    </div>
+    <div class="arrow right" id="next" aria-hidden="true">
+      <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path d="M7.3 4.7 12.6 10 7.3 15.3 8.7 16.7 15.4 10 8.7 3.3z"/></svg>
+    </div>
+
+    <div class="slider-nav">
+      <a href="#slider-1" data-index="0" aria-label="Ir a slide 1"></a>
+      <a href="#slider-2" data-index="1" aria-label="Ir a slide 2"></a>
+      <a href="#slider-3" data-index="2" aria-label="Ir a slide 3"></a>
+      <a href="#slider-4" data-index="3" aria-label="Ir a slide 4"></a>
+    </div>
+  </div>
+</section>
+
 
 
         <h2 class="section-title">Recomendados para ti</h2>

@@ -23,7 +23,7 @@ function mostrarTarjeta(miembroID) {
     if (tarjeta) tarjeta.classList.add('activa');
 }
 
-document.querySelector('#tarjetas').scrollIntoView({ behavior: 'smooth' }); //Sirve para no bajar de golpe luego de tocar una de las imagenes
+
 
 function contraseña() {
     let tarjetas = document.querySelectorAll('.tarjetaMiembro');
@@ -32,4 +32,82 @@ function contraseña() {
     let tarjeta = document.getElementById(miembroID);
     if (tarjeta) tarjeta.classList.add('activa');
 }
+
+//shop
+(function(){
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slider img');
+  const navLinks = document.querySelectorAll('.slider-nav a');
+  const btnPrev = document.getElementById('prev');
+  const btnNext = document.getElementById('next');
+  const total = slides.length;
+  let index = 0; 
+
+  function update() {
+
+    slider.style.transform = `translateX(-${index * 100}%)`;
+
+   
+    navLinks.forEach((a, i) => a.classList.toggle('active', i === index));
+  }
+
+  
+  function prev() { index = (index - 1 + total) % total; update(); }
+  function next() { index = (index + 1) % total; update(); }
+
+  navLinks.forEach((a, i) => {
+    a.addEventListener('click', function(e){
+      e.preventDefault();         
+      index = i;
+      update();
+
+      
+    });
+  });
+
+
+  if (btnPrev) btnPrev.addEventListener('click', prev);
+  if (btnNext) btnNext.addEventListener('click', next);
+
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  update();
+
+ 
+  window.addEventListener('load', () => {
+    const h = location.hash;
+    if (h) {
+      
+      const el = document.querySelector(h);
+      if (el) {
+        const found = Array.from(slides).indexOf(el);
+        if (found >= 0) {
+          index = found;
+          update();
+          
+          setTimeout(() => { window.scrollTo({ top: 0 }); }, 0);
+        }
+      }
+    }
+  });
+})();
+
+
+  document.querySelectorAll('.slider img').forEach(img => {
+    const href = img.dataset.href;
+    if (!href) return;
+    img.style.cursor = 'pointer'; 
+
+    img.addEventListener('click', (e) => {
+      
+      window.location.href = href; 
+    });
+
+
+  });
+
 

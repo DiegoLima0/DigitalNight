@@ -135,7 +135,8 @@
           <hr>
 
           <p>
-            Descripción
+            Como desarrollador Frontend me encargo del apartado visual de la página, además de diseñarla para que se vea tanto satisfactoriamente como visualmente agradable con el fin de complacer al usuario, también me ocupo de testear el sitio web en busca de algún error el cual pueda comprometer la experiencia de nuestra comunidad.
+
           </p>
         </div>
       </div>
