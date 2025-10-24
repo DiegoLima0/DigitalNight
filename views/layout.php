@@ -14,7 +14,7 @@
 
     <?php
     $section = (isset($section)) ? $section : 'home';
-    require_once $section . '.php'; 
+    require_once $section . '_view.php'; 
     ?>
 
     <footer>

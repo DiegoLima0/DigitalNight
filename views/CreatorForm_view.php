@@ -1,5 +1,4 @@
 <?php
-    session_start();
     print_r($_SESSION);
     require_once 'includes/database.php';
     $email_old = $_SESSION['email'];
