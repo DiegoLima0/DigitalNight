@@ -63,10 +63,33 @@ require_once 'includes/header.php';
                         <button class="btn azul">Cambiar</button>
                     </div>
 
-                    <div class="datos">
+                    <div class="datos" id="abrirModal">
                         <p>Contraseña: <?php echo $password_simulada; ?></p>
                         <button class="btn azul">Cambiar</button>
                     </div>
+
+                    <dialog id="modal">
+                        <button id="cerrarModal">X</button>
+                        <form action="" method="post">
+                            <label class="titulo">Cambiar contraseña</label>
+                            <div>
+                                <label for="contraseña">Contraseña actual</label>
+                                <input type="password" name="" id="contraseña">
+                            </div>
+
+                            <div>
+                                <label for="contraseñaN">Contraseña nueva</label>
+                                <input type="password" name="" id="contraseñaN">
+                            </div>
+
+                            <div>
+                                <label for="contraseñaConfir">Confirmar contraseña</label>
+                                <input type="password" name="" id="contraseñaConfir">
+                            </div>
+
+                            <input type="submit" value="Iniciar sesión">
+                        </form>
+                    </dialog>
                 </div>
             </div>
         </section>

@@ -16,58 +16,90 @@
             <div class="filtros-panel">
                 <div class="filtros-col">
                     <h4>Géneros</h4>
-                    <a href="#"><p>Acción</p></a>
-                    <a href="#"><p>Aventura</p></a>
-                    <a href="#"><p>Simulación</p></a>
-                    <a href="#"><p>Estrategia</p></a>
-                    <a href="#"><p>Arcade</p></a>
-                    <a href="#"><p>Supervivencia</p></a>
+                    <a href="#">
+                        <p>Acción</p>
+                    </a>
+                    <a href="#">
+                        <p>Aventura</p>
+                    </a>
+                    <a href="#">
+                        <p>Simulación</p>
+                    </a>
+                    <a href="#">
+                        <p>Estrategia</p>
+                    </a>
+                    <a href="#">
+                        <p>Arcade</p>
+                    </a>
+                    <a href="#">
+                        <p>Supervivencia</p>
+                    </a>
                 </div>
 
                 <div class="filtros-col">
                     <h4>Plataforma</h4>
-                    <a href="#"><p>Windows</p></a>
-                    <a href="#"><p>MacOs</p></a>
-                    <a href="#"><p>Linux</p></a>
-                    <a href="#"><p>Android</p></a>
-                    <a href="#"><p>iOS</p></a>
+                    <a href="#">
+                        <p>Windows</p>
+                    </a>
+                    <a href="#">
+                        <p>MacOs</p>
+                    </a>
+                    <a href="#">
+                        <p>Linux</p>
+                    </a>
+                    <a href="#">
+                        <p>Android</p>
+                    </a>
+                    <a href="#">
+                        <p>iOS</p>
+                    </a>
                 </div>
 
                 <div class="filtros-col">
                     <h4>Precio</h4>
-                    <a href="#"><p>Gratis</p></a>
-                    <a href="#"><p>$5 o menos</p></a>
-                    <a href="#"><p>$10 o menos</p></a>
+                    <a href="#">
+                        <p>Gratis</p>
+                    </a>
+                    <a href="#">
+                        <p>$5 o menos</p>
+                    </a>
+                    <a href="#">
+                        <p>$10 o menos</p>
+                    </a>
                 </div>
             </div>
         </div>
 
-      <section class="container-carrusel">
-  <div class="slider-wrapper">
-    <div class="slider">
-  <img id="slider-1" src="img/rdr2.jpg" alt="" data-href="Games.php">
-  <img id="slider-2" src="img/metalgear.jpg" alt="" data-href="metalgear.html">
-  <img id="slider-3" src="img/overcooked2.jpg" alt="" data-href="overcooked2.html">
-  <img id="slider-4" src="img/sons of the forest.jpg" alt="" data-href="sons.html">
-</div>
+        <section class="container-carrusel">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slider-1" src="img/rdr2.jpg" alt="" data-href="Games.php">
+                    <img id="slider-2" src="img/metalgear.jpg" alt="" data-href="metalgear.html">
+                    <img id="slider-3" src="img/overcooked2.jpg" alt="" data-href="overcooked2.html">
+                    <img id="slider-4" src="img/sons of the forest.jpg" alt="" data-href="sons.html">
+                </div>
 
 
-   
-    <div class="arrow left" id="prev" aria-hidden="true">
-      <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path d="M12.7 15.3 7.4 10l5.3-5.3-1.4-1.4L4.6 10l6.7 6.7z"/></svg>
-    </div>
-    <div class="arrow right" id="next" aria-hidden="true">
-      <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path d="M7.3 4.7 12.6 10 7.3 15.3 8.7 16.7 15.4 10 8.7 3.3z"/></svg>
-    </div>
 
-    <div class="slider-nav">
-      <a href="#slider-1" data-index="0" aria-label="Ir a slide 1"></a>
-      <a href="#slider-2" data-index="1" aria-label="Ir a slide 2"></a>
-      <a href="#slider-3" data-index="2" aria-label="Ir a slide 3"></a>
-      <a href="#slider-4" data-index="3" aria-label="Ir a slide 4"></a>
-    </div>
-  </div>
-</section>
+                <div class="arrow left" id="prev" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+                        <path d="M12.7 15.3 7.4 10l5.3-5.3-1.4-1.4L4.6 10l6.7 6.7z" />
+                    </svg>
+                </div>
+                <div class="arrow right" id="next" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
+                        <path d="M7.3 4.7 12.6 10 7.3 15.3 8.7 16.7 15.4 10 8.7 3.3z" />
+                    </svg>
+                </div>
+
+                <div class="slider-nav">
+                    <a href="#slider-1" data-index="0" aria-label="Ir a slide 1"></a>
+                    <a href="#slider-2" data-index="1" aria-label="Ir a slide 2"></a>
+                    <a href="#slider-3" data-index="2" aria-label="Ir a slide 3"></a>
+                    <a href="#slider-4" data-index="3" aria-label="Ir a slide 4"></a>
+                </div>
+            </div>
+        </section>
 
 
 
@@ -161,7 +193,7 @@
                             <div class="card__title">Little Nighmares II</div>
                             <div class="card__price">$10 usd</div>
                         </div>
-                       
+
                         <div class="card__details">PC • Español e Ingles</div>
                     </div>
                 </article>
@@ -172,7 +204,7 @@
                     <div class="card__thumb">
                         <img src="img/luto.jpg" alt="Nombre del juego 6">
                     </div>
-                    
+
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
                             <div class="card__title">Luto</div>
@@ -293,18 +325,19 @@
                 <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
             </a>
             <a href="#">
-            <button class="pag-nav__btn pag-nav__btn--active">1</button>
+                <button class="pag-nav__btn pag-nav__btn--active">1</button>
             </a>
             <a href="#">
-            <button class="pag-nav__btn">2</button>
+                <button class="pag-nav__btn">2</button>
             </a>
             <a href="#">
-            <button class="pag-nav__btn">3</button>
+                <button class="pag-nav__btn">3</button>
             </a>
             <a href="#">
-            <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
+                <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
             </a>
         </div>
     </main>
 </body>
+
 </html>

@@ -80,32 +80,31 @@
                         <p>Echa un vistazo a estos artículos y herramientas de autoservicio en tendencia o ponte en contacto con nosotros.</p>
                     </div>
 
+                    <button class="btn btn2colores" id="abrirModal">
+                        <i class="bi bi-chat"></i>
+                        Contacto
+                    </button>
 
-                    <a href="">
-                        <button class="btn btn2colores">
-                            <i class="bi bi-chat"></i>
-                            Contacto
-                        </button>
-                    </a>
-
-                    <div>
-                        <form action="" method="post">
-                            <label class="titulo">Contactanos</label>
-                            <div>
-                                <label for="correo">Correo electrónico</label>
-                                <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
-                            </div>
-
-                            <div>
-                                <label for="texto">Describe tu problema</label>
-                                <textarea name="" id="texto" cols="30" rows="10"></textarea>
-                            </div>
-
-                            <input type="submit" value="Iniciar sesión">
-                        </form>
-                    </div>
                 </div>
             </div>
+
+            <dialog id="modal">
+                <button id="cerrarModal">X</button>
+                <form action="" method="post">
+                    <label class="titulo">Contactanos</label>
+                    <div>
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
+                    </div>
+
+                    <div>
+                        <label for="texto">Describe tu problema</label>
+                        <textarea name="" id="texto" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <input type="submit" value="Iniciar sesión">
+                </form>
+            </dialog>
         </section>
     </main>
 </body>
