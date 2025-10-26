@@ -41,8 +41,6 @@ function mostrarTarjeta(miembroID) {
   if (tarjeta) tarjeta.classList.add('activa');
 }
 
-
-
 //Página shop.php
 (function () {
   const slider = document.querySelector('.slider');
@@ -119,5 +117,3 @@ document.querySelectorAll('.slider img').forEach(img => {
 
 
 });
-
-

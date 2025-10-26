@@ -61,7 +61,16 @@
       </div>
     </section>
 
+    <div id="botones">
+      <a href="games.php">
+        <button class="btn azul">Juego</button>
+      </a>
 
+      <a href="community.php">
+        <button class="btn azul">Comunidad</button>
+      </a>
+    </div>
+    
     <section class="section cta" aria-label="Sección final - llamada a la acción">
       <section class="section bottom-feed" aria-label="Feed y recomendaciones">
         <div class="bottom-grid">

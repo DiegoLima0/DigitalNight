@@ -8,7 +8,6 @@
 }
 
 html,
-main,
 body {
     margin: 0;
     padding: 0;
@@ -36,6 +35,11 @@ main {
     width: 90%;
     margin: 0;
     border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
 }
 
 body {
@@ -96,6 +100,7 @@ a.btn:hover {
     transition: 0.3s ease;
     height: max-content;
     color: white;
+    text-decoration: none;
 }
 
 .azul {
@@ -188,7 +193,7 @@ footer p {
 }
 
 #ImagenJuegos {
-    width: 90%;
+    width: 50%;
     margin: 0;
 }
 
@@ -531,70 +536,70 @@ h2.section-title {
     cursor: pointer;
 }
 
-
-
-  .container-carrusel {
+.container-carrusel {
     max-width: 900px;
     margin: 0 auto;
-  }
+}
 
-  .slider-wrapper {
+.slider-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
     background: #000;
-  }
+}
 
-  
-  .slider {
+
+.slider {
     display: flex;
     transition: transform 0.6s ease;
     will-change: transform;
-  }
+}
 
-  .slider img {
+.slider img {
     flex: 0 0 100%;
     width: 100%;
     height: var(--height);
     object-fit: cover;
     display: block;
-  }
+}
 
 
-  .slider-nav {
+.slider-nav {
     display: flex;
     justify-content: center;
     gap: var(--gap);
     padding: 12px 0;
-  }
+}
 
-  .slider-nav a {
+.slider-nav a {
     width: var(--dot-size);
     height: var(--dot-size);
     border-radius: 50%;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     display: inline-block;
     cursor: pointer;
-    border: 2px solid rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.08) inset;
-    text-indent: -9999px; 
-  }
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08) inset;
+    text-indent: -9999px;
+}
 
-  .slider-nav a:hover { transform: scale(1.08); }
+.slider-nav a:hover {
+    transform: scale(1.08);
+}
 
-  
-  .slider-nav a.active {
+
+.slider-nav a.active {
     background: #222;
-    box-shadow: 0 2px 6px rgba(0,0,0,.25);
-  }
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
 
-  
-  .arrow {
+
+.arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,.85);
+    background: rgba(255, 255, 255, .85);
     border-radius: 50%;
     width: 36px;
     height: 36px;
@@ -603,16 +608,33 @@ h2.section-title {
     justify-content: center;
     cursor: pointer;
     user-select: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,.12);
-  }
-  .arrow.left { left: 12px; }
-  .arrow.right { right: 12px; }
-  .arrow:hover { transform: translateY(-50%) scale(1.05); }
-  .arrow svg { width:16px; height:16px; fill:#111; }
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
 
-  @media (max-width:600px){
-    :root{ --height: 220px; --dot-size:12px; }
-  }
+.arrow.left {
+    left: 12px;
+}
+
+.arrow.right {
+    right: 12px;
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.arrow svg {
+    width: 16px;
+    height: 16px;
+    fill: #111;
+}
+
+@media (max-width:600px) {
+    :root {
+        --height: 220px;
+        --dot-size: 12px;
+    }
+}
 
 @media (max-width: 760px) {
     .grid {
@@ -679,7 +701,7 @@ h2.section-title {
         margin: 18px 0;
     }
 
-   
+
     .filtros-panel {
         min-width: 0;
     }
@@ -1635,7 +1657,6 @@ p {
 
 .cardM:hover {
     transform: translateY(-6px);
-
 }
 
 @keyframes spin {
@@ -1743,6 +1764,7 @@ p {
 }
 
 #botones {
+    padding: 10px;
     display: flex;
     gap: 1em;
     align-items: center;
@@ -1986,4 +2008,100 @@ body.biblioteca {
     object-position: center;
     display: block;
     border-radius: inherit;
+}
+
+/*Página Comunidad community.php*/
+#mainComunidad {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+#secPublicar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+#mainComunidad form {
+    width: 50%;
+    background: linear-gradient(to right, #191D33, #463cd357);
+    padding: 0 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px #6351ca3a;
+
+}
+
+#mainComunidad form p {
+    margin: 0;
+}
+
+#mainComunidad form textarea {
+    color: white;
+    background: linear-gradient(to right, #322b4b70, #513fb957);
+    border: none;
+}
+
+#imgUsComunidad {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contenido {
+    padding-left: 40px;
+    margin: 0;
+}
+
+.contenido div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#publicaciones {
+    column-count: 3;
+    column-gap: 2em;
+    width: 80%;
+    justify-items: center;
+}
+
+.publicacion {
+    display: inline-block;
+    margin-bottom: 2em;
+    width: 100%;
+    height: min-content;
+    max-height: 350px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #322b4b70, #5332c970);
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+.publicacion p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.publicacion:hover {
+    transform: translateY(-6px);
+}
+
+.publicacion p {
+    margin: 3px;
+}
+
+.imgPub {
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #322b4b70, #513fb957);
 }
