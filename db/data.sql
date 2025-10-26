@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2025 a las 19:21:22
+-- Tiempo de generación: 26-10-2025 a las 22:03:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -31,7 +31,6 @@ CREATE TABLE `creator` (
   `creatorName` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `correo` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
   `idCreator` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -42,42 +41,16 @@ CREATE TABLE `creator` (
 --
 
 CREATE TABLE `game` (
-  `title` varchar(255) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `genre` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `imagen` longblob DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
   `game` longblob DEFAULT NULL,
   `idCreator` int(11) NOT NULL,
-  `idGame` int(11) NOT NULL,
+  `idGame` int(10) UNSIGNED NOT NULL,
   `verified` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `register`
---
-
-CREATE TABLE `register` (
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `id` int(11) NOT NULL,
-  `type` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `register`
---
-
-INSERT INTO `register` (`username`, `email`, `password`, `id`, `type`) VALUES
-('dgo', 'a@gmail.com', 'a', 1, NULL),
-('wiliam', 'w@gmail.com', 'w', 3, 'user'),
-('test', 'test@gmail.com', 'test', 4, 'user'),
-('z', 'z@gmail.com', 'z', 5, 'user'),
-('x', 'x@gmail.com', 'x', 7, 'user'),
-('d', 'd@gmail.com', 'd', 8, 'user');
 
 -- --------------------------------------------------------
 
@@ -100,7 +73,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`) VALUES
-('a', 'a@gmail.com', 'a', 1, 'user', 'a', '1_1760460476.png'),
+('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1760460476.png'),
 ('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png'),
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png'),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png'),
@@ -120,14 +93,8 @@ ALTER TABLE `creator`
 -- Indices de la tabla `game`
 --
 ALTER TABLE `game`
-  ADD PRIMARY KEY (`idCreator`,`idGame`);
-
---
--- Indices de la tabla `register`
---
-ALTER TABLE `register`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`idGame`),
+  ADD KEY `fk_Game_Creator` (`idCreator`);
 
 --
 -- Indices de la tabla `user`
@@ -141,10 +108,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT de la tabla `register`
+-- AUTO_INCREMENT de la tabla `game`
 --
-ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `game`
+  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
@@ -166,7 +133,7 @@ ALTER TABLE `creator`
 -- Filtros para la tabla `game`
 --
 ALTER TABLE `game`
-  ADD CONSTRAINT `fk_Game_Creator` FOREIGN KEY (`idCreator`) REFERENCES `creator` (`idCreator`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_Game_Creator` FOREIGN KEY (`idCreator`) REFERENCES `creator` (`idCreator`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

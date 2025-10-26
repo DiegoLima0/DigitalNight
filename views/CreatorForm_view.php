@@ -2,6 +2,7 @@
     print_r($_SESSION);
     require_once 'includes/database.php';
     $email_old = $_SESSION['email'];
+    $id = $_SESSION['user_id'];
 
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         header("Location: index.php");
@@ -22,8 +23,25 @@
             $idCreator = $_SESSION['user_id'];
 
             $sql = "INSERT INTO creator (creatorName, correo, country, idCreator) VALUES ('$creatorName', '$email', '$country','$idCreator')";
-
             $resultado = $conexion->query($sql);
+
+
+            $sql = "UPDATE user SET email='$email', type='creator' WHERE idUser='$id'";
+            $resultado = $conexion->query($sql);
+
+            $título = $_POST["título"];
+            $género = $_POST["género"];
+            $estado = $_POST["estado"];
+            $descripción = $_POST["descripción"];
+            $imagen = $_POST["imagen"];
+            $juego = $_POST["juego"];
+
+            $sql = "INSERT INTO game (title, genre, state, description,imagen,game, idCreator) VALUES ('$título', '$género', '$estado','$descripción','$imagen','$juego','$idCreator')";
+            $resultado = $conexion->query($sql);
+
+            $_SESSION['email'] = $email;
+            $_SESSION['type'] = "creator";
+
         } else {
             echo "correo ya existente.";
         }
@@ -74,12 +92,12 @@
                     <label for="género">Género principal</label>
                     <select name="género" id="género" required>
                         <option value="">Seleccione su género principal</option>
-                        <option value="1">Acción</option>
-                        <option value="2">Aventura</option>
-                        <option value="3">Simulación</option>
-                        <option value="4">Estrategia</option>
-                        <option value="5">Arcade</option>
-                        <option value="6">Supervivencia</option>
+                        <option value="Acción">Acción</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Simulación">Simulación</option>
+                        <option value="strategia">Estrategia</option>
+                        <option value="Arcade">Arcade</option>
+                        <option value="Supervivencia">Supervivencia</option>
                     </select>
                 </div>
 
@@ -87,10 +105,10 @@
                     <label for="estado">Estado del proyecto del juego</label>
                     <select name="estado" id="estado" required>
                         <option value="">Seleccione el estado de su proyecto/videojuego</option>
-                        <option value="1">En desarrollo</option>
-                        <option value="2">Alpha</option>
-                        <option value="3">Beta</option>
-                        <option value="4">Completo</option>
+                        <option value="En desarrollo">En desarrollo</option>
+                        <option value="Alpha">Alpha</option>
+                        <option value="Beta">Beta</option>
+                        <option value="Completo">Completo</option>
                     </select>
                 </div>
 
@@ -101,7 +119,7 @@
 
                 <div>
                     <label for="imagen">Adjunte imagenes</label>
-                    <input type="image" id="imagen" name="imagen" required>
+                    <input type="file" name="imagen" accept="image/jpeg, image/png">
                 </div>
 
                 <div>
