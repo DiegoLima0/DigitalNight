@@ -4,6 +4,7 @@
     <link href="css/styles.css" rel="stylesheet">
     <link rel="icon" href="img/digitalNightLogo.png">
     <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
 

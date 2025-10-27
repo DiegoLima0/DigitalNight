@@ -16,6 +16,22 @@ if (cerrarModal && modal) {
   });
 }
 
+const abrirModalPub = document.querySelector("#abrirModal");
+const cerrarModalPub = document.querySelector("#cerrarModal");
+const modalPub = document.querySelector("#modal");
+
+if (abrirModal && modal) {
+  abrirModal.addEventListener("click", (e) => {
+    modal.showModal();
+  });
+}
+
+if (cerrarModal && modal) {
+  cerrarModal.addEventListener("click", () => {
+    modal.close();
+  });
+}
+
 //Página Soporte support.php
 let faqs = document.querySelectorAll(".faq");
 

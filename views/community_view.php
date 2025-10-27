@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Comunidad de Nombre de juego</title>
 </head>
 
 <body>
@@ -26,101 +26,221 @@
                     <p>@Usuario</p>
                 </div>
 
-                <div class="contenido">
+                <div class="publicar">
                     <textarea name="" id="" cols="30" rows="10"></textarea>
 
                     <div>
                         <input type="file" name="" id="" multiple>
-                        <button class="btn azul">Subir</button>
+                        <input type="button" value="Enviar" class="btn azul">
                     </div>
                 </div>
             </form>
         </section>
 
         <section id="publicaciones"><!--Dentro de esta seccion se encuentran todas las publicaciones de la comunidad-->
-            <div class="publicacion">
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/2_1760329924.jpg" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-                    <img class="imgPub" src="" alt="">
-                </div>
-            </div>
 
-            <div class="publicacion">
+                    <img class="imgPub" src="" alt="">
+
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="publicacion">
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+
                     <img class="imgPub" src="" alt="">
-                </div>
-            </div>
 
-            <div class="publicacion">
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-                </div>
-            </div>
 
-            <div class="publicacion">
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-                </div>
-            </div>
 
-            <div class="publicacion">
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+
                     <img class="imgPub" src="" alt="">
-                </div>
-            </div>
 
-            <div class="publicacion">
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+
                     <img class="imgPub" src="" alt="">
-                </div>
-            </div>
 
-            <div class="publicacion">
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
+                    <img src="img/profiles/" alt="Imagen de perfil">
+
                     <p>@Usuario</p>
                 </div>
+
                 <div class="contenido">
                     <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </section>
 
     </main>

@@ -10,7 +10,7 @@
 <body>
     <main id="mainSoporteAns">
         <section id="soporteAns">
-            <p><a href="support.php">Soporte Tecnico</a> / Solución</p>
+            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo puedo trabajar en Digital Night?</p>
         </section>
 
         <section class="respuesta">
