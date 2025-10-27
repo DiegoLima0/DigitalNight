@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2025 a las 22:03:09
+-- Tiempo de generación: 27-10-2025 a las 21:42:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,7 +49,18 @@ CREATE TABLE `game` (
   `game` longblob DEFAULT NULL,
   `idCreator` int(11) NOT NULL,
   `idGame` int(10) UNSIGNED NOT NULL,
-  `verified` tinyint(1) DEFAULT 0
+  `verified` tinyint(1) DEFAULT 0,
+  `releaseDate` varchar(255) DEFAULT 'en desarrollo',
+  `platforms` varchar(255) DEFAULT 'en desarrollo',
+  `promoText` varchar(255) DEFAULT 'en desarrollo',
+  `price` varchar(255) DEFAULT 'US$00.00',
+  `imagen2` varchar(255) DEFAULT NULL,
+  `gameGallery1` varchar(255) DEFAULT NULL,
+  `gameGallery2` varchar(255) DEFAULT NULL,
+  `gameGallery3` varchar(255) DEFAULT NULL,
+  `gameGallery4` varchar(255) DEFAULT NULL,
+  `gameGallery5` varchar(255) DEFAULT NULL,
+  `gameGallery6` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -111,7 +122,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `game`
 --
 ALTER TABLE `game`
-  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
