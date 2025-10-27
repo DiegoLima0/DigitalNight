@@ -10,14 +10,90 @@
 <body>
     <main id="mainSoporteAns">
         <section id="soporteAns">
-            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo puedo trabajar en Digital Night?</p>
+            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo hacer capturas de pantalla o grabaciones en PC?</p>
         </section>
 
         <section class="respuesta">
-            <h1>¿Cómo puedo trabajar en Digital Night?</h1>
+            <h1>¿Cómo hacer capturas de pantalla o grabaciones en PC?</h1>
 
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+            <p>Para saber cómo hacer capturas de pantalla o grabaciones en PC, consulta estos artículos del soporte técnico de Windows según tu versión de Windows:</p>
+
+            <ul>
+                <li>
+                    <a target="_blank" href="https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b">
+                        Usar Recortes para realizar capturas de pantalla en Windows 11 y 10
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.microsoft.com/en-us/windows/learning-center/how-to-record-screen-windows-11">
+                        Cómo grabar la pantalla en Windows 11
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://support.microsoft.com/en-gb/topic/how-to-make-a-screen-recording-8797f456-7edd-4176-b525-28b954ff5e4d">
+                        Cómo realizar una grabación de pantalla en Windows 10
+                    </a>
+                </li>
+            </ul>
+
+            <div class="utilidad">
+                <h2>¿Te ah sido de ayuda este articulo?</h2>
+                <div>
+                    <button class="btn azul">
+                        <i class="bi bi-hand-thumbs-up"></i> Si
+                    </button>
+
+                    <button class="btn azul">
+                        <i class="bi bi-hand-thumbs-down"></i> No
+                    </button>
+                </div>
+            </div>
+
+            <div class="otrasHerramientas">
+                <h2>¿Todavia necesitas ayuda?</h2>
+                <p>Echa un vistazo a estos artículos y herramientas de autoservicio en tendencia o ponte en contacto con nosotros.</p>
+
+                <div class="herramientas">
+                    <h3>
+                        <i class="bi bi-graph-up-arrow"></i>
+                        Herramientas y artículos en tendencia
+                    </h3>
+
+                    <a href="">Cómo resolver el error de Windows 0xc000009a</a>
+                    <a href="">Cómo verificar si tu PC cumple con las especificaciones del sistema</a>
+                    <a href="">¿Cómo establezco la tarjeta gráfica principal?</a>
+                </div>
+
+                <button class="btn btn2colores btnContacto" id="abrirModal">
+                    <i class="bi bi-chat"></i>
+                    Contacto
+                </button>
+
+                <dialog id="modal">
+                    <label class="titulo">Contactanos</label>
+
+                    <form action="" method="post">
+                        <div>
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
+                        </div>
+
+                        <div>
+                            <label for="texto">Describe tu problema</label>
+                            <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <div class="botonesModal">
+                            <input type="button" value="Enviar" class="btn azul">
+                            <input type="button" value="Cerrar" id="cerrarModal" class="btn azul">
+                        </div>
+                    </form>
+                </dialog>
+            </div>
+        </section>
+
+        <section>
+
         </section>
     </main>
 </body>

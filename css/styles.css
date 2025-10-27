@@ -42,6 +42,49 @@ textarea {
     resize: none;
 }
 
+#modal, #modal2 {
+    background: linear-gradient(#44499f70, #3b356e7a);
+    padding: 30px 40px;
+    border-radius: 20px;
+    width: 25%;
+    color: white;
+    border: 1px solid rgba(227, 185, 255, 0.26);
+    backdrop-filter: blur(10px);
+    margin: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+dialog[open] {
+    gap: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+dialog form {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.botonesModal {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    padding: 5px 0 0 0;
+}
+
+.botonesModal input {
+    background-color: #44489F;
+    color: white;
+    border: 1px solid #a2b0f883;
+}
+
 body {
     background: var(--fondoAzulOscuro);
     display: flex;
@@ -90,7 +133,7 @@ header div {
     gap: 10px;
 }
 
-#authContainer img{
+#authContainer img {
     border-radius: 40px;
 }
 
@@ -270,7 +313,7 @@ textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ffffff;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
@@ -279,7 +322,7 @@ form input[type="submit"] {
     cursor: pointer;
     font-size: 15px;
     width: 100%;
-    background-color: #3047B9;
+    background-color: #44489F;
     color: white;
     border: 1px solid #a2b0f883;
     border-radius: 20px;
@@ -361,9 +404,6 @@ form input[type="submit"]:hover {
     display: inline-flex;
 }
 
-
-
-
 h2.section-title {
     font-size: 20px;
     margin: 14px 0 10px;
@@ -396,7 +436,6 @@ h2.section-title {
     margin-top: 6px;
 }
 
-
 .card {
     background: rgba(255, 255, 255, 0.04);
     border-radius: 10px;
@@ -415,7 +454,6 @@ h2.section-title {
     box-shadow: 0 12px 30px rgba(2, 6, 23, 0.6);
 }
 
-
 .card__thumb {
     width: 100%;
     height: clamp(100px, 18vw, 140px);
@@ -432,7 +470,6 @@ h2.section-title {
     height: 100%;
     object-fit: cover;
 }
-
 
 .card__meta {
     display: flex;
@@ -460,7 +497,6 @@ h2.section-title {
     font-weight: 700;
 }
 
-
 .pag-nav {
     display: flex;
     gap: 8px;
@@ -481,7 +517,6 @@ h2.section-title {
     background: var(--accent);
     color: #031126;
 }
-
 
 .filtros {
     margin: 20px 0;
@@ -505,7 +540,6 @@ h2.section-title {
     white-space: nowrap;
 }
 
-
 .filtros-panel {
     position: absolute;
     top: 45px;
@@ -524,7 +558,6 @@ h2.section-title {
 #toggle-filtros:checked~.filtros-panel {
     display: flex;
 }
-
 
 .filtros-col h4 {
     margin-bottom: 8px;
@@ -553,7 +586,6 @@ h2.section-title {
     background: #000;
 }
 
-
 .slider {
     display: flex;
     transition: transform 0.6s ease;
@@ -567,7 +599,6 @@ h2.section-title {
     object-fit: cover;
     display: block;
 }
-
 
 .slider-nav {
     display: flex;
@@ -592,12 +623,10 @@ h2.section-title {
     transform: scale(1.08);
 }
 
-
 .slider-nav a.active {
     background: #222;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
 }
-
 
 .arrow {
     position: absolute;
@@ -1893,12 +1922,73 @@ p {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 45%;
+    width: 40%;
     margin: 0 auto;
 }
 
-.respuesta p {
-    line-height: 30px;
+.respuesta ul {
+    margin: 0;
+}
+
+.respuesta li {
+    margin: 15px 0;
+}
+
+.respuesta li a {
+    color: #95a0ff;
+}
+
+.utilidad {
+    background: rgba(46, 50, 73, 0.726);
+    border: 1px solid rgba(255, 255, 255, 0.404);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 40px;
+}
+
+.utilidad h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.utilidad div {
+    display: flex;
+    gap: 1em;
+}
+
+.otrasHerramientas {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.774);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.herramientas {
+    background: rgba(46, 50, 73, 0.726);
+    border: 1px solid rgba(255, 255, 255, 0.404);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.otrasHerramientas h2 {
+    width: 100%;
+}
+
+.herramientas a {
+    color: #95a0ff;
+    padding: 20px 0;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.562);
+    ;
+}
+
+.btnContacto {
+    margin: 20px auto;
 }
 
 /*Página de biblioteca library.php*/
@@ -2031,7 +2121,7 @@ body.biblioteca {
     align-items: center;
 }
 
-.publicar div{
+.publicar div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -2116,47 +2206,47 @@ body.biblioteca {
 }
 
 .interacciones {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .interacciones button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 16px;
-  color: #ffffff;
-  transition: 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: #ffffff;
+    transition: 0.3s ease;
 }
 
 .interacciones button:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #secPublicar img,
-#imgUsComunidad img{
+#imgUsComunidad img {
     border-radius: 40px;
     width: 35px;
     height: 35px;
 }
 
-.publicacion>#imgUsComunidad img{
+.publicacion>#imgUsComunidad img {
     padding-top: 5px;
     height: 40px;
 }
 
 /*Pagina de publicación de la comunidad communityPublication.php*/
-#mainPublicacion{
+#mainPublicacion {
     padding: 10px;
     display: flex;
     gap: 2em;
     justify-content: center;
 }
 
-#volver{
+#volver {
     background-color: #282964;
     border-radius: 15px;
     font-size: 50px;
@@ -2169,11 +2259,11 @@ body.biblioteca {
     justify-content: center;
 }
 
-#volver:hover{
+#volver:hover {
     background-color: #3a3c94;
 }
 
-#publicacionComunidad{
+#publicacionComunidad {
     background: linear-gradient(to right, #191a46, #282964);
     display: flex;
     gap: 1em;
@@ -2182,32 +2272,30 @@ body.biblioteca {
     border-radius: 20px;
 }
 
-#publicacionComunidad>img{
+#publicacionComunidad>img {
     height: 50px;
     width: 50px;
 }
 
-#pubComentario{
+#pubComentario {
     display: flex;
     flex-direction: column;
 }
 
-#pubComentario input[type="text"]{
+#pubComentario input[type="text"] {
     background-color: #413E87;
     border-color: #413E87;
     border-radius: 15px;
     color: white;
 }
 
-#pubComentario input[type="text"]::placeholder{
+#pubComentario input[type="text"]::placeholder {
     color: rgba(255, 255, 255, 0.616);
 }
 
-#pubComentario input[type="reset"] input[type="button"]{
+#pubComentario input[type="reset"] input[type="button"] {}
 
-}
-
-#pubComentario div{
+#pubComentario div {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -2215,26 +2303,26 @@ body.biblioteca {
     justify-content: end;
 }
 
-#contenido2 img{
+#contenido2 img {
     width: 100%;
     height: 300px;
     border-radius: 20px;
     background: linear-gradient(to right, #322b4b70, #513fb957);
 }
 
-#comentarios img{
+#comentarios img {
     height: 40px;
     width: 40px;
     border-radius: 40px;
 }
 
-.comentario{
+.comentario {
     display: flex;
     gap: 1em;
     padding-top: 10px;
     border-bottom: rgba(255, 255, 255, 0.548) solid 1px;
 }
 
-.perfil{
+.perfil {
     border-radius: 40px;
 }

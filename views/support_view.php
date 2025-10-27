@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte Digital Night</title>
-    
+
 </head>
 
 <body>
@@ -47,7 +47,7 @@
                         <h4>Soporte General</h4>
                     </div>
                     <div class="ans">
-                        <a href="answerFAQ.php">¿Cómo puedo trabajar en Digital Night?</a>
+                        <a href="">¿Cómo puedo trabajar en Digital Night?</a>
                         <a href="">¿Cómo encuentro mi ID?</a>
                         <a href="">¿Cómo borro mi cuenta?</a>
                         <a href="">¿Puedo usar imágenes o contenido de Digital Night en mi sitio web o en proyectos personales?</a>
@@ -64,7 +64,7 @@
 
                     <div class="ans">
                         <a href="">Cómo verificar si tu PC cumple con las especificaciones del sistema</a>
-                        <a href="">¿Cómo hacer capturas de pantalla o grabaciones en PC?</a>
+                        <a href="answerFAQ.php">¿Cómo hacer capturas de pantalla o grabaciones en PC?</a>
                         <a href="">Cómo resolver el error de Windows 0xc000009a</a>
                         <a href="">¿Cómo reinicio mi módem o enrutador para resolver problemas de conexión?</a>
                         <a href="">¿Cómo establezco la tarjeta gráfica principal?</a>
@@ -89,9 +89,11 @@
             </div>
 
             <dialog id="modal">
-                <button id="cerrarModal">X</button>
-                <form action="" method="post">
+                <div class="modal-header">
                     <label class="titulo">Contactanos</label>
+                </div>
+
+                <form action="" method="post">
                     <div>
                         <label for="correo">Correo electrónico</label>
                         <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
@@ -99,10 +101,13 @@
 
                     <div>
                         <label for="texto">Describe tu problema</label>
-                        <textarea name="" id="texto" cols="30" rows="10"></textarea>
+                        <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
                     </div>
 
-                    <input type="submit" value="Iniciar sesión">
+                    <div class="botonesModal">
+                        <input type="button" value="Enviar" class="btn azul">
+                        <input type="button" value="Cerrar" id="cerrarModal" class="btn azul">
+                    </div>
                 </form>
             </dialog>
         </section>

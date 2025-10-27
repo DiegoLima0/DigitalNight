@@ -52,7 +52,7 @@ require_once 'includes/header.php';
                     </div>
 
                     <div class="datos">
-                        <p>Nombre de usuario: <?php echo $nombre_real; ?> (@<?php echo $username_actual; ?>)</p>
+                        <p>Nombre de usuario: <?php echo $username_actual; ?></p>
                         <form action="configPublicProfile.php" method="GET" style="display:inline;">
                             <button type="submit" class="btn azul">Editar</button>
                         </form>
@@ -60,16 +60,35 @@ require_once 'includes/header.php';
 
                     <div class="datos">
                         <p>Correo electrónico: <?php echo $email_actual; ?></p>
-                        <button class="btn azul">Cambiar</button>
+                        <button class="btn azul" id="abrirModal2">Cambiar</button>
                     </div>
 
-                    <div class="datos" id="abrirModal">
+                    <dialog id="modal2">
+                        <form action="" method="post">
+                            <label class="titulo">Cambiar correo electrónico</label>
+                            <div>
+                                <label for="mail">Añade una nueva dirección de correo electrónico</label>
+                                <input type="email" name="" id="mail">
+                            </div>
+
+                            <div>
+                                <label for="contraseña">Confirme contraseña</label>
+                                <input type="password" name="" id="contraseña">
+                            </div>
+
+                            <div class="botonesModal">
+                                <input type="button" value="Enviar" class="btn azul">
+                                <input type="button" value="Cerrar" id="cerrarModal2" class="btn azul">
+                            </div>
+                        </form>
+                    </dialog>
+
+                    <div class="datos">
                         <p>Contraseña: <?php echo $password_simulada; ?></p>
-                        <button class="btn azul">Cambiar</button>
+                        <button class="btn azul" id="abrirModal">Cambiar</button>
                     </div>
 
                     <dialog id="modal">
-                        <button id="cerrarModal">X</button>
                         <form action="" method="post">
                             <label class="titulo">Cambiar contraseña</label>
                             <div>
@@ -87,7 +106,10 @@ require_once 'includes/header.php';
                                 <input type="password" name="" id="contraseñaConfir">
                             </div>
 
-                            <input type="submit" value="Iniciar sesión">
+                            <div class="botonesModal">
+                                <input type="button" value="Enviar" class="btn azul">
+                                <input type="button" value="Cerrar" id="cerrarModal" class="btn azul">
+                            </div>
                         </form>
                     </dialog>
                 </div>

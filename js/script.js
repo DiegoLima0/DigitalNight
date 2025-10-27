@@ -16,22 +16,21 @@ if (cerrarModal && modal) {
   });
 }
 
-const abrirModalPub = document.querySelector("#abrirModal");
-const cerrarModalPub = document.querySelector("#cerrarModal");
-const modalPub = document.querySelector("#modal");
+const abrirModal2 = document.querySelector("#abrirModal2");
+const cerrarModal2 = document.querySelector("#cerrarModal2");
+const modal2 = document.querySelector("#modal2");
 
-if (abrirModal && modal) {
-  abrirModal.addEventListener("click", (e) => {
-    modal.showModal();
+if (abrirModal2 && modal2) {
+  abrirModal2.addEventListener("click", (e) => {
+    modal2.showModal();
   });
 }
 
-if (cerrarModal && modal) {
-  cerrarModal.addEventListener("click", () => {
-    modal.close();
+if (cerrarModal2 && modal2) {
+  cerrarModal2.addEventListener("click", () => {
+    modal2.close();
   });
 }
-
 //Página Soporte support.php
 let faqs = document.querySelectorAll(".faq");
 
