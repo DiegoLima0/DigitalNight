@@ -41,7 +41,7 @@
 
             <a class="publicacion" href="communityPublication.php">
                 <div id="imgUsComunidad">
-                    <img src="img/profiles/2_1760329924.jpg" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
+                    <img src="img/" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
 
                     <p>@Usuario</p>
                 </div>

@@ -2118,7 +2118,6 @@ body.biblioteca {
 .interacciones {
   display: flex;
   gap: 10px;
-  padding: 10px 0;
 }
 
 .interacciones button {
@@ -2136,7 +2135,6 @@ body.biblioteca {
 .interacciones button:hover {
   transform: scale(1.1);
 }
-
 
 #secPublicar img,
 #imgUsComunidad img{
@@ -2194,6 +2192,21 @@ body.biblioteca {
     flex-direction: column;
 }
 
+#pubComentario input[type="text"]{
+    background-color: #413E87;
+    border-color: #413E87;
+    border-radius: 15px;
+    color: white;
+}
+
+#pubComentario input[type="text"]::placeholder{
+    color: rgba(255, 255, 255, 0.616);
+}
+
+#pubComentario input[type="reset"] input[type="button"]{
+
+}
+
 #pubComentario div{
     display: flex;
     flex-direction: row;
@@ -2213,6 +2226,13 @@ body.biblioteca {
     height: 40px;
     width: 40px;
     border-radius: 40px;
+}
+
+.comentario{
+    display: flex;
+    gap: 1em;
+    padding-top: 10px;
+    border-bottom: rgba(255, 255, 255, 0.548) solid 1px;
 }
 
 .perfil{
