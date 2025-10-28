@@ -44,8 +44,8 @@ else {
   <div class="dropdown-menu">
     <a href="profile.php">Ver perfil</a>
     <a href="#">⚙️Configuración</a>
-    <a href="logout.php"> ⮌Cerrar sesión</a>
     <a href="#"> +Quiero ser creador</a>
+    <a href="logout.php"> ⮌Cerrar sesión</a>
   </div>
 </div>
         </div>
