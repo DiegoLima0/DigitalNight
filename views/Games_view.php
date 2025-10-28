@@ -86,43 +86,65 @@
 
           <main class="col posts">
 
-            <article class="post-card">
-              <div class="post-h">
-                <div class="avatar" aria-hidden="true">
-                  <img class="avatar" src="#" alt="Avatar de @Usuario creador" width="42" height="42" loading="lazy">
+           <a class="publicacion" href="communityPublication.php">
+                <div id="imgUsComunidad">
+                    <img src="img/" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
+
+                    <p>@Usuario</p>
                 </div>
 
-                <div class="meta">
-                  <div class="user">Nombre del usuario que realizo el post</div>
-                  <div class="time">Hace cuanto lo realizo</div>
+                <div class="contenido">
+                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+
+                    <img class="imgPub" src="" alt="">
+
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
                 </div>
-              </div>
+            </a>
 
-              <p class="post-text">Parrafo de la publicacion </p>
 
-              <div class="post-image">
-                <img src="#" alt="imagen post 1">
-              </div>
-            </article>
 
-            <article class="post-card">
-              <div class="post-h">
-                <div class="avatar" aria-hidden="true">
-                  <img class="avatar" src="#" alt="Avatar de @Usuario creador" width="42" height="42" loading="lazy">
+           <a class="publicacion" href="communityPublication.php">
+                <div id="imgUsComunidad">
+                    <img src="img/" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
+
+                    <p>@Usuario</p>
                 </div>
 
-                <div class="meta">
-                  <div class="user">Nombre del usuario que realizo el post</div>
-                  <div class="time">Hace cuanto lo realizo</div>
+                <div class="contenido">
+                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+
+                    <img class="imgPub" src="" alt="">
+
+                    <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
+                    </div>
                 </div>
-              </div>
+            </a>
 
-              <p class="post-text"> Parrafo de la publicacion</p>
 
-              <div class="post-image">
-                <img src="#" alt="imagen post 2">
-              </div>
-            </article>
 
             <div class="more-wrap">
               <a class="boton-base more-btn" href="#">Más Información</a>

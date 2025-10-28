@@ -36,9 +36,18 @@ else {
         <div class="<?php echo $clase_perfil; ?>" id="perfilMenu">
             <p>@<?php echo $username; ?></p>
             
-            <a href="profile.php">
-                <img src="img/profiles/<?php echo $profile_pic; ?>" alt="Imagen de perfil">
-            </a>
+           <div class="profile-dropdown">
+  <a href="profile.php">
+    <img src="img/profiles/<?php echo $profile_pic; ?>" alt="Imagen de perfil">
+  </a>
+
+  <div class="dropdown-menu">
+    <a href="profile.php">Ver perfil</a>
+    <a href="#">⚙️Configuración</a>
+    <a href="logout.php"> ⮌Cerrar sesión</a>
+    <a href="#"> +Quiero ser creador</a>
+  </div>
+</div>
         </div>
     </div>
 </div>
