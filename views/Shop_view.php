@@ -152,15 +152,6 @@
             <a href="#">
                 <button class="pag-nav__btn pag-nav__btn--active">1</button>
             </a>
-            <a href="#">
-                <button class="pag-nav__btn">2</button>
-            </a>
-            <a href="#">
-                <button class="pag-nav__btn">3</button>
-            </a>
-            <a href="#">
-                <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
-            </a>
         </div>
     </main>
 </body>
