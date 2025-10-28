@@ -9,14 +9,13 @@
 
 <body class="games">
   <div class="page">
-
     <div class="section fondo-img" role="banner" aria-label="Fondo principal">
-      <img src="#" alt="" aria-hidden="true" />
+      <img src="img/<?php echo $game_data['banner_path']; ?>" alt="Banner principal del juego <?php echo $game_data['title']; ?>" aria-hidden="true" /> 
 
       <div class="contenedor">
         <div class="left">
-          <h1 class="title">Titulo del juego</h1>
-          <p class="subtitle">Muy breve descripcion del juego (dos renlones) </p>
+          <h1 class="title"><?php echo $game_data['title']; ?></h1>
+          <p class="subtitle">US$<?php echo $game_data['subtitle']; ?></p>
 
           <div class="cta-group">
             <a class="boton-base boton-primario" href="#">Comprar</a>
@@ -26,41 +25,36 @@
 
         <div class="right">
           <div class="meta">
-            <div><strong>Fecha:</strong> Fecha lanzamiento</div>
-
-            <div style="margin-top:.6rem"><strong>Plataformas:</strong> Plataformas disponibles</div>
+            <div><strong>Fecha:</strong> <?php echo $game_data['release_date']; ?></div>
+            <div style="margin-top:.6rem"><strong>Plataformas:</strong> <?php echo $game_data['platforms']; ?></div>
           </div>
         </div>
       </div>
     </div>
 
-
     <section class="section carrusel-seccion" aria-label="Carrusel intermedio">
       <div class="content carrusel-contenido">
-
         <div class="carrusel-wrapper">
-
           <div class="carrusel" role="region" aria-label="Galería de imágenes compacta" tabindex="0">
-            <img src="#" alt="Imagen 1">
-            <img src="#" alt="Imagen 2">
-            <img src="#" alt="Imagen 3">
-            <img src="#" alt="Imagen 4">
+            <img src="img/<?php echo $game_data['gameGallery1']; ?>" alt="Captura de pantalla 1">
+            <img src="img/<?php echo $game_data['gameGallery2']; ?>" alt="Captura de pantalla 2">
+            <img src="img/<?php echo $game_data['gameGallery3']; ?>" alt="Captura de pantalla 3">
+            <img src="img/<?php echo $game_data['gameGallery4']; ?>" alt="Captura de pantalla 4">
           </div>
         </div>
       </div>
     </section>
 
-
     <section class="section cover-img" aria-label="Segunda imagen">
-      <img src="#" alt="Imagen destacada del juego" />
+      <img src="img/<?php echo $game_data['featured_image']; ?>" alt="Imagen destacada del juego" /> 
 
       <div class="content">
-        <h2>Titulo descripcion del juego</h2>
-        <p> Descripcion del juego
-        </p>
+        <h2><?php echo $game_data['title']; ?></h2>
+        <p><?php echo $game_data['description']; ?></p>
       </div>
     </section>
-
+    
+    </div>
     <div id="botones">
       <a href="games.php">
         <button class="btn azul">Juego</button>
@@ -70,7 +64,6 @@
         <button class="btn azul">Comunidad</button>
       </a>
     </div>
-    
     <section class="section cta" aria-label="Sección final - llamada a la acción">
       <section class="section bottom-feed" aria-label="Feed y recomendaciones">
         <div class="bottom-grid">
@@ -85,8 +78,8 @@
             </label>
 
             <div class="social-row">
-              <a class="boton-base social-btn twitter" href="https://twitter.com/intent/tweet?url=#" target="_blank" rel="noopener noreferrer">Twitter</a>
-              <a class="boton-base social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a class="boton-base social-btn twitter" href="https://twitter.com/intent/tweet?url=" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a class="boton-base social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
           </aside>
 
@@ -177,7 +170,6 @@
       </section>
 
     </section>
-  </div>
 </body>
 
 </html>
