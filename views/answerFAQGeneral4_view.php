@@ -10,31 +10,18 @@
 <body>
     <main id="mainSoporteAns">
         <section id="soporteAns">
-            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo hacer capturas de pantalla o grabaciones en PC?</p>
+            <p><a href="support.php">Soporte Tecnico</a> / ¿Puedo usar imágenes o contenido de Digital Night en mi sitio web o en proyectos personales?</p>
         </section>
 
         <section class="respuesta">
-            <h1>¿Cómo hacer capturas de pantalla o grabaciones en PC?</h1>
+            <h1>¿Puedo usar imágenes o contenido de Digital Night en mi sitio web o en proyectos personales?</h1>
 
-            <p>Para saber cómo hacer capturas de pantalla o grabaciones en PC, consulta estos artículos del soporte técnico de Windows según tu versión de Windows:</p>
+            <p>Todo uso de imágenes o contenido de Digital Night debe cumplir nuestras normas de uso de contenido.
+                Si deseas utilizar materiales de nuestra página o redes, incluso con fines no comerciales, primero comunícate con nosotros a <a href="">licencias@digitalnight.com <i class="bi bi-arrow-up-right"></i></a>
+                para solicitar autorización.
+            </p>
 
-            <ul>
-                <li>
-                    <a target="_blank" href="https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b">
-                        Usar Recortes para realizar capturas de pantalla en Windows 11 y 10
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://www.microsoft.com/en-us/windows/learning-center/how-to-record-screen-windows-11">
-                        Cómo grabar la pantalla en Windows 11
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://support.microsoft.com/en-gb/topic/how-to-make-a-screen-recording-8797f456-7edd-4176-b525-28b954ff5e4d">
-                        Cómo realizar una grabación de pantalla en Windows 10
-                    </a>
-                </li>
-            </ul>
+            <p>Cualquier otro uso sin permiso está estrictamente prohibido.</p>
 
             <div class="utilidad">
                 <h2>¿Te ah sido de ayuda este articulo?</h2>

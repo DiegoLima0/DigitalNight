@@ -1930,11 +1930,15 @@ p {
     margin: 0;
 }
 
+.respuesta ol {
+    margin: 0;
+}
+
 .respuesta li {
     margin: 15px 0;
 }
 
-.respuesta li a {
+.respuesta a {
     color: #95a0ff;
 }
 

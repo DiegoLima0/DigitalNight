@@ -31,21 +31,29 @@ if (cerrarModal2 && modal2) {
     modal2.close();
   });
 }
+
 //Página Soporte support.php
 let faqs = document.querySelectorAll(".faq");
 
-faqs.forEach(faq => {
+faqs[0].classList.add("active");
+
+faqs.forEach((faq, index) => {
   faq.querySelector(".ques").addEventListener("click", () => {
+
     if (faq.classList.contains("active")) {
       faq.classList.remove("active");
-      return;
+
+      const otherIndex = index === 0 ? 1 : 0;
+      faqs[otherIndex].classList.add("active");
+    } 
+    
+    else {
+      faqs.forEach(f => f.classList.remove("active"));
+      faq.classList.add("active");
     }
-
-    faqs.forEach(f => f.classList.remove("active"));
-
-    faq.classList.add("active");
   });
 });
+
 
 //Página Sobre Nosotros AboutUs.php
 function mostrarTarjeta(miembroID) {
