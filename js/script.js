@@ -36,26 +36,29 @@ if (cerrarModal2 && modal2) {
 //Página Soporte support.php
 let faqs = document.querySelectorAll(".faq");
 
-faqs[0].classList.add("active");
+if (faqs.length > 0) {
+  faqs[0].classList.add("active");
 
-faqs.forEach((faq, index) => {
-  faq.querySelector(".ques").addEventListener("click", () => {
+  faqs.forEach((faq, index) => {
+    const pregunta = faq.querySelector(".ques");
+    if (!pregunta) return;
 
-    if (faq.classList.contains("active")) {
-      faq.classList.remove("active");
+    pregunta.addEventListener("click", () => {
+      if (faq.classList.contains("active")) {
+        faq.classList.remove("active");
 
-      const otherIndex = index === 0 ? 1 : 0;
-
-      faqs[otherIndex].classList.add("active");
-    }
-
-    else {
-      faqs.forEach(f => f.classList.remove("active"));
-
-      faq.classList.add("active");
-    }
+        const otherIndex = index === 0 ? 1 : 0;
+        faqs[otherIndex]?.classList.add("active");
+      } 
+      
+      else {
+        faqs.forEach(f => f.classList.remove("active"));
+        faq.classList.add("active");
+      }
+    });
   });
-});
+}
+
 
 //Página de respuesta de la página de soporte (answerFAQ)
 
