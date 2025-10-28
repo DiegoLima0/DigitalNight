@@ -16,6 +16,7 @@ if (cerrarModal && modal) {
   });
 }
 
+
 const abrirModal2 = document.querySelector("#abrirModal2");
 const cerrarModal2 = document.querySelector("#cerrarModal2");
 const modal2 = document.querySelector("#modal2");
@@ -44,16 +45,27 @@ faqs.forEach((faq, index) => {
       faq.classList.remove("active");
 
       const otherIndex = index === 0 ? 1 : 0;
+
       faqs[otherIndex].classList.add("active");
-    } 
-    
+    }
+
     else {
       faqs.forEach(f => f.classList.remove("active"));
+
       faq.classList.add("active");
     }
   });
 });
 
+//Página de respuesta de la página de soporte (answerFAQ)
+
+function marcar(boton) {
+  const botones = boton.parentElement.querySelectorAll('button');
+
+  botones.forEach(b => b.classList.remove('clicked'));
+
+  boton.classList.add('clicked');
+}
 
 //Página Sobre Nosotros AboutUs.php
 function mostrarTarjeta(miembroID) {

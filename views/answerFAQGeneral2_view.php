@@ -18,14 +18,14 @@
 
             <p>Una vez que hayas iniciado sesión, haz clic en tu perfil o en el ícono de <a href="configAccount.php">Cuenta</a>. Allí verás tu ID o nombre de usuario junto con tus datos de perfil. Puedes copiar ese ID cuando lo necesites para contactarnos o para vincular algún servicio externo.</p>
 
-            <div class="utilidad">
-                <h2>¿Te ah sido de ayuda este articulo?</h2>
+            <div class="utilidad" id="utilidad">
+                <h2>¿Te ha sido de ayuda este artículo?</h2>
                 <div>
-                    <button class="btn azul">
-                        <i class="bi bi-hand-thumbs-up"></i> Si
+                    <button class="btn azul" onclick="marcar(this)">
+                        <i class="bi bi-hand-thumbs-up"></i> Sí
                     </button>
 
-                    <button class="btn azul">
+                    <button class="btn azul" onclick="marcar(this)">
                         <i class="bi bi-hand-thumbs-down"></i> No
                     </button>
                 </div>

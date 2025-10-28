@@ -177,6 +177,11 @@ a.btn:hover {
     color: #000;
 }
 
+.btn.clicked {
+    background: white;
+    color: #000;
+}
+
 a {
     color: white;
     text-decoration: none;

@@ -23,14 +23,14 @@
 
             <p>Cualquier otro uso sin permiso está estrictamente prohibido.</p>
 
-            <div class="utilidad">
-                <h2>¿Te ah sido de ayuda este articulo?</h2>
+            <div class="utilidad" id="utilidad">
+                <h2>¿Te ha sido de ayuda este artículo?</h2>
                 <div>
-                    <button class="btn azul">
-                        <i class="bi bi-hand-thumbs-up"></i> Si
+                    <button class="btn azul" onclick="marcar(this)">
+                        <i class="bi bi-hand-thumbs-up"></i> Sí
                     </button>
 
-                    <button class="btn azul">
+                    <button class="btn azul" onclick="marcar(this)">
                         <i class="bi bi-hand-thumbs-down"></i> No
                     </button>
                 </div>

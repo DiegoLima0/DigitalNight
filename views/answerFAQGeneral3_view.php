@@ -18,14 +18,14 @@
 
             <p>Si deseas eliminar tu cuenta, accede a la configuración de <a href="configAccount.php">Cuenta</a> en tu perfil. Busca la opción “Eliminar cuenta” o “Cerrar cuenta”. Confirma tu decisión según las instrucciones que aparecerán. Ten en cuenta que al borrar tu cuenta puede perderse el acceso a todo tu contenido, historial y datos asociados. Si eres creador/a y tienes contenido en venta, asegúrate de descargar tus datos antes de eliminar la cuenta.</p>
 
-            <div class="utilidad">
-                <h2>¿Te ah sido de ayuda este articulo?</h2>
+            <div class="utilidad" id="utilidad">
+                <h2>¿Te ha sido de ayuda este artículo?</h2>
                 <div>
-                    <button class="btn azul">
-                        <i class="bi bi-hand-thumbs-up"></i> Si
+                    <button class="btn azul" onclick="marcar(this)">
+                        <i class="bi bi-hand-thumbs-up"></i> Sí
                     </button>
 
-                    <button class="btn azul">
+                    <button class="btn azul" onclick="marcar(this)">
                         <i class="bi bi-hand-thumbs-down"></i> No
                     </button>
                 </div>
