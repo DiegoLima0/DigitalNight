@@ -15,7 +15,7 @@
       <div class="contenedor">
         <div class="left">
           <h1 class="title"><?php echo $game_data['title']; ?></h1>
-          <p class="subtitle">US$<?php echo $game_data['subtitle']; ?></p>
+          <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
 
           <div class="cta-group">
             <a class="boton-base boton-primario" href="#">Comprar</a>

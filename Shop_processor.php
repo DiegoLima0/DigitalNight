@@ -8,7 +8,8 @@ $sql_select_games = "SELECT
     title, 
     imagen AS cover_path, 
     price,
-    genre AS platforms 
+    genre,
+    platforms 
 FROM game";
 
 $result_games = $conexion->query($sql_select_games);
