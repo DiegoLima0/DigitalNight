@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2025 a las 20:41:31
+-- Tiempo de generación: 31-10-2025 a las 22:35:04
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -114,7 +114,8 @@ INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `descript
 
 CREATE TABLE `user_game` (
   `idUser` int(11) NOT NULL,
-  `idGame` int(10) UNSIGNED NOT NULL
+  `idGame` int(10) UNSIGNED NOT NULL,
+  `purchaseDate` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

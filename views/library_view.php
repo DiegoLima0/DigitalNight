@@ -13,37 +13,25 @@
 
       <aside class="columna-juegos">
         <h2>Mis juegos</h2>
-
-        <div class="lista-juegos">
-          <a href="games.php" class="item-juego">
-            <img src="img/rdr2.jpg" alt="Juego 1">
-            <span>Red dead redemption 2</span>
+        <div class="lista-juegos">                                        
+          <?php 
+            if (isset($games_list) && is_array($games_list)): 
+              foreach ($games_list as $game): 
+          ?>
+          <a href="games.php?idGame=<?php echo $game['idGame']; ?>" class="item-juego">
+            <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>" alt="Juego 1">
+            <span><?php echo $game['title']; ?></span>
           </a>
-
-          <a href="juego2.html" class="item-juego">
-            <img src="img/fallou4-recomendado.jpg" alt="Juego 2">
-            <span>Fallout 4</span>
-          </a>
-
-          <a href="juego3.html" class="item-juego">
-            <img src="img/metalgear.jpg" alt="Juego 3">
-            <span>Metal gear solid 3</span>
-          </a>
-
-          <a href="juego4.html" class="item-juego">
-            <img src="img/sons of the forest.jpg" alt="Juego 3">
-            <span>Sons of the forest</span>
-          </a>
-
-          <a href="juego5.html" class="item-juego">
-            <img src="img/terraria.jpg" alt="Juego 3">
-            <span>Terraria</span>
-          </a>
-
-          <a href="juego6.html" class="item-juego">
-            <img src="img/overcooked2.jpg" alt="Juego 3">
-            <span>Overcooked 2</span>
-          </a>
+          <?php 
+            endforeach;
+            else:
+          ?>
+          <p>No hay juegos comprados.</p>
+          <?php endif; ?>
+          <form method="POST" action="delete_games.php">
+            <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
+            <button type="submit" class="boton-base boton-primario">borrar juegos</button>
+          </form>
         </div>
       </aside>
 
@@ -53,21 +41,19 @@
           <h3>Agregados recientemente</h3>
 
           <div class="rejilla-juegos">
-            <a href="games.php" class="recuadro-juego">
-              <img src="img/rdr2.jpg" alt="Juego 3">
+            <?php 
+            if (isset($recent_games_list) && is_array($recent_games_list)): 
+              foreach ($recent_games_list as $recent_game): 
+            ?>
+            <a href="games.php?idGame=<?php echo $recent_game['idGame']; ?>" class="recuadro-juego">
+              <img src="img/<?php echo $recent_game['imagen']; ?>" alt="Juego">
             </a>
-
-            <a href="juego2.html" class="recuadro-juego">
-              <img src="img/overcooked2.jpg" alt="Juego 3">
-            </a>
-
-            <a href="juego3.html" class="recuadro-juego">
-              <img src="img/metalgear.jpg" alt="Juego 3">
-            </a>
-            
-            <a href="juego4.html" class="recuadro-juego">
-              <img src="img/terraria.jpg" alt="Juego 3">
-            </a>
+            <?php 
+              endforeach;
+              else:
+            ?>
+            <p>No hay juegos comprados.</p>
+            <?php endif; ?>
           </div>
         </section>
 
