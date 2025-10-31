@@ -63,12 +63,12 @@
                     </div>
 
                     <div class="ans">
-                        <a href="">Cómo verificar si tu PC cumple con las especificaciones del sistema</a>
-                        <a href="">¿Cómo hacer capturas de pantalla o grabaciones en PC?</a>
-                        <a href="">Cómo resolver el error de Windows 0xc000009a</a>
-                        <a href="">¿Cómo reinicio mi módem o enrutador para resolver problemas de conexión?</a>
-                        <a href="">¿Cómo establezco la tarjeta gráfica principal?</a>
-                        <a href="">¿Dónde puedo encontrar las partidas guardadas locales?</a>
+                        <a href="answerFAQProblemasPC1.php">Cómo verificar si tu PC cumple con las especificaciones del sistema</a>
+                        <a href="answerFAQProblemasPC2.php">¿Cómo hacer capturas de pantalla o grabaciones en PC?</a>
+                        <a href="answerFAQProblemasPC3.php">Cómo resolver el error de Windows 0xc000009a</a>
+                        <a href="answerFAQProblemasPC4.php">¿Cómo reinicio mi módem o enrutador para resolver problemas de conexión?</a>
+                        <a href="answerFAQProblemasPC5.php">¿Cómo establezco la tarjeta gráfica principal?</a>
+                        <a href="answerFAQProblemasPC6.php">¿Dónde puedo encontrar las partidas guardadas locales?</a>
                     </div>
                 </div>
 
