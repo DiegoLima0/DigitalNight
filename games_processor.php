@@ -1,6 +1,5 @@
 <?php
 require_once 'includes/database.php';
-
 $game_id = isset($_GET['idGame']) ? (int)$_GET['idGame'] : null;
 
 $game_data = null; 

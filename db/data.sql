@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2025 a las 20:48:50
+-- Tiempo de generación: 31-10-2025 a las 20:41:31
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -106,6 +106,17 @@ INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `descript
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png'),
 ('cuentanueva', 'nueva@gmail.com', 'nueva', 5, 'user', NULL, 'default.png');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user_game`
+--
+
+CREATE TABLE `user_game` (
+  `idUser` int(11) NOT NULL,
+  `idGame` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -129,6 +140,13 @@ ALTER TABLE `game`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`),
   ADD UNIQUE KEY `userName` (`userName`);
+
+--
+-- Indices de la tabla `user_game`
+--
+ALTER TABLE `user_game`
+  ADD PRIMARY KEY (`idUser`,`idGame`),
+  ADD KEY `fk_userGame_game` (`idGame`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -161,6 +179,13 @@ ALTER TABLE `creator`
 --
 ALTER TABLE `game`
   ADD CONSTRAINT `fk_Game_Creator` FOREIGN KEY (`idCreator`) REFERENCES `creator` (`idCreator`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `user_game`
+--
+ALTER TABLE `user_game`
+  ADD CONSTRAINT `fk_userGame_game` FOREIGN KEY (`idGame`) REFERENCES `game` (`idGame`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_userGame_user` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

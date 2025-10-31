@@ -18,8 +18,11 @@
           <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
 
           <div class="cta-group">
-            <a class="boton-base boton-primario" href="#">Comprar</a>
+            <form method="POST" action="buy.php">
+            <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
+            <button type="submit" class="boton-base boton-primario">Comprar</button>
             <a class="boton-base boton-secundario" href="#">Ver ediciones</a>
+            </form>
           </div>
         </div>
 
