@@ -42,7 +42,8 @@ textarea {
     resize: none;
 }
 
-#modal, #modal2 {
+#modal,
+#modal2 {
     background: linear-gradient(#44499f70, #3b356e7a);
     padding: 30px 40px;
     border-radius: 20px;
@@ -105,6 +106,10 @@ header {
     padding: 15px 40px;
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
+}
+
+header i {
+    font-size: 30px;
 }
 
 header img {
@@ -225,59 +230,67 @@ footer p {
 }
 
 .profile-dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
-
-.profile-dropdown img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 
 .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 70px; 
-  right: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  min-width: 150px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 10;
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #191732;
+    border: 1px solid #26244e;
+    border-radius: 8px;
+    min-width: 230px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
 }
 
+.dropdown-menu div{
+    padding: 0 0 0 15px;
+    border-bottom: rgba(255, 255, 255, 0.76) solid 1px;
+    margin: 0 10px;
+}
+
+.dropdown-menu i {
+    font-size: 20px;
+}
+
+.dropdown-menu img {
+    width: 35px;
+    height: 35px;
+}
 
 .profile-dropdown:hover .dropdown-menu {
-  display: block;
+    display: block;
 }
 
 .dropdown-menu a {
-  display: block;
-  padding: 10px;
-  color: black;
-  text-decoration: none;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    padding: 10px ;
+    text-decoration: none;
 }
 
 .dropdown-menu a:hover {
-  background-color: #f0f0f0;
-}
-.dropdown-menu::before {
-  content: "";
-  position: absolute;
-  top: -10px; 
-  left: 0;
-  width: 100%;
-  height: 10px;
+    background-color: #2523a76b;
 }
 
-  
-  .profile-dropdown:hover .dropdown-menu {
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
+.profile-dropdown:hover .dropdown-menu {
     display: block;
-  }
+}
+
 /*PAGINA PRINCIPAL (Index.php)*/
 #MainPrincipal {
     display: flex;
