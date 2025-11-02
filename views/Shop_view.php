@@ -73,7 +73,7 @@
         <section class="container-carrusel">
             <div class="slider-wrapper">
                 <div class="slider">
-                    <img id="slider-1" src="img/rdr2.jpg" alt="" data-href="Games.php">
+                    <img id="slider-1" src="../img/rdr2.png" alt="" data-href="Games.php">
                     <img id="slider-2" src="img/metalgear.jpg" alt="" data-href="metalgear.html">
                     <img id="slider-3" src="img/overcooked2.jpg" alt="" data-href="overcooked2.html">
                     <img id="slider-4" src="img/sons of the forest.jpg" alt="" data-href="sons.html">
@@ -135,7 +135,7 @@
             </div>
         </article>
     </a>
-
+    
     <?php 
         endforeach;
     else: 
