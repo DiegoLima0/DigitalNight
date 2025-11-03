@@ -13,9 +13,9 @@
 
         <h1 id="TextoPaginaPrincipal">¿Listo para jugar?</h1>
 
-        <a href="login.php" id="<?php echo $id_variable; ?>">
+        <a href="login.php">
             <a href="login.php">
-                <button class="btn azul">Iniciar sesión</button>
+                <button class="btn azul"  id="<?php echo $id_variable; ?>">Iniciar sesión</button>
             </a>
         </a>
 
