@@ -49,12 +49,12 @@ if ($is_logged_in) {
                         Ver perfil
                     </a>
 
-                    <a href="#">
+                    <a href="configAccount.php">
                         <i class="bi bi-gear"></i>
                         Configuración
                     </a>
 
-                    <a href="#">
+                    <a href="creatorForm.php">
                         <i class="bi bi-person-plus"></i>
                         Quiero ser creador
                     </a>
@@ -66,12 +66,69 @@ if ($is_logged_in) {
                 </div>
             </div>
 
-            <div>
-                <i class="bi bi-cart"></i>
+            <i id="abrirModalCarrito" class="bi bi-cart"></i>
 
-                <div id="numero"></div>
+            <div id="overlay"></div>
+
+            <div id="modalCarrito">
+                <div id="tituloCarrito">
+                    <h1>Mi carrito</h1>
+                </div>
+
+                <!--Mensaje q deberia aparecer si el carrito esta vacio 
+                <p>Todavia no hay nada en el carrito</p>-->
+
+                <div id="juegosCarrito">
+                    <div class="juegoCarrito">
+                        <img class="imgJuego" src="" alt="">
+                        <div>
+                            <div>
+                                <h2>Nombre del juego</h2>
+                                <i class="bi bi-trash3"></i>
+                            </div>
+
+                            <p>Plataforma: plataformas</p>
+
+                            <div>
+                                <p>Precio</p>
+
+                                <div class="cantidad-control">
+                                    <button class="menos">-</button>
+                                    <span class="cantidad">1</span>
+                                    <button class="mas">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="juegoCarrito">
+                        <img class="imgJuego" src="" alt="">
+                        <div>
+                            <div>
+                                <h2>Nombre del juego</h2>
+                                <i class="bi bi-trash3"></i>
+                            </div>
+
+                            <p>Plataforma: plataformas</p>
+                            <div>
+                                <p>Precio</p>
+                                <div class="cantidad-control">
+                                    <button class="menos">-</button>
+                                    <span class="cantidad">1</span>
+                                    <button class="mas">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="botonesModalCarrito">
+                    <button type="button" class="cerrarModalCarrito btn azul">Continuar comprando</button>
+                    <button type="button" class="btn azul">Iniciar compra</button>
+                </div>
+
             </div>
-            
         </div>
     </div>
 </div>

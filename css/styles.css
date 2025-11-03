@@ -138,7 +138,7 @@ header div {
     gap: 10px;
 }
 
-#authContainer img {
+.dropdown-menu img {
     border-radius: 40px;
 }
 
@@ -275,7 +275,7 @@ footer p {
 }
 
 .dropdown-menu a:hover {
-    background-color: #2523a76b;
+    background-color: #3f3ea06b;
 }
 
 .dropdown-menu::before {
@@ -289,6 +289,146 @@ footer p {
 
 .profile-dropdown:hover .dropdown-menu {
     display: block;
+}
+
+/*Carrito*/
+#modalCarrito {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: -400px;
+    width: 400px;
+    height: 85%;
+    top: 80px;
+    background-color: #181833;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+#modalCarrito.active {
+    right: 20px;
+}
+
+#modalCarrito.closing {
+    right: -400px;
+}
+
+#modalCarrito>div{
+    width: 100%;
+}
+
+#tituloCarrito{
+    padding: 30px 10px 0px 10px;
+}
+
+#modalCarrito h1{
+    margin: 0;
+}
+
+.botonesModalCarrito{
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 20px;
+}
+
+.botonesModalCarrito button{
+    width: 50%;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 998;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#juegosCarrito{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.juegoCarrito{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.juegoCarrito img{
+    height: 100%;
+    width: 100px;
+    border-radius: 20px;
+    background-color: #63519460;
+}
+
+.juegoCarrito>div{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.juegoCarrito>div h2{
+    font-size: 20px;
+}
+
+.juegoCarrito>div i{
+    font-size: 20px;
+}
+
+.juegoCarrito>div p{
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.juegoCarrito>div>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.imgJuego{
+    border-radius: 10px;
+}
+
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad-control button {
+    width: 30px;
+    height: 30px;
+    background-color: #313175;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.cantidad-control span.cantidad {
+    min-width: 20px;
+    text-align: center;
+    font-size: 16px;
 }
 
 /*PAGINA PRINCIPAL (Index.php)*/

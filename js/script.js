@@ -33,6 +33,55 @@ if (cerrarModal2 && modal2) {
   });
 }
 
+//Carrito
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modalCarrito");
+  const overlay = document.getElementById("overlay");
+  const abrirBtn = document.getElementById("abrirModalCarrito");
+  const cerrarBtns = document.querySelectorAll(".cerrarModalCarrito");
+
+  const abrirModal = () => {
+    modal.classList.add("active");
+    overlay.classList.add("active");
+  };
+
+  const cerrarModal = () => {
+    modal.classList.add("closing");
+    overlay.classList.remove("active");
+
+    modal.addEventListener("transitionend", function handler(e) {
+      if (e.propertyName === "right" && modal.classList.contains("closing")) {
+        modal.classList.remove("active", "closing");
+        modal.removeEventListener("transitionend", handler);
+      }
+    });
+  };
+
+  abrirBtn.addEventListener("click", abrirModal);
+  cerrarBtns.forEach(btn => btn.addEventListener("click", cerrarModal));
+  overlay.addEventListener("click", cerrarModal);
+});
+
+//Boton de cantidad para el juego dentro del carrito
+const botones = document.querySelectorAll('.cantidad-control');
+
+botones.forEach(control => {
+  const btnMas = control.querySelector('.mas');
+  const btnMenos = control.querySelector('.menos');
+  const cantidad = control.querySelector('.cantidad');
+
+  btnMas.addEventListener('click', () => {
+    cantidad.textContent = parseInt(cantidad.textContent) + 1;
+  });
+
+  btnMenos.addEventListener('click', () => {
+    let valor = parseInt(cantidad.textContent);
+    if (valor > 1) {
+      cantidad.textContent = valor - 1;
+    }
+  });
+});
+
 //Página Soporte support.php
 let faqs = document.querySelectorAll(".faq");
 
@@ -49,8 +98,8 @@ if (faqs.length > 0) {
 
         const otherIndex = index === 0 ? 1 : 0;
         faqs[otherIndex]?.classList.add("active");
-      } 
-      
+      }
+
       else {
         faqs.forEach(f => f.classList.remove("active"));
         faq.classList.add("active");
