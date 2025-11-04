@@ -1,12 +1,9 @@
 <?php
-// ATENCIÓN: Esta página es insegura al no tener control de acceso.
 require_once '../includes/database.php'; 
 
 $mensaje = "";
 
-// **********************************************
-// 1. Procesar Borrado (DELETE)
-// **********************************************
+// 1. DELETE
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'delete_user') {
     
     $user_id_to_delete = (int)$_POST['idUser'];
@@ -21,24 +18,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     }
 }
 
-// **********************************************
-// 2. Procesar Edición (UPDATE)
-// **********************************************
-// Solo procede si la acción es 'update_user' y el método es POST
+// 2. UPDATE
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'update_user') {
     
-    // **NOTA:** Todas las variables de POST se acceden aquí,
-    // dentro del bloque, eliminando los errores "Undefined array key"
     $user_id_to_update = (int)$_POST['idUser'];
     $new_username = $conexion->real_escape_string($_POST['userName']);
     $new_email = $conexion->real_escape_string($_POST['email']);
     
-    // Usamos el operador de fusión null (??) para evitar Warning si 'description' o 'password' están vacíos
     $new_description = $conexion->real_escape_string($_POST['description'] ?? ''); 
     $new_user_type = $conexion->real_escape_string($_POST['type']); // CORRECTO: La columna se llama 'type'
     
     $password_update = "";
-    // Solo actualiza la contraseña si se proporcionó una (aunque en este formulario es requerido)
     if (!empty($_POST['password'])) {
         $new_password = $conexion->real_escape_string($_POST['password']);
         $password_update = ", password = '$new_password'";
@@ -48,11 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                    userName = '$new_username', 
                    email = '$new_email', 
                    description = '$new_description',
-                   type = '$new_user_type' /* CORRECTO: Usamos la columna 'type' */
+                   type = '$new_user_type' 
                    $password_update
                    WHERE idUser = $user_id_to_update";
 
-    // La ejecución de la consulta debe estar aquí
     if ($conexion->query($sql_update) === TRUE) {
         header("Location: users.php?message=update_success");
         exit();
@@ -62,10 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 }
 
 
-// **********************************************
-// 3. Obtener la lista de usuarios (READ)
-// **********************************************
-// CORRECTO: Seleccionamos la columna 'type'
+// 3. READ
 $sql_select_users = "SELECT idUser, userName, email, password, description, type FROM user ORDER BY idUser ASC";
 $resultado_users = $conexion->query($sql_select_users);
 $usuarios = [];
@@ -76,9 +62,6 @@ if ($resultado_users && $resultado_users->num_rows > 0) {
     }
 }
 
-// **********************************************
-// 4. Manejar mensajes
-// **********************************************
 if (isset($_GET['message'])) {
     if ($_GET['message'] == 'update_success') {
         $mensaje = "Usuario actualizado correctamente.";
