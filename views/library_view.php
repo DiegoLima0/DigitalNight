@@ -28,9 +28,9 @@
           ?>
           <p>No hay juegos comprados.</p>
           <?php endif; ?>
-          <form method="POST" action="delete_games.php" class="<?php echo $borro; ?>">
+          <form method="POST" action="<?php echo $a1; ?>">
             <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
-            <button type="submit" class="boton-base boton-primario">borrar juegos</button>
+            <button type="submit" class="boton-base boton-primario"><?php echo $m2; ?></button>
           </form>
         </div>
       </aside>
@@ -78,15 +78,15 @@
         </section>
 
         <section class="seccion-juegos">
-          <h3>Todos los juegos</h3>
+          <h3><?php echo $m1; ?></h3>
           
           <div class="rejilla-juegos">
             <?php 
-            if (isset($other_games) && is_array($other_games)): 
-              foreach ($other_games as $other_games): 
+            if (isset($games_list) && is_array($games_list)): 
+              foreach ($games_list as $games_list): 
             ?>
-            <a href="games.php?idGame=<?php echo $other_games['idGame']; ?>" class="recuadro-juego">
-              <img src="img/<?php echo $other_games['imagen']; ?>" alt="Juego">
+            <a href="games.php?idGame=<?php echo $games_list['idGame']; ?>" class="recuadro-juego">
+              <img src="img/<?php echo $games_list['imagen']; ?>" alt="Juego">
             </a>
             <?php 
               endforeach;

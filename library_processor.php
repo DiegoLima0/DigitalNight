@@ -98,6 +98,9 @@ if (count($games_list) > 0) {
       )
     ";
     $borro="";
+    $m1="Todos tus juegos";
+    $m2="Borrar juegos";
+    $a1="delete_games.php";
 } else {
     // El usuario no tiene juegos comprados: mostrar todos los juegos
     $sql_other_games = "
@@ -105,6 +108,9 @@ if (count($games_list) > 0) {
       FROM game
     ";
     $borro="borrar";
+    $m1="No tienes ningun juego comprado";
+    $m2="compra juegos";
+    $a1="shop.php";
 }
 
 $result_other_games = $conexion->query($sql_other_games);
