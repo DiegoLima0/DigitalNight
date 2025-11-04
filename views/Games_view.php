@@ -138,8 +138,8 @@
                   <p><?php echo $comment['commentary']; ?></p>
 
                   <?php if (!empty($comment['imagen'])): ?>
-                    <img class="imgPub" src="img/<?php echo $comment['imagen']; ?>" alt="Imagen de la publicación">
-                  <?php endif; ?>
+                    <img class="imgPub" src="img/publications/<?php echo $comment['imagen']; ?>"
+                      alt="Imagen de la publicación"> <?php endif; ?>
 
                   <div class="interacciones">
                     <p><i class="bi bi-hand-thumbs-up"></i> 0 </p>

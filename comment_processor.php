@@ -26,9 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
     $file_name = uniqid() . '_' . basename($_FILES['publication_image']['name']);
     $destination = $upload_dir . $file_name;
 
-    // if (move_uploaded_file($file_tmp, $destination)) { 
-    //     $image_file_name = "'" . $conexion->real_escape_string($file_name) . "'";
-    // }
+     if (move_uploaded_file($file_tmp, $destination)) { 
+         $image_file_name = "'" . $conexion->real_escape_string($file_name) . "'";
+     }
 }
 
     // LÓGICA PARA PUBLICACIÓN
