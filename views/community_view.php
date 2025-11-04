@@ -4,245 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidad de Nombre de juego</title>
+    <title>Comunidad</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seleccionamos todos los botones de voto en la página
+            document.querySelectorAll('.vote-button').forEach(button => {
+                button.addEventListener('click', function (e) {
+
+                    // ⚠️ CRÍTICO: Esto previene la navegación y el burbujeo del evento
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const interactionDiv = this.closest('.interacciones');
+                    const idCommentary = interactionDiv.dataset.id;
+                    const voteAction = this.dataset.type;
+
+                    // Desactivar botones temporalmente
+                    interactionDiv.style.pointerEvents = 'none';
+
+                    fetch('comment_processor.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        // Asegura que la acción PHP es 'process_vote' y que el ID se envía correctamente
+                        body: `action=process_vote&id=${idCommentary}&vote_action=${voteAction}`
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Actualiza contadores y estado
+                            // (Lógica para actualizar likes/dislikes)
+                            interactionDiv.style.pointerEvents = 'auto'; // Reactivar botones
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            interactionDiv.style.pointerEvents = 'auto'; // Reactivar botones
+                        });
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
     <main id="mainComunidad">
-        <section id="secPublicar">
-            <div id="botones">
-                <a href="games.php#botones">
-                    <button class="btn azul">Juego</button>
-                </a>
+        <section class="publicaciones">
+            <?php if (false): ?>
+                <div class="publicacion new-post">
+                    <form method="POST" action="comment_processor.php" enctype="multipart/form-data">
+                        <h4>Crea una nueva publicación</h4>
+                        <input type="hidden" name="idGame" value="<?php echo $game_id; ?>">
+                        <textarea name="content" placeholder="¿Qué estás pensando?" rows="3" required></textarea>
 
-                <a href="community.php">
-                    <button class="btn azul">Comunidad</button>
-                </a>
-            </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                            <label for="post_image_global" class="boton-base boton-secundario"
+                                style="cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 4px; display: inline-flex; align-items: center;">
+                                <i class="bi bi-image" style="margin-right: 5px;"></i> Seleccionar Foto
+                            </label>
+                            <input type="file" id="post_image_global" name="publication_image" accept="image/*"
+                                style="display: none;"
+                                onchange="document.getElementById('community-file-name-display').innerText = this.files[0].name">
+                            <span id="community-file-name-display"
+                                style="color: #bbb; font-size: 0.9em; flex-grow: 1; margin-left: 10px;">Ningún archivo
+                                seleccionado.</span>
 
-            <form>
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
-                    <p>@Usuario</p>
+                            <button type="submit" class="boton-base boton-primario">Publicar</button>
+                        </div>
+                    </form>
                 </div>
+                <hr />
+            <?php endif; ?>
 
-                <div class="publicar">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+            <section id="communityFeed">
 
-                    <div>
-                        <input type="file" name="" id="" multiple>
-                        <input type="button" value="Enviar" class="btn azul">
-                    </div>
-                </div>
-            </form>
+                <?php if ($game_id > 0): ?>
+                    <p>⚠️ **Sección en Mantenimiento / Work in Progress** ⚠️</p>
+                    <p>Estamos trabajando para mejorar el sistema de publicaciones de la comunidad. ¡Vuelve pronto!</p>
+                    <p>Las publicaciones del creador del juego aún se muestran en la página principal del juego.</p>
+
+                <?php else: ?>
+                    <p>⚠️ **Sección en Mantenimiento / Work in Progress** ⚠️</p>
+                    <p>Estamos trabajando para mejorar esta sección. ¡Vuelve pronto!</p>
+                <?php endif; ?>
+
+                <?php if (!empty($publications_list)): ?>
+                <?php endif; ?>
+
+            </section>
         </section>
-
-        <section id="publicaciones"><!--Dentro de esta seccion se encuentran todas las publicaciones de la comunidad-->
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <img class="imgPub" src="" alt="">
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                </div>
-            </a>
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <img class="imgPub" src="" alt="">
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <img class="imgPub" src="" alt="">
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <img class="imgPub" src="" alt="">
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a class="publicacion" href="communityPublication.php">
-                <div id="imgUsComunidad">
-                    <img src="img/profiles/" alt="Imagen de perfil">
-
-                    <p>@Usuario</p>
-                </div>
-
-                <div class="contenido">
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
-
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </section>
-
     </main>
 </body>
 

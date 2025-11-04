@@ -10,7 +10,8 @@
 <body class="games">
   <div class="page">
     <div class="section fondo-img" role="banner" aria-label="Fondo principal">
-      <img src="img/<?php echo $game_data['banner_path']; ?>" alt="Banner principal del juego <?php echo $game_data['title']; ?>" aria-hidden="true" />
+      <img src="img/<?php echo $game_data['banner_path']; ?>"
+        alt="Banner principal del juego <?php echo $game_data['title']; ?>" aria-hidden="true" />
 
       <div class="contenedor">
         <div class="left">
@@ -83,79 +84,77 @@
           </label>
 
           <div class="social-row">
-            <a class="boton-base social-btn twitter" href="https://twitter.com/intent/tweet?url=" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a class="boton-base social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="boton-base social-btn twitter" href="https://twitter.com/intent/tweet?url=" target="_blank"
+              rel="noopener noreferrer">Twitter</a>
+            <a class="boton-base social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u="
+              target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </aside>
 
 
         <main class="col posts">
+          <h4>Publicaciones del Creador</h4>
 
-          <a class="publicacion" href="communityPublication.php">
-            <div id="imgUsComunidad">
-              <img src="img/" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
+          <?php if (isset($is_creator) && $is_creator): ?>
+            <div class="publicacion new-post">
+              <form method="POST" action="submit_creator_post.php" enctype="multipart/form-data">
+                <h4>Escribe una nueva publicación</h4>
+                <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
+                <textarea name="commentary"
+                  placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_comments[0]['username'] ?? 'Creador'; ?>?"
+                  rows="3" required></textarea>
 
-              <p>@Usuario</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                  <label for="post_image_game" class="boton-base boton-secundario"
+                    style="cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 4px; display: inline-flex; align-items: center;">
+                    <i class="bi bi-image" style="margin-right: 5px;"></i> Seleccionar Foto
+                  </label>
+                  <input type="file" id="post_image_game" name="post_image" accept="image/*" style="display: none;"
+                    onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name">
+                  <span id="file-name-display-game"
+                    style="color: #bbb; font-size: 0.9em; flex-grow: 1; margin-left: 10px;">Ningún archivo
+                    seleccionado.</span>
+
+                  <button type="submit" class="boton-base boton-primario">Publicar</button>
+                </div>
+              </form>
             </div>
+            <hr />
+          <?php endif; ?>
 
-            <div class="contenido">
-              <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+          <?php if (!empty($creator_comments)): ?>
+            <?php foreach ($creator_comments as $comment): ?>
+              <div class="publicacion">
+                <div id="imgUsComunidad">
+                  <?php
+                  $profile_image_path = (!empty($comment['profile_image_path']) ? $comment['profile_image_path'] : 'default_profile.png');
+                  ?>
+                  <img src="img/profiles/<?php echo $profile_image_path; ?>" alt="Imagen de perfil del creador">
 
-              <img class="imgPub" src="" alt="">
+                  <p>@<?php echo $comment['username']; ?></p>
+                </div>
 
-              <div class="interacciones">
-                <p>
-                  <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                </p>
+                <div class="contenido">
+                  <p><?php echo $comment['commentary']; ?></p>
 
-                <p>
-                  <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                </p>
+                  <?php if (!empty($comment['imagen'])): ?>
+                    <img class="imgPub" src="img/<?php echo $comment['imagen']; ?>" alt="Imagen de la publicación">
+                  <?php endif; ?>
 
-                <p>
-                  <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                </p>
+                  <div class="interacciones">
+                    <p><i class="bi bi-hand-thumbs-up"></i> 0 </p>
+                    <p><i class="bi bi-hand-thumbs-down"></i> 0</p>
+                    <p><i class="bi bi-chat"></i> 0</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
-
-
-
-          <a class="publicacion" href="communityPublication.php">
-            <div id="imgUsComunidad">
-              <img src="img/" alt="Imagen de perfil"><!--Aca deberia estar el perfil del usuario q hizo la publicación-->
-
-              <p>@Usuario</p>
-            </div>
-
-            <div class="contenido">
-              <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-
-              <img class="imgPub" src="" alt="">
-
-              <div class="interacciones">
-                <p>
-                  <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                </p>
-
-                <p>
-                  <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                </p>
-
-                <p>
-                  <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                </p>
-              </div>
-            </div>
-          </a>
-
-
+            <?php endforeach; ?>
+          <?php endif; ?>
 
           <div class="more-wrap">
-            <a class="boton-base more-btn" href="#">Más Información</a>
+            <a class="boton-base more-btn" href="#">Más Publicaciones del Creador</a>
           </div>
         </main>
-
 
         <aside class="col recommended">
           <h4>Recomendados</h4>
@@ -202,8 +201,6 @@
 
   </section>
 
-  
-  
 </body>
 
 </html>
