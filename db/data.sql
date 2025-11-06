@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2025 a las 01:36:37
+-- Tiempo de generación: 04-11-2025 a las 15:53:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -37,6 +37,31 @@ CREATE TABLE `comment` (
   `idUser` int(11) NOT NULL,
   `idGame` int(10) UNSIGNED NOT NULL,
   `parent_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comment`
+--
+
+INSERT INTO `comment` (`commentary`, `imagen`, `created_at`, `liked`, `disliked`, `idCommentary`, `idUser`, `idGame`, `parent_id`) VALUES
+('Que buen juego que sacamos en 2018', NULL, '2025-11-03 20:59:30', NULL, NULL, 1, 1, 9, NULL),
+('E E E E E', '6909491a838ad_Undertale.png', '2025-11-03 21:30:18', NULL, NULL, 4, 1, 9, NULL),
+('Metal Gear Solid Delta: Snake Eater IS OUT!', NULL, '2025-11-04 11:44:26', NULL, NULL, 7, 1, 10, NULL),
+('FALLOUT 4 IS OUT!', NULL, '2025-11-04 11:45:06', NULL, NULL, 8, 1, 11, NULL),
+('3 MILLION COPIES SOLD, THANK YOU! ', NULL, '2025-11-04 11:47:37', NULL, NULL, 9, 1, 12, NULL),
+('Little Nightmares 3 is out now!\r\n', NULL, '2025-11-04 11:48:24', NULL, NULL, 10, 1, 13, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comment_votes`
+--
+
+CREATE TABLE `comment_votes` (
+  `idVote` int(11) NOT NULL,
+  `idCommentary` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `vote_type` enum('like','dislike') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -127,7 +152,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`) VALUES
-('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1760460476.png'),
+('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png'),
 ('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png'),
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png'),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png'),
@@ -166,6 +191,14 @@ ALTER TABLE `comment`
   ADD KEY `parent_id` (`parent_id`);
 
 --
+-- Indices de la tabla `comment_votes`
+--
+ALTER TABLE `comment_votes`
+  ADD PRIMARY KEY (`idVote`),
+  ADD UNIQUE KEY `unique_user_comment` (`idCommentary`,`idUser`),
+  ADD KEY `idUser` (`idUser`);
+
+--
 -- Indices de la tabla `creator`
 --
 ALTER TABLE `creator`
@@ -200,7 +233,13 @@ ALTER TABLE `user_game`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `comment_votes`
+--
+ALTER TABLE `comment_votes`
+  MODIFY `idVote` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `game`
@@ -225,6 +264,13 @@ ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`idGame`) REFERENCES `game` (`idGame`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_3` FOREIGN KEY (`parent_id`) REFERENCES `comment` (`idCommentary`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `comment_votes`
+--
+ALTER TABLE `comment_votes`
+  ADD CONSTRAINT `comment_votes_ibfk_1` FOREIGN KEY (`idCommentary`) REFERENCES `comment` (`idCommentary`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comment_votes_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `creator`

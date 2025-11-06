@@ -1,42 +1,69 @@
 <?php
+session_start(); 
 require_once 'includes/database.php';
-$game_id = isset($_GET['idGame']) ? (int)$_GET['idGame'] : null;
 
+$game_id = isset($_GET['idGame']) ? (int)$_GET['idGame'] : null;
+$current_user_id = $_SESSION['user_id'] ?? null;
 $game_data = null; 
+$creator_comments = []; 
+$is_creator = false;
 
 if ($game_id) {
-    // Consulta para obtener TODOS los campos necesarios de la tabla 'game'
     $sql_game_detail = "SELECT 
-        idGame, 
-        title, 
-        description,
-        imagen AS banner_path,
-        releaseDate AS release_date,
-        platforms, 
-        genre AS developer,
-        price,
-        imagen2 AS featured_image,
-        gameGallery1, 
-        gameGallery2, 
-        gameGallery3, 
-        gameGallery4, 
-        gameGallery5, 
-        gameGallery6
-    FROM game 
-    WHERE idGame = " . $game_id;
+        g.idGame, 
+        g.title, 
+        g.description,
+        g.imagen AS banner_path,
+        g.releaseDate AS release_date,
+        g.platforms, 
+        g.genre AS developer,
+        g.price,
+        g.imagen2 AS featured_image,
+        g.gameGallery1, 
+        g.gameGallery2, 
+        g.gameGallery3, 
+        g.gameGallery4, 
+        g.gameGallery5, 
+        g.gameGallery6,
+        g.idCreator
+    FROM game g
+    WHERE g.idGame = " . $game_id;
     
     $result_detail = $conexion->query($sql_game_detail);
 
     if ($result_detail && $result_detail->num_rows > 0) {
         $game_data = $result_detail->fetch_assoc();
+        
+        $id_creator = $game_data['idCreator'];
+        
+        $is_creator = ($current_user_id !== null && $current_user_id == $id_creator);
+        
+        $sql_comments = "SELECT 
+                            c.commentary, 
+                            c.idCommentary,
+                            c.imagen,    
+                            u.username, 
+                            u.profile_picture AS profile_image_path 
+                        FROM comment c
+                        JOIN user u ON c.idUser = u.idUser
+                        WHERE c.idGame = $game_id AND c.idUser = $id_creator AND c.parent_id IS NULL
+                        ORDER BY c.created_at DESC LIMIT 5";
+                      
+        $result_comments = $conexion->query($sql_comments);
+
+        if ($result_comments) {
+            while ($row = $result_comments->fetch_assoc()) {
+                $creator_comments[] = $row;
+            }
+        }
     }
 }
 
-$conexion->close();
-
 if (!$game_data) {
+    $conexion->close();
     header("Location: shop.php?error=juego_no_encontrado");
     exit();
 }
 
+$conexion->close();
 ?>
