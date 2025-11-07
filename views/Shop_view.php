@@ -16,56 +16,57 @@
             <div class="filtros-panel">
                 <div class="filtros-col">
                     <h4>Géneros</h4>
-                    <a href="#">
-                        <p>Acción</p>
-                    </a>
-                    <a href="#">
-                        <p>Aventura</p>
-                    </a>
-                    <a href="#">
-                        <p>Simulación</p>
-                    </a>
-                    <a href="#">
-                        <p>Estrategia</p>
-                    </a>
-                    <a href="#">
-                        <p>Arcade</p>
-                    </a>
-                    <a href="#">
-                        <p>Supervivencia</p>
-                    </a>
+                    <?php
+                    $generos = ['Acción', 'Aventura', 'Simulación', 'Estrategia', 'Arcade', 'Supervivencia'];
+                    foreach ($generos as $genero) {
+                        $activo = ($current_genero === $genero);
+                        $url = $activo
+                            ? "?plataforma=" . urlencode($current_plataforma) . "&precio=" . urlencode($current_precio)
+                            : "?genero=" . urlencode($genero) . "&plataforma=" . urlencode($current_plataforma) . "&precio=" . urlencode($current_precio);
+
+                        $simbolo = $activo ? ' ✦' : '';
+
+                        echo '<a href="' . $url . '"><p style="font-weight:' . ($activo ? 'bold' : 'normal') . ';">' . htmlspecialchars($genero) . $simbolo . '</p></a>';
+                    }
+                    ?>
                 </div>
 
                 <div class="filtros-col">
                     <h4>Plataforma</h4>
-                    <a href="#">
-                        <p>Windows</p>
-                    </a>
-                    <a href="#">
-                        <p>MacOs</p>
-                    </a>
-                    <a href="#">
-                        <p>Linux</p>
-                    </a>
-                    <a href="#">
-                        <p>Android</p>
-                    </a>
-                    <a href="#">
-                        <p>iOS</p>
-                    </a>
+                    <?php
+                    $plataformas = ['Windows', 'MacOs', 'Linux', 'Android', 'iOS'];
+                    foreach ($plataformas as $plataforma) {
+                        $activo = ($current_plataforma === $plataforma);
+                        $url = $activo
+                            ? "?genero=" . urlencode($current_genero) . "&precio=" . urlencode($current_precio)
+                            : "?plataforma=" . urlencode($plataforma) . "&genero=" . urlencode($current_genero) . "&precio=" . urlencode($current_precio);
+
+                        $simbolo = $activo ? ' ✦' : '';
+
+                        echo '<a href="' . $url . '"><p style="font-weight:' . ($activo ? 'bold' : 'normal') . ';">' . htmlspecialchars($plataforma) . $simbolo . '</p></a>';
+                    }
+                    ?>
                 </div>
 
                 <div class="filtros-col">
                     <h4>Precio</h4>
-                    <a href="#">
-                        <p>Gratis</p>
-                    </a>
-                    <a href="#">
-                        <p>$5 o menos</p>
-                    </a>
-                    <a href="#">
-                        <p>$10 o menos</p>
-                    </a>
+                    <?php
+                    $precios = [
+                        '0.00' => 'Gratis',
+                        '20' => '$20 o menos',
+                        '50' => '$50 o menos'
+                    ];
+                    foreach ($precios as $valor => $label) {
+                        $activo = ((string)$current_precio === (string)$valor);
+                        $url = $activo
+                            ? "?genero=" . urlencode($current_genero) . "&plataforma=" . urlencode($current_plataforma)
+                            : "?precio=" . urlencode($valor) . "&genero=" . urlencode($current_genero) . "&plataforma=" . urlencode($current_plataforma);
+
+                        $simbolo = $activo ? ' ✦' : '';
+
+                        echo '<a href="' . $url . '"><p style="font-weight:' . ($activo ? 'bold' : 'normal') . ';">' . htmlspecialchars($label) . $simbolo . '</p></a>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -122,7 +123,7 @@
     <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
         <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
             <div class="card__thumb">
-                <img src="img/<?php echo $game['cover_path']; ?>" alt="<?php echo $game['title']; ?>">
+                <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
             </div>
 
             <div class="card__meta">
