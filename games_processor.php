@@ -25,6 +25,7 @@ if ($game_id) {
         g.gameGallery4, 
         g.gameGallery5, 
         g.gameGallery6,
+        g.promoText,
         g.idCreator
     FROM game g
     WHERE g.idGame = " . $game_id;

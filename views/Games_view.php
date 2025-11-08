@@ -54,7 +54,7 @@
       <img src="img/<?php echo $game_data['featured_image']; ?>" alt="Imagen destacada del juego" />
 
       <div class="content">
-        <h2><?php echo $game_data['title']; ?></h2>
+        <h2><?php echo $game_data['promoText']; ?></h2>
 
         <p><?php echo $game_data['description']; ?></p>
       </div>
