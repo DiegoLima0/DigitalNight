@@ -66,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($file_tmp, $destino)) {
             $parametros_update[] = "profile_picture = '$nuevo_nombre_archivo'";
             $foto_perfil_actual = $nuevo_nombre_archivo;
+            $_SESSION['profile_picture'] = $nuevo_nombre_archivo;
             $mensaje_exito = "¡Perfil actualizado! Foto subida con éxito.";
             
         } else {
