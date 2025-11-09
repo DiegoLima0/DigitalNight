@@ -2913,16 +2913,12 @@ body.biblioteca {
     border-radius: 40px;
 }
 
-/* --- Estilos de la página de pago (sin :root) ---
-   Pegar al final de global.css. No toca body ni root. 
-   Requiere las variables globales que me pasaste:
-   --fondoAzulOscuro, --accent, --card-gray, --glass, --radius
-*/
+/*Estilos de la página de pago*/
 
-/* Scope principal */
+
 #fm_page_wrapper { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
 
-/* Contenedor principal */
+
 #fm_page_wrapper .fm_page-wrapper{
   max-width:1100px;
   margin:40px auto;
@@ -2932,7 +2928,7 @@ body.biblioteca {
   align-items:flex-start;
 }
 
-/* Progress bar */
+
 #fm_page_wrapper .fm_progressbar{
   width:100%;
   margin:12px auto 26px;
@@ -2960,11 +2956,11 @@ body.biblioteca {
   color: white;
 }
 
-/* Columnas */
+
 #fm_page_wrapper .fm_left-column{ flex:1.1; min-width:420px; }
 #fm_page_wrapper .fm_right-column{ width:360px; min-width:320px; }
 
-/* Panel / Card (usa tus variables globales) */
+
 #fm_page_wrapper .fm_card{
   background: var(--glass, rgba(255,255,255,0.06));
   border-radius: var(--radius, 10px);
@@ -2976,7 +2972,7 @@ body.biblioteca {
 #fm_page_wrapper .fm_card + .fm_card{ margin-top:18px; }
 #fm_page_wrapper .fm_card h3{ margin:0 0 12px 0; font-size:16px; color: white; }
 
-/* Formulario */
+
 #fm_page_wrapper .fm_cardform{ display:flex; flex-direction:column; gap:12px; }
 #fm_page_wrapper .fm_label{ display:block; font-size:12px; color: rgba(255,255,255,0.68); margin-bottom:8px; }
 #fm_page_wrapper .fm_input-row{ display:flex; gap:12px; }
@@ -2997,7 +2993,7 @@ body.biblioteca {
   border-color: rgba(0,163,255,0.9);
 }
 
-/* Iconos y métodos */
+
 #fm_page_wrapper .fm_card-icons{ display:flex; gap:10px; align-items:center; justify-content:flex-end; }
 #fm_page_wrapper .fm_payment-methods{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
 #fm_page_wrapper .fm_method-button{
@@ -3009,7 +3005,7 @@ body.biblioteca {
 }
 #fm_page_wrapper .fm_method-button:active{ transform:translateY(1px); }
 
-/* Resumen del pedido */
+
 #fm_page_wrapper .fm_summary{
   background: linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   padding:18px;
@@ -3040,11 +3036,11 @@ body.biblioteca {
 #fm_page_wrapper .fm_item-info{ flex:1; font-size:13px; color:white; }
 #fm_page_wrapper .fm_item-meta{ text-align:right; font-size:13px; color: rgba(255,255,255,0.68); }
 
-/* Total y notas */
+
 #fm_page_wrapper .fm_total-row{ display:flex; justify-content:space-between; margin-top:8px; font-weight:600; color:white; font-size:16px; }
 #fm_page_wrapper .fm_small-note{ font-size:11px; color: rgba(255,255,255,0.68); margin-top:12px; line-height:1.3; }
 
-/* Botones */
+
 #fm_page_wrapper .fm_submit-btn{
   margin-top:14px;
   width:100%;
@@ -3062,20 +3058,19 @@ body.biblioteca {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Responsive */
+
 @media (max-width:980px){
   #fm_page_wrapper .fm_page-wrapper{ flex-direction:column; padding:18px; gap:16px; }
   #fm_page_wrapper .fm_left-column, #fm_page_wrapper .fm_right-column{ min-width: auto; width:100%; }
   #fm_page_wrapper .fm_right-column{ order: -1; }
 }
 
-/* Restauraciones específicas para inputs/botones locales */
+
 #fm_page_wrapper input, #fm_page_wrapper textarea, #fm_page_wrapper select, #fm_page_wrapper button, #fm_page_wrapper a {
   box-sizing: border-box;
   font-family: inherit;
 }
 
-/* Utilidades locales */
 #fm_page_wrapper .fm-hidden{ display:none !important; }
 
 
@@ -3092,7 +3087,7 @@ body.biblioteca {
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
-  text-decoration: none; /* evita subrayado */
+  text-decoration: none; 
 }
 
 #fm_page_wrapper .fm_submit-btn:hover {

@@ -6,7 +6,7 @@
   <title>Página de Pago — FM</title>
 </head>
 <body>
-  
+ 
   <main id="fm_page_wrapper">
     <div class="fm_progressbar" aria-hidden="true">
       <div class="fm_step">
@@ -25,8 +25,9 @@
       </div>
     </div>
 
+
     <section class="fm_page-wrapper">
-    
+   
       <section class="fm_left-column">
         <div class="fm_card">
           <h3>Tarjeta de crédito o débito</h3>
@@ -37,13 +38,17 @@
           </div>
 
 
+
+
           <form id="fm_cardform" class="fm_cardform" autocomplete="off" novalidate>
             <label class="fm_label" for="fm_card_number">Número de la tarjeta</label>
             <input id="fm_card_number" class="fm_input" inputmode="numeric" maxlength="19"
                    placeholder="XXXX XXXX XXXX XXXX" aria-label="Número de tarjeta" />
 
+
             <label class="fm_label" for="fm_card_name">Nombre en la tarjeta</label>
             <input id="fm_card_name" class="fm_input" placeholder="Nombre completo" aria-label="Nombre en la tarjeta" />
+
 
             <div class="fm_input-row">
               <div style="flex:1;">
@@ -56,9 +61,11 @@
               </div>
             </div>
 
-            
+
+           
           </form>
         </div>
+
 
         <div class="fm_card" style="margin-top:14px;">
           <h3>Métodos alternativos</h3>
@@ -68,77 +75,94 @@
                 <strong>PayPal</strong>
                 <span style="font-size:12px;color:var(--fm-subtext)">Pagar con PayPal</span>
               </div>
-              <div style="font-size:13px;color:var(--fm-subtext)">→</div>
+             
             </a>
+
 
             <a href="https://wallet.google.com/wallet/u/0/home?utm_source=pgc&utm_medium=website&utm_campaign=redirect" role="button" class="fm_method-button" id="fm_googlepay_btn" data-target="googlepay.html">
               <div class="fm_method-name">
                 <strong>Google Pay</strong>
                 <span style="font-size:12px;color:var(--fm-subtext)">Pagar con Google</span>
               </div>
-              <div style="font-size:13px;color:var(--fm-subtext)">→</div>
+             
             </a>
+
 
             <a href="https://www.apple.com/la/apple-pay/" role="button" class="fm_method-button" id="fm_applepay_btn" data-target="applepay.html">
               <div class="fm_method-name">
                 <strong>Apple Pay</strong>
                 <span style="font-size:12px;color:var(--fm-subtext)">Pagar con Apple</span>
               </div>
-              <div style="font-size:13px;color:var(--fm-subtext)">→</div>
+         
             </a>
           </div>
         </div>
       </section>
 
-      
+
+     
       <aside class="fm_right-column">
         <div class="fm_summary fm_card">
           <h3>Resumen del pedido</h3>
+
 
           <article class="fm_order-item">
            <div class="fm_item-thumb" aria-hidden="true">
                 <img src="img/juego1.jpg" alt="Nombre del juego" class="fm_thumb-img">
            </div>
 
+
             <div class="fm_item-info">
               <div style="font-weight:700">Nombre del juego</div>
-              <div style="font-size:12px;color:var(--fm-subtext)">Plataforma: PC</div>
+              <div style="font-size:12px;color:var(--fm-subtext)">Plataforma:</div>
+              <br>
+              <div>Precio</div>
             </div>
             <div class="fm_item-meta">
-              <div>Precio</div>
-              <div style="font-weight:700">1 x</div>
+              <br>
+              <div style="font-weight:700">Cantidad</div>
             </div>
           </article>
+
 
           <article class="fm_order-item">
             <div class="fm_item-thumb" aria-hidden="true">
                 <img src="img/juego1.jpg" alt="Nombre del juego" class="fm_thumb-img">
             </div>
 
+
             <div class="fm_item-info">
               <div style="font-weight:700">Nombre del juego</div>
-              <div style="font-size:12px;color:var(--fm-subtext)">Plataforma: Consola</div>
+              <div style="font-size:12px;color:var(--fm-subtext)">Plataforma: </div>
+              <br>
+              <div>Precio</div>
             </div>
             <div class="fm_item-meta">
-              <div>Precio</div>
-              <div style="font-weight:700">1 x</div>
+             
+              <div style="font-weight:700">Cantidad</div>
             </div>
           </article>
 
+
           <div class="fm_total-row">
             <div>Total</div>
-            <div style="font-weight:800">USD 59.98</div>
+            <div style="font-weight:800"></div>
           </div>
 
-          <p class="fm_small-note">
-           Adquirirás una licencia digital de este producto. Para ver todos los términos, consulta la política de compra.
 
-Al seleccionar "Realizar pedido" a continuación, declaras que eres mayor de 18 años, confirmas que tienes autorización para usar este método de pago y aceptas el Acuerdo de licencia de usuario final.
+          <p class="fm_small-note">
+           Adquirirás una licencia digital de este producto. Para ver todos los términos, consulta la política de compra.
+
+
+           Al seleccionar "Realizar pedido" a continuación, declaras que eres mayor de 18 años, confirmas que tienes autorización para usar este método de pago y aceptas el Acuerdo de licencia de usuario final.
           </p>
+
 
          <a href="confirmacion.html" class="fm_submit-btn transparent" id="fm_finalize_btn">
            Realizar pedido
         </a>
+
+
 
 
         </div>
@@ -147,5 +171,9 @@ Al seleccionar "Realizar pedido" a continuación, declaras que eres mayor de 18�
   </main>
 
 
+
+
 </body>
 </html>
+
+
