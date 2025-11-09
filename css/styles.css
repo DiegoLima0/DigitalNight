@@ -247,7 +247,7 @@ footer p {
     z-index: 10;
 }
 
-.dropdown-menu div{
+.dropdown-menu div {
     padding: 0 0 0 15px;
     border-bottom: rgba(255, 255, 255, 0.76) solid 1px;
     margin: 0 10px;
@@ -270,7 +270,7 @@ footer p {
     display: flex;
     gap: 1em;
     align-items: center;
-    padding: 10px ;
+    padding: 10px;
     text-decoration: none;
 }
 
@@ -317,26 +317,26 @@ footer p {
     right: -400px;
 }
 
-#modalCarrito>div{
+#modalCarrito>div {
     width: 100%;
 }
 
-#tituloCarrito{
+#tituloCarrito {
     padding: 30px 10px 0px 10px;
 }
 
-#modalCarrito h1{
+#modalCarrito h1 {
     margin: 0;
 }
 
-.botonesModalCarrito{
+.botonesModalCarrito {
     display: flex;
     justify-content: space-between;
     gap: 1em;
     padding: 20px;
 }
 
-.botonesModalCarrito button{
+.botonesModalCarrito button {
     width: 50%;
 }
 
@@ -358,53 +358,53 @@ footer p {
     pointer-events: all;
 }
 
-#juegosCarrito{
+#juegosCarrito {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.juegoCarrito{
+.juegoCarrito {
     display: flex;
     width: 100%;
     padding: 20px;
 }
 
-.juegoCarrito img{
+.juegoCarrito img {
     height: 100%;
     width: 100px;
     border-radius: 20px;
     background-color: #63519460;
 }
 
-.juegoCarrito>div{
+.juegoCarrito>div {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.juegoCarrito>div h2{
+.juegoCarrito>div h2 {
     font-size: 20px;
 }
 
-.juegoCarrito>div i{
+.juegoCarrito>div i {
     font-size: 20px;
 }
 
-.juegoCarrito>div p{
+.juegoCarrito>div p {
     width: 100%;
     text-align: left;
     margin: 0;
 }
 
-.juegoCarrito>div>div{
+.juegoCarrito>div>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.imgJuego{
+.imgJuego {
     border-radius: 10px;
 }
 
@@ -976,114 +976,143 @@ h2.section-title {
 
 
 .card {
-  border-radius: 16px;             
-  overflow: hidden;                
-  background: linear-gradient(180deg, rgba(3,6,21,0.9), rgba(2,6,23,0.95));
-  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-  padding: 0;                   
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(3, 6, 21, 0.9), rgba(2, 6, 23, 0.95));
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 100%;
 }
 
 
 .card__thumb {
-  width: 100%;
-  height: clamp(220px, 30vw, 360px); 
-  background: transparent;
-  display: block;
-  position: relative;
+    width: 100%;
+    height: clamp(220px, 30vw, 360px);
+    background: transparent;
+    display: block;
+    position: relative;
 }
 
 
 .card__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    vertical-align: middle;
 }
 
 
 .card__thumb::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 48%;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(2,6,23,0.8) 60%, rgba(2,6,23,0.95) 100%);
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(2, 6, 23, 0.8) 60%, rgba(2, 6, 23, 0.95) 100%);
+    pointer-events: none;
 }
 
 
 .card__meta {
-  padding: 12px 14px 18px; 
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+    padding: 12px 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 
 .card__details {
-  color: rgba(255,255,255,0.6);
-  font-size: 13px;
-  text-transform: none; 
-  margin-top: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-transform: none;
+    margin-top: 2px;
 }
 
 
 .card__title {
-  font-weight: 800;
-  font-size: 18px;
-  color: #fff;
-  line-height: 1.05;
-  margin: 0;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.05;
+    margin: 0;
 }
 
 
 .card__price {
-  margin-left: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 6px 10px;
-  border-radius: 10px;
-  font-weight: 700;
-  color: #eaf4ff;
-  font-size: 14px;
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #eaf4ff;
+    font-size: 14px;
 }
 
 
 @media (min-width: 1200px) {
-  .grid { grid-template-columns: repeat(5, 1fr); }
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
+
 @media (max-width: 1000px) {
-  .card { border-radius: 12px; }
-  .card__title { font-size: 16px; }
+    .card {
+        border-radius: 12px;
+    }
+
+    .card__title {
+        font-size: 16px;
+    }
 }
 
 
-.grid { grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
 
 @media (max-width:1200px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
+
 @media (max-width:900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .card {
-  border-radius: 12px;
-  padding: 0;
+    border-radius: 12px;
+    padding: 0;
 }
 
 .card__thumb {
-  height: clamp(140px, 16vw, 220px);
+    height: clamp(140px, 16vw, 220px);
 }
 
-.card__meta { padding: 10px 12px; }
+.card__meta {
+    padding: 10px 12px;
+}
 
-.card__title { font-size: 15px; }
-.card__details { font-size: 12px }
-.card__price { font-size: 13px; padding: 5px 8px; }
+.card__title {
+    font-size: 15px;
+}
+
+.card__details {
+    font-size: 12px
+}
+
+.card__price {
+    font-size: 13px;
+    padding: 5px 8px;
+}
 
 
 /*games pagina*/
@@ -1960,14 +1989,241 @@ p {
 }
 
 /* sobre nosotros */
+
+#PresentacionEquipo {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 400px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #111427 80%);
+}
+
+#Contenido-Presentacion {
+    z-index: 10;
+    max-width: 790px;
+    padding: 200px 0px 0px 0px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#Contenido-Presentacion h1 {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+#Presentacion-Boton-MasInfo {
+    padding: 10px 30px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    text-decoration: none;
+    width: 200px;
+    transition: all 1s;
+}
+
+#Presentacion-Boton-MasInfo:hover {
+    background: rgba(255, 255, 255, 0.325);
+}
+
+#Barra-Luz-Presentacion {
+    z-index: -1;
+    position: absolute;
+    width: 1587px;
+    height: 725px;
+    background-image: conic-gradient(from 90deg at 50% 20%, #6e77f1, #090634), conic-gradient(from 270deg at 50% 20%, #090634, #6e77f1);
+    background-position-x: 0%, 100%;
+    background-position-y: 0%, 0%;
+    background-size: 51% 100%, 50% 100%;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    -webkit-mask-image: radial-gradient(100% 80% at center center, black, transparent);
+}
+
+#Separador-Seccion1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+#Separador-Seccion1 span {
+    width: 30px;
+    height: 1px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+#Separador-Seccion1 p {
+    margin-left: 10px;
+    font-size: 15px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#Encabezado-Historia {
+    padding-left: 40px;
+}
+
+#Encabezado-Historia h5 {
+    font-weight: lighter;
+    font-size: 13px;
+}
+
+#Encabezado-Historia h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.Acordeon-Contenido-Historia {
+    transition: all 1s;
+}
+
+.Acordeon-Contenido-Historia.activo {
+    background-color: #0f11208e;
+    transition: all 1s;
+}
+
+.Cabecera-acordeon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 110px;
+}
+
+.acordeon-num-historia {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.acordeon-codigo-historia {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.acordeon-titulo-historia {
+    width: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.557);
+    padding: 0 100px 0 200px;
+}
+
+.acordeon-mini-resumen {
+    margin: 0 40px 0 40px;
+    width: 200px;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+#Flecha-Abajo-Acordeon-Historia {
+    font-size: 50px;
+    transition: transform .4s ease;
+    cursor: pointer;
+}
+
+#Flecha-Abajo-Acordeon-Historia.rotada {
+    transform: rotate(180deg);
+}
+
+#Acordeon-B-02 {
+    background: linear-gradient(#5c48cf71, rgba(0, 0, 0, 0.249));
+}
+
+.acordeon-contenido-interno-historia {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all .5s ease;
+    align-content: center;
+}
+
+.acordeon-p-interno {
+    font-weight: lighter;
+    font-size: 18px;
+    width: 700px;
+    margin: auto;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    text-align: justify;
+}
+
+.Acordeon-Historia .Acordeon-Contenido-Historia.activo .acordeon-contenido-interno-historia {
+    height: 450px;
+}
+
+#acordeon-contenido-b-02 {
+    background: linear-gradient(rgba(0, 0, 0, 0.249), #5c48cf71);
+}
+
+#Fondo-Acordeon-B-02 {
+    background-image: url("../img/CristalFA.png");
+    background-size: 550px;
+    background-repeat: no-repeat;
+    background-position: 120px 0px;
+}
+
+#P-4-A {
+    font-weight: lighter;
+    font-size: 18px;
+    margin: auto;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    text-align: justify;
+    padding: 0px 450px;
+}
+
 #mainNosotros {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("../img/AboutUsFondo.png");
     background-size: cover;
     background-position: center;
 }
+
+#Separador-Seccion2 {
+    margin-left: auto;
+    margin-right: 0;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+#Separador-Seccion2 span {
+    width: 30px;
+    height: 1px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+#Separador-Seccion2 p {
+    margin-left: 10px;
+    font-size: 15px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#Seccion2-Titular-CreadoresDN {
+    margin: 60px 0px 0px 0px;
+    width: 100vw;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url("../img/OndasFondo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 
 #pentaCoreEquipo {
     text-align: center;
@@ -2655,12 +2911,3 @@ body.biblioteca {
 .perfil {
     border-radius: 40px;
 }
-
-
-
-
-
-
-
-
-

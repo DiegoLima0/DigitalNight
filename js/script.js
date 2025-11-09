@@ -120,6 +120,39 @@ function marcar(boton) {
 }
 
 //Página Sobre Nosotros AboutUs.php
+window.addEventListener("beforeunload", () => {
+  sessionStorage.setItem("scrollPos", window.scrollY);
+});
+
+window.addEventListener("load", () => {
+  const scrollPos = sessionStorage.getItem("scrollPos");
+  if (scrollPos) {
+    window.scrollTo(0, scrollPos);
+  }
+});
+
+const acordeones = document.querySelectorAll('.Acordeon-Contenido-Historia');
+
+acordeones.forEach((acordeon) => {
+  const cabecera = acordeon.querySelector('.Cabecera-acordeon');
+  const flecha = acordeon.querySelector('#Flecha-Abajo-Acordeon-Historia');
+
+  cabecera.addEventListener('click', () => {
+    const activo = acordeon.classList.contains('activo');
+
+    acordeones.forEach((a) => {
+      a.classList.remove('activo');
+      const f = a.querySelector('#Flecha-Abajo-Acordeon-Historia');
+      f.classList.remove('rotada');
+    });
+
+    if (!activo) {
+      acordeon.classList.add('activo');
+      flecha.classList.add('rotada');
+    }
+  });
+});
+
 function mostrarTarjeta(miembroID) {
   let tarjetas = document.querySelectorAll('.tarjetaMiembro');
   tarjetas.forEach(t => t.classList.remove('activa'));
