@@ -237,3 +237,88 @@ document.querySelectorAll('.slider img').forEach(img => {
 
 
 });
+
+//pay-page
+  
+    (function fm_initPaymentPage(){
+      const fmCardForm = document.getElementById('fm_cardform');
+      const fmCardNumber = document.getElementById('fm_card_number');
+      const fmCardExp = document.getElementById('fm_card_exp');
+      const fmCardCvc = document.getElementById('fm_card_cvc');
+      const fmCardName = document.getElementById('fm_card_name');
+      const fmSubmitCardBtn = document.getElementById('fm_submit_card_btn');
+      const fmPaypalBtn = document.getElementById('fm_paypal_btn');
+      const fmGooglePayBtn = document.getElementById('fm_googlepay_btn');
+      const fmApplePayBtn = document.getElementById('fm_applepay_btn');
+      const fmFinalizeBtn = document.getElementById('fm_finalize_btn');
+
+      fmCardNumber.addEventListener('input', function(){ fm_formatCardNumber(this); });
+      fmCardExp.addEventListener('input', function(){ fm_formatCardExpiry(this); });
+      fmCardCvc.addEventListener('input', function(){ this.value = this.value.replace(/[^0-9]/g,'').slice(0,4); });
+
+      fmCardForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        fm_handleCardSubmit({
+          number: fmCardNumber.value,
+          name: fmCardName.value,
+          exp: fmCardExp.value,
+          cvc: fmCardCvc.value
+        });
+      });
+
+      [fmPaypalBtn, fmGooglePayBtn, fmApplePayBtn].forEach(el => {
+        el.addEventListener('click', function(e){
+          e.preventDefault();
+          const target = el.getAttribute('data-target') || '#';
+          fm_redirectToExternalMethod(target);
+        });
+      });
+
+      fmFinalizeBtn.addEventListener('click', function(){
+        window.location.href = 'confirmacion.html';
+      });
+
+      function fm_formatCardNumber(input){
+        let v = input.value.replace(/\D/g,'').slice(0,16);
+        v = v.match(/.{1,4}/g)?.join(' ') || v;
+        input.value = v;
+      }
+
+      function fm_formatCardExpiry(input){
+        let v = input.value.replace(/\D/g,'').slice(0,4);
+        if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+        input.value = v;
+      }
+
+      function fm_showNotice(msg){ alert(msg); }
+
+      function fm_validateCardForm(data){
+        const numClean = data.number.replace(/\s/g,'');
+        if (numClean.length < 13) return 'Número de tarjeta inválido';
+        if (!/^[0-9]{2}\/[0-9]{2}$/.test(data.exp)) return 'Vencimiento inválido (MM/AA)';
+        if (!/^[0-9]{3,4}$/.test(data.cvc)) return 'CVC inválido';
+        if (data.name.trim().length < 2) return 'Nombre en la tarjeta inválido';
+        return null;
+      }
+
+      function fm_handleCardSubmit(data){
+        fmSubmitCardBtn.disabled = true;
+        fmSubmitCardBtn.textContent = 'Procesando...';
+        const error = fm_validateCardForm(data);
+        if (error){
+          fm_showNotice(error);
+          fmSubmitCardBtn.disabled = false;
+          fmSubmitCardBtn.textContent = 'Pagar con tarjeta';
+          return;
+        }
+        setTimeout(() => {
+          fm_showNotice('Pago aprobado (simulado). Redirigiendo a confirmación.');
+          window.location.href = 'confirmacion.html';
+        }, 1200);
+      }
+
+      function fm_redirectToExternalMethod(targetUrl){
+        window.location.href = targetUrl;
+      }
+    })();
+  

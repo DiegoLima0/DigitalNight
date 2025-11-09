@@ -125,7 +125,9 @@ if ($is_logged_in) {
 
                 <div class="botonesModalCarrito">
                     <button type="button" class="cerrarModalCarrito btn azul">Continuar comprando</button>
+                    <a href="../views/pay-page_view.php">
                     <button type="button" class="btn azul">Iniciar compra</button>
+                    </a>
                 </div>
 
             </div>
