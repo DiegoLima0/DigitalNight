@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     $new_email = $conexion->real_escape_string($_POST['email']);
     
     $new_description = $conexion->real_escape_string($_POST['description'] ?? ''); 
-    $new_user_type = $conexion->real_escape_string($_POST['type']); // CORRECTO: La columna se llama 'type'
+    $new_user_type = $conexion->real_escape_string($_POST['type']);
     
     $password_update = "";
     if (!empty($_POST['password'])) {
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         header("Location: users.php?message=update_success");
         exit();
     } else {
-        $mensaje = "**Error al actualizar (SQL):** " . $conexion->error;
+        $mensaje = "Error al actualizar (SQL): " . $conexion->error;
     }
 }
 

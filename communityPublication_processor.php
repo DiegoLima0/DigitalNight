@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-require_once 'includes/database.php'; 
+require_once 'includes/database.php';
 
-$publication_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$publication_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $publication_data = null;
 $comments_list = [];
 $current_user_id = $_SESSION['user_id'] ?? 0;
@@ -27,14 +27,15 @@ $sql_publication = "SELECT
 FROM comment p                                  
 JOIN user u ON p.idUser = u.idUser
 WHERE p.idCommentary = $publication_id 
-  AND p.parent_id IS NULL"; 
+  AND p.parent_id IS NULL";
 
 $result_publication = $conexion->query($sql_publication);
 
 if ($result_publication && $result_publication->num_rows > 0) {
     $publication_data = $result_publication->fetch_assoc();
-    
-    $sql_comments = "SELECT 
+    $game_id = (int) $publication_data['idGame'];
+
+    $sql_comments = "SELECT
         c.idCommentary AS idComment,
         c.commentary AS comment_content,
         c.created_at,
@@ -46,7 +47,7 @@ if ($result_publication && $result_publication->num_rows > 0) {
     FROM comment c
     JOIN user u ON c.idUser = u.idUser
     WHERE c.parent_id = $publication_id          
-    ORDER BY c.created_at ASC"; 
+    ORDER BY c.created_at ASC";
 
     $result_comments = $conexion->query($sql_comments);
 

@@ -7,6 +7,7 @@ $current_user_id = $_SESSION['user_id'] ?? null;
 $game_data = null; 
 $creator_comments = []; 
 $is_creator = false;
+$creator_username = 'Creador';
 
 if ($game_id) {
     $sql_game_detail = "SELECT 
@@ -37,6 +38,12 @@ if ($game_id) {
         
         $id_creator = $game_data['idCreator'];
         
+        $sql_creator_user = "SELECT username FROM user WHERE idUser = $id_creator";
+        $result_creator_user = $conexion->query($sql_creator_user);
+        $creator_username = ($result_creator_user && $result_creator_user->num_rows > 0) 
+                            ? $result_creator_user->fetch_assoc()['username'] 
+                            : 'Creador'; 
+        
         $is_creator = ($current_user_id !== null && $current_user_id == $id_creator);
         
         $sql_comments = "SELECT 
@@ -47,7 +54,10 @@ if ($game_id) {
                             u.profile_picture AS profile_image_path 
                         FROM comment c
                         JOIN user u ON c.idUser = u.idUser
-                        WHERE c.idGame = $game_id AND c.idUser = $id_creator AND c.parent_id IS NULL
+                        WHERE c.idGame = $game_id 
+                          AND c.idUser = $id_creator 
+                          AND c.parent_id IS NULL
+                          AND c.post_location = 'GAME_VIEW' 
                         ORDER BY c.created_at DESC LIMIT 5";
                       
         $result_comments = $conexion->query($sql_comments);

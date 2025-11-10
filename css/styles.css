@@ -2752,9 +2752,10 @@ body.biblioteca {
 }
 
 #publicaciones {
-    column-count: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     column-gap: 2em;
-    width: 80%;
+    width: 100%;
     justify-items: center;
 }
 
@@ -2768,6 +2769,7 @@ body.biblioteca {
     background: linear-gradient(to right, #322b4b70, #4132c970);
     padding: 15px;
     transition: 0.3s ease;
+    box-sizing: border-box;
 }
 
 .publicacion p {

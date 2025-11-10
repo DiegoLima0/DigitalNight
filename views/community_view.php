@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidad</title>
+    <title>Comunidad <?php echo ($game_id > 0 ? "de " . htmlspecialchars($game_title) : ""); ?></title>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Seleccionamos todos los botones de voto en la página
+            // Lógica de JavaScript para likes/dislikes (vote-button)
             document.querySelectorAll('.vote-button').forEach(button => {
                 button.addEventListener('click', function (e) {
-
-                    // ⚠️ CRÍTICO: Esto previene la navegación y el burbujeo del evento
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -19,7 +17,6 @@
                     const idCommentary = interactionDiv.dataset.id;
                     const voteAction = this.dataset.type;
 
-                    // Desactivar botones temporalmente
                     interactionDiv.style.pointerEvents = 'none';
 
                     fetch('comment_processor.php', {
@@ -27,23 +24,26 @@
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
-                        // Asegura que la acción PHP es 'process_vote' y que el ID se envía correctamente
                         body: `action=process_vote&id=${idCommentary}&vote_action=${voteAction}`
                     })
                         .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
+                            if (!response.ok) throw new Error("Error de red o servidor.");
                             return response.json();
                         })
                         .then(data => {
-                            // Actualiza contadores y estado
-                            // (Lógica para actualizar likes/dislikes)
-                            interactionDiv.style.pointerEvents = 'auto'; // Reactivar botones
+                            if (data.success) {
+                                interactionDiv.querySelector('.btn-like span').textContent = data.likes;
+                                interactionDiv.querySelector('.btn-dislike span').textContent = data.dislikes;
+                            } else {
+                                alert(data.message || 'No se pudo procesar tu voto.');
+                            }
                         })
                         .catch(error => {
-                            console.error('Error:', error);
-                            interactionDiv.style.pointerEvents = 'auto'; // Reactivar botones
+                            console.error('Error al votar:', error);
+                            alert('Hubo un error al intentar votar.');
+                        })
+                        .finally(() => {
+                            interactionDiv.style.pointerEvents = 'auto';
                         });
                 });
             });
@@ -52,14 +52,34 @@
 </head>
 
 <body>
-    <main id="mainComunidad">
-        <section class="publicaciones">
-            <?php if (false): ?>
+    <main id="mainCommunity">
+        <div id="botones">
+            <a href="games.php?idGame=<?php echo htmlspecialchars($game_id); ?>">
+                <button class="btn azul">Juego</button>
+            </a>
+
+            <a href="community.php?idGame=<?php echo htmlspecialchars($game_id); ?>">
+                <button class="btn azul active-btn">Comunidad</button>
+            </a>
+        </div>
+
+        <hr style="margin-top: 10px; margin-bottom: 20px;">
+        <section class="contenedor community-page">
+
+            <?php if ($game_id > 0 && isset($_SESSION['user_id'])): ?>
                 <div class="publicacion new-post">
                     <form method="POST" action="comment_processor.php" enctype="multipart/form-data">
-                        <h4>Crea una nueva publicación</h4>
+
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_actual ?? 'default.png'); ?>"
+                                alt="Tu foto de perfil"
+                                style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 10px;">
+                            <span
+                                style="font-weight: bold;">@<?php echo htmlspecialchars($_SESSION['username'] ?? 'Usuario'); ?></span>
+                        </div>
+                        <input type="hidden" name="action" value="post_community_publication">
                         <input type="hidden" name="idGame" value="<?php echo $game_id; ?>">
-                        <textarea name="content" placeholder="¿Qué estás pensando?" rows="3" required></textarea>
+                        <textarea name="content" placeholder="¿Qué opinas del juego?" rows="3" required></textarea>
 
                         <div
                             style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
@@ -79,21 +99,68 @@
                     </form>
                 </div>
                 <hr />
+            <?php elseif ($game_id <= 0): ?>
+                <p>Por favor, selecciona un juego para acceder a su comunidad y publicar.</p>
+            <?php else: ?>
+                <p>Debes <a href="login.php">iniciar sesión</a> para crear una publicación en la comunidad de
+                    <?php echo htmlspecialchars($game_title); ?>.
+                </p>
             <?php endif; ?>
 
+
             <section id="communityFeed">
-
-                <?php if ($game_id > 0): ?>
-                    <p>⚠️ **Sección en Mantenimiento / Work in Progress** ⚠️</p>
-                    <p>Estamos trabajando para mejorar el sistema de publicaciones de la comunidad. ¡Vuelve pronto!</p>
-                    <p>Las publicaciones del creador del juego aún se muestran en la página principal del juego.</p>
-
-                <?php else: ?>
-                    <p>⚠️ **Sección en Mantenimiento / Work in Progress** ⚠️</p>
-                    <p>Estamos trabajando para mejorar esta sección. ¡Vuelve pronto!</p>
-                <?php endif; ?>
-
                 <?php if (!empty($publications_list)): ?>
+                    <?php foreach ($publications_list as $publication): ?>
+                        <div
+                            class="publicacion root-post community-post <?php echo $publication['is_creator_post'] ? 'creator-post' : ''; ?>">
+                            <img src="img/profiles/<?php echo htmlspecialchars($publication['user_profile_img']); ?>"
+                                alt="Imagen de perfil" class="perfil">
+
+                            <div>
+                                <div class="contenido">
+                                    <p class="user-info">
+                                        @<?php echo htmlspecialchars($publication['user_name']); ?>
+                                        <?php if (false): ?>
+                                        <?php if ($publication['is_creator_post']): ?>
+                                            <span style="color: gold; font-weight: bold; margin-left: 5px;"> (Creador)</span>
+                                        <?php endif; ?>
+
+                                        <?php endif;?>
+                                        <span class="date-info"> -
+                                            <?php echo date('d/m/Y', strtotime($publication['created_at'])); ?></span>
+                                    </p>
+                                    <p class="post-text">
+                                        <?php echo nl2br(htmlspecialchars($publication['publication_content'])); ?>
+                                    </p>
+
+                                    <?php if (!empty($publication['publication_image'])): ?>
+                                        <img src="img/publications/<?php echo htmlspecialchars($publication['publication_image']); ?>"
+                                            alt="Imagen de publicación" class="post-image">
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="interacciones" data-id="<?php echo $publication['idPublication']; ?>">
+                                    <button class="btn-like vote-button" data-type="like">
+                                        <i class="bi bi-hand-thumbs-up"></i>
+                                        <span><?php echo htmlspecialchars($publication['likes'] ?? 0); ?></span>
+                                    </button>
+
+                                    <button class="btn-dislike vote-button" data-type="dislike">
+                                        <i class="bi bi-hand-thumbs-down"></i>
+                                        <span><?php echo htmlspecialchars($publication['dislikes'] ?? 0); ?></span>
+                                    </button>
+
+                                    <a href="communityPublication.php?id=<?php echo $publication['idPublication']; ?>"
+                                        class="boton-base boton-secundario" style="margin-left: 10px; text-decoration: none;">
+                                        <i class="bi bi-chat"></i> Responder
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php elseif ($game_id > 0): ?>
+                    <p>Aún no hay publicaciones para <?php echo htmlspecialchars($game_title); ?>. ¡Sé el primero en
+                        publicar!</p>
                 <?php endif; ?>
 
             </section>

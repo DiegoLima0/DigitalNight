@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalle de juego</title>
-</head>
+  </head>
 
 <body class="games">
   <div class="page">
@@ -61,12 +61,13 @@
     </section>
 
   </div>
+  </div>
   <div id="botones">
-    <a href="games.php">
+    <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>">
       <button class="btn azul">Juego</button>
     </a>
 
-    <a href="community.php">
+    <a href="community.php?idGame=<?php echo $game_data['idGame']; ?>">
       <button class="btn azul">Comunidad</button>
     </a>
   </div>
@@ -96,63 +97,61 @@
           <h4>Publicaciones del Creador</h4>
 
           <?php if (isset($is_creator) && $is_creator): ?>
-            <div class="publicacion new-post">
-              <form method="POST" action="submit_creator_post.php" enctype="multipart/form-data">
+            <div class="post-card create-post">
+              <form method="POST" action="comment_processor.php" enctype="multipart/form-data"> 
                 <h4>Escribe una nueva publicación</h4>
+                <input type="hidden" name="action" value="post_creator_publication"> 
                 <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
-                <textarea name="commentary"
-                  placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_comments[0]['username'] ?? 'Creador'; ?>?"
-                  rows="3" required></textarea>
+                
+                <textarea name="content" 
+                    placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?"
+                    rows="3" required></textarea>
 
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
-                  <label for="post_image_game" class="boton-base boton-secundario"
-                    style="cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 4px; display: inline-flex; align-items: center;">
-                    <i class="bi bi-image" style="margin-right: 5px;"></i> Seleccionar Foto
-                  </label>
-                  <input type="file" id="post_image_game" name="post_image" accept="image/*" style="display: none;"
-                    onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name">
-                  <span id="file-name-display-game"
-                    style="color: #bbb; font-size: 0.9em; flex-grow: 1; margin-left: 10px;">Ningún archivo
-                    seleccionado.</span>
+                <div class="post-form-controls">
+                    <label for="post_image_game" class="boton-base boton-secundario post-image-label">
+                        <i class="bi bi-image" style="margin-right: 5px;"></i> Seleccionar Foto
+                    </label>
+                    <input type="file" id="post_image_game" name="publication_image" accept="image/*" class="file-input-hidden"
+                        onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name">
+                    <span id="file-name-display-game" class="file-name-display">Ningún archivo
+                        seleccionado.</span>
 
-                  <button type="submit" class="boton-base boton-primario">Publicar</button>
+                    <button type="submit" class="boton-base boton-primario">Publicar</button>
                 </div>
               </form>
             </div>
-            <hr />
           <?php endif; ?>
+          
+          <div id="publicaciones">
 
           <?php if (!empty($creator_comments)): ?>
             <?php foreach ($creator_comments as $comment): ?>
-              <div class="publicacion">
-                <div id="imgUsComunidad">
-                  <?php
-                  $profile_image_path = (!empty($comment['profile_image_path']) ? $comment['profile_image_path'] : 'default_profile.png');
-                  ?>
-                  <img src="img/profiles/<?php echo $profile_image_path; ?>" alt="Imagen de perfil del creador">
-
-                  <p>@<?php echo $comment['username']; ?></p>
+              <div class="publicacion"> 
+                <div class="post-user-meta">
+                  <img src="img/profiles/<?php echo htmlspecialchars($comment['profile_image_path']); ?>" 
+                       alt="Perfil de usuario" class="user-profile-img">
+                  <span class="username">@<?php echo htmlspecialchars($comment['username']); ?></span>
                 </div>
+                
+                <p class="post-content-text"><?php echo nl2br(htmlspecialchars($comment['commentary'])); ?></p> 
+                
+                <?php if (!empty($comment['imagen'])): ?>
+                    <img src="img/publications/<?php echo htmlspecialchars($comment['imagen']); ?>" 
+                         alt="Imagen de publicación" class="post-media-image">
+                <?php endif; ?>
 
-                <div class="contenido">
-                  <p><?php echo $comment['commentary']; ?></p>
-
-                  <?php if (!empty($comment['imagen'])): ?>
-                    <img class="imgPub" src="img/publications/<?php echo $comment['imagen']; ?>"
-                      alt="Imagen de la publicación"> <?php endif; ?>
-
-                  <div class="interacciones">
-                    <p><i class="bi bi-hand-thumbs-up"></i> 0 </p>
-                    <p><i class="bi bi-hand-thumbs-down"></i> 0</p>
-                    <p><i class="bi bi-chat"></i> 0</p>
+                <div class="interacciones">
                   </div>
-                </div>
               </div>
             <?php endforeach; ?>
+          <?php else: ?>
+             <?php if (!isset($is_creator) || !$is_creator): ?>
+                 <p>Aún no hay publicaciones oficiales del creador para este juego.</p>
+             <?php endif; ?>
           <?php endif; ?>
 
-          <div class="more-wrap">
-            <a class="boton-base more-btn" href="#">Más Publicaciones del Creador</a>
+          </div> <div class="more-wrap">
+            <a class="boton-base more-btn" href="#">Más Información</a>
           </div>
         </main>
 
