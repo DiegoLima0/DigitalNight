@@ -39,47 +39,103 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay");
   const abrirBtn = document.getElementById("abrirModalCarrito");
   const cerrarBtns = document.querySelectorAll(".cerrarModalCarrito");
+  const juegosCarrito = document.getElementById("juegosCarrito");
 
+ 
   const abrirModal = () => {
+    if (!modal) return;
     modal.classList.add("active");
-    overlay.classList.add("active");
+    if (overlay) overlay.classList.add("active");
   };
 
   const cerrarModal = () => {
+    if (!modal) return;
     modal.classList.add("closing");
-    overlay.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
 
-    modal.addEventListener("transitionend", function handler(e) {
+    const handler = function (e) {
       if (e.propertyName === "right" && modal.classList.contains("closing")) {
         modal.classList.remove("active", "closing");
         modal.removeEventListener("transitionend", handler);
       }
-    });
+    };
+    modal.addEventListener("transitionend", handler);
   };
 
-  abrirBtn.addEventListener("click", abrirModal);
+  if (abrirBtn) abrirBtn.addEventListener("click", abrirModal);
   cerrarBtns.forEach(btn => btn.addEventListener("click", cerrarModal));
-  overlay.addEventListener("click", cerrarModal);
-});
+  if (overlay) overlay.addEventListener("click", cerrarModal);
 
-//Boton de cantidad para el juego dentro del carrito
-const botones = document.querySelectorAll('.cantidad-control');
+  
+  if (juegosCarrito) {
+    juegosCarrito.addEventListener("click", (e) => {
+      
+      const btnMas = e.target.closest(".mas");
+      if (btnMas) {
+        const cantidadSpan = btnMas.closest(".cantidad-control")?.querySelector(".cantidad");
+        if (cantidadSpan) {
+          cantidadSpan.textContent = String(parseInt(cantidadSpan.textContent, 10) + 1);
+        }
+        return;
+      }
 
-botones.forEach(control => {
-  const btnMas = control.querySelector('.mas');
-  const btnMenos = control.querySelector('.menos');
-  const cantidad = control.querySelector('.cantidad');
+      
+      const btnMenos = e.target.closest(".menos");
+      if (btnMenos) {
+        const cantidadSpan = btnMenos.closest(".cantidad-control")?.querySelector(".cantidad");
+        if (cantidadSpan) {
+          let val = parseInt(cantidadSpan.textContent, 10);
+          if (isNaN(val)) val = 1;
+          if (val > 1) cantidadSpan.textContent = String(val - 1);
+        }
+        return;
+      }
 
-  btnMas.addEventListener('click', () => {
-    cantidad.textContent = parseInt(cantidad.textContent) + 1;
-  });
+      
+      const trash = e.target.closest(".bi-trash3, .trash");
+      if (trash) {
+        const juego = trash.closest(".juegoCarrito");
+        if (!juego) return;
 
-  btnMenos.addEventListener('click', () => {
-    let valor = parseInt(cantidad.textContent);
-    if (valor > 1) {
-      cantidad.textContent = valor - 1;
+       
+        juego.style.transition = "opacity .18s, height .18s, margin .18s, padding .18s";
+        juego.style.opacity = "0";
+        juego.style.height = "0";
+        juego.style.margin = "0";
+        juego.style.padding = "0";
+
+        setTimeout(() => {
+          juego.remove();
+          checkEmpty();
+        }, 200);
+
+        return;
+      }
+    });
+
+   
+    checkEmpty();
+  }
+
+ 
+  function checkEmpty() {
+    if (!juegosCarrito) return;
+    const cantidadItems = juegosCarrito.querySelectorAll(".juegoCarrito").length;
+    const existingMsg = document.getElementById("carritoVacio");
+
+    if (cantidadItems === 0) {
+      if (!existingMsg) {
+        const p = document.createElement("p");
+        p.id = "carritoVacio";
+        p.textContent = "Todavía no hay nada en el carrito";
+        p.style.padding = "20px";
+        p.style.textAlign = "center";
+        juegosCarrito.appendChild(p);
+      }
+    } else {
+      if (existingMsg) existingMsg.remove();
     }
-  });
+  }
 });
 
 //Página Soporte support.php
