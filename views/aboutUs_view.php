@@ -293,7 +293,7 @@
           <div>
             <h3>Facundo Montes</h3>
 
-            <p class="meta"><strong>Rol(es):</strong> Desarrollador Frontend + Diseñador UX<br>
+            <p><strong>Rol(es):</strong> Desarrollador Frontend + Diseñador UX<br>
               <strong>Edad:</strong> 16<br>
               <strong>Fecha de nacimiento:</strong> 15 de Diciembre del 2008
             </p>
@@ -318,7 +318,7 @@
           <div>
             <h3>Tamara Britez</h3>
 
-            <p class="meta"><strong>Rol(es):</strong> Desarrollador Frontend + Diseñador UX<br>
+            <p><strong>Rol(es):</strong> Desarrollador Frontend + Diseñador UX<br>
               <strong>Edad:</strong> 17<br>
               <strong>Fecha de nacimiento:</strong> 22 de Agosto del 2008
             </p>
