@@ -442,17 +442,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return n.toLocaleString('es-AR',{style:'currency',currency:'ARS'}).replace(',00','');
   }
 
-  // Selección de edición
+  
   function selectEdition(id){
     const data = editions[id];
     if (!data) return;
 
-    // Activar tarjeta clickeada
+    
     document.querySelectorAll('.sf-card').forEach(btn => {
       btn.classList.toggle('sf-card--active', btn.dataset.id === id);
     });
 
-    // Actualizar panel derecho
+    
     document.getElementById('edition-name').textContent = data.name;
     document.getElementById('edition-tag').textContent = data.tag;
     document.getElementById('edition-price').textContent = formatPrice(data.price);
@@ -466,14 +466,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Asignar eventos a tarjetas estáticas
+  
   document.querySelectorAll('.sf-card').forEach(btn => {
     btn.addEventListener('click', () => {
       selectEdition(btn.dataset.id);
     });
   });
 
-  // Selección inicial
   selectEdition('standard');
 });
 
