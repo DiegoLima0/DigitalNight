@@ -41,7 +41,7 @@ require_once 'includes/header.php';
             </div>
 
             <nav id="navPerfil">
-                <button data-section="juegosCreados" onclick="mostrarTarjeta('juegosCreados')" class="btnVioletaDifuminado">Juegos creados</button>
+                <button data-section="juegosCreados" onclick="mostrarTarjeta('juegosCreados')" class="btnGris activa">Juegos creados</button>
                 <button data-section="juegos" onclick="mostrarTarjeta('juegos')" class="btnGris">Juegos</button>
                 <button data-section="publicaciones" onclick="mostrarTarjeta('publicaciones')" class="btnGris">Publicaciones</button>
             </nav>
@@ -51,7 +51,7 @@ require_once 'includes/header.php';
         <section id="secciones">
 
             <div id="juegosCreados" class="seccion activa">
-                <div class="juegoCreado">
+                <div class="juego">
                     <img src="" alt="Imagen juego">
 
                     <div class="infoJuego">

@@ -389,11 +389,9 @@ function mostrarTarjeta(miembroID) {
   let botones = document.querySelectorAll('#navPerfil button');
   botones.forEach(btn => {
     if (btn.dataset.section === miembroID) {
-      btn.classList.remove('btnGris');
-      btn.classList.add('btnVioletaDifuminado');
+      btn.classList.add('activa');
     } else {
-      btn.classList.remove('btnVioletaDifuminado');
-      btn.classList.add('btnGris');
+      btn.classList.remove('activa');
     }
   });
 }

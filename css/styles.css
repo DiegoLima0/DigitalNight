@@ -103,11 +103,12 @@ header {
     color: white;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
     padding: 15px 40px;
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 header i {
@@ -116,9 +117,14 @@ header i {
 
 header img {
     height: 60px;
+    object-fit: contain;
 }
 
 header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    align-self: center;
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
@@ -183,7 +189,7 @@ a.btn:hover {
     color: white;
 }
 
-.btnGris{
+.btnGris {
     color: rgba(255, 255, 255, 0.719);
     padding: 5px;
     text-decoration: none;
@@ -194,7 +200,12 @@ a.btn:hover {
     border: none;
 }
 
-.btnGris:hover{
+.btnGris.activa {
+    background: linear-gradient(to right, #7C58BC, #272C84);
+    color: white;
+}
+
+.btnGris:hover {
     background: linear-gradient(to right, #7C58BC, #272C84);
     text-decoration: none;
     filter: drop-shadow(0 0 5px rgb(128, 82, 212));
@@ -670,7 +681,7 @@ form input[type="submit"]:hover {
     color: white;
     gap: 1em;
     padding: 30px;
-    background-color: #453b5f49;
+    background-color: #4d407049;
     border-radius: 100px;
     width: 90%;
 }
@@ -691,11 +702,11 @@ form input[type="submit"]:hover {
     gap: 1em;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 30px 0 0;
     width: 100%;
 }
 
-#navPerfil .btnVioletaDifuminado:hover{
+#navPerfil .btnVioletaDifuminado:hover {
     text-decoration: none;
     filter: drop-shadow(0 0 5px rgb(128, 82, 212));
 }
@@ -709,8 +720,8 @@ form input[type="submit"]:hover {
     padding: 30px;
 }
 
-#secciones > div.activa {
-  display: flex;
+#secciones>div.activa {
+    display: flex;
 }
 
 .juego,
@@ -2066,57 +2077,81 @@ p {
 /*Página Configuración configurationPublicProfile.php y */
 #mainConfig {
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    padding: 2em;
-    max-width: 1000px;
     width: 100%;
+    height: 100px;
 }
 
 #mainConfig hr {
     width: 100%;
 }
 
-#mainConfig section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+#mainConfig aside {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    justify-content: center;
+    padding: 30px;
+    background: linear-gradient(to bottom, #1B2147, #494693);
+    height: 100%;
+    width: 20%;
 }
 
-.perfilConfig {
+#cuenta,
+#publicProfile,
+#DistribuidorPerfil {
+    padding: 100px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#DistribuidorPerfil div {
+    display: flex;
     align-items: center;
     gap: 1em;
-    margin: 20px 0px 20px;
 }
 
-#navYconfiguracion {
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-    width: 100%;
-    align-items: flex-start;
+#DistribuidorPerfil a{
+    margin: 20px 0;
+    width: max-content;
 }
 
-#navYconfiguracion nav {
-    display: flex;
-    flex-direction: column;
+#DistribuidorPerfil i {
+    font-size: 70px;
+    background: linear-gradient(45deg, #2553C9, #8D93FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .seccionConfig {
     padding: 10px;
     border: 1px rgba(255, 255, 255, 0) solid;
+    transition: 0.3s ease;
+    border-right: none;
 }
 
 .seccionConfig:hover {
-    background-color: rgba(255, 255, 255, 0.253);
-    border: 1px white solid;
-    border-radius: 15px;
+    background: linear-gradient(to right, #8400ff38, #30365900);
+    border-left-width: 4px;
+    border-left-color: #502BA9;
+    text-decoration: none;
+    border-right: none;
+}
+
+.seccionConfig.active {
+    background: linear-gradient(to right, #8400ff38, #30365900);
+    border-left-width: 4px;
+    border-left-color: #502BA9;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border-right: none;
+}
+
+.seccionConfig.active:hover {
+    border-right: none;
+    background: linear-gradient(to right, #8400ff57, #30365900);
 }
 
 #publicProfileConfig,

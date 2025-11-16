@@ -54,7 +54,7 @@ if ($is_logged_in) {
                         Configuración
                     </a>
 
-                    <a href="creatorForm.php">
+                    <a href="configDistributorProfile.php">
                         <i class="bi bi-person-plus"></i>
                         Quiero ser creador
                     </a>
