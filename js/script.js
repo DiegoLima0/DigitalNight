@@ -402,3 +402,78 @@ document.querySelectorAll('#navPerfil button').forEach(btn => {
   });
 });
 
+
+
+
+//editions
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  console.log("[editions] modo tarjetas estáticas");
+
+  const editions = {
+    standard: {
+      name:'Edición Estándar',
+      tag:'Incluye el juego base',
+      price:1199,
+      features:['Juego base','Actualizaciones gratuitas','Soporte multijugador']
+    },
+    deluxe: {
+      name:'Edición Deluxe',
+      tag:'Contenido digital adicional',
+      price:1799,
+      features:['Juego base','Pase de temporada (1 DLC)','Traje exclusivo','Banda sonora digital']
+    },
+    ultimate: {
+      name:'Edición Ultimate',
+      tag:'Todo el contenido + extras físicos (ed. limitada)',
+      price:2599,
+      features:['Juego base','Pase de temporada completo','Contenido cosmético completo','Artbook digital','Pack de inicio en línea']
+    },
+    collector: {
+      name:'Edición Coleccionista',
+      tag:'Caja coleccionista + extras físicos',
+      price:4999,
+      features:['Caja metálica','Figura 20cm','Artbook físico','Banda sonora física','Todos los contenidos digitales']
+    }
+  };
+
+  function formatPrice(n){
+    return n.toLocaleString('es-AR',{style:'currency',currency:'ARS'}).replace(',00','');
+  }
+
+  // Selección de edición
+  function selectEdition(id){
+    const data = editions[id];
+    if (!data) return;
+
+    // Activar tarjeta clickeada
+    document.querySelectorAll('.sf-card').forEach(btn => {
+      btn.classList.toggle('sf-card--active', btn.dataset.id === id);
+    });
+
+    // Actualizar panel derecho
+    document.getElementById('edition-name').textContent = data.name;
+    document.getElementById('edition-tag').textContent = data.tag;
+    document.getElementById('edition-price').textContent = formatPrice(data.price);
+
+    const list = document.getElementById('features-list');
+    list.innerHTML = '';
+    data.features.forEach(f => {
+      const li = document.createElement('li');
+      li.textContent = f;
+      list.appendChild(li);
+    });
+  }
+
+  // Asignar eventos a tarjetas estáticas
+  document.querySelectorAll('.sf-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectEdition(btn.dataset.id);
+    });
+  });
+
+  // Selección inicial
+  selectEdition('standard');
+});
+
