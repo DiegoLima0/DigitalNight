@@ -62,6 +62,36 @@
 
   </div>
   </div>
+  <section class="grid" id="productGrid" aria-label="lista de productos">
+    <?php 
+    if (isset($saga_list) && is_array($saga_list)): 
+        foreach ($saga_list as $game): 
+    ?>
+    
+    <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
+        <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
+            <div class="card__thumb">
+                <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
+            </div>
+
+            <div class="card__meta">
+                <div style="display:flex;align-items:center;gap:8px;width:100%">
+                    <div class="card__title"><?php echo $game['title']; ?></div>
+                    <div class="card__price">$<?php echo $game['price']; ?> usd</div>
+                </div>
+
+                <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div> 
+            </div>
+        </article>
+    </a>
+    
+    <?php 
+        endforeach;
+    else: 
+    ?>
+    <p>No hay juegos disponibles en la tienda.</p>
+    <?php endif; ?>
+</section>
   <div id="botones">
     <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>">
       <button class="btnVioletaDifuminado">Juego</button>

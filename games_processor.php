@@ -27,6 +27,7 @@ if ($game_id) {
         g.gameGallery5, 
         g.gameGallery6,
         g.promoText,
+        g.saga,
         g.idCreator
     FROM game g
     WHERE g.idGame = " . $game_id;
@@ -75,6 +76,28 @@ if (!$game_data) {
     header("Location: shop.php?error=juego_no_encontrado");
     exit();
 }
+
+  $saga = $game_data['saga']; 
+
+  $saga_list = []; 
+
+  $sql_select_saga = "SELECT 
+  idGame, 
+  title, 
+  imagen, 
+  price, 
+  genre, 
+  platforms, 
+  saga 
+  FROM game WHERE saga='$saga'"; 
+
+  $result_saga = $conexion->query($sql_select_saga); 
+
+  if ($result_saga && $result_saga->num_rows > 1) { 
+    while ($saga_data = $result_saga->fetch_assoc()) { 
+      $saga_list[] = $saga_data; 
+    }
+  }
 
 $conexion->close();
 ?>
