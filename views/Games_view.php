@@ -64,11 +64,11 @@
   </div>
   <div id="botones">
     <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>">
-      <button class="btn azul">Juego</button>
+      <button class="btnVioletaDifuminado">Juego</button>
     </a>
 
     <a href="community.php?idGame=<?php echo $game_data['idGame']; ?>">
-      <button class="btn azul">Comunidad</button>
+      <button class="btnGris">Comunidad</button>
     </a>
   </div>
   <section class="section cta" aria-label="Sección final - llamada a la acción">
@@ -93,7 +93,7 @@
         </aside>
 
 
-        <main class="col posts">
+        <main class="col posts" id="postCreador">
           <h4>Publicaciones del Creador</h4>
 
           <?php if (isset($is_creator) && $is_creator): ?>

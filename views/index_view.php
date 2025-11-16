@@ -5,21 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Night</title>
-    
+
 </head>
 
 <body>
     <main id="MainPrincipal">
+        <div>
+            <h1 id="TextoPaginaPrincipal">Bienvenido a DigitalNight</h1>
+            <p>Descubrí, descargá y jugá tus títulos favoritos en un solo lugar. DigitalNight reúne a la comunidad gamer que nunca duerme.</p>
 
-        <h1 id="TextoPaginaPrincipal">¿Listo para jugar?</h1>
+            <div>
+                <a href="login.php" class="btnAzulDifuminado" id="<?php echo $id_variable; ?>">
+                    Iniciar sesión
+                </a>
 
-        <a href="login.php">
-            <a href="login.php">
-                <button class="btn azul"  id="<?php echo $id_variable; ?>">Iniciar sesión</button>
-            </a>
-        </a>
-
-        <img src="img/IndexJuegosImg.png" alt="Juegos imagen" id="<?php echo $id_intercalable; ?>">
+                <a href="register.php" class="btnVioletaDifuminado" id="<?php echo $id_variable; ?>">
+                    Registrarse
+                </a>
+            </div>
+        </div>
     </main>
 </body>
 

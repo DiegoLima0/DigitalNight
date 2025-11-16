@@ -55,11 +55,11 @@
     <main id="mainCommunity">
         <div id="botones">
             <a href="games.php?idGame=<?php echo htmlspecialchars($game_id); ?>">
-                <button class="btn azul">Juego</button>
+                <button class="btnGris">Juego</button>
             </a>
 
             <a href="community.php?idGame=<?php echo htmlspecialchars($game_id); ?>">
-                <button class="btn azul active-btn">Comunidad</button>
+                <button class="btnVioletaDifuminado active-btn">Comunidad</button>
             </a>
         </div>
 

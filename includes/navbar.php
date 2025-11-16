@@ -24,11 +24,11 @@ if ($is_logged_in) {
 
 <div id="authContainer">
     <div>
-        <a href="login.php" class="<?php echo $clase_botones_auth; ?>">
+        <a href="login.php" class="btnAzulDifuminado <?php echo $clase_botones_auth; ?>">
             Iniciar sesión
         </a>
 
-        <a href="register.php" class="<?php echo $clase_botones_auth; ?>">
+        <a href="register.php" class="btnVioletaDifuminado <?php echo $clase_botones_auth; ?>">
             Registrarse
         </a>
 
