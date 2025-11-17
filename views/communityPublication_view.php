@@ -1,5 +1,4 @@
 <?php
-// Asegúrate de que $publication_data y $comments_list estén disponibles desde communityPublication_processor.php
 if (!$publication_data) {
     echo "<p style='text-align: center; padding: 20px;'>Publicación no encontrada.</p>";
     return;
@@ -9,7 +8,6 @@ $profile_img_path = 'img/profiles/' . htmlspecialchars($publication_data['user_p
 $post_img_path = !empty($publication_data['publication_image']) ? 'img/publications/' . htmlspecialchars($publication_data['publication_image']) : null;
 $game_id_post = (int) $publication_data['idGame'];
 
-// Datos del usuario actual para el formulario de respuesta
 $current_user_profile_img = $_SESSION['profile_picture'] ?? 'default.png';
 $current_username = $_SESSION['username'] ?? 'Usuario';
 ?>
@@ -22,23 +20,19 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
     <title>Publicación de @<?php echo htmlspecialchars($publication_data['user_name'] ?? 'Usuario'); ?></title>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica de JavaScript para likes/dislikes (vote-button) para la publicación y comentarios
-            // Seleccionamos los <p> con las clases btn-like o btn-dislike
+            
             document.querySelectorAll('.interacciones p.btn-like, .interacciones p.btn-dislike').forEach(button => {
 
                 button.addEventListener('click', function (e) {
-                    // 1. Detener la propagación del evento
                     e.preventDefault();
                     e.stopPropagation();
 
                     const interactionDiv = this.closest('.interacciones');
-                    // data-id se encuentra en el div .interacciones para la publicación y comentarios
                     const idCommentary = interactionDiv.dataset.id;
                     const voteAction = this.dataset.type; // Lee el valor 'like' o 'dislike'
 
                     if (!idCommentary) return;
 
-                    // Feedback visual
                     interactionDiv.style.opacity = 0.5;
                     interactionDiv.style.pointerEvents = 'none';
 
@@ -55,21 +49,17 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
                         })
                         .then(data => {
                             if (data.success) {
-                                // 2. Actualizar los contadores visualmente
                                 interactionDiv.querySelector('.btn-like span').textContent = data.likes;
                                 interactionDiv.querySelector('.btn-dislike span').textContent = data.dislikes;
                             } else {
-                                // 3. Mostrar error del servidor
                                 alert(data.message || 'No se pudo procesar tu voto.');
                             }
                         })
                         .catch(error => {
-                            // 4. Mostrar error de red/JS
                             console.error('Error al votar:', error);
                             alert('Hubo un error al intentar votar. Revisa la consola para más detalles.');
                         })
                         .finally(() => {
-                            // 5. Volver a habilitar la interacción
                             interactionDiv.style.opacity = 1;
                             interactionDiv.style.pointerEvents = 'auto';
                         });

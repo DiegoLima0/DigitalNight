@@ -7,23 +7,19 @@
     <title>Comunidad <?php echo ($game_id > 0 ? "de " . htmlspecialchars($game_title) : ""); ?></title>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Selecciona todos los párrafos de likes/dislikes dentro de todas las publicaciones
-            // Aseguramos la selección de los elementos <p> con las clases btn-like o btn-dislike
+            
             document.querySelectorAll('#publicaciones .interacciones p.btn-like, #publicaciones .interacciones p.btn-dislike').forEach(button => {
                 
                 button.addEventListener('click', function(e) {
-                    // 1. Detener la navegación del <a> padre (es crucial para que no recargue la página)
                     e.preventDefault();
                     e.stopPropagation();
 
                     const interactionDiv = this.closest('.interacciones');
                     const idCommentary = interactionDiv.dataset.id;
-                    // El tipo de voto se lee directamente del atributo data-type
                     const voteAction = this.dataset.type; 
 
                     if (!idCommentary) return;
 
-                    // Feedback visual: deshabilitar temporalmente
                     interactionDiv.style.opacity = 0.5; 
                     interactionDiv.style.pointerEvents = 'none';
 
@@ -40,21 +36,17 @@
                         })
                         .then(data => {
                             if (data.success) {
-                                // 2. Actualizar los contadores visualmente
                                 interactionDiv.querySelector('.btn-like span').textContent = data.likes;
                                 interactionDiv.querySelector('.btn-dislike span').textContent = data.dislikes;
                             } else {
-                                // 3. Mostrar error del servidor 
                                 alert(data.message || 'No se pudo procesar tu voto.');
                             }
                         })
                         .catch(error => {
-                            // 4. Mostrar error de red/JS
                             console.error('Error al votar:', error);
                             alert('Hubo un error al intentar votar. Revisa la consola para más detalles.');
                         })
                         .finally(() => {
-                            // 5. Volver a habilitar la interacción
                             interactionDiv.style.opacity = 1;
                             interactionDiv.style.pointerEvents = 'auto';
                         });
@@ -109,7 +101,7 @@
             <?php endif; ?>
 
             <?php foreach ($publications_list as $publication): 
-                $comments_count = 0; // Se mantiene en 0 a menos que community_processor.php traiga el conteo.
+                $comments_count = 0; 
                 
                 $is_creator = $publication['is_creator_post'];
                 $profile_img_path = 'img/profiles/' . htmlspecialchars($publication['user_profile_img']);
