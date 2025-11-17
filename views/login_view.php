@@ -1,7 +1,3 @@
-<?php
-    require_once 'login_processor.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +8,7 @@
 
     <body>
         <main class="MainFormulario">
-            <form action="login.php" method="post">
+            <form action="login_processor.php" method="post">
                 <label class="titulo">Iniciar sesion</label>
 
                 <?php if (isset($error_mensaje)): ?>

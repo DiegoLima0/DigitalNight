@@ -1,8 +1,3 @@
-<?php
-    require_once 'register_processor.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

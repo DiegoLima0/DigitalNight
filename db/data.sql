@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2025 a las 15:42:18
+-- Tiempo de generación: 17-11-2025 a las 21:52:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -31,8 +31,8 @@ CREATE TABLE `comment` (
   `commentary` varchar(255) DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
-  `liked` int(11) DEFAULT NULL,
-  `disliked` int(11) DEFAULT NULL,
+  `liked` int(11) DEFAULT 0,
+  `disliked` int(11) DEFAULT 0,
   `idCommentary` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `idGame` int(10) UNSIGNED NOT NULL,
@@ -56,7 +56,25 @@ INSERT INTO `comment` (`commentary`, `imagen`, `created_at`, `liked`, `disliked`
 ('afasfasfasf', NULL, '2025-11-09 21:01:38', NULL, NULL, 31, 1, 9, NULL, 'GAME_VIEW'),
 ('afaffaf', NULL, '2025-11-09 21:01:41', NULL, NULL, 32, 1, 9, NULL, 'GAME_VIEW'),
 ('stgdsgffshsrfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdffffffffffff', NULL, '2025-11-09 21:02:09', NULL, NULL, 33, 1, 9, NULL, 'GAME_VIEW'),
-('pepe', '69112b977db4d_pepeargento.jpg', '2025-11-09 21:02:31', NULL, NULL, 34, 1, 9, NULL, 'GAME_VIEW');
+('pepe', '69112b977db4d_pepeargento.jpg', '2025-11-09 21:02:31', NULL, NULL, 34, 1, 9, NULL, 'GAME_VIEW'),
+('sdfdsf', NULL, '2025-11-16 20:24:48', NULL, NULL, 35, 1, 9, NULL, 'GAME_VIEW'),
+('a mi si', NULL, '2025-11-16 20:24:59', NULL, NULL, 36, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('gdfgdfg', NULL, '2025-11-16 22:13:10', NULL, NULL, 37, 1, 9, 36, 'COMMUNITY_VIEW'),
+('sdfsdfsfsf', NULL, '2025-11-16 22:13:28', NULL, NULL, 38, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('sdfsdfsfsf', NULL, '2025-11-16 22:13:30', NULL, NULL, 39, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('sfsfdfsd', '691a76c529ff4_Captura de pantalla 2025-09-11 193412.png', '2025-11-16 22:13:41', NULL, NULL, 40, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('dsgdhjgfngfnhd', '691a76cf337fc_Captura de pantalla 2025-08-22 004334.png', '2025-11-16 22:13:51', 0, NULL, 41, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('gfhfdnghfcnfcgdr bysdrjedt jdtyjdtykjtyufkfy lfckdutub eitdhjd', NULL, '2025-11-16 22:13:56', 0, 0, 42, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('dyb uhdtyjny dtikmryib', NULL, '2025-11-16 22:14:00', 0, 0, 43, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('hrthdthdj', '691a76df322fc_Captura de pantalla 2025-10-04 231540.png', '2025-11-16 22:14:07', 0, 0, 44, 1, 9, NULL, 'COMMUNITY_VIEW'),
+('fuck it', NULL, '2025-11-16 22:14:50', 2, 0, 45, 1, 9, 40, 'COMMUNITY_VIEW'),
+('mentira, me encanto', NULL, '2025-11-16 22:21:55', NULL, NULL, 46, 1, 9, 23, 'COMMUNITY_VIEW'),
+('i was a deya', '691a790db92a3_690a07ad450d1_Captura de pantalla 2025-10-21 013633.png', '2025-11-16 22:23:25', 1, NULL, 47, 1, 9, 40, 'COMMUNITY_VIEW'),
+('i was a deya', '691a7b0906d54_6910d8c8abd4d_6909491a838ad_Undertale.png', '2025-11-16 22:31:53', NULL, NULL, 48, 1, 9, 39, 'COMMUNITY_VIEW'),
+('dgdfdhdhdydhdk', NULL, '2025-11-17 16:17:16', NULL, NULL, 49, 1, 10, NULL, 'GAME_VIEW'),
+('hdfgjdtjdjfh', NULL, '2025-11-17 16:17:24', NULL, NULL, 50, 1, 10, NULL, 'COMMUNITY_VIEW'),
+('stsestgdsgffshsrfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh no son tatuaje en el cuello son la marca de la cadena', NULL, '2025-11-17 16:31:00', NULL, NULL, 51, 1, 9, NULL, 'GAME_VIEW'),
+('Lorem ipsum dolor sit amet consectetur adipiscing elit ullamcorper parturient congue, id magnis urna cum iaculis donec facilisi libero faucibus porta mi, enim integer hendrerit fames vehicula quam dictum nostra sodales. Odio senectus purus dictum tellus, ', NULL, '2025-11-17 16:32:35', NULL, NULL, 52, 1, 9, NULL, 'GAME_VIEW');
 
 -- --------------------------------------------------------
 
@@ -70,6 +88,15 @@ CREATE TABLE `comment_votes` (
   `idUser` int(11) NOT NULL,
   `vote_type` enum('like','dislike') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comment_votes`
+--
+
+INSERT INTO `comment_votes` (`idVote`, `idCommentary`, `idUser`, `vote_type`) VALUES
+(1, 45, 1, 'like'),
+(9, 47, 3, 'like'),
+(12, 45, 3, 'like');
 
 -- --------------------------------------------------------
 
@@ -167,7 +194,9 @@ INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `descript
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png'),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png'),
 ('cuentanueva', 'nueva@gmail.com', 'nueva', 5, 'user', NULL, 'default.png'),
-('idk', 'idk@gmail.com', 'idk', 6, 'user', NULL, 'default.png');
+('idk', 'idk@gmail.com', 'idk', 6, 'user', NULL, 'default.png'),
+('admin', 'admin@gmail.com', 'Type_shit', 7, 'admin', 'Cuenta principal de administrador', 'default.png'),
+('admin2', 'admin2@gmail.com', 'admin', 8, 'admin', '', 'default.png');
 
 -- --------------------------------------------------------
 
@@ -206,8 +235,7 @@ ALTER TABLE `comment`
 --
 ALTER TABLE `comment_votes`
   ADD PRIMARY KEY (`idVote`),
-  ADD UNIQUE KEY `unique_user_comment` (`idCommentary`,`idUser`),
-  ADD KEY `idUser` (`idUser`);
+  ADD UNIQUE KEY `user_comment_vote_unique` (`idCommentary`,`idUser`);
 
 --
 -- Indices de la tabla `creator`
@@ -244,13 +272,13 @@ ALTER TABLE `user_game`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `comment_votes`
 --
 ALTER TABLE `comment_votes`
-  MODIFY `idVote` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idVote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `game`
@@ -262,7 +290,7 @@ ALTER TABLE `game`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -275,13 +303,6 @@ ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`idGame`) REFERENCES `game` (`idGame`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_3` FOREIGN KEY (`parent_id`) REFERENCES `comment` (`idCommentary`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `comment_votes`
---
-ALTER TABLE `comment_votes`
-  ADD CONSTRAINT `comment_votes_ibfk_1` FOREIGN KEY (`idCommentary`) REFERENCES `comment` (`idCommentary`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comment_votes_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `creator`

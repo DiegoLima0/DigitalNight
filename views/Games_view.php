@@ -1,5 +1,3 @@
-ya fue copialo todo
-
 <!DOCTYPE html>
 <html lang="es">
 

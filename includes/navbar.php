@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -12,16 +11,19 @@ if ($is_logged_in) {
 
     $username = htmlspecialchars($_SESSION['userName'] ?? 'usuario');
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
+    
+    $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
+    
 } else {
     $clase_botones_auth = 'btn azul';
     $clase_perfil = 'borrar';
 
     $username = '';
     $profile_pic = 'default.png';
+    $is_admin = false;
 }
 
 ?>
-
 <div id="authContainer">
     <div>
         <a href="login.php" class="btnAzulDifuminado <?php echo $clase_botones_auth; ?>">
@@ -40,97 +42,100 @@ if ($is_logged_in) {
 
                 <div class="dropdown-menu">
                     <div>
-                        <img src="img/profiles/<?php echo $profile_pic; ?>" alt="Imagen de perfil">
-                        <p>@<?php echo $username; ?></p>
+                        <img src="img/profiles..." alt="Perfil">
+                        <h2><?php echo $username; ?></h2>
                     </div>
-
-                    <a href="profile.php">
-                        <i class="bi bi-person"></i>
-                        Ver perfil
-                    </a>
 
                     <a href="configAccount.php">
                         <i class="bi bi-gear"></i>
                         Configuración
                     </a>
 
+                    <?php if ($is_admin): ?>
+                    <a href="admin/users.php"> <i class="bi bi-person-fill-gear"></i>
+                        Administrar Usuarios
+                    </a>
+                    <?php endif; ?>
                     <a href="configDistributorProfile.php">
-                        <i class="bi bi-person-plus"></i>
-                        Quiero ser creador
+                        <i class="bi bi-people"></i>
+                        Perfil de Creador
                     </a>
 
                     <a href="logout.php">
-                        <i class="bi bi-box-arrow-left"></i>
+                        <i class="bi bi-box-arrow-right"></i>
                         Cerrar sesión
                     </a>
+
+                </div>
+            </div>
+            
+            <div id="carritoBtn">
+                <i class="bi bi-cart"></i>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div id="modalCarrito" class="modal">
+    <div class="modal-content">
+        <div class="headerModalCarrito">
+            <h2>Carrito</h2>
+            <button class="cerrarModalCarrito"><i class="bi bi-x"></i></button>
+        </div>
+
+        <div class="contentModalCarrito">
+            <div class="listaJuegosCarrito">
+                
+                <div class="juegoCarrito">
+                    <img class="imgJuego" src="" alt="">
+                    <div>
+                        <div>
+                            <h2>Nombre del juego</h2>
+                            <i class="bi bi-trash3"></i>
+                        </div>
+
+                        <p>Plataforma: plataformas</p>
+                        <div>
+                            <p>Precio</p>
+                            <div class="cantidad-control">
+                                <button class="menos">-</button>
+                                <span class="cantidad">1</span>
+                                <button class="mas">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="juegoCarrito">
+                    <img class="imgJuego" src="" alt="">
+                    <div>
+                        <div>
+                            <h2>Nombre del juego</h2>
+                            <i class="bi bi-trash3"></i>
+                        </div>
+
+                        <p>Plataforma: plataformas</p>
+                        <div>
+                            <p>Precio</p>
+                            <div class="cantidad-control">
+                                <button class="menos">-</button>
+                                <span class="cantidad">1</span>
+                                <button class="mas">+</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <i id="abrirModalCarrito" class="bi bi-cart"></i>
 
-            <div id="overlay"></div>
-
-            <div id="modalCarrito">
-                <div id="tituloCarrito">
-                    <h1>Mi carrito</h1>
-                </div>
-
-                <!--Mensaje q deberia aparecer si el carrito esta vacio 
-                <p>Todavia no hay nada en el carrito</p>-->
-
-                <div id="juegosCarrito">
-                    <div class="juegoCarrito">
-                        <img class="imgJuego" src="" alt="">
-                        <div>
-                            <div>
-                                <h2>Nombre del juego</h2>
-                                <i class="bi bi-trash3"></i>
-                            </div>
-
-                            <p>Plataforma: plataformas</p>
-
-                            <div>
-                                <p>Precio</p>
-
-                                <div class="cantidad-control">
-                                    <button class="menos">-</button>
-                                    <span class="cantidad">1</span>
-                                    <button class="mas">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="juegoCarrito">
-                        <img class="imgJuego" src="" alt="">
-                        <div>
-                            <div>
-                                <h2>Nombre del juego</h2>
-                                <i class="bi bi-trash3"></i>
-                            </div>
-
-                            <p>Plataforma: plataformas</p>
-                            <div>
-                                <p>Precio</p>
-                                <div class="cantidad-control">
-                                    <button class="menos">-</button>
-                                    <span class="cantidad">1</span>
-                                    <button class="mas">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="botonesModalCarrito">
-                    <button type="button" class="cerrarModalCarrito btn azul">Continuar comprando</button>
-                    <a href="views/pay-page.php">
+            <div class="botonesModalCarrito">
+                <button type="button" class="cerrarModalCarrito btn azul">Continuar comprando</button>
+                <a href="views/pay-page.php">
                     <button type="button" class="btn-azul-carrito">Iniciar compra</button>
-                    </a>
-                </div>
-
+                </a>
             </div>
+
         </div>
     </div>
 </div>

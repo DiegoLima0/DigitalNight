@@ -3027,7 +3027,6 @@ body.biblioteca {
 
 .publicacion p, .publicacionCreador p {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -3035,8 +3034,8 @@ body.biblioteca {
 }
 
 #postCreador{
-    width: 45em;
-    padding: 0 50px;
+    width: 33em;
+    padding: 0 50px;
 }
 
 .publicacion:hover {
