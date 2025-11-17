@@ -31,7 +31,7 @@ require_once 'includes/header.php';
                 <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
 
                 <div id="contenidoPerfil">
-                    <p>@<?php echo htmlspecialchars($_SESSION['userName']); ?></p>
+                    <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
 
                     <div>
                         <p>Biografia</p>
@@ -41,9 +41,11 @@ require_once 'includes/header.php';
             </div>
 
             <nav id="navPerfil">
-                <button data-section="juegosCreados" onclick="mostrarTarjeta('juegosCreados')" class="btnGris activa">Juegos creados</button>
+                <button data-section="juegosCreados" onclick="mostrarTarjeta('juegosCreados')"
+                    class="btnGris activa">Juegos creados</button>
                 <button data-section="juegos" onclick="mostrarTarjeta('juegos')" class="btnGris">Juegos</button>
-                <button data-section="publicaciones" onclick="mostrarTarjeta('publicaciones')" class="btnGris">Publicaciones</button>
+                <button data-section="publicaciones" onclick="mostrarTarjeta('publicaciones')"
+                    class="btnGris">Publicaciones</button>
             </nav>
 
         </section>
@@ -115,8 +117,7 @@ require_once 'includes/header.php';
             <div id="publicaciones" class="seccion">
                 <div class="publicacion">
                     <div class="post-user-meta">
-                        <img src="img/profiles/"
-                            alt="Perfil de usuario" class="user-profile-img">
+                        <img src="img/profiles/" alt="Perfil de usuario" class="user-profile-img">
                         <span class="username">@</span>
                     </div>
 
