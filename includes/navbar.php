@@ -9,11 +9,11 @@ if ($is_logged_in) {
     $clase_botones_auth = 'borrar';
     $clase_perfil = '';
 
-    $username = htmlspecialchars($_SESSION['userName'] ?? 'usuario');
+    $username = htmlspecialchars($_SESSION['username'] ?? 'usuario');
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
     
     $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
-    
+
 } else {
     $clase_botones_auth = 'btn azul';
     $clase_perfil = 'borrar';
@@ -52,9 +52,9 @@ if ($is_logged_in) {
                     </a>
 
                     <?php if ($is_admin): ?>
-                    <a href="admin/users.php"> <i class="bi bi-person-fill-gear"></i>
-                        Administrar Usuarios
-                    </a>
+                        <a href="admin/users.php"> <i class="bi bi-person-fill-gear"></i>
+                            Administrar Usuarios
+                        </a>
                     <?php endif; ?>
                     <a href="configDistributorProfile.php">
                         <i class="bi bi-people"></i>
@@ -68,11 +68,11 @@ if ($is_logged_in) {
 
                 </div>
             </div>
-            
+
             <div id="carritoBtn">
                 <i class="bi bi-cart"></i>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -86,7 +86,7 @@ if ($is_logged_in) {
 
         <div class="contentModalCarrito">
             <div class="listaJuegosCarrito">
-                
+
                 <div class="juegoCarrito">
                     <img class="imgJuego" src="" alt="">
                     <div>

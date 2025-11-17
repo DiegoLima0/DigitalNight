@@ -4,8 +4,9 @@ if(isset($_POST['correo'])){
 
     $userName = $conexion->real_escape_string($_POST["nombre"]);
     $email = $conexion->real_escape_string($_POST["correo"]);
-    $password = $conexion->real_escape_string($_POST["password"]);
-
+    
+    $password = $conexion->real_escape_string($_POST["password"]); 
+    
     $sql_check = "SELECT idUser FROM user WHERE userName = '$userName' OR email = '$email'";
     $result_check = $conexion->query($sql_check);
 

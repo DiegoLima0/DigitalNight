@@ -3,14 +3,14 @@ session_start();
 require_once 'includes/database.php';
 
 $user_id = $_SESSION['user_id'] ?? 0;
-$publications_list = []; 
+$publications_list = [];
 
-$game_id = isset($_GET['idGame']) ? (int)$_GET['idGame'] : 0; 
+$game_id = isset($_GET['idGame']) ? (int) $_GET['idGame'] : 0;
 $game_title = '';
 $game_creator_id = 0;
 
 if ($game_id <= 0) {
-    
+
     $conexion->close();
     return;
 }
@@ -22,7 +22,7 @@ $result_info = $conexion->query($sql_game_info);
 if ($result_info && $result_info->num_rows > 0) {
     $info = $result_info->fetch_assoc();
     $game_title = $info['title'];
-    $game_creator_id = (int)$info['idCreator'];
+    $game_creator_id = (int) $info['idCreator'];
 }
 
 $sql_publications = "SELECT 
@@ -48,7 +48,7 @@ $result_publications = $conexion->query($sql_publications);
 
 if ($result_publications) {
     while ($row = $result_publications->fetch_assoc()) {
-        $row['is_creator_post'] = ((int)$row['idUser'] === $game_creator_id); 
+        $row['is_creator_post'] = ((int) $row['idUser'] === $game_creator_id);
         $publications_list[] = $row;
     }
 }
@@ -64,9 +64,8 @@ if ($user_id > 0) {
         $sql_username = "SELECT username FROM user WHERE idUser = $user_id";
         $result_username = $conexion->query($sql_username);
         if ($result_username && $result_username->num_rows > 0) {
-            $row = $result_username->fetch_assoc();
-            $current_username = $row['username'];
-            $_SESSION['username'] = $current_username; 
+            $current_username = $result_username->fetch_assoc()['username'];
+            $_SESSION['username'] = $current_username;
         }
     }
 }
