@@ -1,3 +1,5 @@
+ya fue copialo todo
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -63,35 +65,35 @@
   </div>
   </div>
   <section class="grid" id="productGrid" aria-label="lista de productos">
-    <?php 
-    if (isset($saga_list) && is_array($saga_list)): 
-        foreach ($saga_list as $game): 
+    <?php
+    if (isset($saga_list) && is_array($saga_list)):
+      foreach ($saga_list as $game):
     ?>
-    
-    <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
-        <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
+
+        <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
+          <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
             <div class="card__thumb">
-                <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
+              <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
             </div>
 
             <div class="card__meta">
-                <div style="display:flex;align-items:center;gap:8px;width:100%">
-                    <div class="card__title"><?php echo $game['title']; ?></div>
-                    <div class="card__price">$<?php echo $game['price']; ?> usd</div>
-                </div>
+              <div style="display:flex;align-items:center;gap:8px;width:100%">
+                <div class="card__title"><?php echo $game['title']; ?></div>
+                <div class="card__price">$<?php echo $game['price']; ?> usd</div>
+              </div>
 
-                <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div> 
+              <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div>
             </div>
-        </article>
-    </a>
-    
-    <?php 
-        endforeach;
-    else: 
-    ?>
-    <p>No hay juegos disponibles en la tienda.</p>
+          </article>
+        </a>
+
+      <?php
+      endforeach;
+    else:
+      ?>
+      <p>No hay juegos disponibles en la tienda.</p>
     <?php endif; ?>
-</section>
+  </section>
   <div id="botones">
     <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>">
       <button class="btnVioletaDifuminado">Juego</button>
@@ -152,15 +154,15 @@
             </div>
           <?php endif; ?>
 
-          <div id="publicaciones">
+          <div id="publicacionesCreador">
 
             <?php if (!empty($creator_comments)): ?>
               <?php foreach ($creator_comments as $comment): ?>
-                <div class="publicacion">
+                <div class="publicacionCreador">
                   <div class="post-user-meta">
                     <img src="img/profiles/<?php echo htmlspecialchars($comment['profile_image_path']); ?>"
                       alt="Perfil de usuario" class="user-profile-img">
-                    <span class="username">@<?php echo htmlspecialchars($comment['username']); ?></span>
+                    <p class="username">@<?php echo htmlspecialchars($comment['username']); ?></p>
                   </div>
 
                   <p class="post-content-text"><?php echo nl2br(htmlspecialchars($comment['commentary'])); ?></p>
@@ -185,6 +187,8 @@
             <a class="boton-base more-btn" href="#">Más Información</a>
           </div>
         </main>
+
+
 
         <aside class="col recommended">
           <h4>Recomendados</h4>

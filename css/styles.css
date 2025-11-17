@@ -3012,7 +3012,7 @@ body.biblioteca {
     width: 100%;
 }
 
-.publicacion {
+.publicacion, .publicacionCreador {
     display: inline-block;
     width: 100%;
     margin: 0 0 1.5em;
@@ -3025,13 +3025,18 @@ body.biblioteca {
 }
 
 
-.publicacion p {
+.publicacion p, .publicacionCreador p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 3px;
+}
+
+#postCreador{
+    width: 45em;
+    padding: 0 50px;
 }
 
 .publicacion:hover {
