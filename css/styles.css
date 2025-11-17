@@ -3007,25 +3007,23 @@ body.biblioteca {
 }
 
 #publicaciones {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    column-gap: 2em;
+    column-count: 4;
+    column-gap: 1.5em;
     width: 100%;
-    justify-items: center;
 }
 
 .publicacion {
     display: inline-block;
-    margin-bottom: 2em;
     width: 100%;
-    height: min-content;
-    max-height: 380px;
+    margin: 0 0 1.5em;
+    break-inside: avoid;
     border-radius: 20px;
     background: linear-gradient(to right, #322b4b70, #4132c970);
     padding: 15px;
     transition: 0.3s ease;
     box-sizing: border-box;
 }
+
 
 .publicacion p {
     display: -webkit-box;
