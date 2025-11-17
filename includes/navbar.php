@@ -11,7 +11,7 @@ if ($is_logged_in) {
 
     $username = htmlspecialchars($_SESSION['username'] ?? 'usuario');
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
-    
+
     $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
 
 } else {
@@ -43,8 +43,13 @@ if ($is_logged_in) {
                 <div class="dropdown-menu">
                     <div>
                         <img src="img/profiles..." alt="Perfil">
-                        <h2><?php echo $username; ?></h2>
+                        <p>@<?php echo $username; ?></p>
                     </div>
+
+                    <a href="profile.php">
+                        <i class="bi bi-person"></i>
+                        Ver perfil
+                    </a>
 
                     <a href="configAccount.php">
                         <i class="bi bi-gear"></i>
