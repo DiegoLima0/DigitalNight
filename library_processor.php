@@ -11,7 +11,7 @@ $idUser = $_SESSION['user_id'];
 $games_list = [];
 
 $sql_select_games = "
-  SELECT game.idGame, game.title, game.price, game.imagen
+  SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
   FROM user_game 
   JOIN game ON user_game.idGame = game.idGame
   WHERE user_game.idUser = $idUser
@@ -30,7 +30,7 @@ if ($result_games && $result_games->num_rows > 0) {
 $recent_games_list = [];
 
 $sql_select_recent_games = "
-  SELECT game.idGame, game.title, game.price, game.imagen
+  SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
   FROM user_game
   JOIN game ON user_game.idGame = game.idGame
   WHERE user_game.idUser = $idUser
@@ -50,7 +50,7 @@ if ($result_recent_games && $result_recent_games->num_rows > 0) {
 $recommended_games = [];
 
 $sql_recommended = "
-  SELECT game.idGame, game.title, game.price, game.imagen
+  SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
   FROM game
   WHERE genre = (
     SELECT game.genre
@@ -81,7 +81,7 @@ $other_games = [];
 if (count($games_list) > 0) {
     // El usuario tiene al menos un juego comprado
     $sql_other_games = "
-      SELECT game.idGame, game.title, game.price, game.imagen
+      SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
       FROM game
       WHERE genre != (
         SELECT game.genre
@@ -104,7 +104,7 @@ if (count($games_list) > 0) {
 } else {
     // El usuario no tiene juegos comprados: mostrar todos los juegos
     $sql_other_games = "
-      SELECT idGame, title, price, imagen
+      SELECT idGame, title, cover_image, imagen
       FROM game
     ";
     $borro="borrar";
