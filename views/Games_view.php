@@ -13,25 +13,36 @@
       <img src="img/<?php echo $game_data['banner_path']; ?>"
         alt="Banner principal del juego <?php echo $game_data['title']; ?>" aria-hidden="true" />
 
-      <div class="contenedor">
+      <div class="contenedor-games">
         <div class="left">
           <h1 class="title"><?php echo $game_data['title']; ?></h1>
+          <div class="Calificacion-Games">
+            <i class="bi bi-star-fill"></i>
+            <p>7.5</p>
+          </div>
+          <p class="plataformas-games-interior">Disponible para <?php echo $game_data['platforms']; ?></p>
           <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
 
           <div class="cta-group">
             <form method="POST" action="buy.php">
               <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
-              <button type="submit" class="boton-base boton-primario">Comprar ahora</button>
-              <button type="submit" class="boton-base boton-primario añadirCarrito">Añadir al carrito</button>
-              <a class="boton-base boton-secundario" href="#">Ver ediciones</a>
+              <button type="submit" class="boton-añadirCarrito">Añadir al carrito</button>
+              <a class="boton-VerEdiciones" href="#">Ver ediciones</a>
             </form>
           </div>
         </div>
 
         <div class="right">
           <div class="meta">
-            <div><strong>Fecha:</strong> <?php echo $game_data['release_date']; ?></div>
-            <div style="margin-top:.6rem"><strong>Plataformas:</strong> <?php echo $game_data['platforms']; ?></div>
+            <div class="Fecha-Games-Interior">Disponible <?php echo $game_data['release_date']; ?></div>
+            <div class="Caracteristicas-Games">
+              <div><i class="bi bi-globe"></i>
+                <p>Juego Online/Offline</p>
+              </div>
+              <div><i class="bi bi-people-fill"></i>
+                <p>x- x Jugadores</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -53,9 +64,8 @@
     <section class="section cover-img" aria-label="Segunda imagen">
       <img src="img/<?php echo $game_data['featured_image']; ?>" alt="Imagen destacada del juego" />
 
-      <div class="content">
+      <div class="Contenedor-Banner2-Game">
         <h2><?php echo $game_data['promoText']; ?></h2>
-
         <p><?php echo $game_data['description']; ?></p>
       </div>
     </section>
@@ -66,7 +76,7 @@
     <?php
     if (isset($saga_list) && is_array($saga_list)):
       foreach ($saga_list as $game):
-    ?>
+        ?>
 
         <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
           <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
@@ -85,14 +95,15 @@
           </article>
         </a>
 
-      <?php
+        <?php
       endforeach;
     else:
       ?>
       <p>No hay juegos disponibles en la tienda.</p>
     <?php endif; ?>
   </section>
-  <div id="botones">
+
+  <div class="botones-games">
     <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>">
       <button class="btnVioletaDifuminado">Juego</button>
     </a>
@@ -101,24 +112,29 @@
       <button class="btnGris">Comunidad</button>
     </a>
   </div>
+
   <section class="section cta" aria-label="Sección final - llamada a la acción">
     <section class="section bottom-feed" aria-label="Feed y recomendaciones">
       <div class="bottom-grid">
 
 
-        <aside class="col share">
-          <h4>Share</h4>
+        <aside class="Rating-Games-Aside">
+          <div class="rating-content">
+            <h2>Reseñas</h2>
 
-          <label class="share-input">
-            <span class="sr-only">Enlace</span>
-            <input type="text" placeholder="Enlace" value="#" aria-label="Enlace a compartir">
-          </label>
+            <div class="rating-box">
+              <div class="stars">
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+              </div>
 
-          <div class="social-row">
-            <a class="boton-base social-btn twitter" href="https://twitter.com/intent/tweet?url=" target="_blank"
-              rel="noopener noreferrer">Twitter</a>
-            <a class="boton-base social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u="
-              target="_blank" rel="noopener noreferrer">Facebook</a>
+              <span class="score">7.5/5</span>
+            </div>
+
+            <p class="count">1.230 Reseñas de usuarios</p>
           </div>
         </aside>
 
@@ -133,15 +149,15 @@
                 <input type="hidden" name="action" value="post_creator_publication">
                 <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
 
-                <textarea name="content"
-                  placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?"
+                <textarea name="content" placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?"
                   rows="3" required></textarea>
 
                 <div class="post-form-controls">
                   <label for="post_image_game" class="boton-base boton-secundario post-image-label">
                     <i class="bi bi-image" style="margin-right: 5px;"></i> Seleccionar Foto
                   </label>
-                  <input type="file" id="post_image_game" name="publication_image" accept="image/*" class="file-input-hidden"
+                  <input type="file" id="post_image_game" name="publication_image" accept="image/*"
+                    class="file-input-hidden"
                     onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name">
                   <span id="file-name-display-game" class="file-name-display">Ningún archivo
                     seleccionado.</span>
@@ -188,7 +204,7 @@
 
 
 
-        <aside class="col recommended">
+        <aside class="Recomendados-Aside">
           <h4>Recomendados</h4>
 
           <div class="rec-item">
