@@ -26,7 +26,7 @@ if (!empty($_GET['precio'])) {
 $sql_select_games = "SELECT 
     idGame, 
     title, 
-    imagen, 
+    cover_image AS imagen,
     price,
     genre,
     platforms 

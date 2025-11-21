@@ -42,7 +42,7 @@ if ($is_logged_in) {
 
                 <div class="dropdown-menu">
                     <div>
-                        <img src="img/profiles..." alt="Perfil">
+                        <img src="img/profiles/<?php echo htmlspecialchars($profile_pic); ?>" alt="Perfil">
                         <p>@<?php echo $username; ?></p>
                     </div>
 
