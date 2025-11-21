@@ -38,17 +38,20 @@ if (cerrarModal2 && modal2) {
 const passInput = document.getElementById("password");
 const toggleEye = document.getElementById("toggleEye");
 
-toggleEye.addEventListener("click", () => {
-    if (passInput.type === "password") {
-        passInput.type = "text";
-        toggleEye.classList.remove("bi-eye-slash");
-        toggleEye.classList.add("bi-eye");
-    } else {
-        passInput.type = "password";
-        toggleEye.classList.remove("bi-eye");
-        toggleEye.classList.add("bi-eye-slash");
-    }
-});
+if (passInput && toggleEye) {
+    toggleEye.addEventListener("click", () => {
+        if (passInput.type === "password") {
+            passInput.type = "text";
+            toggleEye.classList.remove("bi-eye-slash");
+            toggleEye.classList.add("bi-eye");
+        } else {
+            passInput.type = "password";
+            toggleEye.classList.remove("bi-eye");
+            toggleEye.classList.add("bi-eye-slash");
+        }
+    });
+}
+
 
 
 //Carrito
