@@ -1,3 +1,14 @@
+<?php
+$error_mensaje = "";
+if (isset($_SESSION['login_error'])) {
+    $credenciales="bad_account";
+    $error_mensaje = $_SESSION['login_error'];
+    unset($_SESSION['login_error']);
+}
+else{
+    $credenciales="borrar";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,11 +21,6 @@
         <main class="MainFormulario">
             <form action="login_processor.php" method="post">
                 <label class="titulo">Iniciar sesion</label>
-
-                <?php if (isset($error_mensaje)): ?>
-                    <p style="color: red; text-align: center;"><?php echo $error_mensaje; ?></p>
-                <?php endif; ?>
-
                 <div>
                     <label for="correo">Correo electrónico</label>
                     <input type="email" name="correo" placeholder="correoelectrónico@ejemplo.com" required>
@@ -29,8 +35,7 @@
         <i class="bi bi-eye-slash toggle-pass" id="toggleEye"></i>
     </div>
 </div>
-
-
+<p class="<?php echo $credenciales; ?>"><?php echo $error_mensaje; ?></p>
                 <div>
                     <a href="register.php">¿Aún no tienes una cuenta?</a>
                     <input type="submit" value="Iniciar sesión">

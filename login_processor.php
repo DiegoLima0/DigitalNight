@@ -17,7 +17,6 @@ $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
     $usuario = $resultado->fetch_assoc();
-
     $_SESSION['logged_in'] = true;
     
     $_SESSION['user_id'] = $usuario['idUser']; 
@@ -32,7 +31,7 @@ if ($resultado->num_rows > 0) {
     
     header("Location: profile.php");
     exit();
-
+    
 } else {
     $_SESSION['login_error'] = "Credenciales incorrectas.";
     header("Location: login.php");

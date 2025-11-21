@@ -20,7 +20,11 @@ body {
 main {
     flex: 1;
 }
-
+.bad_account{
+    display: block;
+    color: rgb(255, 79, 25);
+    margin: 0px;
+}
 .oculto {
     opacity: 0;
 }
