@@ -104,7 +104,7 @@ if (count($games_list) > 0) {
 } else {
     // El usuario no tiene juegos comprados: mostrar todos los juegos
     $sql_other_games = "
-      SELECT idGame, title, cover_image, imagen
+      SELECT idGame, title, cover_image
       FROM game
     ";
     $borro="borrar";
