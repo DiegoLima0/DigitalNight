@@ -723,7 +723,7 @@ form input[type="submit"]:hover {
 }
 
 .toggle-pass:hover {
-    color: white;
+    color: rgb(31, 31, 31);
 }
 
 /*Pagina Perfil (profile.php)*/
