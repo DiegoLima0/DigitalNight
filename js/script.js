@@ -52,8 +52,6 @@ if (passInput && toggleEye) {
     });
 }
 
-
-
 //Carrito
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modalCarrito");
@@ -494,3 +492,4 @@ document.addEventListener('DOMContentLoaded', () => {
   selectEdition('standard');
 });
 
+/*Juego de la serpiente*/

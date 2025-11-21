@@ -3783,3 +3783,134 @@ body.biblioteca {
   border-radius: inherit;
   display: block;
 }
+
+/*Juego de la serpiente*/
+#snakegame-root, 
+#snakegame-root * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#snakegame-root {
+    height: 100vh;
+    width: 100%;
+    background-color: #192233;
+    font-family: "Poppins", sans-serif;
+    color: #7890FB;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+}
+
+#snakegame-root canvas {
+    background-color: #181825;
+}
+
+.snakegame-contenedor-general {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.snakegame-area-interactiva {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#snakegame-ui {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+#snakegame-titulo-puntos {
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    transform: rotate(270deg);
+}
+
+#snakegame-puntaje {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 800;
+    transform: rotate(-90deg);
+}
+
+#snakegame-boton-reiniciar {
+    font-size: 10px;
+    padding: 10px 20px;
+    background: #04D361;
+    border: none;
+    color: #222738;
+    border-radius: 40px;
+    font-weight: 800;
+    transform: rotate(270deg);
+    cursor: pointer;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#snakegame-boton-reiniciar:hover {
+    background: #865BD6;
+}
+
+#snakegame-boton-reiniciar svg {
+    margin-right: 8px;
+}
+
+#snakegame-creditos {
+    width: 100%;
+    bottom: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: inherit;
+    text-transform: uppercase;
+    padding-left: 35px;
+}
+
+#snakegame-autor {
+    font-size: 10px;
+    margin-left: 20px;
+    color: inherit;
+    letter-spacing: 4px;
+}
+
+#snakegame-titulo-juego {
+    font-size: 25px;
+}
+
+@media (max-width: 600px) {
+    #snakegame-boton-reiniciar,
+    #snakegame-titulo-puntos {
+        transform: rotate(0deg);
+    }
+
+    #snakegame-boton-reiniciar {
+        margin-bottom: 20px;
+    }
+
+    #snakegame-ui {
+        flex-flow: row wrap;
+        margin-bottom: 20px;
+    }
+
+    #snakegame-puntaje {
+        margin-top: 0;
+        margin-left: 20px;
+        transform: rotate(0deg);
+    }
+}
