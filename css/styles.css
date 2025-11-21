@@ -703,6 +703,29 @@ form input[type="submit"]:hover {
     text-decoration: underline;
 }
 
+.input-pass-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-pass-wrapper input {
+    padding-right: 40px; /* espacio para el ojito */
+}
+
+.toggle-pass {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.toggle-pass:hover {
+    color: white;
+}
+
 /*Pagina Perfil (profile.php)*/
 #mainPerfil {
     padding: 0;

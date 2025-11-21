@@ -21,9 +21,15 @@
                 </div>
                     
                 <div>
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="password" placeholder="Ingrese una contraseña" required>
-                </div>
+    <label for="password">Contraseña</label>
+
+    <div class="input-pass-wrapper">
+        <input type="password" name="password" id="password" placeholder="Ingrese una contraseña" required>
+
+        <i class="bi bi-eye-slash toggle-pass" id="toggleEye"></i>
+    </div>
+</div>
+
 
                 <div>
                     <a href="register.php">¿Aún no tienes una cuenta?</a>
