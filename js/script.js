@@ -228,13 +228,9 @@ function mostrarTarjeta(miembroID) {
   let index = 0;
 
   function update() {
-
     slider.style.transform = `translateX(-${index * 100}%)`;
-
-
     navLinks.forEach((a, i) => a.classList.toggle('active', i === index));
   }
-
 
   function prev() { index = (index - 1 + total) % total; update(); }
   function next() { index = (index + 1) % total; update(); }
@@ -244,15 +240,11 @@ function mostrarTarjeta(miembroID) {
       e.preventDefault();
       index = i;
       update();
-
-
     });
   });
 
-
   if (btnPrev) btnPrev.addEventListener('click', prev);
   if (btnNext) btnNext.addEventListener('click', next);
-
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft') prev();
@@ -261,21 +253,26 @@ function mostrarTarjeta(miembroID) {
 
   update();
 
-
+  // 👇 Único bloque load
   window.addEventListener('load', () => {
     const h = location.hash;
     if (h) {
-
       const el = document.querySelector(h);
       if (el) {
         const found = Array.from(slides).indexOf(el);
         if (found >= 0) {
           index = found;
           update();
-
-          setTimeout(() => { window.scrollTo({ top: 0 }); }, 0);
         }
       }
+    }
+
+    // Nuevo bloque: bajar al final si hay parámetro "page"
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("page")) {
+      setTimeout(() => {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      }, 1); // 👈 aquí va tu línea
     }
   });
 })();

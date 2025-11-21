@@ -114,46 +114,76 @@
         </div>
 
         <h2 class="section-title">Recomendados para ti</h2>
-<section class="grid" id="productGrid" aria-label="lista de productos">
-    <?php 
-    if (isset($games_list) && is_array($games_list)): 
-        foreach ($games_list as $game): 
-    ?>
     
-    <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
-        <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
-            <div class="card__thumb">
-                <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
-            </div>
+        <section class="grid" id="productGrid" aria-label="lista de productos">
+            <?php 
+            if (isset($games_list) && is_array($games_list)): 
+                foreach ($games_list as $game): 
+            ?>
+            
+            <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
+                <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
+                    <div class="card__thumb">
+                        <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
+                    </div>
 
-            <div class="card__meta">
-                <div style="display:flex;align-items:center;gap:8px;width:100%">
-                    <div class="card__title"><?php echo $game['title']; ?></div>
-                    <div class="card__price">$<?php echo $game['price']; ?> usd</div>
-                </div>
+                    <div class="card__meta">
+                        <div style="display:flex;align-items:center;gap:8px;width:100%">
+                            <div class="card__title"><?php echo $game['title']; ?></div>
+                            <div class="card__price">$<?php echo $game['price']; ?> usd</div>
+                        </div>
 
-                <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div> 
-            </div>
-        </article>
+                        <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div> 
+                    </div>
+                </article>
+            </a>
+            
+            <?php 
+                endforeach;
+            else: 
+            ?>
+            <p>No hay juegos disponibles en la tienda.</p>
+            <?php endif; ?>
+        </section>
+
+
+        <nav class="pag-nav" role="navigation" aria-label="paginacion">
+  <?php
+    // función auxiliar para mantener filtros en la URL
+    function build_page_url($p) {
+      $qs = [];
+      if (!empty($_GET['genero'])) $qs[] = 'genero=' . urlencode($_GET['genero']);
+      if (!empty($_GET['plataforma'])) $qs[] = 'plataforma=' . urlencode($_GET['plataforma']);
+      if (isset($_GET['precio']) && $_GET['precio'] !== '') $qs[] = 'precio=' . urlencode($_GET['precio']);
+      $qs[] = 'page=' . $p;
+      return '?' . implode('&', $qs);
+    }
+  ?>
+
+  <?php if ($page > 1): ?>
+    <a href="<?php echo build_page_url($page - 1); ?>">
+      <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
     </a>
-    
-    <?php 
-        endforeach;
-    else: 
-    ?>
-    <p>No hay juegos disponibles en la tienda.</p>
-    <?php endif; ?>
-</section>
+  <?php else: ?>
+    <button class="pag-nav__btn" aria-label="anterior" disabled>&lt;</button>
+  <?php endif; ?>
 
+  <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+    <a href="<?php echo build_page_url($i); ?>">
+      <button class="pag-nav__btn <?php echo $i === $page ? 'pag-nav__btn--active' : ''; ?>">
+        <?php echo $i; ?>
+      </button>
+    </a>
+  <?php endfor; ?>
 
-        <div class="pag-nav" role="navigation" aria-label="paginacion">
-            <a href="#">
-                <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
-            </a>
-            <a href="#">
-                <button class="pag-nav__btn pag-nav__btn--active">1</button>
-            </a>
-        </div>
+  <?php if ($page < $total_pages): ?>
+    <a href="<?php echo build_page_url($page + 1); ?>">
+      <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
+    </a>
+  <?php else: ?>
+    <button class="pag-nav__btn" aria-label="siguiente" disabled>&gt;</button>
+  <?php endif; ?>
+</nav>
     </main>
 </body>
 
