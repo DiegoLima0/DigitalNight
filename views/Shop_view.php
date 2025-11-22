@@ -74,10 +74,10 @@
         <section class="container-carrusel">
             <div class="slider-wrapper">
                 <div class="slider">
-                    <img id="slider-1" src="img/rdr2.png" alt="" data-href="Games.php">
-                    <img id="slider-2" src="img/metalgear.jpg" alt="" data-href="metalgear.html">
-                    <img id="slider-3" src="img/overcooked2.jpg" alt="" data-href="overcooked2.html">
-                    <img id="slider-4" src="img/sons of the forest.jpg" alt="" data-href="sons.html">
+                    <img id="slider-1" src="img/MetalGear-Promocional.jpg" alt="" data-href="Games.php">
+                    <img id="slider-2" src="img/LittleNightmares3Promocional.jpg" alt="" data-href="metalgear.html">
+                    <img id="slider-3" src="img/RedDeadOnline.jpg" alt="" data-href="overcooked2.html">
+                    <img id="slider-4" src="img/GodOfWarPromocional.jpg" alt="" data-href="sons.html">
                 </div>
 
                 <div class="arrow left" id="prev" aria-hidden="true">
