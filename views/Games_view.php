@@ -70,6 +70,34 @@
       </div>
     </section>
 
+    <section class="section nueva-seccion-dos-tarjetas" aria-label="Sección adicional personalizada">
+<div class="nueva-contenedor-dos-tarjetas">
+
+
+<div class="nueva-tarjeta-item">
+<div class="nueva-tarjeta-img">
+<img src="img/imagen1.jpg" alt="juego 1">
+</div>
+<div class="nueva-tarjeta-info">
+<h3 class="nueva-tarjeta-titulo">Título juego</h3>
+<p class="nueva-tarjeta-descripcion">Descripción de lo que trae el juego.</p>
+</div>
+</div>
+
+
+<div class="nueva-tarjeta-item">
+<div class="nueva-tarjeta-img">
+<img src="img/imagen2.jpg" alt="juego 2">
+</div>
+<div class="nueva-tarjeta-info">
+<h3 class="nueva-tarjeta-titulo">Título juego</h3>
+<p class="nueva-tarjeta-descripcion">Descripción de lo que trae el juego.</p>
+</div>
+</div>
+
+
+</div>
+</section>
   </div>
   </div>
   <section class="grid" id="productGrid" aria-label="lista de productos">

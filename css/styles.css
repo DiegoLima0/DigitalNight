@@ -364,202 +364,166 @@ footer p {
 }
 
 /*Carrito*/
-#modalCarrito {
+
+body { overflow-x: hidden; }
+#Btn-Carrito{ 
+    background-color: white;
+}
+
+.carrito-panel{
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 360px;
+  max-width: 94vw;
+  padding: 18px;
+  box-sizing: border-box;
+  background: #111425;
+  color: #fff;
+  height: 100%;
+  overflow:auto;
+  transform: translateX(110%);
+  transition: transform .35s ease;
+  z-index: 1200;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.carrito-panel.active { transform: translateX(0); }
+
+.carrito-titulo{
+  margin:0 0 8px 0;
+  font-size:20px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+
+
+.lista-productos{
+  list-style:none;
+  margin:0;
+  padding: 8px 0;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+
+.carrito-item {
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius:8px;
+  position:relative;
+}
+.carrito-item .thumb{
+  width:72px;
+  height:88px;
+  background: rgba(255,255,255,0.06);
+  border-radius:6px;
+  overflow:hidden;
+  flex: 0 0 72px;
+}
+.carrito-item .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+
+.carrito-item .meta{ flex:1; display:flex; flex-direction:column; }
+.carrito-item .meta .nombre{ font-size:16px; font-weight:700; margin:0 0 6px 0; color:#fff; }
+.carrito-item .meta .plataforma{ font-size:13px; color: rgba(255,255,255,0.8); margin-bottom:8px; }
+.carrito-item .meta .precio{ font-size:15px; font-weight:700; color:#fff; }
+
+
+.carrito-item .controls{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
+.btn-trash{ background:transparent; border:none; color: rgba(255,255,255,0.9); cursor:pointer; width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
+.qty-pill{ display:flex; align-items:center; gap:8px; background: rgba(255,255,255,0.08); border-radius:20px; padding:4px 8px; min-width:86px; justify-content:center; }
+.qty-pill button{ background: rgba(255,255,255,0.12); border: none; color: #fff; width:28px; height:24px; border-radius:6px; cursor:pointer; font-weight:700; font-size:14px; display:inline-flex; align-items:center; justify-content:center; }
+.qty-pill .cant{ min-width:22px; text-align:center; font-weight:700; color:#fff; }
+
+
+.carrito-total-row{ display:flex; justify-content:space-between; align-items:center; margin-top:6px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); }
+.total-label{ font-size:16px; color:rgba(255,255,255,0.9); }
+.total-price{ font-size:16px; font-weight:800; color:#ffffff; }
+
+
+.nota{ font-size:12px; color: rgba(255,255,255,0.7); margin:6px 0; }
+.carrito-actions{ display:flex; gap:10px; margin-top:6px; }
+.btn-ghost{ flex:1; background: transparent; border:1px solid rgba(255,255,255,0.14); color:#fff; padding:10px 12px; border-radius:20px; cursor:pointer; }
+.btn-primary{ flex:1; background: linear-gradient(90deg,#6fc6ff, #3aa0ff); border:none; color:#08263a; padding:10px 12px; border-radius:20px; cursor:pointer; font-weight:700; }
+
+#overlay { position: fixed; inset:0; background: rgba(0,0,0,0.35); opacity:0; visibility:hidden; transition:opacity .25s, visibility .25s; z-index:1100; }
+#overlay.show { opacity:1; visibility:visible; }
+
+
+@media (max-width:420px){ .carrito-panel{ width:100vw; padding:14px; } }
+
+/* Banner */
+.Banner-Principal {
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    right: -400px;
-    width: 400px;
-    height: 85%;
-    top: 80px;
-    background-color: #181833;
-    color: #fff;
-    border-radius: 30px;
-    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    transition: right 0.3s ease;
-    overflow-y: auto;
-}
-
-#modalCarrito.active {
-    right: 20px;
-}
-
-#modalCarrito.closing {
-    right: -400px;
-}
-
-#modalCarrito>div {
-    width: 100%;
-}
-
-#tituloCarrito {
-    padding: 30px 10px 0px 10px;
-}
-
-#modalCarrito h1 {
-    margin: 0;
-}
-
-.botonesModalCarrito {
-    display: flex;
-    justify-content: space-between;
-    gap: 1em;
-    padding: 20px;
-}
-
-.botonesModalCarrito button {
-    width: 50%;
-}
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 998;
-}
-
-#overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-#juegosCarrito {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.juegoCarrito {
-    display: flex;
-    width: 100%;
-    padding: 20px;
-}
-
-.juegoCarrito img {
-    height: 100%;
-    width: 100px;
-    border-radius: 20px;
-    background-color: #63519460;
-}
-
-.juegoCarrito>div {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.juegoCarrito>div h2 {
-    font-size: 20px;
-}
-
-.juegoCarrito>div i {
-    font-size: 20px;
-}
-
-.juegoCarrito>div p {
-    width: 100%;
-    text-align: left;
-    margin: 0;
-}
-
-.juegoCarrito>div>div {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    padding-top: 100px;
+    margin: 0;
 }
 
-.imgJuego {
+.Banner-Principal img {
+    width: 678px;
+}
+
+#Carrousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Carrousel h6 {
+    font-family: "Bowlby One SC", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.Carrousel-Flechas {
+    display: flex;
+    align-items: center;
+}
+
+.Carrousel-Cont {
+    position: relative;
+    max-width: 1000px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.carrousel {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    transition: transform 0.5s ease;
+    padding: 10px;
+}
+
+.item {
+    flex: 0 0 calc(25% - 12px);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.15);
+}
+
+.item img {
+    width: 240px;
+    height: 140px;
     border-radius: 10px;
 }
 
-.cantidad-control {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.cantidad-control button {
-    width: 30px;
-    height: 30px;
-    background-color: #313175;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.cantidad-control span.cantidad {
-    min-width: 20px;
-    text-align: center;
-    font-size: 16px;
-}
-
-.botonesModalCarrito {
-    display: flex;
-    justify-content: space-between;
-    gap: 1em;
-    padding: 20px;
-}
-
-
-.botonesModalCarrito button,
-.botonesModalCarrito>a {
-    flex: 1;
-}
-
-
-.botonesModalCarrito>a {
-    text-decoration: none;
-    display: flex;
-}
-
-
-.botonesModalCarrito>a>button {
-    width: 100%;
-}
-
-
-.btn-azul-carrito {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 30px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 14px;
-    color: #fff;
-    background-color: #333777;
-    transition: background 0.2s ease;
-
-}
-
-.btn-azul-carrito:hover {
-    background-color: #fdfdfd;
-    color: black;
-}
-
-
-@media (max-width: 420px) {
-    .botonesModalCarrito {
-        flex-direction: column;
-    }
-
-    .botonesModalCarrito button,
-    .botonesModalCarrito>a {
-        width: 100%;
-    }
+#btnDer,
+#btnIzq {
+    color: #D9D9D9;
+    font-size: 35px;
 }
 
 /*PAGINA PRINCIPAL (Index.php)*/
@@ -1882,6 +1846,83 @@ p {
     box-sizing: border-box;
 }
 
+
+
+
+
+
+
+
+
+.nueva-seccion-dos-tarjetas {
+background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+padding: 60px 0;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+position: relative;
+z-index: 10;
+}
+
+
+.nueva-contenedor-dos-tarjetas {
+max-width: 1200px;
+width: 100%;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 40px;
+padding: 0 20px;
+}
+
+
+.nueva-tarjeta-item {
+background: #101B3A;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+transition: 0.3s ease;
+}
+
+
+.nueva-tarjeta-item:hover {
+transform: scale(1.03);
+}
+
+
+.nueva-tarjeta-img img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+display: block;
+}
+
+
+.nueva-tarjeta-info {
+padding: 20px;
+}
+
+
+.nueva-tarjeta-titulo {
+margin: 0 0 10px;
+font-size: 20px;
+font-weight: 600;
+}
+
+
+.nueva-tarjeta-descripcion {
+margin: 0;
+font-size: 14px;
+opacity: 0.8;
+line-height: 1.5;
+}
+
+
+@media (max-width: 800px) {
+.nueva-contenedor-dos-tarjetas {
+grid-template-columns: 1fr;
+}
+}
 /* CONTENEDOR PRINCIPAL */
 .Rating-Games-Aside {
     background: #101B3A;

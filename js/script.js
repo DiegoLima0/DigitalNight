@@ -53,109 +53,184 @@ if (passInput && toggleEye) {
 }
 
 //Carrito
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("modalCarrito");
-  const overlay = document.getElementById("overlay");
-  const abrirBtn = document.getElementById("abrirModalCarrito");
-  const cerrarBtns = document.querySelectorAll(".cerrarModalCarrito");
-  const juegosCarrito = document.getElementById("juegosCarrito");
+(() => {
+  
+  const PLACEHOLDER_IMG = '/mnt/data/f47f4f61-1165-496a-8fcb-b63ebbd460c1.png';
 
+  
+  const btnCarrito = document.getElementById('Btn-Carrito') || document.querySelector('.Btn-Carrito');
+  const carritoLateral = document.getElementById('carritoLateral');
+  const listaEl = document.getElementById('Lista-Productos');
+  const totalEl = document.getElementById('Suma-Total-Precios');
+  let overlay = document.getElementById('overlay');
 
-  const abrirModal = () => {
-    if (!modal) return;
-    modal.classList.add("active");
-    if (overlay) overlay.classList.add("active");
-  };
-
-  const cerrarModal = () => {
-    if (!modal) return;
-    modal.classList.add("closing");
-    if (overlay) overlay.classList.remove("active");
-
-    const handler = function (e) {
-      if (e.propertyName === "right" && modal.classList.contains("closing")) {
-        modal.classList.remove("active", "closing");
-        modal.removeEventListener("transitionend", handler);
-      }
-    };
-    modal.addEventListener("transitionend", handler);
-  };
-
-  if (abrirBtn) abrirBtn.addEventListener("click", abrirModal);
-  cerrarBtns.forEach(btn => btn.addEventListener("click", cerrarModal));
-  if (overlay) overlay.addEventListener("click", cerrarModal);
-
-
-  if (juegosCarrito) {
-    juegosCarrito.addEventListener("click", (e) => {
-
-      const btnMas = e.target.closest(".mas");
-      if (btnMas) {
-        const cantidadSpan = btnMas.closest(".cantidad-control")?.querySelector(".cantidad");
-        if (cantidadSpan) {
-          cantidadSpan.textContent = String(parseInt(cantidadSpan.textContent, 10) + 1);
-        }
-        return;
-      }
-
-
-      const btnMenos = e.target.closest(".menos");
-      if (btnMenos) {
-        const cantidadSpan = btnMenos.closest(".cantidad-control")?.querySelector(".cantidad");
-        if (cantidadSpan) {
-          let val = parseInt(cantidadSpan.textContent, 10);
-          if (isNaN(val)) val = 1;
-          if (val > 1) cantidadSpan.textContent = String(val - 1);
-        }
-        return;
-      }
-
-
-      const trash = e.target.closest(".bi-trash3, .trash");
-      if (trash) {
-        const juego = trash.closest(".juegoCarrito");
-        if (!juego) return;
-
-
-        juego.style.transition = "opacity .18s, height .18s, margin .18s, padding .18s";
-        juego.style.opacity = "0";
-        juego.style.height = "0";
-        juego.style.margin = "0";
-        juego.style.padding = "0";
-
-        setTimeout(() => {
-          juego.remove();
-          checkEmpty();
-        }, 200);
-
-        return;
-      }
-    });
-
-
-    checkEmpty();
+  if (!carritoLateral || !listaEl || !totalEl) {
+    console.warn('Carrito: faltan elementos required (carritoLateral, Lista-Productos, Suma-Total-Precios).');
+  
   }
 
+  
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    document.body.appendChild(overlay);
+  }
 
-  function checkEmpty() {
-    if (!juegosCarrito) return;
-    const cantidadItems = juegosCarrito.querySelectorAll(".juegoCarrito").length;
-    const existingMsg = document.getElementById("carritoVacio");
-
-    if (cantidadItems === 0) {
-      if (!existingMsg) {
-        const p = document.createElement("p");
-        p.id = "carritoVacio";
-        p.textContent = "Todavía no hay nada en el carrito";
-        p.style.padding = "20px";
-        p.style.textAlign = "center";
-        juegosCarrito.appendChild(p);
-      }
-    } else {
-      if (existingMsg) existingMsg.remove();
+  
+  const STORAGE_KEY = 'mi_carrito_v2';
+  function loadCart() {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      console.error('Error parsing cart storage', e);
+      return {};
     }
   }
-});
+  function saveCart(cart) {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+    } catch (e) {
+      console.error('Error saving cart', e);
+    }
+  }
+  const cart = loadCart(); 
+
+
+  function openCart() {
+    carritoLateral && carritoLateral.classList.add('active');
+    overlay.classList.add('show');
+    document.body.classList.add('carrito-abierto');
+    render();
+  }
+  function closeCart() {
+    carritoLateral && carritoLateral.classList.remove('active');
+    overlay.classList.remove('show');
+    document.body.classList.remove('carrito-abierto');
+  }
+
+  if (btnCarrito) btnCarrito.addEventListener('click', openCart);
+  overlay.addEventListener('click', closeCart);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+
+  
+  function render() {
+    if (!listaEl || !totalEl) return;
+    listaEl.innerHTML = '';
+    const items = Object.values(cart);
+    if (items.length === 0) {
+      const p = document.createElement('p');
+      p.textContent = 'Tu carrito está vacío.';
+      p.style.color = 'rgba(255,255,255,0.8)';
+      listaEl.appendChild(p);
+      totalEl.textContent = '$0.00';
+      return;
+    }
+
+    items.forEach(it => {
+      const li = document.createElement('li');
+      li.className = 'carrito-item';
+      li.dataset.id = it.id;
+
+      li.innerHTML = `
+        <div class="thumb"><img src="${escapeHtml(it.img || PLACEHOLDER_IMG)}" alt=""></div>
+        <div class="meta">
+          <div class="nombre">${escapeHtml(it.nombre)}</div>
+          <div class="plataforma">Plataforma: ${escapeHtml(it.plataforma || 'plataformas')}</div>
+          <div class="precio">$${(it.precio * it.qty).toFixed(2)}</div>
+        </div>
+
+        <div class="controls">
+          <button class="btn-trash" title="Eliminar" aria-label="Eliminar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6h18" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 11v6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 11v6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="qty-pill" role="group" aria-label="Cantidad">
+            <button class="dec" title="Disminuir">−</button>
+            <div class="cant">${it.qty}</div>
+            <button class="inc" title="Aumentar">+</button>
+          </div>
+        </div>
+      `;
+
+      
+      const incBtn = li.querySelector('.inc');
+      const decBtn = li.querySelector('.dec');
+      const trashBtn = li.querySelector('.btn-trash');
+
+      if (incBtn) incBtn.addEventListener('click', () => changeQty(it.id, +1));
+      if (decBtn) decBtn.addEventListener('click', () => changeQty(it.id, -1));
+      if (trashBtn) trashBtn.addEventListener('click', () => removeItem(it.id));
+
+      listaEl.appendChild(li);
+    });
+
+    const total = items.reduce((s, x) => s + x.precio * x.qty, 0);
+    totalEl.textContent = '$' + total.toFixed(2);
+  }
+
+  
+  function addItem(product) {
+    if (!product || !product.id) return;
+    if (!cart[product.id]) {
+      cart[product.id] = {
+        id: product.id,
+        nombre: product.nombre || 'Nombre del juego',
+        plataforma: product.plataforma || 'plataformas',
+        precio: Number(product.precio) || 0,
+        img: product.img || PLACEHOLDER_IMG,
+        qty: 0
+      };
+    }
+    cart[product.id].qty += product.qty ? Number(product.qty) : 1;
+    if (cart[product.id].qty <= 0) delete cart[product.id];
+    saveCart(cart);
+    render();
+  }
+
+  function changeQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) delete cart[id];
+    saveCart(cart);
+    render();
+  }
+
+  function removeItem(id) {
+    if (!cart[id]) return;
+    delete cart[id];
+    saveCart(cart);
+    render();
+  }
+  
+  function escapeHtml(s) {
+    if (s === undefined || s === null) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+  }
+
+  
+  window.miCarritoUI = {
+    addItem,
+    changeQty,
+    removeItem,
+    _cart: cart
+  };
+
+  
+  render();
+
+  if (Object.keys(cart).length === 0) {
+    addItem({ id:'g-1', nombre:'Nombre del juego', plataforma:'PC / Consola', precio:1299.99, img: PLACEHOLDER_IMG, qty:1 });
+    addItem({ id:'g-2', nombre:'Nombre del juego', plataforma:'Switch', precio:799.00, img: PLACEHOLDER_IMG, qty:1 });
+  }
+
+})();
 
 //Página Soporte support.php
 let faqs = document.querySelectorAll(".faq");
