@@ -775,7 +775,7 @@ form input[type="submit"]:hover {
 
 #navPerfil {
     display: flex;
-    gap: 1em;
+    gap: 0.5em;
     align-items: center;
     justify-content: center;
     padding: 30px 0 0;
@@ -1835,7 +1835,7 @@ p {
     transition: 0.8s ease;
 }
 
-.botones-games .btnGris:hover{
+.botones-games .btnGris:hover, #navPerfil .btnGris:hover{
     transform: scale(1.07);
     box-shadow:
         0 0 25px rgba(110, 80, 255, 0.45),
@@ -1845,12 +1845,25 @@ p {
     transition: 0.8s ease;
 }
 
-.botones-games:has(.btnGris:hover) .btnVioletaDifuminado {
+.botones-games:has(.btnGris:hover) .btnVioletaDifuminado, #navPerfil:has(.btnGris:not(.activa):hover) .btnGris.activa {
     transform: scale(0.90);
     background: rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.55);
     box-shadow: none;
 }
+
+#navPerfil:has(.btnGris:hover) .btnGris.activa {
+    transform: none;
+    background: linear-gradient(to right, #7C58BC, #272C84);
+    color: white;
+}
+
+#navPerfil .btnGris.activa:hover {
+    transform: none;
+    background: linear-gradient(to right, #7C58BC, #272C84);
+    color: white;
+}
+
 
 .bottom-feed {
     padding: 2.25rem 0 4rem;
@@ -2703,15 +2716,14 @@ p {
 }
 
 .tarjetaMiembro {
-    display: flex;
-    gap: 1em;
-    padding: 30px;
-    width: 1000px;
     display: none;
 }
 
 .tarjetaMiembro.activa {
     display: flex;
+    gap: 1em;
+    padding: 30px;
+    width: 1000px;
 }
 
 .tarjetaMiembro div {

@@ -39,17 +39,17 @@ const passInput = document.getElementById("password");
 const toggleEye = document.getElementById("toggleEye");
 
 if (passInput && toggleEye) {
-    toggleEye.addEventListener("click", () => {
-        if (passInput.type === "password") {
-            passInput.type = "text";
-            toggleEye.classList.remove("bi-eye-slash");
-            toggleEye.classList.add("bi-eye");
-        } else {
-            passInput.type = "password";
-            toggleEye.classList.remove("bi-eye");
-            toggleEye.classList.add("bi-eye-slash");
-        }
-    });
+  toggleEye.addEventListener("click", () => {
+    if (passInput.type === "password") {
+      passInput.type = "text";
+      toggleEye.classList.remove("bi-eye-slash");
+      toggleEye.classList.add("bi-eye");
+    } else {
+      passInput.type = "password";
+      toggleEye.classList.remove("bi-eye");
+      toggleEye.classList.add("bi-eye-slash");
+    }
+  });
 }
 
 //Carrito
@@ -228,13 +228,18 @@ acordeones.forEach((acordeon) => {
   });
 });
 
-function mostrarTarjeta(miembroID) {
-  let tarjetas = document.querySelectorAll('.tarjetaMiembro');
-  tarjetas.forEach(t => t.classList.remove('activa'));
+document.addEventListener("DOMContentLoaded", function () {
+    const tarjetas = document.querySelectorAll(".tarjetaMiembro");
 
-  let tarjeta = document.getElementById(miembroID);
-  if (tarjeta) tarjeta.classList.add('activa');
-}
+    window.mostrarTarjeta = function (id) {
+        tarjetas.forEach(t => t.classList.remove("activa"));
+
+        const seleccionada = document.getElementById(id);
+        if (seleccionada) {
+            seleccionada.classList.add("activa");
+        }
+    };
+});
 
 //Página shop.php
 (function () {
@@ -243,6 +248,9 @@ function mostrarTarjeta(miembroID) {
   const navLinks = document.querySelectorAll('.slider-nav a');
   const btnPrev = document.getElementById('prev');
   const btnNext = document.getElementById('next');
+
+  if (!slider) return;
+
   const total = slides.length;
   let index = 0;
   let autoSlide;
@@ -263,7 +271,7 @@ function mostrarTarjeta(miembroID) {
   }
 
   function startAutoSlide() {
-    autoSlide = setInterval(next, 4000); 
+    autoSlide = setInterval(next, 4000);
   }
 
   function resetAutoSlide() {
@@ -291,28 +299,8 @@ function mostrarTarjeta(miembroID) {
   });
 
   update();
-
-  window.addEventListener('load', () => {
-    const h = location.hash;
-    if (h) {
-      const el = document.querySelector(h);
-      if (el) {
-        const found = Array.from(slides).indexOf(el);
-        if (found >= 0) {
-          index = found;
-          update();
-        }
-      }
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    if (params.has("page")) {
-      setTimeout(() => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-      }, 1);
-    }
-  });
 })();
+
 
 //pay-page
 
@@ -399,30 +387,21 @@ function mostrarTarjeta(miembroID) {
 })();
 
 //Página perfil (profile.php)
-function mostrarTarjeta(miembroID) {
-  let secciones = document.querySelectorAll('.seccion');
-  secciones.forEach(s => s.classList.remove('activa'));
 
-  let tarjeta = document.getElementById(miembroID);
-  if (tarjeta) tarjeta.classList.add('activa');
+function mostrarSeccion(id) {
+    document.querySelectorAll('.seccion')
+        .forEach(t => t.classList.remove('activa'));
 
-  let botones = document.querySelectorAll('#navPerfil button');
-  botones.forEach(btn => {
-    if (btn.dataset.section === miembroID) {
-      btn.classList.add('activa');
-    } else {
-      btn.classList.remove('activa');
-    }
-  });
+    document.getElementById(id).classList.add('activa');
 }
 
-document.querySelectorAll('#navPerfil button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    mostrarTarjeta(btn.dataset.section);
-  });
-});
+function marcarSeccion(boton) {
+  const botones = boton.parentElement.querySelectorAll('.btnGris');
 
+  botones.forEach(b => b.classList.remove('activa'));
 
+  boton.classList.add('activa');
+}
 
 
 //editions
@@ -433,46 +412,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const editions = {
     standard: {
-      name:'Edición Estándar',
-      tag:'Incluye el juego base',
-      price:1199,
-      features:['Juego base','Actualizaciones gratuitas','Soporte multijugador']
+      name: 'Edición Estándar',
+      tag: 'Incluye el juego base',
+      price: 1199,
+      features: ['Juego base', 'Actualizaciones gratuitas', 'Soporte multijugador']
     },
     deluxe: {
-      name:'Edición Deluxe',
-      tag:'Contenido digital adicional',
-      price:1799,
-      features:['Juego base','Pase de temporada (1 DLC)','Traje exclusivo','Banda sonora digital']
+      name: 'Edición Deluxe',
+      tag: 'Contenido digital adicional',
+      price: 1799,
+      features: ['Juego base', 'Pase de temporada (1 DLC)', 'Traje exclusivo', 'Banda sonora digital']
     },
     ultimate: {
-      name:'Edición Ultimate',
-      tag:'Todo el contenido + extras físicos (ed. limitada)',
-      price:2599,
-      features:['Juego base','Pase de temporada completo','Contenido cosmético completo','Artbook digital','Pack de inicio en línea']
+      name: 'Edición Ultimate',
+      tag: 'Todo el contenido + extras físicos (ed. limitada)',
+      price: 2599,
+      features: ['Juego base', 'Pase de temporada completo', 'Contenido cosmético completo', 'Artbook digital', 'Pack de inicio en línea']
     },
     collector: {
-      name:'Edición Coleccionista',
-      tag:'Caja coleccionista + extras físicos',
-      price:4999,
-      features:['Caja metálica','Figura 20cm','Artbook físico','Banda sonora física','Todos los contenidos digitales']
+      name: 'Edición Coleccionista',
+      tag: 'Caja coleccionista + extras físicos',
+      price: 4999,
+      features: ['Caja metálica', 'Figura 20cm', 'Artbook físico', 'Banda sonora física', 'Todos los contenidos digitales']
     }
   };
 
-  function formatPrice(n){
-    return n.toLocaleString('es-AR',{style:'currency',currency:'ARS'}).replace(',00','');
+  function formatPrice(n) {
+    return n.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' }).replace(',00', '');
   }
 
-  
-  function selectEdition(id){
+
+  function selectEdition(id) {
     const data = editions[id];
     if (!data) return;
 
-    
+
     document.querySelectorAll('.sf-card').forEach(btn => {
       btn.classList.toggle('sf-card--active', btn.dataset.id === id);
     });
 
-    
+
     document.getElementById('edition-name').textContent = data.name;
     document.getElementById('edition-tag').textContent = data.tag;
     document.getElementById('edition-price').textContent = formatPrice(data.price);
@@ -486,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  
+
   document.querySelectorAll('.sf-card').forEach(btn => {
     btn.addEventListener('click', () => {
       selectEdition(btn.dataset.id);
