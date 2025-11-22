@@ -34,7 +34,7 @@
                 <div class="filtros-col">
                     <h4>Plataforma</h4>
                     <?php
-                    $plataformas = ['Windows', 'MacOs', 'Linux', 'Android', 'iOS', 'PlayStation 5']; //añado play station 5 y funciona en filtros
+                    $plataformas = ['Windows', 'MacOs', 'Linux', 'Android', 'iOS', 'PlayStation 5','Emulador']; //añado play station 5 y funciona en filtros
                     foreach ($plataformas as $plataforma) {
                         $activo = ($current_plataforma === $plataforma);
                         $url = $activo
