@@ -19,10 +19,29 @@
             if (isset($games_list) && is_array($games_list)):
               foreach ($games_list as $game):
             ?>
-                <a href="games.php?idGame=<?php echo $game['idGame']; ?>" class="item-juego">
-                  <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>" alt="Juego 1">
-                  <span><?php echo $game['title']; ?></span>
-                </a>
+                <div class="dropdown-juego">
+                  <button class="item-juego">
+                    <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>" alt="Juego 1">
+                    <span><?php echo $game['title']; ?></span>
+                  </button>
+
+                  <div class="contentDroptownJuego">
+                    <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
+                      <i class="bi bi-controller"></i>
+                      Ver juego
+                    </a>
+                    
+                    <a href="">
+                      <i class="bi bi-eye-slash"></i>
+                      Ocultar
+                    </a>
+                    
+                    <a href="">
+                      <i class="bi bi-trash3"></i>
+                      Desistalar
+                    </a>
+                  </div>
+                </div>
               <?php
               endforeach;
             else:
@@ -31,7 +50,7 @@
             <?php endif; ?>
             <form method="POST" action="<?php echo $a1; ?>">
               <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
-              <button type="submit" class="boton-base boton-primario"><?php echo $m2; ?></button>
+              <button type="submit" class="btn azul"><?php echo $m2; ?></button>
             </form>
           </div>
         </aside>

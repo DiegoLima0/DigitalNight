@@ -3045,10 +3045,12 @@ body.biblioteca {
     align-items: center;
     text-decoration: none;
     color: white;
-    background-color: #1e2452;
+    background-color: #232a5f;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 8px 8px 8px 0;
+    border: none;
     transition: background-color 0.2s;
+    width: 100%;
 }
 
 .item-juego:hover {
@@ -3061,6 +3063,39 @@ body.biblioteca {
     object-fit: cover;
     border-radius: 5px;
     margin-right: 10px;
+}
+
+.item-juego span{
+    font-size: medium;
+}
+
+.dropdown-juego button {
+    cursor: pointer;
+}
+
+.contentDroptownJuego {
+    display: none;
+    gap: 5px;
+    background-color: #2c3770;
+    border-radius: 0 10px 10px 10px;
+    overflow: hidden;
+    position: absolute;
+    max-width: max-content;
+}
+
+.dropdown-juego:hover .contentDroptownJuego {
+    display: flex;
+    flex-direction: column;
+}
+
+.contentDroptownJuego a {
+    padding: 5px 20px 5px 7px;
+    transition: 0.3s ease;
+}
+
+.contentDroptownJuego a:hover {
+    background-color: #3d4a8f;
+    text-decoration: none;
 }
 
 .contenido-juegos {

@@ -229,16 +229,16 @@ acordeones.forEach((acordeon) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const tarjetas = document.querySelectorAll(".tarjetaMiembro");
+  const tarjetas = document.querySelectorAll(".tarjetaMiembro");
 
-    window.mostrarTarjeta = function (id) {
-        tarjetas.forEach(t => t.classList.remove("activa"));
+  window.mostrarTarjeta = function (id) {
+    tarjetas.forEach(t => t.classList.remove("activa"));
 
-        const seleccionada = document.getElementById(id);
-        if (seleccionada) {
-            seleccionada.classList.add("activa");
-        }
-    };
+    const seleccionada = document.getElementById(id);
+    if (seleccionada) {
+      seleccionada.classList.add("activa");
+    }
+  };
 });
 
 //Página shop.php
@@ -389,10 +389,10 @@ document.addEventListener("DOMContentLoaded", function () {
 //Página perfil (profile.php)
 
 function mostrarSeccion(id) {
-    document.querySelectorAll('.seccion')
-        .forEach(t => t.classList.remove('activa'));
+  document.querySelectorAll('.seccion')
+    .forEach(t => t.classList.remove('activa'));
 
-    document.getElementById(id).classList.add('activa');
+  document.getElementById(id).classList.add('activa');
 }
 
 function marcarSeccion(boton) {
