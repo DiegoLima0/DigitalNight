@@ -848,6 +848,15 @@ form input[type="submit"]:hover {
     align-items: center;
 }
 
+.publicacionPerfil{
+    width: 30%;
+    border-radius: 20px;
+    background: linear-gradient(to right, #322b4b70, #4132c970);
+    padding: 15px;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+}
+
 /*Página Tienda (Shop.php)*/
 *,
 *::before,
@@ -1000,7 +1009,7 @@ h2.section-title {
 }
 
 .filtros-btn {
-    background: #353480;
+    background: #32385e;
     color: #fff;
     padding: 10px 18px;
     border-radius: 6px;
@@ -1014,7 +1023,7 @@ h2.section-title {
     position: absolute;
     top: 45px;
     left: 0;
-    background: rgba(46, 42, 95, 0.95);
+    background: rgba(42, 50, 95, 0.95);
     padding: 20px;
     border-radius: 8px;
     display: none;
@@ -1043,7 +1052,7 @@ h2.section-title {
 }
 
 .container-carrusel {
-    max-width: 900px;
+    max-width: 2000px;
     margin: 0 auto;
 }
 
@@ -1070,38 +1079,35 @@ h2.section-title {
 }
 
 .slider-nav {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: var(--gap);
-    padding: 12px 0;
+    gap: 8px;
 }
 
 .slider-nav a {
-    width: var(--dot-size);
-    height: var(--dot-size);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    display: inline-block;
-    cursor: pointer;
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08) inset;
-    text-indent: -9999px;
-}
-
-.slider-nav a:hover {
-    transform: scale(1.08);
+    width: 35px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+    transition: 0.3s;
 }
 
 .slider-nav a.active {
-    background: #222;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    background: #ffffff;
+    transform: scaleX(1.15);
+}
+
+.slider-nav a:hover {
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, .85);
     border-radius: 50%;
     width: 36px;
     height: 36px;
@@ -1110,7 +1116,6 @@ h2.section-title {
     justify-content: center;
     cursor: pointer;
     user-select: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
 }
 
 .arrow.left {
@@ -1123,12 +1128,13 @@ h2.section-title {
 
 .arrow:hover {
     transform: translateY(-50%) scale(1.05);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.014));
 }
 
 .arrow svg {
-    width: 16px;
-    height: 16px;
-    fill: #111;
+    width: 35px;
+    height: 35px;
+    fill: #ffffff;
 }
 
 @media (max-width:600px) {
@@ -3160,7 +3166,6 @@ body.biblioteca {
 .publicacion,
 .publicacionCreador {
     display: inline-block;
-    width: 100%;
     margin: 0 0 1.5em;
     break-inside: avoid;
     border-radius: 20px;
@@ -3172,7 +3177,8 @@ body.biblioteca {
 
 
 .publicacion p,
-.publicacionCreador p {
+.publicacionCreador p,
+.publicacionPerfil p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -3185,7 +3191,7 @@ body.biblioteca {
     padding: 0 50px;
 }
 
-.publicacion:hover {
+.publicacion:hover, .publicacionPerfil:hover {
     transform: translateY(-6px);
     text-decoration: none;
 }

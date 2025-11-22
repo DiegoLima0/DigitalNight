@@ -80,13 +80,12 @@
                     <img id="slider-4" src="img/sons of the forest.jpg" alt="" data-href="sons.html">
                 </div>
 
-
-
                 <div class="arrow left" id="prev" aria-hidden="true">
                     <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
                         <path d="M12.7 15.3 7.4 10l5.3-5.3-1.4-1.4L4.6 10l6.7 6.7z" />
                     </svg>
                 </div>
+
                 <div class="arrow right" id="next" aria-hidden="true">
                     <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true">
                         <path d="M7.3 4.7 12.6 10 7.3 15.3 8.7 16.7 15.4 10 8.7 3.3z" />
@@ -102,8 +101,6 @@
             </div>
         </section>
 
-
-
         <h2 class="section-title">Recomendados para ti</h2>
 
         <div class="filters" role="tablist">
@@ -112,8 +109,6 @@
             <a href="#slider-1"><button class="filter-btn" data-filter="estrategia">Estrategia</button></a>
             <a href="#slider-1"><button class="filter-btn" data-filter="accion">Accion</button></a>
         </div>
-
-        <h2 class="section-title">Recomendados para ti</h2>
     
         <section class="grid" id="productGrid" aria-label="lista de productos">
             <?php 

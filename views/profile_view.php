@@ -115,17 +115,29 @@ require_once 'includes/header.php';
             </div>
 
             <div id="publicaciones" class="seccion">
-                <div class="publicacion">
-                    <div class="post-user-meta">
-                        <img src="img/profiles/" alt="Perfil de usuario" class="user-profile-img">
-                        <span class="username">@</span>
+                <div class="publicacionPerfil" href="communityPublication.php">
+                    <div id="imgUsComunidad">
+                        <img src="img/profiles/" alt="Imagen de perfil">
+
+                        <p>@Usuario</p>
                     </div>
 
-                    <p class="post-content-text"></p>
+                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
 
-
+                    <img class="imgPub" src="" alt="">
 
                     <div class="interacciones">
+                        <p>
+                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
+                        </p>
+
+                        <p>
+                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
+                        </p>
                     </div>
                 </div>
             </div>

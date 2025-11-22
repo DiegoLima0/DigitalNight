@@ -245,34 +245,53 @@ function mostrarTarjeta(miembroID) {
   const btnNext = document.getElementById('next');
   const total = slides.length;
   let index = 0;
+  let autoSlide;
 
   function update() {
     slider.style.transform = `translateX(-${index * 100}%)`;
     navLinks.forEach((a, i) => a.classList.toggle('active', i === index));
   }
 
-  function prev() { index = (index - 1 + total) % total; update(); }
-  function next() { index = (index + 1) % total; update(); }
+  function prev() {
+    index = (index - 1 + total) % total;
+    update();
+  }
+
+  function next() {
+    index = (index + 1) % total;
+    update();
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(next, 4000); 
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
+  }
+
+  startAutoSlide();
 
   navLinks.forEach((a, i) => {
     a.addEventListener('click', function (e) {
       e.preventDefault();
       index = i;
       update();
+      resetAutoSlide();
     });
   });
 
-  if (btnPrev) btnPrev.addEventListener('click', prev);
-  if (btnNext) btnNext.addEventListener('click', next);
+  if (btnPrev) btnPrev.addEventListener('click', () => { prev(); resetAutoSlide(); });
+  if (btnNext) btnNext.addEventListener('click', () => { next(); resetAutoSlide(); });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') { prev(); resetAutoSlide(); }
+    if (e.key === 'ArrowRight') { next(); resetAutoSlide(); }
   });
 
   update();
 
-  // 👇 Único bloque load
   window.addEventListener('load', () => {
     const h = location.hash;
     if (h) {
@@ -286,29 +305,14 @@ function mostrarTarjeta(miembroID) {
       }
     }
 
-    // Nuevo bloque: bajar al final si hay parámetro "page"
     const params = new URLSearchParams(window.location.search);
     if (params.has("page")) {
       setTimeout(() => {
         window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-      }, 1); // 👈 aquí va tu línea
+      }, 1);
     }
   });
 })();
-
-
-document.querySelectorAll('.slider img').forEach(img => {
-  const href = img.dataset.href;
-  if (!href) return;
-  img.style.cursor = 'pointer';
-
-  img.addEventListener('click', (e) => {
-
-    window.location.href = href;
-  });
-
-
-});
 
 //pay-page
 
