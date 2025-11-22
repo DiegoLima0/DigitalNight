@@ -237,35 +237,35 @@
 
           <div class="rec-item">
             <a class="rec-thumb" href="#">
-              <img src="#" alt="rec 1">
+              <img src="img/God-of-War-portada.jpg" alt="rec 1">
             </a>
 
             <div class="rec-meta">
-              <div class="rec-title">Titulo del juego recomendado </div>
+              <div class="rec-title">God of war ragnarok </div>
 
-              <div class="rec-sub">Desarrollador del juego</div>
+              <div class="rec-sub">Santa Monica Studio</div>
             </div>
           </div>
 
           <div class="rec-item">
             <a class="rec-thumb" href="#">
-              <img src="#" alt="rec 2">
+              <img src="img/red-dead-cover.png" alt="rec 2">
             </a>
 
             <div class="rec-meta">
-              <div class="rec-title">Titulo del juego recomendado</div>
+              <div class="rec-title">Red dead redeption 2</div>
 
-              <div class="rec-sub">Desarrollador del juego</div>
+              <div class="rec-sub">Rockstar games</div>
             </div>
           </div>
 
           <div class="rec-item">
             <a class="rec-thumb" href="#">
-              <img src="#" alt="rec 3">
+              <img src="img/LittleNightmares3Promocional.jpg" alt="rec 3">
             </a>
 
             <div class="rec-meta">
-              <div class="rec-title">Titulo del juego recomendado</div>
+              <div class="rec-title">Little Nightmares 3</div>
 
               <div class="rec-sub">Desarrollador del juego</div>
             </div>
