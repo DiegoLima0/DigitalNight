@@ -1376,7 +1376,7 @@ h2.section-title {
 
 .page {
     display: grid;
-    grid-template-rows: 80vh 28vh 45vh auto;
+    grid-template-rows: 80vh 30vh 65vh auto;
     min-height: 100vh;
     gap: 0;
     font-family: "Noto Sans Georgian", sans-serif;
@@ -1419,7 +1419,7 @@ h2.section-title {
 }
 
 .cover-img::before {
-    background: rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.349);
 }
 
 .contenedor-games {
@@ -1794,7 +1794,13 @@ p {
 }
 
 .Contenedor-Banner2-Game h2{
-    font-weight: lighter;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    padding-right: 40px;
+    padding-top: 20px;
+    line-height: 1.5em;
 }
 
 .botones-games{
