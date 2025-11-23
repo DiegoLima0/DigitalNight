@@ -3463,9 +3463,9 @@ body.biblioteca {
     width: 100%;
 }
 
-.publicacion,
-.publicacionCreador {
+.publicacion, .publicacionCreador {
     display: inline-block;
+    width: 100%;
     margin: 0 0 1.5em;
     break-inside: avoid;
     border-radius: 20px;
@@ -3476,9 +3476,7 @@ body.biblioteca {
 }
 
 
-.publicacion p,
-.publicacionCreador p,
-.publicacionPerfil p {
+.publicacion p, .publicacionCreador p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -3486,13 +3484,12 @@ body.biblioteca {
     margin: 3px;
 }
 
-#postCreador {
+#postCreador{
     width: 33em;
     padding: 0 50px;
 }
 
-.publicacion:hover,
-.publicacionPerfil:hover {
+.publicacion:hover {
     transform: translateY(-6px);
     text-decoration: none;
 }
