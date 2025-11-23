@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <main id="emulador main">
-        <div id="volver">
+    <main id="emulador-main">
+        <div id="volverJuego">
             <a href=""><!--Debe volver a la página de su juego-->
                 <i class="bi bi-arrow-left-short"></i>
             </a>
