@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $platforms = $conexion->real_escape_string($_POST['platforms']);
 
         $image_columns = [
-            'imagen' => 'game_image',
-            'imagen2' => 'game_image2',
+            'horizontal_imagen' => 'game_image_horizontal',
+            'banner' => 'game_image_banner',
             'gameGallery1' => 'game_gallery1',
             'gameGallery2' => 'game_gallery2',
             'gameGallery3' => 'game_gallery3',
@@ -82,10 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
         $image_column_name = isset($_POST['image_field_to_update']) ? $_POST['image_field_to_update'] : 'imagen';
-        $allowed_image_fields = ['imagen', 'imagen2', 'gameGallery1', 'gameGallery2', 'gameGallery3', 'gameGallery4', 'gameGallery5', 'gameGallery6'];
+        $image_column_name = isset($_POST['image_field_to_update']) ? $_POST['image_field_to_update'] : 'horizontal_imagen'; // Valor por defecto
+        $allowed_image_fields = ['horizontal_imagen', 'banner', 'gameGallery1', 'gameGallery2', 'gameGallery3', 'gameGallery4', 'gameGallery5', 'gameGallery6'];
 
         if (!in_array($image_column_name, $allowed_image_fields)) {
-            $image_column_name = 'imagen';
+            $image_column_name = 'horizontal_imagen';
         }
 
         $subir_nueva_imagen = false;
@@ -149,21 +150,21 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['edit']) && isset($_GET[
     $idGame = (int) $_GET['idGame'];
 
     $sql = "SELECT 
-                idGame, 
-                title, 
-                description, 
-                price,
-                platforms,
-                imagen, 
-                imagen2, 
-                gameGallery1, 
-                gameGallery2, 
-                gameGallery3, 
-                gameGallery4,
-                gameGallery5,
-                gameGallery6
-            FROM game 
-            WHERE idGame = $idGame AND idCreator = $user_id";
+    idGame, 
+    title, 
+    description, 
+    price,
+    platforms,
+    horizontal_imagen AS imagen,
+    banner AS imagen2,          
+    gameGallery1, 
+    gameGallery2, 
+    gameGallery3, 
+    gameGallery4,
+    gameGallery5,
+    gameGallery6
+FROM game 
+WHERE idGame = $idGame AND idCreator = $user_id";
     $resultado = $conexion->query($sql);
 
     if ($resultado && $resultado->num_rows === 1) {
@@ -174,10 +175,18 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['edit']) && isset($_GET[
 }
 
 // 5. READ para listar todos los juegos
-$sql_select_all = "SELECT idGame, title, description, imagen FROM game WHERE idCreator = $user_id ORDER BY idGame DESC";
-$juegos_del_creador = $conexion->query($sql_select_all);
+$juegos_del_creador = null;
 
-?>
+if (isset($user_id) && $user_id) {
+    $sql_select_all = "SELECT idGame, title, description, horizontal_imagen AS imagen FROM game WHERE idCreator = $user_id ORDER BY idGame DESC";
+
+    $resultado = $conexion->query($sql_select_all);
+
+    if ($resultado && $resultado->num_rows > 0) {
+        $juegos_del_creador = $resultado->fetch_all(MYSQLI_ASSOC);
+    }
+
+} ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -370,9 +379,9 @@ $juegos_del_creador = $conexion->query($sql_select_all);
 
     <h2>Mis Juegos (<?php echo $juegos_del_creador->num_rows ?? 0; ?>)</h2>
 
-    <?php if ($juegos_del_creador && $juegos_del_creador->num_rows > 0): ?>
+    <?php if ($juegos_del_creador && count($juegos_del_creador) > 0): ?>
         <ul>
-            <?php while ($juego = $juegos_del_creador->fetch_assoc()): ?>
+            <?php foreach ($juegos_del_creador as $juego): ?>
                 <li class="juego-card">
                     <img src="../img/<?php echo htmlspecialchars($juego['imagen']); ?>"
                         alt="Banner de <?php echo htmlspecialchars($juego['title']); ?>">
@@ -388,12 +397,11 @@ $juegos_del_creador = $conexion->query($sql_select_all);
                         <button type="submit">Eliminar</button>
                     </form>
                 </li>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </ul>
     <?php else: ?>
         <p>No has creado ningún juego aún.</p>
     <?php endif; ?>
-
 </body>
 
 </html>

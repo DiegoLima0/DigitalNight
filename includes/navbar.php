@@ -13,6 +13,7 @@ if ($is_logged_in) {
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
 
     $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
+    $is_creator = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'creator'; 
 } else {
     $clase_botones_auth = 'btn azul';
     $clase_perfil = 'borrar';
@@ -20,6 +21,7 @@ if ($is_logged_in) {
     $username = '';
     $profile_pic = 'default.png';
     $is_admin = false;
+    $is_creator = false; 
 }
 
 ?>
@@ -64,6 +66,13 @@ if ($is_logged_in) {
                         <i class="bi bi-people"></i>
                         Perfil de Creador
                     </a>
+
+                    <?php if ($is_creator):?>
+                        <a href="views/manage_games_view.php">
+                            <i class="bi bi-controller"></i>
+                            Gestor de Juegos
+                        </a>
+                    <?php endif; ?>
 
                     <a href="logout.php">
                         <i class="bi bi-box-arrow-right"></i>
