@@ -54,29 +54,30 @@ if (passInput && toggleEye) {
 
 //Carrito
 (() => {
-  
-  const PLACEHOLDER_IMG = '/mnt/data/f47f4f61-1165-496a-8fcb-b63ebbd460c1.png';
 
-  
+  // Imagen de reemplazo para productos sin imagen
+  const PLACEHOLDER_IMG = 'default.png';
+
+
   const btnCarrito = document.getElementById('Btn-Carrito') || document.querySelector('.Btn-Carrito');
   const carritoLateral = document.getElementById('carritoLateral');
   const listaEl = document.getElementById('Lista-Productos');
   const totalEl = document.getElementById('Suma-Total-Precios');
   let overlay = document.getElementById('overlay');
+  const iniciarBtn = document.getElementById('iniciarBtn'); // Botón de iniciar compra
 
   if (!carritoLateral || !listaEl || !totalEl) {
     console.warn('Carrito: faltan elementos required (carritoLateral, Lista-Productos, Suma-Total-Precios).');
-  
   }
 
-  
+
   if (!overlay) {
     overlay = document.createElement('div');
     overlay.id = 'overlay';
     document.body.appendChild(overlay);
   }
 
-  
+
   const STORAGE_KEY = 'mi_carrito_v2';
   function loadCart() {
     try {
@@ -94,7 +95,7 @@ if (passInput && toggleEye) {
       console.error('Error saving cart', e);
     }
   }
-  const cart = loadCart(); 
+  const cart = loadCart();
 
 
   function openCart() {
@@ -113,7 +114,7 @@ if (passInput && toggleEye) {
   overlay.addEventListener('click', closeCart);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
 
-  
+
   function render() {
     if (!listaEl || !totalEl) return;
     listaEl.innerHTML = '';
@@ -132,8 +133,12 @@ if (passInput && toggleEye) {
       li.className = 'carrito-item';
       li.dataset.id = it.id;
 
+      // La imagen debe tener la ruta completa si es un path relativo. 
+      const imgSrc = it.img.startsWith('img/') ? it.img : `img/${it.img}`;
+
+
       li.innerHTML = `
-        <div class="thumb"><img src="${escapeHtml(it.img || PLACEHOLDER_IMG)}" alt=""></div>
+        <div class="thumb"><img src="${escapeHtml(imgSrc || PLACEHOLDER_IMG)}" alt=""></div>
         <div class="meta">
           <div class="nombre">${escapeHtml(it.nombre)}</div>
           <div class="plataforma">Plataforma: ${escapeHtml(it.plataforma || 'plataformas')}</div>
@@ -159,7 +164,7 @@ if (passInput && toggleEye) {
         </div>
       `;
 
-      
+
       const incBtn = li.querySelector('.inc');
       const decBtn = li.querySelector('.dec');
       const trashBtn = li.querySelector('.btn-trash');
@@ -175,7 +180,7 @@ if (passInput && toggleEye) {
     totalEl.textContent = '$' + total.toFixed(2);
   }
 
-  
+
   function addItem(product) {
     if (!product || !product.id) return;
     if (!cart[product.id]) {
@@ -208,13 +213,70 @@ if (passInput && toggleEye) {
     saveCart(cart);
     render();
   }
-  
+
   function escapeHtml(s) {
     if (s === undefined || s === null) return '';
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 
-  
+  function iniciarCompra() {
+    const items = Object.values(cart);
+    if (items.length === 0) {
+      alert('Tu carrito está vacío. Agrega productos antes de iniciar la compra.');
+      return;
+    }
+
+    const total = items.reduce((s, x) => s + x.precio * x.qty, 0).toFixed(2);
+
+    const carritoParaServidor = {
+      productos: items.map(item => ({
+        id: item.id,
+        nombre: item.nombre,
+        plataforma: item.plataforma,
+        precio_unitario: item.precio,
+        cantidad: item.qty,
+        imagen: item.img ? item.img.replace(/^(img\/)/, '') : 'default.png'
+      })),
+      total: total
+    };
+
+    if (iniciarBtn) iniciarBtn.disabled = true;
+
+    fetch('save_cart.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(carritoParaServidor)
+    })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(err => {
+            throw new Error(err.message || `Error del servidor: ${response.status}`);
+          }).catch(() => {
+            throw new Error(`Error del servidor (HTTP ${response.status}).`);
+          });
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.success) {
+          window.location.href = 'pay-page.php';
+        } else {
+          alert('Error al guardar el carrito en el servidor: ' + (data.message || 'Error desconocido.'));
+        }
+      })
+      .catch(error => {
+        console.error('Error en iniciarCompra:', error);
+        alert('Ocurrió un error al procesar la compra. Intenta de nuevo. Detalles: ' + error.message);
+        if (iniciarBtn) iniciarBtn.disabled = false;
+      });
+  }
+
+  if (iniciarBtn) {
+    iniciarBtn.addEventListener('click', iniciarCompra);
+  }
+
   window.miCarritoUI = {
     addItem,
     changeQty,
@@ -222,12 +284,12 @@ if (passInput && toggleEye) {
     _cart: cart
   };
 
-  
+
   render();
 
   if (Object.keys(cart).length === 0) {
-    addItem({ id:'g-1', nombre:'Nombre del juego', plataforma:'PC / Consola', precio:1299.99, img: PLACEHOLDER_IMG, qty:1 });
-    addItem({ id:'g-2', nombre:'Nombre del juego', plataforma:'Switch', precio:799.00, img: PLACEHOLDER_IMG, qty:1 });
+    addItem({ id: 'g-1', nombre: 'Juego Fantástico', plataforma: 'PC', precio: 1299.99, img: 'juego1.jpg', qty: 1 });
+    addItem({ id: 'g-2', nombre: 'Aventura Increíble', plataforma: 'Switch', precio: 799.00, img: 'juego2.jpg', qty: 1 });
   }
 
 })();
@@ -319,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //Página shop.php
 (function () {
   const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slider > a'); 
+  const slides = document.querySelectorAll('.slider > a');
   const navLinks = document.querySelectorAll('.slider-nav a');
   const btnPrev = document.getElementById('prev');
   const btnNext = document.getElementById('next');

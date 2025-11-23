@@ -99,7 +99,7 @@ if ($is_logged_in) {
 
     <div class="carrito-actions">
         <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
-        <button id="iniciarBtn" class="btnVioletaDifuminado">Iniciar compra</button>
+        <button id="iniciarBtn" class="btnVioletaDifuminado" onclick="iniciarCompra()">Iniciar compra</button>
     </div>
 </aside>
 
