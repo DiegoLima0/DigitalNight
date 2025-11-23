@@ -3,7 +3,7 @@ session_start();
 require_once '../includes/database.php'; 
 
 // VERIFICACIÓN DE ACCESO DE ADMINISTRADOR
-if (!isset($_SESSION['idUser']) || ($_SESSION['user_type'] ?? '') !== 'admin') {
+if (!isset($_SESSION['user_id']) || ($_SESSION['user_type'] ?? '') !== 'admin') {
     header("Location: ../login.php"); 
     exit();
 }
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     $user_id_to_delete = (int)$_POST['idUser'];
     
     // Evitar que un admin se borre a sí mismo
-    if ($user_id_to_delete == ($_SESSION['idUser'] ?? 0)) {
+    if ($user_id_to_delete == ($_SESSION['user_id'] ?? 0)) {
         $mensaje = "Error: No puedes eliminar tu propia cuenta de administrador.";
     } else {
         $sql_delete = "DELETE FROM user WHERE idUser = $user_id_to_delete";
