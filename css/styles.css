@@ -13,7 +13,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Noto Sans Georgian", sans-serif;
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
@@ -719,9 +719,10 @@ footer p {
     background-position: center;
 }
 
-#MainPrincipal button {
+#MainPrincipal a {
     font-size: 19px;
     width: 150px;
+    padding: 7px 0;
 }
 
 #MainPrincipal>div {
@@ -1547,7 +1548,6 @@ h2.section-title {
     grid-template-rows: 80vh 30vh 65vh auto;
     min-height: 100vh;
     gap: 0;
-    font-family: "Noto Sans Georgian", sans-serif;
 }
 
 .section {
