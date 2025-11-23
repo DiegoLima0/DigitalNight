@@ -108,7 +108,6 @@ body {
 
 header {
     position: relative;
-    overflow: hidden;
     background: #11142594;
     color: white;
     display: flex;
@@ -123,14 +122,14 @@ header {
 header::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0 0%;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     background: #11142536;
     z-index: -1;
     opacity: 0.9;
 }
+
 
 header i {
     font-size: 30px;
