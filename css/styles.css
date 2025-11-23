@@ -107,7 +107,9 @@ body {
 }
 
 header {
-    background-color: var(--fondoAzulOscuro);
+    position: relative;
+    overflow: hidden;
+    background: #11142594;
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +118,18 @@ header {
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: #11142536;
+    z-index: -1;
+    opacity: 0.9;
 }
 
 header i {
@@ -269,10 +282,26 @@ a:hover {
 }
 
 footer {
-    background: linear-gradient(#111425, #283058);
+    background: linear-gradient(#11142593, #2830587c);
     text-align: center;
     padding: 15px;
     margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(#111425b4, #283058b2);
+    z-index: -1;
+    opacity: 0.9;
 }
 
 footer img {
@@ -365,13 +394,13 @@ footer p {
 
 /*Carrito*/
 
-#Btn-Carrito{
+#Btn-Carrito {
     background: none;
     border: none;
     color: white;
 }
 
-#Btn-Carrito i{
+#Btn-Carrito i {
     font-size: 26px;
 }
 
@@ -560,7 +589,7 @@ footer p {
     justify-content: center;
 }
 
-.carrito-actions button{
+.carrito-actions button {
     width: 48%;
 }
 
@@ -676,13 +705,17 @@ footer p {
 }
 
 /*PAGINA PRINCIPAL (Index.php)*/
+#bodyPrincipal {
+    background-image: url("../img/FondoIndex.png");
+
+}
+
 #MainPrincipal {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
     gap: 2em;
-    background-image: url("../img/FondoIndex.png");
     background-size: cover;
     background-position: center;
 }
@@ -728,6 +761,10 @@ footer p {
 }
 
 /*Main de register.php y login.php*/
+#bodyFormulario {
+    background-image: url("../img/FormBackground.png");
+}
+
 .MainFormulario {
     flex: 1;
     display: flex;
@@ -735,7 +772,6 @@ footer p {
     align-items: center;
     padding: 40px 20px;
     background-size: cover;
-    background-image: url("../img/FormBackground.png");
 }
 
 .MainFormulario>div {
@@ -1106,7 +1142,7 @@ h2.section-title {
     transition: 0.3s ease;
 }
 
-.pag-nav__btn:hover{
+.pag-nav__btn:hover {
     background: #232442;
 }
 
@@ -1115,7 +1151,7 @@ h2.section-title {
     color: white;
 }
 
-.pag-nav__btn--active:hover{
+.pag-nav__btn--active:hover {
     background: #606cb1cb;
 }
 
@@ -4365,7 +4401,7 @@ body.biblioteca {
     padding: 0 30px 30px 0;
 }
 
-#volverJuego:hover{
+#volverJuego:hover {
     background: linear-gradient(to right, #8b62d1, #2d3294);
 }
 

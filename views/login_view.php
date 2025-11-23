@@ -17,7 +17,7 @@ else{
         <title>Digital Night - Iniciar sesión</title>
     </head>
 
-    <body>
+    <body id="bodyFormulario">
         <main class="MainFormulario">
             <form action="login_processor.php" method="post">
                 <label class="titulo">Iniciar sesion</label>

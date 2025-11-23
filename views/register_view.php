@@ -7,7 +7,7 @@
     <title>Digital Night - Crear cuenta</title>
 </head>
 
-<body>
+<body id="bodyFormulario">
     <main class="MainFormulario">
         <form action="register.php" method="post">
             <label class="titulo">Crear cuenta</label>

@@ -8,7 +8,7 @@
 
 </head>
 
-<body>
+<body id="bodyPrincipal">
     <main id="MainPrincipal">
         <div>
             <h1 id="TextoPaginaPrincipal">Bienvenido a DigitalNight</h1>
