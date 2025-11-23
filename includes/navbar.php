@@ -13,7 +13,6 @@ if ($is_logged_in) {
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
 
     $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
-
 } else {
     $clase_botones_auth = 'btn azul';
     $clase_perfil = 'borrar';
@@ -75,34 +74,34 @@ if ($is_logged_in) {
             </div>
 
             <div id="carritoBtn">
-  <button id="Btn-Carrito" class="Btn-Carrito"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-</svg></button>
-</div>
+                <button id="Btn-Carrito" class="Btn-Carrito">
+                    <i class="bi bi-cart"></i>
+                </button>
+            </div>
 
 
         </div>
     </div>
 </div>
 
- 
+
 <aside id="carritoLateral" aria-hidden="true" class="carrito-panel">
-  <h2 class="carrito-titulo">Mi carrito</h2>
+    <h2 class="carrito-titulo">Mi carrito</h2>
 
-  <ul id="Lista-Productos" class="lista-productos"></ul>
+    <ul id="Lista-Productos" class="lista-productos"></ul>
 
-  <div class="carrito-total-row">
-    <div class="total-label">Total</div>
-    <div id="Suma-Total-Precios" class="total-price">$0.00</div>
-  </div>
+    <div class="carrito-total-row">
+        <div class="total-label">Total</div>
+        <div id="Suma-Total-Precios" class="total-price">$0.00</div>
+    </div>
 
-  <p class="nota">Los descuentos y promociones se aplicarán en el carrito</p>
+    <p class="nota">Los descuentos y promociones se aplicarán en el carrito</p>
 
-  <div class="carrito-actions">
-    <button id="seguirBtn" class="btn-ghost">Continuar comprando</button>
-    <button id="iniciarBtn" class="btn-primary">Iniciar compra</button>
-  </div>
+    <div class="carrito-actions">
+        <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
+        <button id="iniciarBtn" class="btnVioletaDifuminado">Iniciar compra</button>
+    </div>
 </aside>
 
-    </div>
+</div>
 </div>

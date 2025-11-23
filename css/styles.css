@@ -365,99 +365,248 @@ footer p {
 
 /*Carrito*/
 
-body { overflow-x: hidden; }
-#Btn-Carrito{ 
-    background-color: white;
+#Btn-Carrito{
+    background: none;
+    border: none;
+    color: white;
 }
 
-.carrito-panel{
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 360px;
-  max-width: 94vw;
-  padding: 18px;
-  box-sizing: border-box;
-  background: #111425;
-  color: #fff;
-  height: 100%;
-  overflow:auto;
-  transform: translateX(110%);
-  transition: transform .35s ease;
-  z-index: 1200;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.carrito-panel.active { transform: translateX(0); }
-
-.carrito-titulo{
-  margin:0 0 8px 0;
-  font-size:20px;
-  padding-bottom:8px;
-  border-bottom:1px solid rgba(255,255,255,0.12);
+#Btn-Carrito i{
+    font-size: 26px;
 }
 
+.carrito-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 360px;
+    max-width: 94vw;
+    padding: 18px;
+    box-sizing: border-box;
+    background: #111425;
+    color: #fff;
+    height: 100%;
+    overflow: auto;
+    transform: translateX(110%);
+    transition: transform .35s ease;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
 
-.lista-productos{
-  list-style:none;
-  margin:0;
-  padding: 8px 0;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+.carrito-panel.active {
+    transform: translateX(0);
+}
+
+.carrito-titulo {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.lista-productos {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
 
 .carrito-item {
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  padding:12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border-radius:8px;
-  position:relative;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border-radius: 8px;
+    position: relative;
 }
-.carrito-item .thumb{
-  width:72px;
-  height:88px;
-  background: rgba(255,255,255,0.06);
-  border-radius:6px;
-  overflow:hidden;
-  flex: 0 0 72px;
+
+.carrito-item .thumb {
+    width: 72px;
+    height: 88px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    flex: 0 0 72px;
 }
-.carrito-item .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.carrito-item .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 
-.carrito-item .meta{ flex:1; display:flex; flex-direction:column; }
-.carrito-item .meta .nombre{ font-size:16px; font-weight:700; margin:0 0 6px 0; color:#fff; }
-.carrito-item .meta .plataforma{ font-size:13px; color: rgba(255,255,255,0.8); margin-bottom:8px; }
-.carrito-item .meta .precio{ font-size:15px; font-weight:700; color:#fff; }
+.carrito-item .meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito-item .meta .nombre {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #fff;
+}
+
+.carrito-item .meta .plataforma {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.carrito-item .meta .precio {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
 
 
-.carrito-item .controls{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
-.btn-trash{ background:transparent; border:none; color: rgba(255,255,255,0.9); cursor:pointer; width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
-.qty-pill{ display:flex; align-items:center; gap:8px; background: rgba(255,255,255,0.08); border-radius:20px; padding:4px 8px; min-width:86px; justify-content:center; }
-.qty-pill button{ background: rgba(255,255,255,0.12); border: none; color: #fff; width:28px; height:24px; border-radius:6px; cursor:pointer; font-weight:700; font-size:14px; display:inline-flex; align-items:center; justify-content:center; }
-.qty-pill .cant{ min-width:22px; text-align:center; font-weight:700; color:#fff; }
+.carrito-item .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.btn-trash {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-pill {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    min-width: 86px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.qty-pill button {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: #fff;
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-pill .cant {
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    margin: auto;
+    flex: 1;
+}
 
 
-.carrito-total-row{ display:flex; justify-content:space-between; align-items:center; margin-top:6px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); }
-.total-label{ font-size:16px; color:rgba(255,255,255,0.9); }
-.total-price{ font-size:16px; font-weight:800; color:#ffffff; }
+.carrito-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.total-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.total-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+}
 
 
-.nota{ font-size:12px; color: rgba(255,255,255,0.7); margin:6px 0; }
-.carrito-actions{ display:flex; gap:10px; margin-top:6px; }
-.btn-ghost{ flex:1; background: transparent; border:1px solid rgba(255,255,255,0.14); color:#fff; padding:10px 12px; border-radius:20px; cursor:pointer; }
-.btn-primary{ flex:1; background: linear-gradient(90deg,#6fc6ff, #3aa0ff); border:none; color:#08263a; padding:10px 12px; border-radius:20px; cursor:pointer; font-weight:700; }
+.nota {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 6px 0;
+}
 
-#overlay { position: fixed; inset:0; background: rgba(0,0,0,0.35); opacity:0; visibility:hidden; transition:opacity .25s, visibility .25s; z-index:1100; }
-#overlay.show { opacity:1; visibility:visible; }
+.carrito-actions {
+    display: flex;
+    gap: 1em;
+    margin-top: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrito-actions button{
+    width: 48%;
+}
+
+.btn-ghost {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    flex: 1;
+    background: linear-gradient(90deg, #6fc6ff, #3aa0ff);
+    border: none;
+    color: #08263a;
+    padding: 10px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s, visibility .25s;
+    z-index: 1100;
+}
+
+#overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
 
 
-@media (max-width:420px){ .carrito-panel{ width:100vw; padding:14px; } }
+@media (max-width:420px) {
+    .carrito-panel {
+        width: 100vw;
+        padding: 14px;
+    }
+}
 
 /* Banner */
 .Banner-Principal {
@@ -812,7 +961,7 @@ form input[type="submit"]:hover {
     align-items: center;
 }
 
-.publicacionPerfil{
+.publicacionPerfil {
     width: 30%;
     border-radius: 20px;
     background: linear-gradient(to right, #322b4b70, #4132c970);
@@ -951,14 +1100,23 @@ h2.section-title {
     background: var(--glass);
     border: 0;
     padding: 8px 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #eaf4ff;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.pag-nav__btn:hover{
+    background: #232442;
 }
 
 .pag-nav__btn--active {
-    background: var(--accent);
-    color: #031126;
+    background: #606CB1;
+    color: white;
+}
+
+.pag-nav__btn--active:hover{
+    background: #606cb1cb;
 }
 
 .filtros {
@@ -1376,14 +1534,12 @@ h2.section-title {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(8, 11, 22, 0.726) 0%,      
-        rgba(8, 11, 22, 0.587) 20%, 
-        rgba(8, 11, 22, 0.40) 60%,     
-        rgba(8, 11, 22, 0.18) 80%,     
-        rgba(8, 11, 22, 0.00) 100%  
-    );
+    background: linear-gradient(90deg,
+            rgba(8, 11, 22, 0.726) 0%,
+            rgba(8, 11, 22, 0.587) 20%,
+            rgba(8, 11, 22, 0.40) 60%,
+            rgba(8, 11, 22, 0.18) 80%,
+            rgba(8, 11, 22, 0.00) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -1516,11 +1672,11 @@ p {
     align-items: center;
 }
 
-.Caracteristicas-Games div i{
+.Caracteristicas-Games div i {
     font-size: 15px;
 }
 
-.Caracteristicas-Games div p{
+.Caracteristicas-Games div p {
     font-size: 13px;
 }
 
@@ -1566,7 +1722,7 @@ p {
     text-decoration: none;
 }
 
-.boton-añadirCarrito{
+.boton-añadirCarrito {
     padding: 11px 20px;
     font-size: 15px;
 }
@@ -1758,12 +1914,12 @@ p {
     z-index: 2;
 }
 
-.Contenedor-Banner2-Game p{
+.Contenedor-Banner2-Game p {
     font-size: 15px;
     max-width: 650px;
 }
 
-.Contenedor-Banner2-Game h2{
+.Contenedor-Banner2-Game h2 {
     font-family: "Noto Sans Georgian", sans-serif;
     font-weight: 300;
     margin: 0;
@@ -1773,7 +1929,7 @@ p {
     line-height: 1.5em;
 }
 
-.botones-games{
+.botones-games {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1783,7 +1939,7 @@ p {
     background-color: #081126;
 }
 
-.botones-games .btnVioletaDifuminado{
+.botones-games .btnVioletaDifuminado {
     padding: 8px 35px;
     border: none;
     box-shadow:
@@ -1793,13 +1949,14 @@ p {
     transition: 0.8s ease;
 }
 
-.botones-games .btnGris{
+.botones-games .btnGris {
     font-size: 13px;
     padding: 5px 20px;
     transition: 0.8s ease;
 }
 
-.botones-games .btnGris:hover, #navPerfil .btnGris:hover{
+.botones-games .btnGris:hover,
+#navPerfil .btnGris:hover {
     transform: scale(1.07);
     box-shadow:
         0 0 25px rgba(110, 80, 255, 0.45),
@@ -1809,7 +1966,8 @@ p {
     transition: 0.8s ease;
 }
 
-.botones-games:has(.btnGris:hover) .btnVioletaDifuminado, #navPerfil:has(.btnGris:not(.activa):hover) .btnGris.activa {
+.botones-games:has(.btnGris:hover) .btnVioletaDifuminado,
+#navPerfil:has(.btnGris:not(.activa):hover) .btnGris.activa {
     transform: scale(0.90);
     background: rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.55);
@@ -1855,74 +2013,75 @@ p {
 
 
 .nueva-seccion-dos-tarjetas {
-background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
-padding: 60px 0;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #fff;
-position: relative;
-z-index: 10;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    z-index: 10;
 }
 
 
 .nueva-contenedor-dos-tarjetas {
-max-width: 1200px;
-width: 100%;
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 40px;
-padding: 0 20px;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 20px;
 }
 
 
 .nueva-tarjeta-item {
-background: #101B3A;
-border-radius: 16px;
-overflow: hidden;
-box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
-transition: 0.3s ease;
+    background: #101B3A;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease;
 }
 
 
 .nueva-tarjeta-item:hover {
-transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 
 .nueva-tarjeta-img img {
-width: 100%;
-height: 180px;
-object-fit: cover;
-display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
 }
 
 
 .nueva-tarjeta-info {
-padding: 20px;
+    padding: 20px;
 }
 
 
 .nueva-tarjeta-titulo {
-margin: 0 0 10px;
-font-size: 20px;
-font-weight: 600;
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 
 .nueva-tarjeta-descripcion {
-margin: 0;
-font-size: 14px;
-opacity: 0.8;
-line-height: 1.5;
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.5;
 }
 
 
 @media (max-width: 800px) {
-.nueva-contenedor-dos-tarjetas {
-grid-template-columns: 1fr;
+    .nueva-contenedor-dos-tarjetas {
+        grid-template-columns: 1fr;
+    }
 }
-}
+
 /* CONTENEDOR PRINCIPAL */
 .Rating-Games-Aside {
     background: #101B3A;
@@ -2352,7 +2511,7 @@ grid-template-columns: 1fr;
     min-width: min-content;
 }
 
-.perfilConfig{
+.perfilConfig {
     display: flex;
     gap: 1em;
     align-items: center;
@@ -2889,7 +3048,7 @@ grid-template-columns: 1fr;
     border: 1px solid rgba(255, 255, 255, 0.404);
     border-radius: 10px;
     overflow: hidden;
-    transition:  0.3s ease;
+    transition: 0.3s ease;
     width: 70%;
 }
 
@@ -3113,7 +3272,7 @@ body.biblioteca {
     margin-right: 10px;
 }
 
-.item-juego span{
+.item-juego span {
     font-size: medium;
 }
 
@@ -3292,7 +3451,8 @@ body.biblioteca {
     padding: 0 50px;
 }
 
-.publicacion:hover, .publicacionPerfil:hover {
+.publicacion:hover,
+.publicacionPerfil:hover {
     transform: translateY(-6px);
     text-decoration: none;
 }
