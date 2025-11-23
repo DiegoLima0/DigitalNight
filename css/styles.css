@@ -832,7 +832,7 @@ textarea {
     box-sizing: border-box;
 }
 
-form input[type="submit"] {
+.MainFormulario form input[type="submit"] {
     padding: 10px;
     cursor: pointer;
     font-size: 15px;
@@ -3568,6 +3568,10 @@ body.biblioteca {
     border-radius: 20px;
 }
 
+#publicacionComunidad>div{
+    width: 100%;
+}
+
 #publicacionComunidad>img {
     height: 50px;
     width: 50px;
@@ -3589,8 +3593,6 @@ body.biblioteca {
     color: rgba(255, 255, 255, 0.616);
 }
 
-#pubComentario input[type="reset"] input[type="button"] {}
-
 #pubComentario div {
     display: flex;
     flex-direction: row;
@@ -3606,7 +3608,7 @@ body.biblioteca {
     background: linear-gradient(to right, #322b4b70, #513fb957);
 }
 
-#comentarios img {
+#comentarios .perfil {
     height: 40px;
     width: 40px;
     border-radius: 40px;

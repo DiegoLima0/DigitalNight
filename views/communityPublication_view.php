@@ -20,10 +20,10 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
     <title>Publicación de @<?php echo htmlspecialchars($publication_data['user_name'] ?? 'Usuario'); ?></title>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             document.querySelectorAll('.interacciones p.btn-like, .interacciones p.btn-dislike').forEach(button => {
 
-                button.addEventListener('click', function (e) {
+                button.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -37,12 +37,12 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
                     interactionDiv.style.pointerEvents = 'none';
 
                     fetch('comment_processor.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: `action=process_vote&id=${idCommentary}&vote_action=${voteAction}`
-                    })
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `action=process_vote&id=${idCommentary}&vote_action=${voteAction}`
+                        })
                         .then(response => {
                             if (!response.ok) throw new Error("Error de red o servidor: " + response.status);
                             return response.json();
@@ -119,7 +119,7 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
                             value="<?php echo (int) $publication_data['idPublication']; ?>">
                         <input type="hidden" name="idGame" value="<?php echo $game_id_post; ?>">
 
-                        <div><img src="img/profiles/<?php echo htmlspecialchars($current_user_profile_img); ?>"
+                        <div><img class="perfil" src="img/profiles/<?php echo htmlspecialchars($current_user_profile_img); ?>"
                                 alt="Imagen de perfil">
                             <input type="text" name="content" placeholder="Agrega un comentario" required>
                         </div>
@@ -130,7 +130,7 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
                             </label>
                             <input type="file" name="publication_image" id="reply_image_upload" style="display:none;"
                                 accept="image/*">
-                            <span id="file-name-display-reply" style="margin-right: 10px; font-size: 0.8em;"></span>
+
 
                             <input type="reset" value="Borrar" class="btn azul">
                             <input type="submit" value="Enviar" class="btn azul">
@@ -144,7 +144,7 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
                     <?php foreach ($comments_list as $comment):
                         $comment_profile_img_path = 'img/profiles/' . htmlspecialchars($comment['user_profile_img']);
                         $comment_post_img_path = !empty($comment['comment_image']) ? 'img/publications/' . htmlspecialchars($comment['comment_image']) : null;
-                        ?>
+                    ?>
                         <div class="comentario">
                             <div class="comentario" style="display:flex; gap: 10px; padding: 10px 0;">
                                 <img src="<?php echo $comment_profile_img_path; ?>" alt="Imagen de perfil" class="perfil">
