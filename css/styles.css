@@ -1229,12 +1229,17 @@ h2.section-title {
 }
 
 .slider img {
-    flex: 0 0 100%;
     width: 100%;
     height: var(--height);
     object-fit: cover;
     display: block;
-}
+}   
+
+.slider > a {
+    flex: 0 0 100%; 
+    width: 100%;
+    display: block; 
+}   
 
 .slider-nav {
     position: absolute;

@@ -74,10 +74,33 @@
         <section class="container-carrusel">
             <div class="slider-wrapper">
                 <div class="slider">
-                    <img id="slider-1" src="img/MetalGear-Promocional.jpg" alt="" data-href="Games.php">
-                    <img id="slider-2" src="img/LittleNightmares3Promocional.jpg" alt="" data-href="metalgear.html">
-                    <img id="slider-3" src="img/RedDeadOnline.jpg" alt="" data-href="overcooked2.html">
-                    <img id="slider-4" src="img/GodOfWarPromocional.jpg" alt="" data-href="sons.html">
+                    <?php 
+                        $id_juego_1 = 10; 
+                        $id_juego_2 = 13; 
+                        $id_juego_3 = 9; 
+                        $id_juego_4 = 18; 
+
+                        $url_1 = "games.php?idGame=" . $id_juego_1;
+                        $url_2 = "games.php?idGame=" . $id_juego_2;
+                        $url_3 = "games.php?idGame=" . $id_juego_3;
+                        $url_4 = "games.php?idGame=" . $id_juego_4;
+                    ?>
+                    
+                    <a href="<?php echo $url_1; ?>">
+                        <img id="slider-1" src="img/MetalGear-Promocional.jpg" alt="">
+                    </a>
+                    
+                    <a href="<?php echo $url_2; ?>">
+                        <img id="slider-2" src="img/LittleNightmares3Promocional.jpg" alt="">
+                    </a>
+                    
+                    <a href="<?php echo $url_3; ?>">
+                        <img id="slider-3" src="img/RedDeadOnline.jpg" alt="">
+                    </a>
+                    
+                    <a href="<?php echo $url_4; ?>">
+                        <img id="slider-4" src="img/GodOfWarPromocional.jpg" alt="">
+                    </a>
                 </div>
 
                 <div class="arrow left" id="prev" aria-hidden="true">

@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //Página shop.php
 (function () {
   const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slider img');
+  const slides = document.querySelectorAll('.slider > a'); 
   const navLinks = document.querySelectorAll('.slider-nav a');
   const btnPrev = document.getElementById('prev');
   const btnNext = document.getElementById('next');
