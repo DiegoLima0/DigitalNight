@@ -24,7 +24,7 @@
           <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
 
           <div class="cta-group">
-            <form method="POST" action="buy.php">
+            <form method="POST" action="add_to_cart.php">
               <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
               <button type="submit" class="boton-añadirCarrito">Añadir al carrito</button>
               <a class="boton-VerEdiciones" href="#section nueva-seccion-dos-tarjetas">Ver ediciones</a>
