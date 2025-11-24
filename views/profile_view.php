@@ -65,93 +65,90 @@ require_once 'includes/header.php';
         <section id="secciones">
 
             <div id="juegosCreados" class="seccion activa">
-                <div class="juego">
-                    <img src="" alt="Imagen juego">
+                <?php if (!empty($juegos_creados)): ?>
+                    <?php foreach ($juegos_creados as $juego): ?>
+                        <div class="juego">
+                            <img src="img/<?php echo htmlspecialchars($juego['cover_image'] ?? 'default_cover.png'); ?>" alt="Imagen de portada de <?php echo htmlspecialchars($juego['title']); ?>">
 
-                    <div class="infoJuego">
-                        <strong>Nombre de juego</strong>
+                            <div class="infoJuego">
+                                <strong><?php echo htmlspecialchars($juego['title']); ?></strong>
 
-                        <div>
-                            <p>Plataforma: plataforma <br>
-                                Genero: genero
-                            </p>
+                                <div>
+                                    <p>Plataforma: <?php echo htmlspecialchars($juego['platforms']); ?> <br>
+                                        Genero: <?php echo htmlspecialchars($juego['genre']); ?>
+                                    </p>
 
-                            <button class="btn btnVioletaDifuminado">Comprar</button>
+                                    <button class="btn btnVioletaDifuminado">Comprar</button> 
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No has creado ningún juego aún.</p>
+                <?php endif; ?>
             </div>
 
             <div id="juegos" class="seccion">
+                <?php if (!empty($juegos_adquiridos)): ?>
+                    <?php foreach ($juegos_adquiridos as $juego): ?>
+                        <div class="juego">
+                            <img src="img/<?php echo htmlspecialchars($juego['cover_image'] ?? 'default_cover.png'); ?>" alt="Imagen de portada de <?php echo htmlspecialchars($juego['title']); ?>">
 
-                <div class="juego">
-                    <img src="" alt="Imagen juego">
+                            <div class="infoJuego">
+                                <strong><?php echo htmlspecialchars($juego['title']); ?></strong>
 
-                    <div class="infoJuego">
-                        <strong>Nombre de juego</strong>
+                                <div>
+                                    <p>Plataforma: <?php echo htmlspecialchars($juego['platforms']); ?> <br>
+                                        Genero: <?php echo htmlspecialchars($juego['genre']); ?>
+                                    </p>
 
-                        <div>
-                            <p>Plataforma: plataforma <br>
-                                Genero: genero
-                            </p>
-
-                            <p>
-                                3,5hs jugadas <br>
-                                Ultima sesión: 7 SEP
-                            </p>
+                                    <p>
+                                        <?php echo htmlspecialchars($juego['horas_jugadas'] ?? '0'); ?>hs jugadas <br>
+                                        Última sesión: <?php echo isset($juego['purchaseDate']) ? (new DateTime($juego['purchaseDate']))->format('j M') : 'N/A'; ?>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                </div>
-
-                <div class="juego">
-                    <img src="" alt="Imagen juego">
-
-                    <div class="infoJuego">
-                        <strong>Nombre de juego</strong>
-
-                        <div>
-                            <p>Plataforma: plataforma <br>
-                                Genero: genero
-                            </p>
-
-                            <p>
-                                3,5hs jugadas <br>
-                                Ultima sesión: 7 SEP
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Aún no has adquirido ningún juego.</p>
+                <?php endif; ?>
             </div>
 
             <div id="publicaciones" class="seccion">
-                <div class="publicacionPerfil" href="communityPublication.php">
-                    <div id="imgUsComunidad">
-                        <img src="img/profiles/" alt="Imagen de perfil">
+                <?php if (!empty($publicaciones_usuario)): ?>
+                    <?php foreach ($publicaciones_usuario as $publicacion): ?>
+                        <div class="publicacionPerfil" onclick="window.location.href='communityPublication.php?id=<?php echo $publicacion['idCommentary']; ?>'">
+                            <div id="imgUsComunidad">
+                                <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
 
-                        <p>@Usuario</p>
-                    </div>
+                                <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
+                            </div>
 
-                    <p>Lorem Ipsum is simply dummy text of the printingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+                            <p><?php echo nl2br(htmlspecialchars($publicacion['commentary'])); ?></p>
 
-                    <img class="imgPub" src="" alt="">
+                            <?php if (!empty($publicacion['imagen'])): ?>
+                                <img class="imgPub" src="img/publications/<?php echo htmlspecialchars($publicacion['imagen']); ?>" alt="Imagen de la publicación">
+                            <?php endif; ?>
 
-                    <div class="interacciones">
-                        <p>
-                            <i class="bi bi-hand-thumbs-up"></i> 0 <!--Este número es la cantidad de likes-->
-                        </p>
+                            <div class="interacciones">
+                                <p>
+                                    <i class="bi bi-hand-thumbs-up"></i> <?php echo htmlspecialchars($publicacion['liked'] ?? 0); ?> 
+                                </p>
 
-                        <p>
-                            <i class="bi bi-hand-thumbs-down"></i> 0 <!--Este número es la cantidad de dislikes-->
-                        </p>
+                                <p>
+                                    <i class="bi bi-hand-thumbs-down"></i> <?php echo htmlspecialchars($publicacion['disliked'] ?? 0); ?> 
+                                </p>
 
-                        <p>
-                            <i class="bi bi-chat"></i> 0 <!--Este número es la cantidad de comentarios-->
-                        </p>
-                    </div>
-                </div>
+                                <p>
+                                    <i class="bi bi-chat"></i> <?php echo htmlspecialchars($publicacion['num_comentarios'] ?? 0); ?> 
+                                </p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Aún no has realizado publicaciones en la comunidad.</p>
+                <?php endif; ?>
             </div>
         </section>
     </main>
