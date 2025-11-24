@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2025 a las 01:15:56
+-- Tiempo de generación: 24-11-2025 a las 18:35:12
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -121,6 +121,29 @@ INSERT INTO `creator` (`creatorName`, `country`, `correo`, `idCreator`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `edition`
+--
+
+CREATE TABLE `edition` (
+  `idEdition` int(10) UNSIGNED NOT NULL,
+  `idGame` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `tag` varchar(100) DEFAULT NULL,
+  `price` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `features` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `edition`
+--
+
+INSERT INTO `edition` (`idEdition`, `idGame`, `name`, `tag`, `price`, `features`) VALUES
+(1, 24, 'God of War: Ragnarok', '', 100.00, 'Es la continuacion de la version actual'),
+(2, 9, 'Read Dead Online', 'Online', 10.00, 'Solo incluye el modo online');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `game`
 --
 
@@ -213,7 +236,8 @@ CREATE TABLE `user_game` (
 --
 
 INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`) VALUES
-(1, 12, '2025-11-02 17:37:15');
+(1, 12, '2025-11-02 17:37:15'),
+(1, 24, '2025-11-23 17:44:31');
 
 --
 -- Índices para tablas volcadas
@@ -240,6 +264,13 @@ ALTER TABLE `comment_votes`
 --
 ALTER TABLE `creator`
   ADD PRIMARY KEY (`idCreator`);
+
+--
+-- Indices de la tabla `edition`
+--
+ALTER TABLE `edition`
+  ADD PRIMARY KEY (`idEdition`),
+  ADD KEY `idGame` (`idGame`);
 
 --
 -- Indices de la tabla `game`
@@ -279,10 +310,16 @@ ALTER TABLE `comment_votes`
   MODIFY `idVote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT de la tabla `edition`
+--
+ALTER TABLE `edition`
+  MODIFY `idEdition` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `game`
 --
 ALTER TABLE `game`
-  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
@@ -307,6 +344,12 @@ ALTER TABLE `comment`
 --
 ALTER TABLE `creator`
   ADD CONSTRAINT `fk_Creator_User` FOREIGN KEY (`idCreator`) REFERENCES `user` (`idUser`);
+
+--
+-- Filtros para la tabla `edition`
+--
+ALTER TABLE `edition`
+  ADD CONSTRAINT `edition_ibfk_1` FOREIGN KEY (`idGame`) REFERENCES `game` (`idGame`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `game`
