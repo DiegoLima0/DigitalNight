@@ -30,12 +30,12 @@
                       <i class="bi bi-controller"></i>
                       Ver juego
                     </a>
-                    
+
                     <a href="">
                       <i class="bi bi-eye-slash"></i>
                       Ocultar
                     </a>
-                    
+
                     <a href="">
                       <i class="bi bi-trash3"></i>
                       Desistalar
@@ -116,7 +116,30 @@
               <?php endif; ?>
             </div>
           </section>
-        </main>
+
+          <section class="seccion-juegos">
+            <h3>Juegos de Digital Night</h3>
+
+            <div class="rejilla-juegos">
+              <?php
+              // Lista de juegos de Digital Night y sus URLs
+              $digital_night_games = [
+                ['title' => 'Snake', 'url' => 'GameSnake_view.php', 'imagen' => 'snake_cover.png'], 
+                ['title' => 'Tic Tac Toe', 'url' => 'GameTicTac_view.php', 'imagen' => 'tictac_cover.png'], 
+                ['title' => 'Tetris', 'url' => 'GameTetris_view.php', 'imagen' => 'tetris_cover.png'], 
+                ['title' => 'Ping Pong', 'url' => 'GamePingPong_view.php', 'imagen' => 'pingpong_cover.png'], 
+              ];
+
+              foreach ($digital_night_games as $game):
+              ?>
+                <a href="<?php echo $game['url']; ?>" class="recuadro-juego" title="<?php echo $game['title']; ?>">
+                  <img src="img/<?php echo $game['imagen']; ?>" alt="Portada de <?php echo $game['title']; ?>">
+                </a>
+              <?php endforeach; ?>
+
+            </div>
+          </section>
+          </main>
       </div>
     </div>
 
