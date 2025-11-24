@@ -108,6 +108,29 @@ require_once 'includes/header.php';
                     </div>
                 </form>
             </dialog>
+
+            <div class="datos">
+                <p>Genero:
+                    <select id="genero" name="genero">
+                        <option value="">Seleccionar género</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="no-binario">No binario</option>
+                        <option value="otro">Otro</option>
+                        <option value="prefiero-no-decir">Prefiero no decir</option>
+                    </select>
+                </p>
+                <form action="configPublicProfile.php" method="GET" style="display:inline;">
+                    <button type="submit" class="btn azul">Cambiar</button>
+                </form>
+            </div>
+
+            <div class="datos">
+                <p>Cumpleaños: <input type="date" name="" id=""></p>
+                <form action="configPublicProfile.php" method="GET" style="display:inline;">
+                    <button type="submit" class="btn azul">Cambiar</button>
+                </form>
+            </div>
         </div>
     </main>
 </body>
