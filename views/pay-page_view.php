@@ -30,42 +30,45 @@
     <section class="fm_page-wrapper">
 
       <section class="fm_left-column">
-        <div class="fm_card">
-          <h3>Tarjeta de crédito o débito</h3>
-          <div class="fm_card-icons" aria-hidden="true">
-            <img src="img/visa.png" alt="Visa" class="fm_card-icon">
-            <img src="img/mastercard.png" alt="MasterCard" class="fm_card-icon">
-            <img src="img/amex.png" alt="American Express" class="fm_card-icon">
-          </div>
 
+<details class="fm_card fm_card-accordion" id="fm_card_accordion">
+  <summary class="fm_method-button fm_card-summary" role="button" aria-controls="fm_card_content">
+    <div class="fm_method-name" style="text-align:left;">
+      <strong>Tarjeta de crédito o débito</strong>
+      <div style="font-size:12px;color:var(--fm-subtext);font-weight:600;">Pagar con tarjeta</div>
+    </div>
 
+    
+    <div class="fm_card-icons" aria-hidden="true">
+      <img src="img/visa.jpg" alt="Visa" class="fm_card-icon">
+      <img src="img/mastercard.png" alt="MasterCard" class="fm_card-icon">
+      <img src="img/ame-expres.png" alt="American Express" class="fm_card-icon">
+    </div>
+  </summary>
 
+  
+  <div id="fm_card_content" class="fm_card-content">
+    <form id="fm_cardform" class="fm_cardform" autocomplete="off" novalidate>
+      <label class="fm_label" for="fm_card_number">Número de la tarjeta</label>
+      <input id="fm_card_number" class="fm_input" inputmode="numeric" maxlength="19"
+        placeholder="XXXX XXXX XXXX XXXX" aria-label="Número de tarjeta" />
 
-          <form id="fm_cardform" class="fm_cardform" autocomplete="off" novalidate>
-            <label class="fm_label" for="fm_card_number">Número de la tarjeta</label>
-            <input id="fm_card_number" class="fm_input" inputmode="numeric" maxlength="19"
-              placeholder="XXXX XXXX XXXX XXXX" aria-label="Número de tarjeta" />
+      <label class="fm_label" for="fm_card_name">Titular de la tarjeta</label>
+      <input id="fm_card_name" class="fm_input" placeholder="Nombre completo" aria-label="Nombre en la tarjeta" />
 
-
-            <label class="fm_label" for="fm_card_name">Titular de la tarjeta</label>
-            <input id="fm_card_name" class="fm_input" placeholder="Nombre completo" aria-label="Nombre en la tarjeta" />
-
-
-            <div class="fm_input-row">
-              <div style="flex:1;">
-                <label class="fm_label" for="fm_card_exp">Vencimiento</label>
-                <input id="fm_card_exp" class="fm_input" placeholder="MM/AA" maxlength="5" inputmode="numeric" />
-              </div>
-              <div style="width:140px;">
-                <label class="fm_label" for="fm_card_cvc">Código de seguridad (CVC)</label>
-                <input id="fm_card_cvc" class="fm_input" placeholder="CVC" maxlength="4" inputmode="numeric" />
-              </div>
-            </div>
-
-
-
-          </form>
+      <div class="fm_input-row">
+        <div style="flex:1;">
+          <label class="fm_label" for="fm_card_exp">Vencimiento</label>
+          <input id="fm_card_exp" class="fm_input" placeholder="MM/AA" maxlength="5" inputmode="numeric" />
         </div>
+        <div style="width:140px;">
+          <label class="fm_label" for="fm_card_cvc">Código de seguridad (CVC)</label>
+          <input id="fm_card_cvc" class="fm_input" placeholder="CVC" maxlength="4" inputmode="numeric" />
+        </div>
+      </div>
+    </form>
+  </div>
+</details>
 
 
         <div class="fm_card" style="margin-top:14px;">
@@ -101,6 +104,29 @@
             </a>
           </div>
         </div>
+        
+<details class="fm_card fm_card-accordion" id="fm_points_accordion">
+  <summary class="fm_method-button fm_card-summary" role="button" aria-controls="fm_points_content">
+    <div class="fm_method-name" style="text-align:left;">
+      <strong>Digital Night</strong>
+      <div style="font-size:12px;color:var(--fm-subtext);font-weight:600;">Puntos acumulados</div>
+    </div>
+  </summary>
+
+  
+  <div id="fm_points_content" class="fm_card-content">
+    <p style="
+      margin: 0;
+      padding: 6px 2px;
+      font-size: 14px;
+      color: var(--fm-subtext);
+    ">
+      Cantidad de puntos Digital Night:
+      <strong style="color:white;">0</strong>
+    </p>
+  </div>
+</details>
+
       </section>
 
 
