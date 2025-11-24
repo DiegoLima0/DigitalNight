@@ -1233,13 +1233,13 @@ h2.section-title {
     height: var(--height);
     object-fit: cover;
     display: block;
-}   
+}
 
-.slider > a {
-    flex: 0 0 100%; 
+.slider>a {
+    flex: 0 0 100%;
     width: 100%;
-    display: block; 
-}   
+    display: block;
+}
 
 .slider-nav {
     position: absolute;
@@ -2662,7 +2662,8 @@ p {
     gap: 1em;
 }
 
-input[type="date"], select{
+input[type="date"],
+select {
     border-radius: 5px;
     border: 1px solid white;
 }
@@ -3468,7 +3469,8 @@ body.biblioteca {
     width: 100%;
 }
 
-.publicacion, .publicacionCreador {
+.publicacion,
+.publicacionCreador {
     display: inline-block;
     width: 100%;
     margin: 0 0 1.5em;
@@ -3481,7 +3483,8 @@ body.biblioteca {
 }
 
 
-.publicacion p, .publicacionCreador p {
+.publicacion p,
+.publicacionCreador p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -3489,7 +3492,7 @@ body.biblioteca {
     margin: 3px;
 }
 
-#postCreador{
+#postCreador {
     width: 33em;
     padding: 0 50px;
 }
@@ -3573,7 +3576,7 @@ body.biblioteca {
     border-radius: 20px;
 }
 
-#publicacionComunidad>div{
+#publicacionComunidad>div {
     width: 100%;
 }
 
@@ -4550,4 +4553,84 @@ iframe {
         margin-left: 20px;
         transform: rotate(0deg);
     }
+}
+
+/*Página administración de usuarios*/
+#mainUsers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerTabla {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 1px solid #cccccca6;
+    border-radius: 20px;
+    background: linear-gradient(#21317a38, #4e356e3b);
+    text-align: center;
+}
+
+.containerTabla h1{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.tabla {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}
+
+.tabla table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.tabla th, .tabla td {
+    padding: 10px;
+    background: linear-gradient(#21317a27, #41356e36);
+    border: none;
+    color: white;
+}
+
+.tabla th {
+    background: #555eaa86;
+}
+
+table input,
+table select {
+    border-radius: 10px;
+    padding: 7px 5px;
+    border: 1px solid white;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+table .btn{
+    width: 100px;
+    border-radius: 10px;
+}
+
+table .violetaClaro{
+    background-color: #6879CE;
+    border: none;
+}
+
+table form {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+td .botones{
+    display: flex;
+    gap: 2em;
 }

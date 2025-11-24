@@ -73,7 +73,7 @@ if ($is_logged_in) {
                     </a>
 
                     <?php if ($is_creator):?>
-                        <a href="views/manage_games_view.php">
+                        <a href="manage_games.php">
                             <i class="bi bi-controller"></i>
                             Gestor de Juegos
                         </a>
