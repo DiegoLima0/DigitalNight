@@ -1,6 +1,5 @@
 <?php
-// navbar.php
-if (session_status() == PHP_SESSION_NONE) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['cart'])) {
@@ -10,18 +9,14 @@ if (!isset($_SESSION['cart'])) {
 $is_logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
 if ($is_logged_in) {
-    $clase_botones_auth = 'borrar';
     $clase_perfil = '';
-
+    
     $username = htmlspecialchars($_SESSION['username'] ?? 'usuario');
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
-
     $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
     $is_creator = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'creator'; 
 } else {
-    $clase_botones_auth = 'btn azul';
     $clase_perfil = 'borrar';
-
     $username = '';
     $profile_pic = 'default.png';
     $is_admin = false;
@@ -29,22 +24,13 @@ if ($is_logged_in) {
 }
 
 ?>
-<div id="authContainer">
+
+<div id="authContainer" class="<?php echo $clase_perfil; ?>">
     <div>
-        <a href="login.php" class="btnAzulDifuminado <?php echo $clase_botones_auth; ?>">
-            Iniciar sesión
-        </a>
-
-        <a href="register.php" class="btnVioletaDifuminado <?php echo $clase_botones_auth; ?>">
-            Registrarse
-        </a>
-
         <div class="<?php echo $clase_perfil; ?>" id="perfilMenu">
 
             <div class="profile-dropdown">
-
                 <i class="bi bi-person"></i>
-
                 <div class="dropdown-menu">
                     <div>
                         <img src="img/profiles/<?php echo htmlspecialchars($profile_pic); ?>" alt="Perfil">
@@ -55,12 +41,10 @@ if ($is_logged_in) {
                         <i class="bi bi-person"></i>
                         Ver perfil
                     </a>
-
                     <a href="configAccount.php">
                         <i class="bi bi-gear"></i>
                         Configuración
                     </a>
-
                     <?php if ($is_admin): ?>
                         <a href="users-connection.php"> 
                             <i class="bi bi-person-fill-gear"></i>
@@ -71,19 +55,16 @@ if ($is_logged_in) {
                         <i class="bi bi-people"></i>
                         Perfil de Creador
                     </a>
-
                     <?php if ($is_creator):?>
                         <a href="manage_games.php">
                             <i class="bi bi-controller"></i>
                             Gestor de Juegos
                         </a>
                     <?php endif; ?>
-
                     <a href="logout.php">
                         <i class="bi bi-box-arrow-right"></i>
                         Cerrar sesión
                     </a>
-
                 </div>
             </div>
 
@@ -92,16 +73,12 @@ if ($is_logged_in) {
                     <i class="bi bi-cart"></i>
                 </button>
             </div>
-
-
         </div>
     </div>
 </div>
 
-
-<aside id="carritoLateral" aria-hidden="true" class="carrito-panel">
+<aside id="carritoLateral" aria-hidden="true" class="carrito-panel <?php echo $clase_perfil; ?>">
     <h2 class="carrito-titulo">Mi carrito</h2>
-
     <ul id="Lista-Productos" class="lista-productos">
         <?php if (!empty($_SESSION['cart'])): ?>
         <?php foreach ($_SESSION['cart'] as $item): ?>
@@ -132,14 +109,11 @@ if ($is_logged_in) {
         $total += $item['precio'] * $item['cantidad'];
     }
     ?>
-
     <div class="carrito-total-row">
         <div class="total-label">Total</div>
         <div id="Suma-Total-Precios" class="total-price">$<?php echo number_format($total, 2); ?></div>
     </div>
-
     <p class="nota">Los descuentos y promociones se aplicarán en el carrito</p>
-
     <div class="carrito-actions">
         <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
         <form method="POST" action="checkout.php">
