@@ -1,3 +1,0 @@
-<?php
-  $section="views/users";
-  require_once "views/layout.php";?>

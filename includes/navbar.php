@@ -1,4 +1,5 @@
 <?php
+// navbar.php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -58,7 +59,8 @@ if ($is_logged_in) {
                     </a>
 
                     <?php if ($is_admin): ?>
-                        <a href="users.php"> <i class="bi bi-person-fill-gear"></i>
+                        <a href="users-connection.php"> 
+                            <i class="bi bi-person-fill-gear"></i>
                             Administrar Usuarios
                         </a>
                     <?php endif; ?>

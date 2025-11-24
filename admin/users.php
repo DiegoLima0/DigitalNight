@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../includes/database.php'; 
+require_once 'includes/database.php'; 
 
 // VERIFICACIÓN DE ACCESO DE ADMINISTRADOR
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_type'] ?? '') !== 'admin') {
@@ -12,7 +12,7 @@ $mensaje = "";
 
 // DELETE
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'delete_user') {
-    
+
     $user_id_to_delete = (int)$_POST['idUser'];
     
     // Evitar que un admin se borre a sí mismo
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         $sql_delete = "DELETE FROM user WHERE idUser = $user_id_to_delete";
         
         if ($conexion->query($sql_delete) === TRUE) {
-            header("Location: users_view.php?message=delete_success");
+            header("Location: /DigitalNight/users-connection.php?message=delete_success"); 
             exit();
         } else {
             $mensaje = "Error al eliminar: " . $conexion->error;
@@ -32,14 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 
 // UPDATE
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'update_user') {
-    
-    $user_id_to_update = (int)$_POST['idUser'];
+
+    $user_id_to_update = (int) $_POST['idUser'];
     $new_username = $conexion->real_escape_string($_POST['userName']);
     $new_email = $conexion->real_escape_string($_POST['email']);
-    
-    $new_description = $conexion->real_escape_string($_POST['description'] ?? ''); 
+
+    $new_description = $conexion->real_escape_string($_POST['description'] ?? '');
     $new_user_type = $conexion->real_escape_string($_POST['type']);
-    
+
     $password_update = "";
     if (!empty($_POST['password'])) {
         $new_password = $conexion->real_escape_string($_POST['password']);
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     }
 
     $sql_update = "UPDATE user SET userName = '$new_username', email = '$new_email', description = '$new_description', type = '$new_user_type' {$password_update} WHERE idUser = $user_id_to_update";
-    
+
     if ($conexion->query($sql_update) === TRUE) {
         if ($user_id_to_update == ($_SESSION['idUser'] ?? 0)) {
             $_SESSION['userName'] = $new_username;
@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
             $_SESSION['description'] = $new_description;
             $_SESSION['user_type'] = $new_user_type;
         }
-        
-        header("Location: users_view.php?message=update_success");
+
+        header("Location: /DigitalNight/users-connection.php?message=update_success");
         exit();
     } else {
         $mensaje = "Error al actualizar: " . $conexion->error;
@@ -81,7 +81,4 @@ if (isset($_GET['message'])) {
     }
 }
 
-?>
-<?php
-$conexion->close();
 ?>
