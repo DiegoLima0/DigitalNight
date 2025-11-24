@@ -150,8 +150,11 @@
         </p>
 
 
-        <a href="confirmacion.html" class="fm_submit-btn transparent" id="fm_finalize_btn">
+        <a href="finalize_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
           Realizar pedido
+        </a>
+        <a href="finalize_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
+          Cancelar pedido pedido
         </a>
 
 

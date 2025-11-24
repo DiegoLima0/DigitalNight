@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2025 a las 18:49:59
+-- Tiempo de generación: 24-11-2025 a las 21:28:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -206,22 +206,24 @@ CREATE TABLE `user` (
   `description` varchar(255) DEFAULT NULL,
   `profile_picture` varchar(255) NOT NULL DEFAULT 'default.png',
   `birthday` date DEFAULT '1900-01-01',
-  `gender` varchar(255) DEFAULT 'indefinido'
+  `gender` varchar(255) DEFAULT 'indefinido',
+  `money` int(11) DEFAULT 50,
+  `coins` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`, `birthday`, `gender`) VALUES
-('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', 'masculino'),
-('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png', '1900-01-01', 'indefinido'),
-('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png', '1900-01-01', 'indefinido'),
-('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png', '1900-01-01', 'indefinido'),
-('cuentanueva', 'nueva@gmail.com', 'nueva', 5, 'user', NULL, 'default.png', '1900-01-01', 'indefinido'),
-('idk', 'idk@gmail.com', 'idk', 6, 'user', NULL, 'default.png', '1900-01-01', 'indefinido'),
-('admin', 'admin@gmail.com', 'Type_shit', 7, 'admin', 'Cuenta principal de administrador', 'default.png', '1900-01-01', 'indefinido'),
-('admin2', 'admin2@gmail.com', 'admin', 8, 'admin', '', 'default.png', '1900-01-01', 'indefinido');
+INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`, `birthday`, `gender`, `money`, `coins`) VALUES
+('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', 'masculino', 40, 4),
+('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
+('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png', '1900-01-01', 'indefinido', 50, 0),
+('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
+('cuentanueva', 'nueva@gmail.com', 'nueva', 5, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
+('idk', 'idk@gmail.com', 'idk', 6, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
+('admin', 'admin@gmail.com', 'Type_shit', 7, 'admin', 'Cuenta principal de administrador', 'default.png', '1900-01-01', 'indefinido', 50, 0),
+('admin2', 'admin2@gmail.com', 'admin', 8, 'admin', '', 'default.png', '1900-01-01', 'indefinido', 50, 0);
 
 -- --------------------------------------------------------
 
@@ -241,6 +243,7 @@ CREATE TABLE `user_game` (
 
 INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`) VALUES
 (1, 12, '2025-11-02 17:37:15'),
+(1, 21, '2025-11-24 17:11:43'),
 (1, 24, '2025-11-23 17:44:31');
 
 --

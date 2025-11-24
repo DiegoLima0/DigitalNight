@@ -9,4 +9,11 @@
     <a href="support.php">Soporte</a>
 </nav>
 
-<?php require_once 'includes/navbar.php'; ?>
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+require_once 'includes/navbar.php'; ?>

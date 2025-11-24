@@ -3,6 +3,9 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
 $is_logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
@@ -99,18 +102,52 @@ if ($is_logged_in) {
 <aside id="carritoLateral" aria-hidden="true" class="carrito-panel">
     <h2 class="carrito-titulo">Mi carrito</h2>
 
-    <ul id="Lista-Productos" class="lista-productos"></ul>
+    <ul id="Lista-Productos" class="lista-productos">
+        <?php if (!empty($_SESSION['cart'])): ?>
+        <?php foreach ($_SESSION['cart'] as $item): ?>
+            <li class="carrito-item">
+                <div class="thumb">
+                    <img src="img/<?php echo htmlspecialchars($item['imagen']); ?>" width="50">
+                </div>
+                <div class="meta">
+                    <div class="nombre"><?php echo htmlspecialchars($item['nombre']); ?></div>
+                    <div class="plataforma">Plataforma: <?php echo htmlspecialchars($item['plataforma']); ?></div>
+                    <div class="precio">US$<?php echo number_format($item['precio'], 2); ?></div>
+                </div>
+                <div class="controls">
+                    <form method="POST" action="update_cart.php">
+                        <input type="hidden" name="idGame" value="<?php echo $item['idGame']; ?>">
+                        <button type="submit" name="action" value="dec">−</button>
+                        <span class="cant"><?php echo (int)$item['cantidad']; ?></span>
+                        <button type="submit" name="action" value="inc">+</button>
+                        <button type="submit" name="action" value="remove">🗑</button>
+                    </form>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li>Tu carrito está vacío.</li>
+    <?php endif; ?>
+    </ul>
+    <?php
+    $total = 0;
+    foreach ($_SESSION['cart'] as $item) {
+        $total += $item['precio'] * $item['cantidad'];
+    }
+    ?>
 
     <div class="carrito-total-row">
         <div class="total-label">Total</div>
-        <div id="Suma-Total-Precios" class="total-price">$0.00</div>
+        <div id="Suma-Total-Precios" class="total-price">$<?php echo number_format($total, 2); ?></div>
     </div>
 
     <p class="nota">Los descuentos y promociones se aplicarán en el carrito</p>
 
     <div class="carrito-actions">
         <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
-        <button id="iniciarBtn" class="btnVioletaDifuminado" onclick="iniciarCompra()">Iniciar compra</button>
+        <form method="POST" action="checkout.php">
+            <button type="submit" id="iniciarBtn" class="btnVioletaDifuminado">Iniciar compra</button>
+        </form>
     </div>
 </aside>
 

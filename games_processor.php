@@ -1,5 +1,7 @@
 <?php
-session_start(); 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'includes/database.php';
 
 $game_id = isset($_GET['idGame']) ? (int)$_GET['idGame'] : null;

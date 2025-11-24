@@ -102,7 +102,7 @@ if (passInput && toggleEye) {
     carritoLateral && carritoLateral.classList.add('active');
     overlay.classList.add('show');
     document.body.classList.add('carrito-abierto');
-    render();
+   /*  render(); */
   }
   function closeCart() {
     carritoLateral && carritoLateral.classList.remove('active');
@@ -117,7 +117,7 @@ if (passInput && toggleEye) {
 
   function render() {
     if (!listaEl || !totalEl) return;
-    listaEl.innerHTML = '';
+    /* listaEl.innerHTML = ''; */
     const items = Object.values(cart);
     if (items.length === 0) {
       const p = document.createElement('p');
@@ -196,7 +196,7 @@ if (passInput && toggleEye) {
     cart[product.id].qty += product.qty ? Number(product.qty) : 1;
     if (cart[product.id].qty <= 0) delete cart[product.id];
     saveCart(cart);
-    render();
+    /* render(); */
   }
 
   function changeQty(id, delta) {
@@ -204,14 +204,14 @@ if (passInput && toggleEye) {
     cart[id].qty += delta;
     if (cart[id].qty <= 0) delete cart[id];
     saveCart(cart);
-    render();
+    /* render(); */
   }
 
   function removeItem(id) {
     if (!cart[id]) return;
     delete cart[id];
     saveCart(cart);
-    render();
+    /* render(); */
   }
 
   function escapeHtml(s) {
@@ -285,12 +285,8 @@ if (passInput && toggleEye) {
   };
 
 
-  render();
+  /* render(); */
 
-  if (Object.keys(cart).length === 0) {
-    addItem({ id: 'g-1', nombre: 'Juego Fantástico', plataforma: 'PC', precio: 1299.99, img: 'juego1.jpg', qty: 1 });
-    addItem({ id: 'g-2', nombre: 'Aventura Increíble', plataforma: 'Switch', precio: 799.00, img: 'juego2.jpg', qty: 1 });
-  }
 
 })();
 
