@@ -31,8 +31,10 @@ require_once 'includes/header.php';
                 <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
 
                 <div id="contenidoPerfil">
-                    <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
-                    <?php echo "Tu saldo actual es: $" . $_SESSION['money']; ?>
+                    <p>@<?php echo htmlspecialchars($_SESSION['username'] ?? 'Usuario'); ?></p>
+                    
+                    <?php echo "Tu saldo actual es: $" . htmlspecialchars($_SESSION['money'] ?? 0); ?>
+                    
                     <div>
                         <p>Biografia</p>
                         <p><?php echo nl2br(htmlspecialchars($biografia_a_mostrar)); ?></p>
