@@ -117,9 +117,6 @@ if ($is_logged_in) {
                 <div class="controls">
                     <form method="POST" action="update_cart.php">
                         <input type="hidden" name="idGame" value="<?php echo $item['idGame']; ?>">
-                        <button type="submit" name="action" value="dec">−</button>
-                        <span class="cant"><?php echo (int)$item['cantidad']; ?></span>
-                        <button type="submit" name="action" value="inc">+</button>
                         <button type="submit" name="action" value="remove">🗑</button>
                     </form>
                 </div>

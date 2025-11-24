@@ -32,7 +32,7 @@ require_once 'includes/header.php';
 
                 <div id="contenidoPerfil">
                     <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
-
+                    <?php echo "Tu saldo actual es: $" . $_SESSION['money']; ?>
                     <div>
                         <p>Biografia</p>
                         <p><?php echo nl2br(htmlspecialchars($biografia_a_mostrar)); ?></p>
