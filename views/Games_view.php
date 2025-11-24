@@ -223,7 +223,9 @@
 
           </div>
           <div class="more-wrap">
-            <a class="boton-base more-btn" href="#">Más Información</a>
+            <?php if (isset($has_more_creator_comments) && $has_more_creator_comments): ?>
+              <a class="boton-base more-btn" href="#">Más Información</a>
+            <?php endif; ?>
           </div>
         </main>
 
@@ -273,7 +275,97 @@
     </section>
 
   </section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const postsContainer = document.getElementById('publicacionesCreador');
+    const loadMoreButton = document.querySelector('.more-btn');
+    const postsPerLoad = 4;
+    
+    if (postsContainer) {
+        postsContainer.setAttribute('data-offset', postsPerLoad);
+    }
+    
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const offset = parseInt(postsContainer.getAttribute('data-offset'));
+            const gameId = <?php echo $game_data['idGame'] ?? 'null'; ?>; 
+            
+            if (gameId === null) {
+                console.error("No se encontró el ID del juego para la carga.");
+                return;
+            }
 
+            // Deshabilitar el botón y mostrar un indicador de carga
+            loadMoreButton.innerText = 'Cargando...';
+            loadMoreButton.disabled = true;
+            loadMoreButton.classList.add('loading');
+            
+            fetch('ajax_load_comments.php?idGame=' + gameId + '&offset=' + offset + '&limit=' + postsPerLoad)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Respuesta de red no fue ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.comments && data.comments.length > 0) {
+                        data.comments.forEach(comment => {
+                            const newPost = document.createElement('div');
+                            newPost.classList.add('publicacionCreador');
+                            
+                            let postHtml = `
+                                <div class="post-user-meta">
+                                    <img src="img/profiles/${comment.profile_image_path}"
+                                        alt="Perfil de usuario" class="user-profile-img">
+                                    <p class="username">@${comment.username}</p>
+                                </div>
+                                <p class="post-content-text">${comment.commentary.replace(/\n/g, '<br>')}</p>
+                            `;
+                            
+                            if (comment.imagen) {
+                                postHtml += `<img src="img/publications/${comment.imagen}"
+                                    alt="Imagen de publicación" class="post-media-image">`;
+                            }
+                            
+                            postHtml += `<div class="interacciones"></div>`;
+                            
+                            newPost.innerHTML = postHtml;
+                            postsContainer.appendChild(newPost);
+                        });
+
+                        const newOffset = offset + data.comments.length;
+                        postsContainer.setAttribute('data-offset', newOffset);
+                    }
+
+                    // Determinar si ocultar o restaurar el botón
+                    if (!data.hasMore) {
+                        // Ocultar si no hay más posts
+                        loadMoreButton.style.display = 'none';
+                    } else {
+                        // Restaurar el botón si todavía hay más
+                        loadMoreButton.innerText = 'Más Información';
+                        loadMoreButton.disabled = false;
+                        loadMoreButton.classList.remove('loading');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar publicaciones:', error);
+                    alert('Error al cargar las publicaciones. Verifique la consola para detalles.');
+                })
+                .finally(() => {
+                    // Solo restaurar si el botón no fue ocultado permanentemente
+                    if (loadMoreButton.style.display !== 'none') {
+                        loadMoreButton.innerText = 'Más Información';
+                        loadMoreButton.disabled = false;
+                        loadMoreButton.classList.remove('loading');
+                    }
+                });
+        });
+    }
+});
+</script>
 </body>
 
 </html>

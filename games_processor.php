@@ -1,14 +1,14 @@
 <?php
-session_start(); 
+session_start();
 require_once 'includes/database.php';
 
-$game_id = isset($_GET['idGame']) ? (int)$_GET['idGame'] : null;
+$game_id = isset($_GET['idGame']) ? (int) $_GET['idGame'] : null;
 $current_user_id = $_SESSION['user_id'] ?? null;
-$game_data = null; 
-$creator_comments = []; 
+$game_data = null;
+$creator_comments = [];
 $is_creator = false;
 $creator_username = 'Creador';
-$has_editions = false; 
+$has_editions = false;
 $editions_list = [];
 $id_creator = null;
 
@@ -35,14 +35,14 @@ if ($game_id) {
         g.idCreator
     FROM game g
     WHERE g.idGame = " . $game_id;
-    
+
     $result_detail = $conexion->query($sql_game_detail);
 
     if ($result_detail && $result_detail->num_rows > 0) {
         $game_data = $result_detail->fetch_assoc();
-        
-        $id_creator = $game_data['idCreator']; 
-        
+
+        $id_creator = $game_data['idCreator'];
+
         if ($current_user_id !== null && $current_user_id == $id_creator) {
             $is_creator = true;
         }
@@ -55,7 +55,7 @@ if ($game_id) {
                             features 
                          FROM edition 
                          WHERE idGame = $game_id 
-                         ORDER BY price DESC"; 
+                         ORDER BY price DESC";
 
         $result_editions = $conexion->query($sql_editions);
 
@@ -66,8 +66,8 @@ if ($game_id) {
             }
         }
     }
-    
-    if ($id_creator !== null) { 
+
+    if ($id_creator !== null) {
         $sql_comments = "SELECT 
                             c.commentary, 
                             c.idCommentary,
@@ -81,26 +81,36 @@ if ($game_id) {
                           AND c.parent_id IS NULL
                           AND c.post_location = 'GAME_VIEW' 
                         ORDER BY c.created_at DESC LIMIT 5";
-                      
+
         $result_comments = $conexion->query($sql_comments);
 
         if ($result_comments) {
+            // Usamos un bucle para verificar si tenemos 5 resultados
             while ($row = $result_comments->fetch_assoc()) {
                 $creator_comments[] = $row;
+            }
+
+            // Si tenemos 5 comentarios, significa que el quinto es el indicador
+            if (count($creator_comments) > 4) {
+                $has_more_creator_comments = true;
+                // Removemos el quinto comentario para que solo se muestren 4 al inicio
+                array_pop($creator_comments);
             }
         }
     }
 }
 
 if (!$game_data) {
-    if (isset($conexion)) { $conexion->close(); }
+    if (isset($conexion)) {
+        $conexion->close();
+    }
     header("Location: shop.php?error=juego_no_encontrado");
     exit();
 }
 
-$saga = $game_data['saga'] ?? null; 
+$saga = $game_data['saga'] ?? null;
 
-$saga_list = []; 
+$saga_list = [];
 
 if ($saga) {
     $sql_select_saga = "SELECT 
@@ -113,7 +123,7 @@ if ($saga) {
         saga 
     FROM game 
     WHERE saga='$saga' AND idGame != $game_id 
-    LIMIT 4"; 
+    LIMIT 4";
 
     $result_saga = $conexion->query($sql_select_saga);
 
