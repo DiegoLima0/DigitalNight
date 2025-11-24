@@ -2279,10 +2279,11 @@ p {
 .stars {
     display: flex;
     gap: 4px;
+    cursor: pointer; 
 }
 
 .stars i {
-    font-size: 15px;
+    font-size: 20px;
     color: #FFD231;
 }
 

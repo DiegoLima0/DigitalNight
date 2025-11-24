@@ -149,14 +149,13 @@
             <h2>Reseñas</h2>
 
             <div class="rating-box">
-              <div class="stars">
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
+              <div class="stars rating-stars">
+                <i class="bi bi-star" data-value="1"></i>
+                <i class="bi bi-star" data-value="2"></i>
+                <i class="bi bi-star" data-value="3"></i>
+                <i class="bi bi-star" data-value="4"></i>
+                <i class="bi bi-star" data-value="5"></i>
               </div>
-
               <span class="score">7.5/5</span>
             </div>
 
@@ -399,6 +398,7 @@
       });
 
     });
+
   </script>
 </body>
 
