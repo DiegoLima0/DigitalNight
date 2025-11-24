@@ -8,6 +8,9 @@ $game_data = null;
 $creator_comments = []; 
 $is_creator = false;
 $creator_username = 'Creador';
+$has_editions = false; 
+$editions_list = [];
+$id_creator = null;
 
 if ($game_id) {
     $sql_game_detail = "SELECT 
@@ -36,16 +39,33 @@ if ($game_id) {
     if ($result_detail && $result_detail->num_rows > 0) {
         $game_data = $result_detail->fetch_assoc();
         
-        $id_creator = $game_data['idCreator'];
+        $id_creator = $game_data['idCreator']; 
         
-        $sql_creator_user = "SELECT username FROM user WHERE idUser = $id_creator";
-        $result_creator_user = $conexion->query($sql_creator_user);
-        $creator_username = ($result_creator_user && $result_creator_user->num_rows > 0) 
-                            ? $result_creator_user->fetch_assoc()['username'] 
-                            : 'Creador'; 
-        
-        $is_creator = ($current_user_id !== null && $current_user_id == $id_creator);
-        
+        if ($current_user_id !== null && $current_user_id == $id_creator) {
+            $is_creator = true;
+        }
+
+        $sql_editions = "SELECT 
+                            idEdition, 
+                            name, 
+                            tag, 
+                            price, 
+                            features 
+                         FROM edition 
+                         WHERE idGame = $game_id 
+                         ORDER BY price DESC"; 
+
+        $result_editions = $conexion->query($sql_editions);
+
+        if ($result_editions) {
+            $editions_list = $result_editions->fetch_all(MYSQLI_ASSOC);
+            if (!empty($editions_list)) {
+                $has_editions = true;
+            }
+        }
+    }
+    
+    if ($id_creator !== null) { 
         $sql_comments = "SELECT 
                             c.commentary, 
                             c.idCommentary,
@@ -71,32 +91,41 @@ if ($game_id) {
 }
 
 if (!$game_data) {
-    $conexion->close();
+    if (isset($conexion)) { $conexion->close(); }
     header("Location: shop.php?error=juego_no_encontrado");
     exit();
 }
 
-  $saga = $game_data['saga']; 
+$saga = $game_data['saga'] ?? null; 
 
-  $saga_list = []; 
+$saga_list = []; 
 
-  $sql_select_saga = "SELECT 
-  idGame, 
-  title, 
-  horizontal_imagen as imagen, 
-  price, 
-  genre, 
-  platforms, 
-  saga 
-  FROM game WHERE saga='$saga'"; 
+if ($saga) {
+    $sql_select_saga = "SELECT 
+        idGame, 
+        title, 
+        horizontal_imagen as imagen, 
+        price, 
+        genre, 
+        platforms, 
+        saga 
+    FROM game 
+    WHERE saga='$saga' AND idGame != $game_id 
+    LIMIT 4"; 
 
-  $result_saga = $conexion->query($sql_select_saga); 
+    $result_saga = $conexion->query($sql_select_saga);
 
-  if ($result_saga && $result_saga->num_rows > 1) { 
-    while ($saga_data = $result_saga->fetch_assoc()) { 
-      $saga_list[] = $saga_data; 
+    if ($result_saga) {
+        $saga_list = $result_saga->fetch_all(MYSQLI_ASSOC);
     }
-  }
+}
 
-$conexion->close();
+if ($id_creator !== null) {
+    $sql_creator = "SELECT username FROM user WHERE idUser = $id_creator LIMIT 1";
+    $result_creator = $conexion->query($sql_creator);
+    if ($result_creator && $result_creator->num_rows > 0) {
+        $creator_username = $result_creator->fetch_assoc()['username'];
+    }
+}
+
 ?>

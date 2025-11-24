@@ -27,7 +27,7 @@
             <form method="POST" action="buy.php">
               <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
               <button type="submit" class="boton-añadirCarrito">Añadir al carrito</button>
-              <a class="boton-VerEdiciones" href="#">Ver ediciones</a>
+              <a class="boton-VerEdiciones" href="#section nueva-seccion-dos-tarjetas">Ver ediciones</a>
             </form>
           </div>
         </div>
@@ -70,66 +70,63 @@
       </div>
     </section>
 
-    <section class="section nueva-seccion-dos-tarjetas" aria-label="Sección adicional personalizada">
-<div class="nueva-contenedor-dos-tarjetas">
+    <?php if (!empty($editions_list)): ?>
 
+      <div class="sf-page" style="text-align: center; margin-top: 40px;">
+        <h2>Ediciones</h2>
+      </div>
 
-<div class="nueva-tarjeta-item">
-<div class="nueva-tarjeta-img">
-<img src="img/imagen1.jpg" alt="juego 1">
-</div>
-<div class="nueva-tarjeta-info">
-<h3 class="nueva-tarjeta-titulo">Título juego</h3>
-<p class="nueva-tarjeta-descripcion">Descripción de lo que trae el juego.</p>
-</div>
-</div>
+      <section class="section nueva-seccion-dos-tarjetas" aria-label="Sección adicional personalizada">
+        <div class="nueva-contenedor-dos-tarjetas">
 
+          <?php foreach ($editions_list as $edition): ?>
 
-<div class="nueva-tarjeta-item">
-<div class="nueva-tarjeta-img">
-<img src="img/imagen2.jpg" alt="juego 2">
-</div>
-<div class="nueva-tarjeta-info">
-<h3 class="nueva-tarjeta-titulo">Título juego</h3>
-<p class="nueva-tarjeta-descripcion">Descripción de lo que trae el juego.</p>
-</div>
-</div>
-
-
-</div>
-</section>
-  </div>
-  </div>
-  <section class="grid" id="productGrid" aria-label="lista de productos">
-    <?php
-    if (isset($saga_list) && is_array($saga_list)):
-      foreach ($saga_list as $game):
-        ?>
-
-        <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
-          <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
-            <div class="card__thumb">
-              <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
-            </div>
-
-            <div class="card__meta">
-              <div style="display:flex;align-items:center;gap:8px;width:100%">
-                <div class="card__title"><?php echo $game['title']; ?></div>
-                <div class="card__price">$<?php echo $game['price']; ?> usd</div>
+            <div class="nueva-tarjeta-item">
+              <div class="nueva-tarjeta-img">
+                <img src="img/<?php echo htmlspecialchars($game_data['cover_image'] ?? 'placeholder.jpg'); ?>"
+                  alt="Edición <?php echo htmlspecialchars($edition['name']); ?>">
               </div>
 
-              <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div>
-            </div>
-          </article>
-        </a>
+              <div class="nueva-tarjeta-info">
+                <h3 class="nueva-tarjeta-titulo"><?php echo htmlspecialchars($edition['name']); ?>
+                  (US$<?php echo number_format($edition['price'], 2); ?>)
+                </h3>
 
-        <?php
-      endforeach;
-    else:
-      ?>
-      <p>No hay juegos disponibles en la tienda.</p>
+                <?php if (!empty($edition['tag'])): ?>
+                  <p style="color: #f39c12; font-weight: bold; margin-top: -10px; margin-bottom: 10px;">
+                    <?php echo htmlspecialchars($edition['tag']); ?></p>
+                <?php endif; ?>
+
+                <p class="nueva-tarjeta-descripcion">
+                  <?php
+                  $features_text = htmlspecialchars($edition['features']);
+                  echo nl2br(substr($features_text, 0, 150)) . (strlen($features_text) > 150 ? '...' : '');
+                  ?>
+                </p>
+
+                <form method="POST" action="buy.php" style="margin-top: 15px;">
+                  <input type="hidden" name="idGame" value="<?php echo htmlspecialchars($game_data['idGame']); ?>">
+                  <input type="hidden" name="idEdition" value="<?php echo htmlspecialchars($edition['idEdition']); ?>">
+                  <button type="submit" class="boton-añadirCarrito">
+                    Añadir al carrito
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          <?php endforeach; ?>
+
+        </div>
+      </section>
+
+    <?php else: ?>
+      <div class="sf-page" style="text-align: center; padding: 20px;">
+        <p>Solo disponible la edición estándar del juego. No hay ediciones especiales.</p>
+      </div>
     <?php endif; ?>
-  </section>
+
+  </div>
+  </div>
 
   <div class="botones-games">
     <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>">

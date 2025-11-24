@@ -12,51 +12,70 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || !isset(
 $user_id = $_SESSION['user_id'];
 $mensaje = [];
 $juego_a_editar = null;
-
+$edition_a_editar = null;
+$idGame_edicion = null;
+$nombre_juego_edicion = null;
+$ediciones_del_juego = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // 1. CREATE
-    if (isset($_POST['action']) && $_POST['action'] === 'create') {
+    if (isset($_POST['action']) && isset($_POST['idGame_edicion'])) {
+        $idGame_edicion = (int) $_POST['idGame_edicion'];
 
-        $title = $conexion->real_escape_string($_POST['title']);
-        $description = $conexion->real_escape_string($_POST['description']);
-        $price = isset($_POST['price']) ? (float) $_POST['price'] : 0.00;
-        $platforms = $conexion->real_escape_string($_POST['platforms']);
+        if ($_POST['action'] === 'create_edition') {
+            $name = $conexion->real_escape_string($_POST['name']);
+            $tag = $conexion->real_escape_string($_POST['tag'] ?? '');
+            $price = isset($_POST['price']) ? (float) $_POST['price'] : 0.00;
+            $features = $conexion->real_escape_string($_POST['features']); 
 
-        $image_columns = [
-            'horizontal_imagen' => 'game_image_horizontal',
-            'banner' => 'game_image_banner',
-            'gameGallery1' => 'game_gallery1',
-            'gameGallery2' => 'game_gallery2',
-            'gameGallery3' => 'game_gallery3',
-            'gameGallery4' => 'game_gallery4',
-            'gameGallery5' => 'game_gallery5',
-            'gameGallery6' => 'game_gallery6'
-        ];
-
-        $uploaded_images = [];
-        $uploaded_count = 0;
-
-        foreach ($image_columns as $db_column => $form_field) {
-            $uploaded_images[$db_column] = 'default_game.png';
-
-            if (isset($_FILES[$form_field]) && $_FILES[$form_field]['error'] === UPLOAD_ERR_OK) {
-                $file_name = uniqid() . '_' . basename($_FILES[$form_field]['name']);
-                $file_tmp = $_FILES[$form_field]['tmp_name'];
-                $destination = '../img/' . $file_name;
-
-                if (move_uploaded_file($file_tmp, $destination)) {
-                    $uploaded_images[$db_column] = $conexion->real_escape_string($file_name);
-                    $uploaded_count++;
-                } else {
-                    $mensaje[] = ['tipo' => 'error', 'texto' => "Error al subir la imagen para el campo $db_column."];
-                }
+            $sql_insert = "INSERT INTO edition (idGame, name, tag, price, features) 
+                           VALUES ('$idGame_edicion', '$name', '$tag', '$price', '$features')";
+            
+            if ($conexion->query($sql_insert)) {
+                $mensaje[] = ['tipo' => 'exito', 'texto' => "Edición '{$name}' creada con éxito."];
+            } else {
+                $mensaje[] = ['tipo' => 'error', 'texto' => "Error al crear la edición: " . $conexion->error];
             }
         }
 
-        $cols = "title, description, price, platforms, idCreator";
-        $vals = "'$title', '$description', $price, '$platforms', $user_id";
+        if ($_POST['action'] === 'update_edition' && isset($_POST['idEdition'])) {
+            $idEdition = (int) $_POST['idEdition'];
+            $name = $conexion->real_escape_string($_POST['name']);
+            $tag = $conexion->real_escape_string($_POST['tag'] ?? '');
+            $price = isset($_POST['price']) ? (float) $_POST['price'] : 0.00;
+            $features = $conexion->real_escape_string($_POST['features']);
+
+            $sql_update = "UPDATE edition SET 
+                           name = '$name', 
+                           tag = '$tag', 
+                           price = '$price', 
+                           features = '$features' 
+                           WHERE idEdition = $idEdition AND idGame = $idGame_edicion";
+            
+            if ($conexion->query($sql_update)) {
+                $mensaje[] = ['tipo' => 'exito', 'texto' => "Edición '{$name}' actualizada con éxito."];
+            } else {
+                $mensaje[] = ['tipo' => 'error', 'texto' => "Error al actualizar la edición: " . $conexion->error];
+            }
+            header("Location: manage_games_view.php?manage_editions=true&idGame=$idGame_edicion&msg=edition_updated");
+            exit();
+        }
+
+        if ($_POST['action'] === 'delete_edition' && isset($_POST['idEdition_delete'])) {
+            $idEdition = (int) $_POST['idEdition_delete'];
+            
+            $sql_delete = "DELETE FROM edition WHERE idEdition = $idEdition AND idGame = $idGame_edicion";
+            
+            if ($conexion->query($sql_delete)) {
+                $mensaje[] = ['tipo' => 'exito', 'texto' => "Edición eliminada con éxito."];
+            } else {
+                $mensaje[] = ['tipo' => 'error', 'texto' => "Error al eliminar la edición: " . $conexion->error];
+            }
+        }
+    }
+
+        $cols = "title, description, price, platforms, idCreator, genre, promoText, saga, releaseDate";
+        $vals = "'$title', '$description', $price, '$platforms', $user_id, '$genre', '$promoText', '$saga', '$releaseDate'";
 
         foreach ($uploaded_images as $db_column => $file_name) {
             $cols .= ", $db_column";
@@ -66,24 +85,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sql = "INSERT INTO game ($cols) VALUES ($vals)";
 
         if ($conexion->query($sql)) {
-            $mensaje[] = ['tipo' => 'exito', 'texto' => "¡Juego '$title' creado correctamente! Se subieron $uploaded_count imágenes."];
+            $mensaje[] = ['tipo' => 'exito', 'texto' => "¡Juego '$title' creado correctamente!"];
         } else {
             $mensaje[] = ['tipo' => 'error', 'texto' => "Error al crear el juego: " . $conexion->error];
         }
-    }
-    // 2. UPDATE
-    if (isset($_POST['action']) && $_POST['action'] === 'update' && isset($_POST['idGame'])) {
 
+    } elseif (isset($_POST['action']) && $_POST['action'] === 'update' && isset($_POST['idGame'])) {
         $title = $conexion->real_escape_string($_POST['title']);
         $description = $conexion->real_escape_string($_POST['description']);
         $idGame = (int) $_POST['idGame'];
         $price = isset($_POST['price']) ? (float) $_POST['price'] : 0.00;
         $platforms = $conexion->real_escape_string($_POST['platforms']);
+        $genre = $conexion->real_escape_string($_POST['genre'] ?? '');
+        $promoText = $conexion->real_escape_string($_POST['promoText'] ?? '');
+        $saga = $conexion->real_escape_string($_POST['saga'] ?? '');
+        $releaseDate = $conexion->real_escape_string($_POST['releaseDate'] ?? '');
 
-
-        $image_column_name = isset($_POST['image_field_to_update']) ? $_POST['image_field_to_update'] : 'imagen';
-        $image_column_name = isset($_POST['image_field_to_update']) ? $_POST['image_field_to_update'] : 'horizontal_imagen'; // Valor por defecto
-        $allowed_image_fields = ['horizontal_imagen', 'banner', 'gameGallery1', 'gameGallery2', 'gameGallery3', 'gameGallery4', 'gameGallery5', 'gameGallery6'];
+        $image_column_name = isset($_POST['image_field_to_update']) ? $_POST['image_field_to_update'] : 'horizontal_imagen'; 
+        $allowed_image_fields = ['horizontal_imagen', 'banner', 'cover_image', 'gameGallery1', 'gameGallery2', 'gameGallery3', 'gameGallery4'];
 
         if (!in_array($image_column_name, $allowed_image_fields)) {
             $image_column_name = 'horizontal_imagen';
@@ -109,7 +128,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     title = '$title', 
                     description = '$description',
                     price = $price,
-                    platforms = '$platforms'";
+                    platforms = '$platforms',
+                    genre = '$genre',
+                    promoText = '$promoText',
+                    saga = '$saga',
+                    releaseDate = '$releaseDate'";
 
         if ($subir_nueva_imagen) {
             $sql .= ", $image_column_name = '$image_file'";
@@ -119,16 +142,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($conexion->query($sql)) {
             $mensaje[] = ['tipo' => 'exito', 'texto' => "¡Juego '$title' actualizado correctamente!"];
-            if ($subir_nueva_imagen) {
-                $mensaje[] = ['tipo' => 'exito', 'texto' => "La imagen ($image_column_name) fue actualizada."];
-            }
         } else {
             $mensaje[] = ['tipo' => 'error', 'texto' => "Error al actualizar el juego: " . $conexion->error];
         }
-    }
 
-    // 3. DELETE
-    if (isset($_POST['action']) && $_POST['action'] === 'delete' && isset($_POST['idGame'])) {
+    } elseif (isset($_POST['action']) && $_POST['action'] === 'delete' && isset($_POST['idGame'])) {
         $idGame = (int) $_POST['idGame'];
 
         $sql = "DELETE FROM game WHERE idGame = $idGame AND idCreator = $user_id";
@@ -142,27 +160,74 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             $mensaje[] = ['tipo' => 'error', 'texto' => "Error al eliminar: " . $conexion->error];
         }
-    }
-}
 
-// 4. READ para edición
-if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['edit']) && isset($_GET['idGame'])) {
+    } elseif (isset($_POST['action']) && $_POST['action'] === 'create_edition' && isset($_POST['idGame'])) {
+        $idGame_edicion = (int) $_POST['idGame'];
+        $name = $conexion->real_escape_string($_POST['edition_name']);
+        $tag = $conexion->real_escape_string($_POST['edition_tag'] ?? '');
+        $price = (float) $_POST['edition_price'];
+        $features = $conexion->real_escape_string($_POST['edition_features'] ?? '');
+
+        $sql = "INSERT INTO edition (idGame, name, tag, price, features) 
+                VALUES ($idGame_edicion, '$name', '$tag', $price, '$features')";
+
+        if ($conexion->query($sql)) {
+            $mensaje[] = ['tipo' => 'exito', 'texto' => "¡Edición '$name' creada correctamente!"];
+        } else {
+            $mensaje[] = ['tipo' => 'error', 'texto' => "Error al crear la edición: " . $conexion->error];
+        }
+        header("Location: manage_games_view.php?manage_editions=true&idGame=$idGame_edicion&status=success");
+        exit();
+
+    } elseif (isset($_POST['action']) && $_POST['action'] === 'update_edition' && isset($_POST['idEdition'])) {
+        $idEdition = (int) $_POST['idEdition'];
+        $idGame_edicion = (int) $_POST['idGame_edition_return']; 
+        $name = $conexion->real_escape_string($_POST['edition_name']);
+        $tag = $conexion->real_escape_string($_POST['edition_tag'] ?? '');
+        $price = (float) $_POST['edition_price'];
+        $features = $conexion->real_escape_string($_POST['edition_features'] ?? '');
+
+        $sql = "UPDATE edition SET 
+                    name = '$name', 
+                    tag = '$tag', 
+                    price = $price, 
+                    features = '$features'
+                WHERE idEdition = $idEdition";
+
+        if ($conexion->query($sql)) {
+            $mensaje[] = ['tipo' => 'exito', 'texto' => "¡Edición '$name' actualizada correctamente!"];
+        } else {
+            $mensaje[] = ['tipo' => 'error', 'texto' => "Error al actualizar la edición: " . $conexion->error];
+        }
+        header("Location: manage_games_view.php?manage_editions=true&idGame=$idGame_edicion&status=success");
+        exit();
+
+    } elseif (isset($_POST['action']) && $_POST['action'] === 'delete_edition' && isset($_POST['idEdition'])) {
+        $idEdition = (int) $_POST['idEdition'];
+        $idGame_edicion = (int) $_POST['idGame_edition_return']; 
+
+        $sql = "DELETE FROM edition WHERE idEdition = $idEdition";
+
+        if ($conexion->query($sql)) {
+            if ($conexion->affected_rows > 0) {
+                $mensaje[] = ['tipo' => 'exito', 'texto' => "Edición eliminada correctamente."];
+            } else {
+                $mensaje[] = ['tipo' => 'error', 'texto' => "No se encontró la edición."];
+            }
+        } else {
+            $mensaje[] = ['tipo' => 'error', 'texto' => "Error al eliminar la edición: " . $conexion->error];
+        }
+        header("Location: manage_games_view.php?manage_editions=true&idGame=$idGame_edicion&status=success");
+        exit();
+    }
+
+if (isset($_GET['edit']) && isset($_GET['idGame'])) {
     $idGame = (int) $_GET['idGame'];
 
     $sql = "SELECT 
-    idGame, 
-    title, 
-    description, 
-    price,
-    platforms,
-    horizontal_imagen AS imagen,
-    banner AS imagen2,          
-    gameGallery1, 
-    gameGallery2, 
-    gameGallery3, 
-    gameGallery4,
-    gameGallery5,
-    gameGallery6
+    idGame, title, description, price, platforms, genre, promoText, saga, releaseDate,
+    horizontal_imagen AS imagen, banner AS imagen2, cover_image,
+    gameGallery1, gameGallery2, gameGallery3, gameGallery4
 FROM game 
 WHERE idGame = $idGame AND idCreator = $user_id";
     $resultado = $conexion->query($sql);
@@ -174,18 +239,53 @@ WHERE idGame = $idGame AND idCreator = $user_id";
     }
 }
 
-// 5. READ para listar todos los juegos
-$juegos_del_creador = null;
+if (isset($_GET['manage_editions']) && $_GET['manage_editions'] === 'true' && isset($_GET['idGame'])) {
+    $idGame_edicion = (int) $_GET['idGame'];
+
+    $sql_check_game = "SELECT title FROM game WHERE idGame = $idGame_edicion AND idCreator = $user_id";
+    $result_check = $conexion->query($sql_check_game);
+
+    if ($result_check && $result_check->num_rows === 1) {
+        $juego_data = $result_check->fetch_assoc();
+        $nombre_juego_edicion = $juego_data['title'];
+
+        $sql_editions = "SELECT idEdition, name, tag, price, features FROM edition WHERE idGame = $idGame_edicion ORDER BY price DESC";
+        $resultado_editions = $conexion->query($sql_editions);
+
+        if ($resultado_editions) {
+            $ediciones_del_juego = $resultado_editions->fetch_all(MYSQLI_ASSOC);
+        }
+
+        if (isset($_GET['edit_edition']) && isset($_GET['idEdition'])) {
+            $idEdition = (int) $_GET['idEdition'];
+            $sql_edit = "SELECT idEdition, name, tag, price, features FROM edition WHERE idEdition = $idEdition AND idGame = $idGame_edicion";
+            $resultado_edit = $conexion->query($sql_edit);
+
+            if ($resultado_edit && $resultado_edit->num_rows === 1) {
+                $edition_a_editar = $resultado_edit->fetch_assoc();
+            } else {
+                $mensaje[] = ['tipo' => 'error', 'texto' => "Edición no encontrada."];
+                unset($_GET['edit_edition']); 
+                unset($_GET['idEdition']); 
+            }
+        }
+
+    } else {
+        $mensaje[] = ['tipo' => 'error', 'texto' => "Juego no encontrado o no autorizado para gestionar ediciones."];
+        $idGame_edicion = null; 
+    }
+}
+
+$juegos_del_creador = [];
 
 if (isset($user_id) && $user_id) {
-    $sql_select_all = "SELECT idGame, title, description, horizontal_imagen AS imagen FROM game WHERE idCreator = $user_id ORDER BY idGame DESC";
+    $sql_select_all = "SELECT idGame, title, horizontal_imagen AS imagen FROM game WHERE idCreator = $user_id ORDER BY idGame DESC";
 
     $resultado = $conexion->query($sql_select_all);
 
     if ($resultado && $resultado->num_rows > 0) {
         $juegos_del_creador = $resultado->fetch_all(MYSQLI_ASSOC);
     }
-
 } ?>
 
 <!DOCTYPE html>
@@ -375,33 +475,6 @@ if (isset($user_id) && $user_id) {
 
         <button type="submit">Crear Juego</button>
     </form>
-    <hr>
-
-    <h2>Mis Juegos (<?php echo $juegos_del_creador->num_rows ?? 0; ?>)</h2>
-
-    <?php if ($juegos_del_creador && count($juegos_del_creador) > 0): ?>
-        <ul>
-            <?php foreach ($juegos_del_creador as $juego): ?>
-                <li class="juego-card">
-                    <img src="../img/<?php echo htmlspecialchars($juego['imagen']); ?>"
-                        alt="Banner de <?php echo htmlspecialchars($juego['title']); ?>">
-                    <strong><?php echo htmlspecialchars($juego['title']); ?></strong>
-                    (ID: <?php echo $juego['idGame']; ?>)
-
-                    <a href="?edit=true&idGame=<?php echo $juego['idGame']; ?>">Editar</a>
-
-                    <form method="POST" style="display: inline-block; margin-left: 10px;"
-                        onsubmit="return confirm('¿Estás seguro de que quieres eliminar este juego?');">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="hidden" name="idGame" value="<?php echo $juego['idGame']; ?>">
-                        <button type="submit">Eliminar</button>
-                    </form>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No has creado ningún juego aún.</p>
-    <?php endif; ?>
 </body>
 
 </html>
