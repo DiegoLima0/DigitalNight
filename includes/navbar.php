@@ -58,7 +58,7 @@ if ($is_logged_in) {
                     </a>
 
                     <?php if ($is_admin): ?>
-                        <a href="views/users_view.php"> <i class="bi bi-person-fill-gear"></i>
+                        <a href="users.php"> <i class="bi bi-person-fill-gear"></i>
                             Administrar Usuarios
                         </a>
                     <?php endif; ?>
