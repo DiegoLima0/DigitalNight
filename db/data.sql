@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2025 a las 21:28:28
+-- Tiempo de generación: 24-11-2025 a las 22:05:49
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -194,6 +194,19 @@ INSERT INTO `game` (`title`, `genre`, `state`, `description`, `horizontal_imagen
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `game_ratings`
+--
+
+CREATE TABLE `game_ratings` (
+  `id` int(11) NOT NULL,
+  `idGame` int(10) UNSIGNED NOT NULL,
+  `rating` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `user`
 --
 
@@ -287,6 +300,13 @@ ALTER TABLE `game`
   ADD KEY `fk_Game_Creator` (`idCreator`);
 
 --
+-- Indices de la tabla `game_ratings`
+--
+ALTER TABLE `game_ratings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idGame` (`idGame`);
+
+--
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
@@ -329,6 +349,12 @@ ALTER TABLE `game`
   MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
+-- AUTO_INCREMENT de la tabla `game_ratings`
+--
+ALTER TABLE `game_ratings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
@@ -363,6 +389,12 @@ ALTER TABLE `edition`
 --
 ALTER TABLE `game`
   ADD CONSTRAINT `fk_Game_Creator` FOREIGN KEY (`idCreator`) REFERENCES `creator` (`idCreator`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `game_ratings`
+--
+ALTER TABLE `game_ratings`
+  ADD CONSTRAINT `game_ratings_ibfk_1` FOREIGN KEY (`idGame`) REFERENCES `game` (`idGame`);
 
 --
 -- Filtros para la tabla `user_game`
