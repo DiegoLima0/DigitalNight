@@ -30,6 +30,8 @@ if ($game_id) {
         g.promoText,
         g.cover_image,
         g.saga,
+        g.player,
+        g.online,
         g.idCreator
     FROM game g
     WHERE g.idGame = " . $game_id;

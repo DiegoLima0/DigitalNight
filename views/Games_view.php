@@ -37,10 +37,10 @@
             <div class="Fecha-Games-Interior">Disponible <?php echo $game_data['release_date']; ?></div>
             <div class="Caracteristicas-Games">
               <div><i class="bi bi-globe"></i>
-                <p>Juego Online/Offline</p>
+                <p>Juego <?php echo $game_data['online']; ?></p>
               </div>
               <div><i class="bi bi-people-fill"></i>
-                <p>x- x Jugadores</p>
+                <p><?php echo $game_data['player']; ?></p>
               </div>
             </div>
           </div>
