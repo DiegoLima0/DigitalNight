@@ -1541,6 +1541,127 @@ h2.section-title {
 }
 
 
+
+
+.modal-overlay[hidden] { display: none; }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 12, 32, 0.60);
+  backdrop-filter: blur(6px);
+}
+
+.purchase-modal {
+  background: rgba(72, 42, 135, 0.45);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 40px 48px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  color: white;
+}
+
+.illustration {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto 8px;
+  pointer-events: none;
+}
+
+
+.bag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-14deg) translateY(-10px) scale(1.02);
+  display: block;
+  filter: drop-shadow(0 18px 34px rgba(6,10,30,0.65));
+}
+
+
+
+.order-number {
+  margin: 22px 120px 8px;
+  color: rgba(255,255,255,0.95);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.thank-you {
+  margin: 6px 0 10px;
+  font-size: clamp(28px, 4.2vw, 44px);
+  line-height: 1.02;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(41, 33, 110, 0.25);
+}
+
+
+.subtitle1 {
+  margin: 6px 0 18px;
+  font-size: 16px;
+  color: rgba(234,244,255,0.9);
+  opacity: 0.95;
+  padding-right: 10%;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.btn-modal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(18,22,50,0.45), inset 0 -6px 18px rgba(0,0,0,0.12);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+  border: 0;
+  cursor: default; 
+}
+
+
+.btn--purple {
+  background: linear-gradient(180deg,#AE76FF,#6E4BDB);
+}
+
+
+.btn--blue {
+  background: linear-gradient(180deg,#6DB8FF,#415BCF);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(6,10,30,0.65), inset 0 -8px 24px rgba(0,0,0,0.12);
+}
+
+
+@media (max-width: 720px) {
+  .purchase-modal {
+    padding: 26px 20px;
+  }
+  .illustration {
+    width: 170px;
+    height: 170px;
+  }
+  .line--h { width: 300px; }
+  .line--v { height: 120px; }
+  .btn { min-width: 150px; padding: 10px 16px; font-size: 14px; }
+}
 /*games pagina*/
 
 .page {

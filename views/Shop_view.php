@@ -202,6 +202,27 @@
     <button class="pag-nav__btn" aria-label="siguiente" disabled>&gt;</button>
   <?php endif; ?>
 </nav>
+
+
+<div id="purchaseModal" class="modal-overlay" hidden aria-hidden="true">
+  <div class="modal purchase-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="illustration">
+  
+      <img src="img/bolsa.png" alt="bolsa de compra" class="bag-img" />
+    
+    </div>
+
+    <p class="order-number">Número de pedido <strong>131283298982389</strong></p>
+
+    <h1 id="modalTitle" class="thank-you">¡Gracias por tu pedido!</h1>
+    <p class="subtitle1">¿Listo para instalar tu producto?</p>
+
+    <div class="modal-actions">
+      <a href="#" class="btn btn--purple" role="button">Continuar explorando</a>
+      <a href="library.php" class="btn btn--blue" role="button">Ver en la biblioteca</a>
+    </div>
+  </div>
+</div>
     </main>
 </body>
 
