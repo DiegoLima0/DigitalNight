@@ -109,9 +109,10 @@ require_once 'includes/header.php';
                 </form>
             </dialog>
 
-            <div class="datos">
-                <p>Genero:
-                <form action="configAccount.php" method="post">
+
+            <form class="datos datosForm" action="configAccount.php" method="post">
+                <div>
+                    <p>Genero: <?php echo $gender; ?></p>
                     <select id="genero" name="genero">
                         <option value="">Seleccionar género</option>
                         <option value="femenino">Femenino</option>
@@ -120,21 +121,21 @@ require_once 'includes/header.php';
                         <option value="otro">Otro</option>
                         <option value="prefiero-no-decir">Prefiero no decir</option>
                     </select>
-                </p>
-                <?php echo $gender; ?>
-                    <button type="submit" class="btn azul">Cambiar</button>
-                </form>
-            </div>
+                </div>
 
-            <div class="datos">
-                <form action="configAccount.php" method="post">
-        <p>Cumpleaños: 
-            <input type="date" name="birthday" value="<?php echo $birthday; ?>">
-        </p>
-        <button type="submit" class="btn azul">Cambiar</button>
-    </form>
-    <?php echo $birthday; ?>
-            </div>
+
+                <button type="submit" class="btn azul">Cambiar</button>
+            </form>
+
+
+            <form class="datos datosForm" action="configAccount.php" method="post">
+                <div>
+                    <p>Cumpleaños:<?php echo $birthday; ?></p>
+                    <input type="date" name="birthday" value="<?php echo $birthday; ?>">
+                </div>
+
+                <button type="submit" class="btn azul">Cambiar</button>
+            </form>
         </div>
     </main>
 </body>

@@ -2687,7 +2687,11 @@ p {
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    height: 865px;
+    height: 900px;
+}
+
+#cuenta select{
+    width: 200px;
 }
 
 #cuenta button,
@@ -2788,6 +2792,30 @@ input[type="date"],
 select {
     border-radius: 5px;
     border: 1px solid white;
+}
+
+.datosForm{
+    align-items: flex-start;
+}
+
+.datos>div{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="date"],
+.datos select {
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid white;
+}
+
+option{
+    border-radius: 20px;
+}
+
+input[type="date"]{
+    padding: 5px;
 }
 
 /* sobre nosotros */
