@@ -120,14 +120,14 @@ require_once 'includes/header.php';
                         <option value="prefiero-no-decir">Prefiero no decir</option>
                     </select>
                 </p>
-                <form action="configPublicProfile.php" method="GET" style="display:inline;">
+                <form>
                     <button type="submit" class="btn azul">Cambiar</button>
                 </form>
             </div>
 
             <div class="datos">
                 <p>Cumpleaños: <input type="date" name="" id=""></p>
-                <form action="configPublicProfile.php" method="GET" style="display:inline;">
+                <form>
                     <button type="submit" class="btn azul">Cambiar</button>
                 </form>
             </div>
