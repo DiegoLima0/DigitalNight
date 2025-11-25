@@ -93,33 +93,47 @@ if (isset($_SESSION['user_id'])) {
 
           <div class="cta-group">
             <?php if ($hasGame): ?>
-
               <?php
+              $juego_archivos = [
+                27 => 'turtle.php',
+                28 => 'egg.php',
+                29 => 'polytrack.php',
+                30 => 'tomato.php',
+                31 => 'fnf.php',
+                32 => 'fossil.php',
+                33 => 'gunsmision.php',
+                34 => 'chain.php',
+                35 => 'mario.php',
+              ];
+
+              $game_id_int = (int) $game_data['idGame'];
               $isEmulator = (strtolower(trim($game_data['platforms'])) === "emulador");
+
+              $play_link = "#";
+              $is_playable = false;
+            
+              if (isset($juego_archivos[$game_id_int])) {
+                $play_link = $juego_archivos[$game_id_int];
+                $is_playable = true;
+              }
+              elseif ($isEmulator) {
+                $play_link = "emulator.php?idGame=" . $game_data['idGame'];
+                $is_playable = true;
+              }
               ?>
 
-              <?php
-              $isEmulator = (strtolower(trim($game_data['platforms'])) === "emulador");
-              ?>
-
-              <?php if ($isEmulator): ?>
-
-                <a href="emulator.php?idGame=<?php echo $game_data['idGame']; ?>" class="boton-añadirCarrito"
+              <?php if ($is_playable): ?>
+                <a href="<?php echo $play_link; ?>" class="boton-añadirCarrito"
                   style="display:inline-block; padding:10px 40px; margin-bottom:10px; text-align:center;">
                   Jugar
                 </a>
-
               <?php else: ?>
-
                 <a href="#" onclick="alert('Tu dispositivo no es compatible con este juego'); return false;"
                   class="boton-añadirCarrito"
                   style="display:inline-block; padding:10px 40px; margin-bottom:10px; text-align:center;">
                   Jugar
                 </a>
-
               <?php endif; ?>
-
-
 
             <?php else: ?>
 
