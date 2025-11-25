@@ -1,8 +1,10 @@
 <?php
-// YA TENÉS LA CONEXION EN includes/database.php
 require_once "includes/database.php";
 
-// obtener promedio inicial
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
 $stmt = $conexion->prepare("
     SELECT AVG(rating) AS avg_rating, COUNT(*) AS total_votes
     FROM game_ratings
@@ -15,11 +17,9 @@ $result = $stmt->get_result()->fetch_assoc();
 $initialAverage = round(floatval($result['avg_rating'] ?? 0), 2);
 $initialCount = intval($result['total_votes'] ?? 0);
 
-// obtener rating del usuario (si está logueado)
 $userRating = 0;
 
 if (isset($_SESSION['user_id'])) {
-  $idUser = $_SESSION['user_id'];
 
   $stmtUser = $conexion->prepare("
         SELECT rating
@@ -27,7 +27,8 @@ if (isset($_SESSION['user_id'])) {
         WHERE idGame = ? AND idUser = ?
         LIMIT 1
     ");
-  $stmtUser->bind_param("ii", $game_data['idGame'], $idUser);
+
+  $stmtUser->bind_param("ii", $game_data['idGame'], $_SESSION['user_id']);
   $stmtUser->execute();
   $rowRating = $stmtUser->get_result()->fetch_assoc();
 
@@ -35,8 +36,6 @@ if (isset($_SESSION['user_id'])) {
     $userRating = intval($rowRating['rating']);
   }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -191,7 +190,7 @@ if (isset($_SESSION['user_id'])) {
 
             <div class="rating-box">
               <div class="stars rating-stars" data-idGame="<?php echo $game_data['idGame']; ?>"
-                data-userRating="<?php echo $userRating; ?>">
+                data-user-rating="<?php echo $userRating; ?>">
                 <i class="bi bi-star" data-value="1"></i>
                 <i class="bi bi-star" data-value="2"></i>
                 <i class="bi bi-star" data-value="3"></i>
@@ -411,28 +410,53 @@ if (isset($_SESSION['user_id'])) {
     document.addEventListener("DOMContentLoaded", () => {
 
       const starsContainer = document.querySelector(".rating-stars");
+      if (!starsContainer) return;
+
       const stars = document.querySelectorAll(".rating-stars i");
       const idGame = starsContainer.dataset.idgame;
+      let savedRating = parseInt(starsContainer.dataset.userRating ?? 0);
 
-      let yourRating = 0;
+      function paintSavedStars() {
+        stars.forEach(star => {
+          const value = parseInt(star.dataset.value);
+          if (value <= savedRating) {
+            star.classList.add("bi-star-fill");
+            star.classList.remove("bi-star");
+          } else {
+            star.classList.remove("bi-star-fill");
+            star.classList.add("bi-star");
+          }
+        });
+      }
 
-      if (!starsContainer) return;
+      paintSavedStars();
 
       stars.forEach(star => {
         star.addEventListener("mouseover", function () {
-          const val = this.dataset.value;
-          fillStars(val);
+          const hoverValue = parseInt(this.dataset.value);
+
+          stars.forEach(s => {
+            const val = parseInt(s.dataset.value);
+            if (val <= hoverValue) {
+              s.classList.add("bi-star-fill");
+              s.classList.remove("bi-star");
+            } else {
+              s.classList.add("bi-star");
+              s.classList.remove("bi-star-fill");
+            }
+          });
         });
       });
 
       starsContainer.addEventListener("mouseleave", () => {
-        fillStars(yourRating);
+        paintSavedStars();
       });
 
       stars.forEach(star => {
         star.addEventListener("click", function () {
-
-          const value = this.dataset.value;
+          const value = parseInt(this.dataset.value);
+          savedRating = value;
+          paintSavedStars();
 
           fetch("rate.php", {
             method: "POST",
@@ -444,37 +468,23 @@ if (isset($_SESSION['user_id'])) {
           })
             .then(res => res.json())
             .then(data => {
-              console.log("Respuesta:", data);
 
               if (data.status === "success") {
-
-                yourRating = parseInt(value);
-
-                fillStars(yourRating);
-
                 document.querySelector(".score").innerText =
                   `${data.newAverage}/5`;
+
                 document.querySelector(".count").innerText =
                   `${data.newCount} Reseñas de usuarios`;
+              } else {
+                console.error("Error al guardar:", data.message);
               }
             })
-            .catch(err => console.error("Error:", err));
+            .catch(err => console.error("Fallo fetch:", err));
         });
       });
 
-      function fillStars(val) {
-        stars.forEach(s => {
-          if (parseInt(s.dataset.value) <= val) {
-            s.classList.add("bi-star-fill");
-            s.classList.remove("bi-star");
-          } else {
-            s.classList.remove("bi-star-fill");
-            s.classList.add("bi-star");
-          }
-        });
-      }
-
     });
+
 
   </script>
 </body>
