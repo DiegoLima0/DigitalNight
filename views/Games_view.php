@@ -1,3 +1,21 @@
+<?php
+// YA TENÉS LA CONEXION EN includes/database.php
+require_once "includes/database.php";
+
+// obtener promedio inicial
+$stmt = $conexion->prepare("
+    SELECT AVG(rating) AS avg_rating, COUNT(*) AS total_votes
+    FROM game_ratings
+    WHERE idGame = ?
+");
+$stmt->bind_param("i", $game_data['idGame']);
+$stmt->execute();
+$result = $stmt->get_result()->fetch_assoc();
+
+$initialAverage = round(floatval($result['avg_rating'] ?? 0), 2);
+$initialCount = intval($result['total_votes'] ?? 0);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -149,17 +167,17 @@
             <h2>Reseñas</h2>
 
             <div class="rating-box">
-              <div class="stars rating-stars">
+              <div class="stars rating-stars" data-idGame="<?php echo $game_data['idGame']; ?>">
                 <i class="bi bi-star" data-value="1"></i>
                 <i class="bi bi-star" data-value="2"></i>
                 <i class="bi bi-star" data-value="3"></i>
                 <i class="bi bi-star" data-value="4"></i>
                 <i class="bi bi-star" data-value="5"></i>
               </div>
-              <span class="score">7.5/5</span>
+              <span class="score"><?php echo $initialAverage; ?>/5</span>
             </div>
 
-            <p class="count">1.230 Reseñas de usuarios</p>
+            <p class="count"><?php echo $initialCount; ?> Reseñas de usuarios</p>
           </div>
         </aside>
 
@@ -368,36 +386,84 @@
 
     document.addEventListener("DOMContentLoaded", () => {
 
-      const stars = document.querySelectorAll('.rating-stars i');
+      const starsContainer = document.querySelector(".rating-stars");
+      const stars = document.querySelectorAll(".rating-stars i");
+      const idGame = starsContainer.dataset.idgame;
 
-      console.log("ESTRELLAS ENCONTRADAS:", stars.length);
+      if (!starsContainer || stars.length === 0) return;
 
-      if (stars.length === 0) return;
-
+      // Hover
       stars.forEach(star => {
-        star.addEventListener('mouseover', function () {
+        star.addEventListener("mouseover", function () {
           const val = this.dataset.value;
-
           stars.forEach(s => {
             if (s.dataset.value <= val) {
-              s.classList.remove('bi-star');
-              s.classList.add('bi-star-fill');
+              s.classList.add("bi-star-fill");
+              s.classList.remove("bi-star");
             } else {
-              s.classList.remove('bi-star-fill');
-              s.classList.add('bi-star');
+              s.classList.remove("bi-star-fill");
+              s.classList.add("bi-star");
             }
           });
         });
       });
 
-      document.querySelector('.rating-stars').addEventListener('mouseleave', function () {
+      // Reset al salir
+      starsContainer.addEventListener("mouseleave", () => {
         stars.forEach(s => {
-          s.classList.remove('bi-star-fill');
-          s.classList.add('bi-star');
+          s.classList.remove("bi-star-fill");
+          s.classList.add("bi-star");
+        });
+      });
+
+      // Click para guardar
+      stars.forEach(star => {
+        star.addEventListener("click", function () {
+
+          const value = this.dataset.value;
+
+          // Actualizar UI inmediato
+          stars.forEach(s => {
+            if (s.dataset.value <= value) {
+              s.classList.add("bi-star-fill");
+              s.classList.remove("bi-star");
+            } else {
+              s.classList.remove("bi-star-fill");
+              s.classList.add("bi-star");
+            }
+          });
+
+          // ENVIAR AL SERVIDOR
+          fetch("rate.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              idGame: idGame,
+              rating: value
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log("Respuesta:", data);
+
+              if (data.status === "success") {
+
+                // Actualizar número
+                document.querySelector(".score").innerText =
+                  `${data.newAverage}/5`;
+
+                // Actualizar votos
+                document.querySelector(".count").innerText =
+                  `${data.newCount} Reseñas de usuarios`;
+              }
+            })
+            .catch(err => console.error("Error:", err));
+
         });
       });
 
     });
+
 
   </script>
 </body>
