@@ -8,6 +8,19 @@
 </head>
 
 <body>
+  <header>
+    <style>
+      #aura {
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      #aura2 {
+        font-size: 18px;
+        font-weight: 900;
+      }
+    </style>
+  </header>
   <main id="mainNosotros">
     <section id="PresentacionEquipo">
       <div id="Contenido-Presentacion">
