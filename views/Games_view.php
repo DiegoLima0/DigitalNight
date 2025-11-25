@@ -77,7 +77,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="Fecha-Games-Interior">Disponible <?php echo $game_data['release_date']; ?></div>
             <div class="Caracteristicas-Games">
               <div><i class="bi bi-globe"></i>
-                <p>Juego <?php echo $game_data['online']; ?></p>
+                <p><?php echo $game_data['online']; ?></p>
               </div>
               <div><i class="bi bi-people-fill"></i>
                 <p><?php echo $game_data['player']; ?></p>
