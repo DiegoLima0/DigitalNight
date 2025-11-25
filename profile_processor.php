@@ -35,25 +35,25 @@ if (isset($conexion)) {
             
             if (!empty($data_user['profile_picture'])) {
                 $_SESSION['profile_picture'] = $data_user['profile_picture'];
+                $foto_perfil_a_mostrar = $data_user['profile_picture'];
+            } else {
+                 $foto_perfil_a_mostrar = 'default.png'; 
             }
-            if (isset($data_user['description'])) {
-                $_SESSION['description'] = $data_user['description'];
-            }
+            $biografia_a_mostrar = $data_user['description'] ?? 'Sin biografía';
+        } else {
+            // Usuario no encontrado (debería ser imposible si está logueado)
+            session_destroy();
+            header("Location: index.php");
+            exit();
         }
         $stmt_user->close();
     }
 
-    $foto_perfil_a_mostrar = $_SESSION['profile_picture'] ?? 'default.png';
-    if (empty($foto_perfil_a_mostrar)) {
-        $foto_perfil_a_mostrar = 'default.png';
-    }
-    $biografia_a_mostrar = $_SESSION['description'] ?? 'Este usuario aún no ha escrito una biografía.';
 
-
-    // JUEGOS CREADOS 
+    // JUEGOS CREADOS
     $sql_creados = "SELECT idGame, title, platforms, genre, cover_image FROM game WHERE idCreator = ? LIMIT $sql_fetch_limit";
-    
     $stmt_creados = $conexion->prepare($sql_creados);
+    
     if ($stmt_creados) {
         $stmt_creados->bind_param("i", $id_usuario_actual);
         $stmt_creados->execute();
@@ -63,35 +63,28 @@ if (isset($conexion)) {
             $juegos_creados[] = $row;
         }
         $stmt_creados->close();
-        
-        // Control de paginación
         $has_more_creados = count($juegos_creados) > $limit_initial;
     }
 
 
-    // JUEGOS ADQUIRIDOS 
     $sql_adquiridos = "
         SELECT 
-            g.idGame, 
-            g.title, 
-            g.platforms, 
-            g.genre, 
-            g.cover_image,
-            ug.purchaseDate
+            g.idGame, g.title, g.platforms, g.genre, g.cover_image, 
+            ug.purchaseDate 
         FROM user_game ug
         JOIN game g ON ug.idGame = g.idGame
         WHERE ug.idUser = ?
-        ORDER BY ug.purchaseDate DESC
         LIMIT $sql_fetch_limit
     ";
-
     $stmt_adquiridos = $conexion->prepare($sql_adquiridos);
+
     if ($stmt_adquiridos) {
         $stmt_adquiridos->bind_param("i", $id_usuario_actual);
         $stmt_adquiridos->execute();
         $result_adquiridos = $stmt_adquiridos->get_result();
         
         while ($row = $result_adquiridos->fetch_assoc()) {
+            $row['horas_jugadas'] = null; 
             $juegos_adquiridos[] = $row;
         }
         $stmt_adquiridos->close();
@@ -99,7 +92,6 @@ if (isset($conexion)) {
     }
 
 
-    // PUBLICACIONES
     $sql_publicaciones = "
         SELECT 
             c.idCommentary,
@@ -107,9 +99,11 @@ if (isset($conexion)) {
             c.imagen, 
             c.liked, 
             c.disliked,
+            c.parent_id,
+            (SELECT sub.commentary FROM comment sub WHERE sub.idCommentary = c.parent_id) AS parent_commentary,
             (SELECT COUNT(sub.idCommentary) FROM comment sub WHERE sub.parent_id = c.idCommentary) AS num_comentarios
         FROM comment c
-        WHERE c.idUser = ? AND c.post_location = 'COMMUNITY_VIEW'
+        WHERE c.idUser = ? 
         ORDER BY c.created_at DESC
         LIMIT $sql_fetch_limit
     ";
@@ -123,13 +117,16 @@ if (isset($conexion)) {
         while ($row = $result_publicaciones->fetch_assoc()) {
             $row['liked'] = $row['liked'] ?? 0;
             $row['disliked'] = $row['disliked'] ?? 0;
-            $row['num_comentarios'] = $row['num_comentarios'] ?? 0;
-            
             $publicaciones_usuario[] = $row;
         }
         $stmt_publicaciones->close();
-        
         $has_more_publicaciones = count($publicaciones_usuario) > $limit_initial;
     }
+
+    $conexion->close();
+
+} else {
+    // Manejo de error de conexión si es necesario
 }
+
 ?>

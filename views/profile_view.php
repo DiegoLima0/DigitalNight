@@ -23,6 +23,12 @@ require_once 'includes/header.php';
         .js-hidden-item {
             display: none !important; 
         }
+        .publicacionPerfil {
+            cursor: default;
+        }
+        .publicacionPerfil[onclick] {
+            cursor: pointer;
+        }
     </style>
 
 </head>
@@ -130,14 +136,30 @@ require_once 'includes/header.php';
 
             <div id="publicaciones" class="seccion">
                 <?php if (!empty($publicaciones_usuario)): ?>
-                    <?php foreach ($publicaciones_usuario as $index => $publicacion): ?>
+                    <?php foreach ($publicaciones_usuario as $index => $publicacion): 
+                        $is_reply = !empty($publicacion['parent_id']);
+                        $onclick_attribute = $is_reply 
+                            ? '' 
+                            : "onclick=\"window.location.href='communityPublication.php?id=" . $publicacion['idCommentary'] . "'\"";
+                    ?>
                         <div class="publicacionPerfil <?php echo $index >= 5 ? 'js-hidden-item' : ''; ?>" 
-                            onclick="window.location.href='communityPublication.php?id=<?php echo $publicacion['idCommentary']; ?>'">
+                            <?php echo $onclick_attribute; ?>>
                             <div id="imgUsComunidad">
                                 <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_a_mostrar); ?>" alt="Imagen de perfil">
 
                                 <p>@<?php echo htmlspecialchars($_SESSION['username']); ?></p>
                             </div>
+
+                            <?php 
+                                if ($is_reply): 
+                                    $parent_text = htmlspecialchars($publicacion['parent_commentary'] ?? 'Publicación original');
+                                    $display_text = (strlen($parent_text) > 50) ? substr($parent_text, 0, 50) . '...' : $parent_text;
+                            ?>
+                                <a class="parent-comment-link" href="communityPublication.php?id=<?php echo (int) $publicacion['parent_id']; ?>" onclick="event.stopPropagation();">
+                                    <strong>Respuesta de:</strong> <?php echo $display_text; ?>
+                                </a>
+                            <?php endif; 
+                            ?>
 
                             <p><?php echo nl2br(htmlspecialchars($publicacion['commentary'])); ?></p>
 
