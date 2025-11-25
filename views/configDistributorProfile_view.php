@@ -61,7 +61,7 @@ require_once 'includes/header.php';
 
             <div>
                 <i class="bi bi-file-earmark-arrow-up"></i>
-                <p><strong>Crear perfil</strong><br>
+                <p><strong>Enviar creaciones</strong><br>
                     Revisaremos tu envío en el plazo de una semana y nos pondremos en contacto contigo con los pasos a seguir.
                 </p>
             </div>
