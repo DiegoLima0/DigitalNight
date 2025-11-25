@@ -178,12 +178,16 @@
         </p>
 
 
-        <a href="finalize_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
-          Realizar pedido
-        </a>
-        <a href="cancel_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
-          Cancelar pedido pedido
-        </a>
+        <div class="btnPay">
+          <a href="finalize_order.php" class="azulDifuminado" id="fm_finalize_btn">
+            Realizar pedido
+          </a>
+          <a href="cancel_order.php" class="azulDifuminado" id="fm_finalize_btn">
+            Cancelar pedido pedido
+          </a>
+        </div>
+
+        
 
 
 

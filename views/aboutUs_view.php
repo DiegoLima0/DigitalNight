@@ -5,11 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre nosotros</title>
-</head>
 
-<body>
-  <header>
-    <style>
+  <style>
       #aura {
         font-size: 17px;
         font-weight: 700;
@@ -20,7 +17,10 @@
         font-weight: 900;
       }
     </style>
-  </header>
+</head>
+
+<body>
+
   <main id="mainNosotros">
     <section id="PresentacionEquipo">
       <div id="Contenido-Presentacion">
@@ -189,7 +189,7 @@
         <div class="carruselM"> <!--Carrusel infinito-->
           <div class="grupo">
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('amy')">
-              <img src="img/integrante.jpg" alt="Amy Delgado">
+              <img src="img/Amy-ScrumMaster.jpg" alt="Amy Delgado">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
@@ -201,17 +201,17 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
-              <img src="../img/Facundo-Fronted.jpg" alt="Facundo Montes">
+              <img src="img/Facundo-Fronted.jpg" alt="Facundo Montes">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('tamara')">
-              <img src="../img/Tamara-Fronted-Diseñadora.jpg" alt="Tamara Britez">
+              <img src="img/Tamara-Fronted-Diseñadora.jpg" alt="Tamara Britez">
             </a>
           </div>
 
           <div aria-hidden class="grupo">
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('amy')">
-              <img src="../img/Amy-ScrumMaster.jpg" alt="Amy Delgado">
+              <img src="img/Amy-ScrumMaster.jpg" alt="Amy Delgado">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
@@ -223,7 +223,7 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
-              <img src="img/integrante.jpg" alt="Facundo Montes">
+              <img src="img/Facundo-Fronted.jpg" alt="Facundo Montes">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('tamara')">
@@ -282,7 +282,7 @@
         </div>
 
         <div class="tarjetaMiembro activa" id="amy">
-          <img src="../img/Amy-ScrumMaster.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Amy-ScrumMaster.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Amy Delgado</h3>
@@ -304,7 +304,7 @@
         </div>
 
         <div class="tarjetaMiembro" id="facundo">
-          <img src="../img/Facundo-Fronted.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Facundo-Fronted.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Facundo Montes</h3>
@@ -329,7 +329,7 @@
         </div>
 
         <div class="tarjetaMiembro" id="tamara">
-          <img src="../img/Tamara-Fronted-Diseñadora.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Tamara-Fronted-Diseñadora.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Tamara Britez</h3>

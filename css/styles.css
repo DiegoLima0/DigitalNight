@@ -589,8 +589,16 @@ footer p {
     justify-content: center;
 }
 
-.carrito-actions button {
+.carrito-actions button, .carrito-actions form {
     width: 48%;
+}
+
+.carrito-actions form{
+    margin: 0;
+}
+
+.carrito-actions form>button{
+    width: 100%;
 }
 
 .btn-ghost {
@@ -3945,7 +3953,6 @@ body.biblioteca {
     border-color: rgba(0, 163, 255, 0.9);
 }
 
-
 #fm_page_wrapper .fm_card-icons {
     display: flex;
     gap: 10px;
@@ -4043,9 +4050,9 @@ body.biblioteca {
     margin-top: 14px;
     width: 100%;
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 0;
-    background: linear-gradient(90deg, var(--accent, #00a3ff), #6aa0ff);
+    background: linear-gradient(to right #5B58BC, #272C84);
     color: white;
     font-weight: 700;
     cursor: pointer;
@@ -4090,32 +4097,26 @@ body.biblioteca {
     display: none !important;
 }
 
-
-#fm_page_wrapper .fm_submit-btn {
-    display: inline-block;
-    width: 100%;
-    padding: 12px 0;
+.btnPay{
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #3a5af9, #6a7bff);
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    gap: 1em;
+}
+
+.azulDifuminado{
+    width: 100%;
+    background: linear-gradient(to right, #5B58BC, #272C84);
+    padding: 10px;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.azulDifuminado:hover{
+    transform: translateY(-4px);
+    background: linear-gradient(to right, #6764d3, #3036a3);
     text-decoration: none;
 }
-
-#fm_page_wrapper .fm_submit-btn:hover {
-    background: linear-gradient(90deg, #5f78ff, #8593ff);
-    transform: scale(1.02);
-}
-
-#fm_page_wrapper .fm_submit-btn.transparent {
-    background: linear-gradient(90deg, #3640f8, #4e5aff);
-}
-
 
 #fm_page_wrapper .fm_card-icons {
     display: flex;
