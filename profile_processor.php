@@ -13,6 +13,12 @@ $juegos_creados = [];
 $juegos_adquiridos = [];
 $publicaciones_usuario = [];
 
+$limit_initial = 5;
+$sql_fetch_limit = 100;
+$has_more_creados = false;
+$has_more_adquiridos = false;
+$has_more_publicaciones = false;
+
 if (isset($conexion)) {
 
     $sql_user = "SELECT money, username, profile_picture, description FROM user WHERE idUser = ?";
@@ -45,7 +51,7 @@ if (isset($conexion)) {
 
 
     // JUEGOS CREADOS 
-    $sql_creados = "SELECT idGame, title, platforms, genre, cover_image FROM game WHERE idCreator = ?";
+    $sql_creados = "SELECT idGame, title, platforms, genre, cover_image FROM game WHERE idCreator = ? LIMIT $sql_fetch_limit";
     
     $stmt_creados = $conexion->prepare($sql_creados);
     if ($stmt_creados) {
@@ -57,6 +63,9 @@ if (isset($conexion)) {
             $juegos_creados[] = $row;
         }
         $stmt_creados->close();
+        
+        // Control de paginación
+        $has_more_creados = count($juegos_creados) > $limit_initial;
     }
 
 
@@ -73,6 +82,7 @@ if (isset($conexion)) {
         JOIN game g ON ug.idGame = g.idGame
         WHERE ug.idUser = ?
         ORDER BY ug.purchaseDate DESC
+        LIMIT $sql_fetch_limit
     ";
 
     $stmt_adquiridos = $conexion->prepare($sql_adquiridos);
@@ -85,6 +95,7 @@ if (isset($conexion)) {
             $juegos_adquiridos[] = $row;
         }
         $stmt_adquiridos->close();
+        $has_more_adquiridos = count($juegos_adquiridos) > $limit_initial;
     }
 
 
@@ -100,6 +111,7 @@ if (isset($conexion)) {
         FROM comment c
         WHERE c.idUser = ? AND c.post_location = 'COMMUNITY_VIEW'
         ORDER BY c.created_at DESC
+        LIMIT $sql_fetch_limit
     ";
 
     $stmt_publicaciones = $conexion->prepare($sql_publicaciones);
@@ -116,6 +128,8 @@ if (isset($conexion)) {
             $publicaciones_usuario[] = $row;
         }
         $stmt_publicaciones->close();
+        
+        $has_more_publicaciones = count($publicaciones_usuario) > $limit_initial;
     }
 }
 ?>
