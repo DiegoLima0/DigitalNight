@@ -14,6 +14,29 @@ $result = $stmt->get_result()->fetch_assoc();
 
 $initialAverage = round(floatval($result['avg_rating'] ?? 0), 2);
 $initialCount = intval($result['total_votes'] ?? 0);
+
+// obtener rating del usuario (si está logueado)
+$userRating = 0;
+
+if (isset($_SESSION['user_id'])) {
+  $idUser = $_SESSION['user_id'];
+
+  $stmtUser = $conexion->prepare("
+        SELECT rating
+        FROM game_ratings
+        WHERE idGame = ? AND idUser = ?
+        LIMIT 1
+    ");
+  $stmtUser->bind_param("ii", $game_data['idGame'], $idUser);
+  $stmtUser->execute();
+  $rowRating = $stmtUser->get_result()->fetch_assoc();
+
+  if ($rowRating) {
+    $userRating = intval($rowRating['rating']);
+  }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -167,7 +190,8 @@ $initialCount = intval($result['total_votes'] ?? 0);
             <h2>Reseñas</h2>
 
             <div class="rating-box">
-              <div class="stars rating-stars" data-idGame="<?php echo $game_data['idGame']; ?>">
+              <div class="stars rating-stars" data-idGame="<?php echo $game_data['idGame']; ?>"
+                data-userRating="<?php echo $userRating; ?>">
                 <i class="bi bi-star" data-value="1"></i>
                 <i class="bi bi-star" data-value="2"></i>
                 <i class="bi bi-star" data-value="3"></i>
@@ -390,50 +414,26 @@ $initialCount = intval($result['total_votes'] ?? 0);
       const stars = document.querySelectorAll(".rating-stars i");
       const idGame = starsContainer.dataset.idgame;
 
-      if (!starsContainer || stars.length === 0) return;
+      let yourRating = 0;
 
-      // Hover
+      if (!starsContainer) return;
+
       stars.forEach(star => {
         star.addEventListener("mouseover", function () {
           const val = this.dataset.value;
-          stars.forEach(s => {
-            if (s.dataset.value <= val) {
-              s.classList.add("bi-star-fill");
-              s.classList.remove("bi-star");
-            } else {
-              s.classList.remove("bi-star-fill");
-              s.classList.add("bi-star");
-            }
-          });
+          fillStars(val);
         });
       });
 
-      // Reset al salir
       starsContainer.addEventListener("mouseleave", () => {
-        stars.forEach(s => {
-          s.classList.remove("bi-star-fill");
-          s.classList.add("bi-star");
-        });
+        fillStars(yourRating);
       });
 
-      // Click para guardar
       stars.forEach(star => {
         star.addEventListener("click", function () {
 
           const value = this.dataset.value;
 
-          // Actualizar UI inmediato
-          stars.forEach(s => {
-            if (s.dataset.value <= value) {
-              s.classList.add("bi-star-fill");
-              s.classList.remove("bi-star");
-            } else {
-              s.classList.remove("bi-star-fill");
-              s.classList.add("bi-star");
-            }
-          });
-
-          // ENVIAR AL SERVIDOR
           fetch("rate.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -448,22 +448,33 @@ $initialCount = intval($result['total_votes'] ?? 0);
 
               if (data.status === "success") {
 
-                // Actualizar número
+                yourRating = parseInt(value);
+
+                fillStars(yourRating);
+
                 document.querySelector(".score").innerText =
                   `${data.newAverage}/5`;
-
-                // Actualizar votos
                 document.querySelector(".count").innerText =
                   `${data.newCount} Reseñas de usuarios`;
               }
             })
             .catch(err => console.error("Error:", err));
-
         });
       });
 
-    });
+      function fillStars(val) {
+        stars.forEach(s => {
+          if (parseInt(s.dataset.value) <= val) {
+            s.classList.add("bi-star-fill");
+            s.classList.remove("bi-star");
+          } else {
+            s.classList.remove("bi-star-fill");
+            s.classList.add("bi-star");
+          }
+        });
+      }
 
+    });
 
   </script>
 </body>
