@@ -56,5 +56,5 @@ foreach ($carrito as $item) {
 $_SESSION['cart'] = [];
 $_SESSION['carrito_para_pago'] = [];
 
-header("Location: pay-page.php?pago=exitoso");
+header("Location: shop.php?pago=exitoso");
 exit;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2025 a las 04:11:27
+-- Tiempo de generación: 25-11-2025 a las 04:32:14
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -234,7 +234,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`, `birthday`, `gender`, `money`, `coins`) VALUES
-('a', 'amydelgado88@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 0, 6),
+('a', 'amydelgado88@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 250, 10),
 ('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png', '1900-01-01', 'indefinido', 50, 0),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
@@ -260,7 +260,10 @@ CREATE TABLE `user_game` (
 --
 
 INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`) VALUES
-(1, 20, '2025-11-24 19:08:15');
+(1, 10, '2025-11-25 00:23:29'),
+(1, 13, '2025-11-25 00:23:29'),
+(1, 15, '2025-11-25 00:31:19'),
+(1, 19, '2025-11-25 00:31:01');
 
 --
 -- Índices para tablas volcadas

@@ -211,12 +211,22 @@
     <p class="subtitle1">¿Listo para instalar tu producto?</p>
 
     <div class="modal-actions">
-      <a href="#" class="btn btn--purple" role="button">Continuar explorando</a>
+      <a href="shop.php" class="btn btn--purple" role="button">Continuar explorando</a>
       <a href="library.php" class="btn btn--blue" role="button">Ver en la biblioteca</a>
     </div>
   </div>
 </div>
     </main>
+    <?php if (isset($_GET['pago']) && $_GET['pago'] === 'exitoso'): ?>
+<script>
+  // Mostrar el modal automáticamente
+  document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("purchaseModal");
+    modal.removeAttribute("hidden");
+    modal.setAttribute("aria-hidden", "false");
+  });
+</script>
+<?php endif; ?>
 </body>
 
 </html>
