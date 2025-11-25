@@ -5,6 +5,30 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
+// Saber si el usuario ya compró este juego
+$hasGame = false;
+
+if (isset($_SESSION['user_id'])) {
+  $idUser = $_SESSION['user_id'];
+  $idGame = $game_data['idGame'];
+
+  $stmtOwned = $conexion->prepare("
+        SELECT 1 
+        FROM user_game 
+        WHERE idUser = ? AND idGame = ?
+        LIMIT 1
+    ");
+
+  $stmtOwned->bind_param("ii", $idUser, $idGame);
+  $stmtOwned->execute();
+  $resultOwned = $stmtOwned->get_result();
+
+  if ($resultOwned && $resultOwned->num_rows > 0) {
+    $hasGame = true;
+  }
+}
+
+
 $stmt = $conexion->prepare("
     SELECT AVG(rating) AS avg_rating, COUNT(*) AS total_votes
     FROM game_ratings
@@ -61,14 +85,29 @@ if (isset($_SESSION['user_id'])) {
             <p><?php echo $initialAverage; ?></p>
           </div>
           <p class="plataformas-games-interior">Disponible para <?php echo $game_data['platforms']; ?></p>
-          <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
+          <?php if ($hasGame): ?>
+            <p class="subtitle">Ya está en tu biblioteca</p>
+          <?php else: ?>
+            <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
+          <?php endif; ?>
 
           <div class="cta-group">
-            <form method="POST" action="add_to_cart.php">
-              <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
-              <button type="submit" class="boton-añadirCarrito">Añadir al carrito</button>
-              <a class="boton-VerEdiciones" href="#section nueva-seccion-dos-tarjetas">Ver ediciones</a>
-            </form>
+            <?php if ($hasGame): ?>
+
+              <a href="games.php?idGame=<?php echo $game_data['idGame']; ?>" class="boton-añadirCarrito"
+                style="display:inline-block; padding:10px 40px; margin-bottom:10px; text-align:center;">
+                Jugar
+              </a>
+
+            <?php else: ?>
+
+              <form method="POST" action="add_to_cart.php">
+                <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
+                <button type="submit" class="boton-añadirCarrito">Añadir al carrito</button>
+                <a class="boton-VerEdiciones" href="#section nueva-seccion-dos-tarjetas">Ver ediciones</a>
+              </form>
+
+            <?php endif; ?>
           </div>
         </div>
 
