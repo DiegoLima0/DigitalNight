@@ -1,3 +1,8 @@
+<?php
+$game_id = isset($_GET['idGame']) ? (int) $_GET['idGame'] : null;
+$return_url = $game_id !== null ? "games.php?idGame=" . $game_id : "shop.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,13 +15,13 @@
 <body>
     <main id="emulador-main">
         <div id="volverJuego">
-            <a href=""><!--Debe volver a la página de su juego-->
+            <a href="<?php echo htmlspecialchars($return_url); ?>">
                 <i class="bi bi-arrow-left-short"></i>
             </a>
         </div>
 <!--En el src del iframe va el link del juego-->
         <iframe
-            src="https://html-classic.itch.zone/html/15586726/Web_0.1.9/index.html" 
+            src="https://html-classic.itch.zone/html/15216549/WebGL/index.html" 
             allow="fullscreen">
         </iframe>
 
