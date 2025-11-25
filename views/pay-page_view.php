@@ -137,7 +137,7 @@
 
           <?php
           foreach ($carrito_a_pagar['productos'] as $item):
-            $precio_linea = $item['precio_unitario'] * $item['cantidad'];
+            $precio_linea = $item['precio_unitario'];
             ?>
             <article class="fm_order-item">
               <div class="fm_item-thumb" aria-hidden="true">
@@ -154,7 +154,7 @@
               </div>
               <div class="fm_item-meta">
                 <br>
-                <div style="font-weight:700">x<?php echo htmlspecialchars($item['cantidad']); ?></div>
+                <div style="font-weight:700">x1</div>
               </div>
             </article>
           <?php endforeach; ?>

@@ -3,6 +3,7 @@ session_start();
 
 // Si el carrito está vacío, redirigir
 if (empty($_SESSION['cart'])) {
+    $_SESSION['error'] = "Tu carrito está vacío. Agrega productos antes de iniciar la compra.";
     header("Location: shop.php");
     exit;
 }
@@ -17,10 +18,9 @@ foreach ($_SESSION['cart'] as $item) {
         'nombre' => $item['nombre'],
         'plataforma' => $item['plataforma'],
         'precio_unitario' => $item['precio'],
-        'cantidad' => $item['cantidad'],
         'imagen' => $item['imagen']
     ];
-    $total += $item['precio'] * $item['cantidad'];
+    $total += $item['precio'];
 }
 
 $_SESSION['carrito_para_pago'] = [

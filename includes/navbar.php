@@ -100,13 +100,18 @@ if ($is_logged_in) {
             </li>
         <?php endforeach; ?>
     <?php else: ?>
-        <li>Tu carrito está vacío.</li>
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="alert"><?php echo $_SESSION['error']; ?></div>
+            <?php unset($_SESSION['error']); ?>
+        <?php else: ?>
+            <li>Tu carrito está vacío.</li>
+        <?php endif; ?>
     <?php endif; ?>
-    </ul>
+</ul>
     <?php
     $total = 0;
     foreach ($_SESSION['cart'] as $item) {
-        $total += $item['precio'] * $item['cantidad'];
+        $total += $item['precio'];
     }
     ?>
     <div class="carrito-total-row">

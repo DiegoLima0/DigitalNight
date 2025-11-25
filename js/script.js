@@ -117,92 +117,58 @@ if (passInput && toggleEye) {
 
   function render() {
     if (!listaEl || !totalEl) return;
-    /* listaEl.innerHTML = ''; */
-    const items = Object.values(cart);
-    if (items.length === 0) {
-      const p = document.createElement('p');
-      p.textContent = 'Tu carrito está vacío.';
-      p.style.color = 'rgba(255,255,255,0.8)';
-      listaEl.appendChild(p);
-      totalEl.textContent = '$0.00';
-      return;
-    }
+  listaEl.innerHTML = ''; // limpiar lista antes de renderizar
 
-    items.forEach(it => {
-      const li = document.createElement('li');
-      li.className = 'carrito-item';
-      li.dataset.id = it.id;
+  const items = Object.values(cart);
+  if (items.length === 0) {
+    const p = document.createElement('p');
+    p.textContent = 'Tu carrito está vacío.';
+    p.style.color = 'rgba(255,255,255,0.8)';
+    listaEl.appendChild(p);
+    totalEl.textContent = '$0.00';
+    return;
+  }
 
-      // La imagen debe tener la ruta completa si es un path relativo. 
-      const imgSrc = it.img.startsWith('img/') ? it.img : `img/${it.img}`;
+  items.forEach(it => {
+    const li = document.createElement('li');
+    li.className = 'carrito-item';
+    li.dataset.id = it.id;
 
+    // La imagen debe tener la ruta completa si es un path relativo
+    const imgSrc = it.img && it.img.startsWith('img/') ? it.img : `img/${it.img}`;
 
-      li.innerHTML = `
-        <div class="thumb"><img src="${escapeHtml(imgSrc || PLACEHOLDER_IMG)}" alt=""></div>
-        <div class="meta">
-          <div class="nombre">${escapeHtml(it.nombre)}</div>
-          <div class="plataforma">Plataforma: ${escapeHtml(it.plataforma || 'plataformas')}</div>
-          <div class="precio">$${(it.precio * it.qty).toFixed(2)}</div>
-        </div>
+    li.innerHTML = `
+      <div class="thumb"><img src="${escapeHtml(imgSrc || PLACEHOLDER_IMG)}" alt=""></div>
+      <div class="meta">
+        <div class="nombre">${escapeHtml(it.nombre)}</div>
+        <div class="plataforma">Plataforma: ${escapeHtml(it.plataforma || 'plataformas')}</div>
+        <div class="precio">$${it.precio.toFixed(2)}</div>
+      </div>
+      <div class="controls">
+        <button class="btn-trash" title="Eliminar" aria-label="Eliminar">🗑</button>
+      </div>
+    `;
 
-        <div class="controls">
-          <button class="btn-trash" title="Eliminar" aria-label="Eliminar">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 6h18" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 11v6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 11v6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+    const trashBtn = li.querySelector('.btn-trash');
+    if (trashBtn) trashBtn.addEventListener('click', () => removeItem(it.id));
 
-          <div class="qty-pill" role="group" aria-label="Cantidad">
-            <button class="dec" title="Disminuir">−</button>
-            <div class="cant">${it.qty}</div>
-            <button class="inc" title="Aumentar">+</button>
-          </div>
-        </div>
-      `;
+    listaEl.appendChild(li);
+  });
 
-
-      const incBtn = li.querySelector('.inc');
-      const decBtn = li.querySelector('.dec');
-      const trashBtn = li.querySelector('.btn-trash');
-
-      if (incBtn) incBtn.addEventListener('click', () => changeQty(it.id, +1));
-      if (decBtn) decBtn.addEventListener('click', () => changeQty(it.id, -1));
-      if (trashBtn) trashBtn.addEventListener('click', () => removeItem(it.id));
-
-      listaEl.appendChild(li);
-    });
-
-    const total = items.reduce((s, x) => s + x.precio * x.qty, 0);
-    totalEl.textContent = '$' + total.toFixed(2);
+  const total = items.reduce((s, x) => s + x.precio, 0);
+  totalEl.textContent = '$' + total.toFixed(2);
   }
 
 
   function addItem(product) {
     if (!product || !product.id) return;
-    if (!cart[product.id]) {
-      cart[product.id] = {
-        id: product.id,
-        nombre: product.nombre || 'Nombre del juego',
-        plataforma: product.plataforma || 'plataformas',
-        precio: Number(product.precio) || 0,
-        img: product.img || PLACEHOLDER_IMG,
-        qty: 0
-      };
-    }
-    cart[product.id].qty += product.qty ? Number(product.qty) : 1;
-    if (cart[product.id].qty <= 0) delete cart[product.id];
-    saveCart(cart);
-    /* render(); */
-  }
-
-  function changeQty(id, delta) {
-    if (!cart[id]) return;
-    cart[id].qty += delta;
-    if (cart[id].qty <= 0) delete cart[id];
+    cart[product.id] = {
+      id: product.id,
+      nombre: product.nombre || 'Nombre del juego',
+      plataforma: product.plataforma || 'plataformas',
+      precio: Number(product.precio) || 0,
+      img: product.img || PLACEHOLDER_IMG
+    };
     saveCart(cart);
     /* render(); */
   }
@@ -220,13 +186,8 @@ if (passInput && toggleEye) {
   }
 
   function iniciarCompra() {
-    const items = Object.values(cart);
-    if (items.length === 0) {
-      alert('Tu carrito está vacío. Agrega productos antes de iniciar la compra.');
-      return;
-    }
 
-    const total = items.reduce((s, x) => s + x.precio * x.qty, 0).toFixed(2);
+    const total = items.reduce((s, x) => s + x.precio, 0).toFixed(2);
 
     const carritoParaServidor = {
       productos: items.map(item => ({
@@ -234,7 +195,7 @@ if (passInput && toggleEye) {
         nombre: item.nombre,
         plataforma: item.plataforma,
         precio_unitario: item.precio,
-        cantidad: item.qty,
+        cantidad: 1,
         imagen: item.img ? item.img.replace(/^(img\/)/, '') : 'default.png'
       })),
       total: total
@@ -279,7 +240,6 @@ if (passInput && toggleEye) {
 
   window.miCarritoUI = {
     addItem,
-    changeQty,
     removeItem,
     _cart: cart
   };
