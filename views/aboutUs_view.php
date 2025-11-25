@@ -167,8 +167,8 @@
     </div>
 
     <div id="Seccion2-Titular-CreadoresDN">
-        <h1>Los Creadores de DigitalNight</h1>
-      </div>
+      <h1>Los Creadores de DigitalNight</h1>
+    </div>
 
     <section id="Seccion2-CreadoresDN">
 
@@ -188,17 +188,17 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
-              <img src="img/integrante.jpg" alt="Facundo Montes">
+              <img src="../img/Facundo-Fronted.jpg" alt="Facundo Montes">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('tamara')">
-              <img src="img/integrante.jpg" alt="Tamara Britez">
+              <img src="../img/Tamara-Fronted-Diseñadora.jpg" alt="Tamara Britez">
             </a>
           </div>
 
           <div aria-hidden class="grupo">
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('amy')">
-              <img src="img/integrante.jpg" alt="Amy Delgado">
+              <img src="../img/Amy-ScrumMaster.jpg" alt="Amy Delgado">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
@@ -268,7 +268,7 @@
         </div>
 
         <div class="tarjetaMiembro activa" id="amy">
-          <img src="img/integrante.jpg" alt="Miembro" class="miembroImg2">
+          <img src="../img/Amy-ScrumMaster.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Amy Delgado</h3>
@@ -281,14 +281,16 @@
             <hr>
 
             <p>
-              Lidera la implementación de la metodología Scrum, optimizando los procesos del equipo,
-              facilitando la comunicación y asegurando la entrega eficiente del proyecto.
+              Como Scrum Master organizo y guío el trabajo del equipo, coordinando los sprints y asignando tareas según
+              las habilidades de cada integrante. Facilito la comunicación, prioridades y superviso el progreso
+              para asegurar entregas claras y sin trabas. También reviso detalles de frontend y pruebas cuando
+              es necesario, manteniendo la calidad del proyecto y una buena experiencia para el usuario.
             </p>
           </div>
         </div>
 
         <div class="tarjetaMiembro" id="facundo">
-          <img src="img/integrante.jpg" alt="Miembro" class="miembroImg2">
+          <img src="../img/Facundo-Fronted.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Facundo Montes</h3>
@@ -313,7 +315,7 @@
         </div>
 
         <div class="tarjetaMiembro" id="tamara">
-          <img src="img/integrante.jpg" alt="Miembro" class="miembroImg2">
+          <img src="../img/Tamara-Fronted-Diseñadora.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Tamara Britez</h3>
