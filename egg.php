@@ -1,3 +1,3 @@
 <?php
-  $section="views/emulator";
+  $section="views/egg";
   require_once "views/layout.php";?>
