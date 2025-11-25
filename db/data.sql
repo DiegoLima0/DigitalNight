@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2025 a las 17:54:44
+-- Tiempo de generación: 25-11-2025 a las 18:47:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -75,7 +75,8 @@ INSERT INTO `comment` (`commentary`, `imagen`, `created_at`, `liked`, `disliked`
 ('hdfgjdtjdjfh', NULL, '2025-11-17 16:17:24', NULL, NULL, 50, 1, 10, NULL, 'COMMUNITY_VIEW'),
 ('stsestgdsgffshsrfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh no son tatuaje en el cuello son la marca de la cadena', NULL, '2025-11-17 16:31:00', NULL, NULL, 51, 1, 9, NULL, 'GAME_VIEW'),
 ('Lorem ipsum dolor sit amet consectetur adipiscing elit ullamcorper parturient congue, id magnis urna cum iaculis donec facilisi libero faucibus porta mi, enim integer hendrerit fames vehicula quam dictum nostra sodales. Odio senectus purus dictum tellus, ', NULL, '2025-11-17 16:32:35', NULL, NULL, 52, 1, 9, NULL, 'GAME_VIEW'),
-('afsa', '6925d9f5f1eff_pixilart-sprite(Escenario).png', '2025-11-25 13:31:49', 0, 0, 53, 1, 13, NULL, 'GAME_VIEW');
+('afsa', '6925d9f5f1eff_pixilart-sprite(Escenario).png', '2025-11-25 13:31:49', 0, 0, 53, 1, 13, NULL, 'GAME_VIEW'),
+('fghfghdwtefj', NULL, '2025-11-25 14:16:01', 0, 0, 54, 1, 31, NULL, 'GAME_VIEW');
 
 -- --------------------------------------------------------
 
@@ -191,7 +192,8 @@ INSERT INTO `game` (`title`, `genre`, `state`, `description`, `horizontal_imagen
 ('Turtle’s Treasures', 'Emulador', 'Disponible', 'Embárcate en una aventura pixelada llena de calma, curiosidad y pequeñas sorpresas escondidas bajo la tierra. En Turtle’s Treasures, acompañás a una tortuga exploradora cuyo único objetivo es excavar cada vez más profundo para descubrir minerales raros, restos misteriosos, reliquias antiguas… o simplemente cosas raras que alguien dejó enterradas hace siglos.\r\n\r\nA medida que avanzás hacia las capas más oscuras del subsuelo, tu tortuga no solo encuentra tesoros: evoluciona. Mejora su caparazón, desarrolla nuevas habilidades y se vuelve más resistente al terreno, permitiendo excavar cada vez más lejos en busca de riquezas ocultas. Es un viaje tranquilo, sin enemigos, sin presión y sin relojes persiguiéndote. Solo vos, la tierra, y la satisfacción de ver qué aparece cuando das un golpe más.\r\n\r\nCon un diseño encantador en pixel art, Turtle’s Treasures ofrece una experiencia relajante perfecta para desconectarte unos minutos… o perderte durante horas en un bucle de exploración suave y adictivo.', 'Banner1-Turtle.jpg', NULL, 1, 27, 1, '2025-11-25', 'Emulador', '5.00', 'banner2-Turtle.jpg', 'Turtle-img1.png', 'Turtle-img2.png', 'Turtle-img3.png', 'Turtle-img4.png', 'Turtle’s Treasures – ¡Cava, evoluciona y descubre los secretos del subsuelo!', '', 'Turtle-Portada.jpg', 'Juego offline', '1 jugador'),
 ('Friday Night Funkin\'', 'Emulador', 'Disponible', 'Friday Night Funkin’ (FNF) es un juego de ritmo en el que el jugador controla a Boyfriend, un joven que quiere impresionar a Girlfriend ganando batallas de rap musicales. Para ello, debe presionar las flechas en el momento justo siguiendo las notas que aparecen en pantalla y mantener el ritmo mejor que su oponente.\n\nEl juego se divide en “semanas”, cada una con varios temas musicales y un adversario distinto, desde personajes clásicos como Daddy Dearest y Pico hasta rivales más peculiares o sobrenaturales. Su estilo visual retro, sus canciones pegadizas y la gran cantidad de mods creados por la comunidad han hecho que FNF sea un juego muy popular y en constante expansión.', 'Fnf-banner1.jpg', NULL, 1, 31, 1, '2025-11-25', 'Emulador', '2.00', 'Fnf-banner2.jpg', 'Fnf-Img1.jpg', 'Fnf-Img2.jpg', 'Fnf-Img3.jpg', 'Fnf-Img4.jpg', '¡Diviertete con las teclas!', '', 'Fnf-Cover.jpg', 'Juego offline', '1 jugador'),
 ('Fossil quest', 'Emulador', 'Disponible', 'Fossil Quest es un simulador de vida acogedor y relajado centrado en la exploración y excavación de fósiles. En este juego tomas el papel de un entusiasta de la paleontología que siempre soñó con crear su propio museo de dinosaurios, y ahora por fin tiene el espacio y la libertad para hacerlo realidad.\r\n\r\nExplora distintos terrenos, excava con cuidado para desenterrar restos prehistóricos y reúne piezas únicas para reconstruir esqueletos impresionantes. A medida que avanzas, podrás organizar tus descubrimientos en exhibiciones, decorar el museo a tu gusto y atraer visitantes curiosos que quieran aprender sobre las criaturas que habitaron la Tierra hace millones de años. Es una experiencia tranquila y creativa pensada para quienes disfrutan descubrir, coleccionar y construir a su propio ritmo.', 'Fosil-Banner1.jpg', NULL, 1, 32, 1, '2025-11-25', 'Emulador', '2.00', 'Fossil-Banner2.jpg', 'FossilQuest-img1.jpg', 'FossilQuest-img2.jpg', 'FossilQuest-img3.jpg', 'FossilQuest-img4.jpg', 'Explora, excava y da vida a tu museo de dinosaurios.', '', 'FossilQuest-cover.jpg', 'Juego offline', '1 jugador'),
-('Gun Mission', 'Emulador', 'Disponible', 'GunMission es un juego arcade de desplazamiento lateral que captura la esencia de los clásicos como Contra y Rolling Thunder. Enfréntate a oleadas de enemigos mientras avanzas a través de niveles llenos de plataformas, disparos y desafíos rápidos. Equípate con diferentes armas, esquiva ataques letales y derrota a jefes poderosos en una experiencia frenética que combina nostalgia y adrenalina en cada misión.', 'GunMission-Banner1.jpg', NULL, 1, 33, 1, '2025-11-25', 'Emulador', '5.00', 'GunMission-Banner2.jpg', 'GunMission-img2.jpg', 'GunMission-img1.jpg', 'GunMission-img4.jpg', 'GunMission-img3.jpg', 'Acción explosiva al estilo arcade clásico', '', 'GunMission-cover.jpg', 'Juego offline', '1 jugador');
+('Gun Mission', 'Emulador', 'Disponible', 'GunMission es un juego arcade de desplazamiento lateral que captura la esencia de los clásicos como Contra y Rolling Thunder. Enfréntate a oleadas de enemigos mientras avanzas a través de niveles llenos de plataformas, disparos y desafíos rápidos. Equípate con diferentes armas, esquiva ataques letales y derrota a jefes poderosos en una experiencia frenética que combina nostalgia y adrenalina en cada misión.', 'GunMission-Banner1.jpg', NULL, 1, 33, 1, '2025-11-25', 'Emulador', '5.00', 'GunMission-Banner2.jpg', 'GunMission-img2.jpg', 'GunMission-img1.jpg', 'GunMission-img4.jpg', 'GunMission-img3.jpg', 'Acción explosiva al estilo arcade clásico', '', 'GunMission-cover.jpg', 'Juego offline', '1 jugador'),
+('PolyTrack', 'Emulador', 'Disponible', 'PolyTrack es un juego de carreras de estética low-poly que combina bucles, saltos precisos y velocidades extremas en circuitos diseñados para poner a prueba tus reflejos. Cada milisegundo cuenta mientras compites contra el reloj para perfeccionar tus trazadas y reducir tu tiempo al máximo. Inspirado fuertemente en la serie TrackMania, el juego apuesta por carreras cortas, técnicas y altamente rejugables, donde la habilidad y la consistencia importan más que nunca. Con una variedad de pistas originales, físicas rápidas y un estilo visual limpio y minimalista, PolyTrack ofrece una experiencia intensa y adictiva ideal para quienes disfrutan de dominar cada curva y buscar siempre un nuevo récord personal.', 'PolyTrack-Banner1.jpg', NULL, 1, 34, 1, '2025-11-25', 'Emulador', '7.20', 'PolyTrack-Banner2.jpg', 'PolyTrack-img1.jpg', 'PolyTrack-img2.jpg', 'PolyTrack-img3.jpg', 'PolyTrack-img4.jpg', 'Velocidad pura en pistas de baja poligonización', '', 'PolyTrack-cover.jpg', 'Juego offline', '1 jugador');
 
 -- --------------------------------------------------------
 
@@ -343,7 +345,7 @@ ALTER TABLE `user_game`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `comment_votes`
@@ -361,7 +363,7 @@ ALTER TABLE `edition`
 -- AUTO_INCREMENT de la tabla `game`
 --
 ALTER TABLE `game`
-  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `game_ratings`
