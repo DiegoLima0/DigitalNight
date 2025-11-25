@@ -8,6 +8,19 @@
 </head>
 
 <body>
+  <header>
+    <style>
+      #aura {
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      #aura2 {
+        font-size: 18px;
+        font-weight: 900;
+      }
+    </style>
+  </header>
   <main id="mainNosotros">
     <section id="PresentacionEquipo">
       <div id="Contenido-Presentacion">
@@ -184,7 +197,7 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('luciano')">
-              <img src="img/integrante.jpg" alt="Luciano Ferrari">
+              <img src="img/Admins/Luciano-Ferrari.jpg" alt="Luciano Ferrari">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
@@ -206,7 +219,7 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('luciano')">
-              <img src="img/integrante.jpg" alt="Luciano Ferrari">
+              <img src="img/Admins/Luciano-Ferrari.jpg" alt="Luciano Ferrari">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
@@ -245,7 +258,7 @@
         </div>
 
         <div class="tarjetaMiembro" id="luciano">
-          <img src="img/integrante.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Admins/Luciano-Ferrari.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Luciano Ferrari</h3>
@@ -262,7 +275,8 @@
               Su
               trabajo consiste en interactuar con la base de datos (MySQL), implementar la autenticación de usuarios y
               asegurar que todas las funcionalidades críticas de la aplicación (como el manejo de perfiles y la tienda)
-              operen de manera eficiente y segura.
+              operen de manera eficiente y segura. <br>
+              <strong id="aura">Es el miembro con más "<strong id="aura2">aura</strong>" de todo el equipo</strong>
             </p>
           </div>
         </div>
