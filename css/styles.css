@@ -4657,6 +4657,7 @@ body.biblioteca {
 /*Página emulador*/
 #emulador-main {
     position: relative;
+    background-color: black;
 }
 
 #volverJuego {
@@ -4674,10 +4675,10 @@ body.biblioteca {
 
 iframe {
     width: 100%;
-    height: 100%;
+    height: 900px;
+    padding-top: 50px;
     border: none;
 }
-
 
 /*Juego de la serpiente*/
 #snakegame-root,
