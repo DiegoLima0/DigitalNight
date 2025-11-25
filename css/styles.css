@@ -4845,7 +4845,7 @@ table .btn{
     border-radius: 10px;
 }
 
-table .violetaClaro{
+.violetaClaro{
     background-color: #6879CE;
     border: none;
 }
@@ -4858,4 +4858,61 @@ table form {
 td .botones{
     display: flex;
     gap: 2em;
+}
+
+/*P+agina gestión de juegos*/
+#mainGestion{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainGestion>div, #mainGestion ul{
+    width: 50%;
+}
+
+#mainGestion ul{
+    padding: 0;
+}
+
+#mainGestion hr{
+    width: 100%;
+}
+
+.fileBox input[type="file"] {
+    display: none;
+}
+
+.fileBox {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+#mainGestion .violetaClaro {
+    color: white;
+    border-radius: 15px;
+    width: 170px;
+    padding: 5px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.violetaClaro:hover {
+    background-color: #7083e2;
+    cursor: pointer;
+}
+
+.volverListado{
+    margin-bottom: 30px;
+}
+
+.botonmargin{
+    margin-top: 10px;
+}
+
+.campo{
+    margin-bottom: 10px;
 }
