@@ -288,16 +288,18 @@ function marcar(boton) {
 }
 
 //Página Sobre Nosotros AboutUs.php
-window.addEventListener("beforeunload", () => {
-  sessionStorage.setItem("scrollPos", window.scrollY);
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("Presentacion-Boton-MasInfo");
+  const destino = document.getElementById("Separador-Seccion1");
 
-window.addEventListener("load", () => {
-  const scrollPos = sessionStorage.getItem("scrollPos");
-  if (scrollPos) {
-    window.scrollTo(0, scrollPos);
+  if (btn && destino) {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      destino.scrollIntoView({ behavior: "smooth" });
+    });
   }
 });
+
 
 const acordeones = document.querySelectorAll('.Acordeon-Contenido-Historia');
 
