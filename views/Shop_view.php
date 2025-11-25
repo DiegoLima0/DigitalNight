@@ -205,14 +205,14 @@
     
     </div>
 
-    <p class="order-number">Número de pedido <strong>131283298982389</strong></p>
+    <p>Número de pedido 131283298982389</p>
 
-    <h1 id="modalTitle" class="thank-you">¡Gracias por tu pedido!</h1>
-    <p class="subtitle1">¿Listo para instalar tu producto?</p>
+    <h1 class="">¡Gracias por tu pedido!</h1>
+    <p>¿Listo para instalar tu producto?</p>
 
     <div class="modal-actions">
-      <a href="shop.php" class="btn btn--purple" role="button">Continuar explorando</a>
-      <a href="library.php" class="btn btn--blue" role="button">Ver en la biblioteca</a>
+      <a href="shop.php" class="btnVioletaDifuminado" role="button">Continuar explorando</a>
+      <a href="library.php" class="btnAzulDifuminado" role="button">Ver en la biblioteca</a>
     </div>
   </div>
 </div>
