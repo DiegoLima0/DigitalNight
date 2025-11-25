@@ -116,7 +116,8 @@ header {
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, white, rgb(0, 12, 119)) 1;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 70%;
 }
 
 header::before {
