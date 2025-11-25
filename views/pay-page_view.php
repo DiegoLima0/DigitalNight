@@ -135,34 +135,36 @@
         <div class="fm_summary fm_card">
           <h3>Resumen del pedido</h3>
 
-          <?php
-          foreach ($carrito_a_pagar['productos'] as $item):
-            $precio_linea = $item['precio_unitario'];
-            ?>
-            <article class="fm_order-item">
-              <div class="fm_item-thumb" aria-hidden="true">
+          <?php if (!empty($carrito_a_pagar['productos'])): ?>
+    <?php foreach ($carrito_a_pagar['productos'] as $item): ?>
+        <article class="fm_order-item">
+            <div class="fm_item-thumb" aria-hidden="true">
                 <img src="img/<?php echo htmlspecialchars($item['imagen']); ?>"
-                  alt="<?php echo htmlspecialchars($item['nombre']); ?>" class="fm_thumb-img">
-              </div>
-
-              <div class="fm_item-info">
+                     alt="<?php echo htmlspecialchars($item['nombre']); ?>" class="fm_thumb-img">
+            </div>
+            <div class="fm_item-info">
                 <div style="font-weight:700"><?php echo htmlspecialchars($item['nombre']); ?></div>
                 <div style="font-size:12px;color:var(--fm-subtext)">Plataforma:
-                  <?php echo htmlspecialchars($item['plataforma']); ?></div>
+                    <?php echo htmlspecialchars($item['plataforma']); ?></div>
                 <br>
-                <div>$<?php echo number_format($precio_linea, 2); ?></div>
-              </div>
-              <div class="fm_item-meta">
+                <div>$<?php echo number_format($item['precio_unitario'], 2); ?></div>
+            </div>
+            <div class="fm_item-meta">
                 <br>
                 <div style="font-weight:700">x1</div>
-              </div>
-            </article>
-          <?php endforeach; ?>
+            </div>
+        </article>
+    <?php endforeach; ?>
 
-          <div class="fm_total-row">
-            <div>Total</div>
-            <div style="font-weight:800">$<?php echo number_format($carrito_a_pagar['total'], 2); ?></div>
-          </div>
+    <div class="fm_total-row">
+        <div>Total</div>
+        <div style="font-weight:800">
+            $<?php echo number_format($carrito_a_pagar['total'], 2); ?>
+        </div>
+    </div>
+<?php else: ?>
+    <p>No hay productos en el carrito para pagar.</p>
+<?php endif; ?>
 
         </div>
 
@@ -179,7 +181,7 @@
         <a href="finalize_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
           Realizar pedido
         </a>
-        <a href="finalize_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
+        <a href="cancel_order.php" class="fm_submit-btn transparent" id="fm_finalize_btn">
           Cancelar pedido pedido
         </a>
 
