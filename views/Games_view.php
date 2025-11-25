@@ -58,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
           <h1 class="title"><?php echo $game_data['title']; ?></h1>
           <div class="Calificacion-Games">
             <i class="bi bi-star-fill"></i>
-            <p>7.5</p>
+            <p><?php echo $initialAverage; ?></p>
           </div>
           <p class="plataformas-games-interior">Disponible para <?php echo $game_data['platforms']; ?></p>
           <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
