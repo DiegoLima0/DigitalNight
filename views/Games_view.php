@@ -110,10 +110,10 @@ if (isset($_SESSION['user_id'])) {
               $isEmulator = (strtolower(trim($game_data['platforms'])) === "emulador");
 
               $play_link = "#";
-              $is_playable = false;
+              $is_playable = false; 
             
               if (isset($juego_archivos[$game_id_int])) {
-                $play_link = $juego_archivos[$game_id_int];
+                $play_link = $juego_archivos[$game_id_int] . "?idGame=" . $game_id_int;
                 $is_playable = true;
               }
               elseif ($isEmulator) {
