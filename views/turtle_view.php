@@ -27,5 +27,4 @@ $return_url = $game_id !== null ? "games.php?idGame=" . $game_id : "shop.php";
     </main>
 
 </body>
-
 </html>
