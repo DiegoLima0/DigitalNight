@@ -15,7 +15,7 @@
         <p>Somos Penta-Core, un grupo de estudiantes apasionados por la tecnología, el diseño y los videojuegos. Creamos
           DigitalNight con la idea de unir en un solo lugar lo que más nos gusta: jugar, conectar y compartir
           experiencias.</p>
-        <a href="#Separador-Seccion1" id="Presentacion-Boton-MasInfo">Más información</a>
+        <a href="#" id="Presentacion-Boton-MasInfo">Más información</a>
       </div>
     </section>
 
