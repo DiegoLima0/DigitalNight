@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2025 a las 10:22:46
+-- Tiempo de generación: 25-11-2025 a las 17:54:44
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,7 +74,8 @@ INSERT INTO `comment` (`commentary`, `imagen`, `created_at`, `liked`, `disliked`
 ('dgdfdhdhdydhdk', NULL, '2025-11-17 16:17:16', NULL, NULL, 49, 1, 10, NULL, 'GAME_VIEW'),
 ('hdfgjdtjdjfh', NULL, '2025-11-17 16:17:24', NULL, NULL, 50, 1, 10, NULL, 'COMMUNITY_VIEW'),
 ('stsestgdsgffshsrfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh no son tatuaje en el cuello son la marca de la cadena', NULL, '2025-11-17 16:31:00', NULL, NULL, 51, 1, 9, NULL, 'GAME_VIEW'),
-('Lorem ipsum dolor sit amet consectetur adipiscing elit ullamcorper parturient congue, id magnis urna cum iaculis donec facilisi libero faucibus porta mi, enim integer hendrerit fames vehicula quam dictum nostra sodales. Odio senectus purus dictum tellus, ', NULL, '2025-11-17 16:32:35', NULL, NULL, 52, 1, 9, NULL, 'GAME_VIEW');
+('Lorem ipsum dolor sit amet consectetur adipiscing elit ullamcorper parturient congue, id magnis urna cum iaculis donec facilisi libero faucibus porta mi, enim integer hendrerit fames vehicula quam dictum nostra sodales. Odio senectus purus dictum tellus, ', NULL, '2025-11-17 16:32:35', NULL, NULL, 52, 1, 9, NULL, 'GAME_VIEW'),
+('afsa', '6925d9f5f1eff_pixilart-sprite(Escenario).png', '2025-11-25 13:31:49', 0, 0, 53, 1, 13, NULL, 'GAME_VIEW');
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,10 @@ INSERT INTO `game` (`title`, `genre`, `state`, `description`, `horizontal_imagen
 ('The Witcher 3', 'Aventura', 'Disponible', 'Eres Geralt de Rivia. A tu alrededor, los pueblos y asentamientos de los Reinos del Norte están desapareciendo a manos de un ejército invasor sobrenatural al que se conoce como Cacería salvaje, pues deja un rastro de destrucción y sangre tras su paso.\n\nMientras te preparas para un enfrentamiento encarnizado contra la Cacería salvaje, irás descubriendo una historia compleja y apasionante y conociendo a personajes inolvidables. Al explorar los Reinos del Norte, descubrirás que en cada pueblo y detrás de cada árbol y cada sombra hay misterios.', 'theWitcher3-portada.jpg', NULL, 1, 19, 1, '2015-05-19', 'Windows, PlayStation 4, Xbox One, Nintendo Switch', '49.99', 'Witcher3-Banner2.jpg', 'theWitcher3-img1.jpg', 'theWitcher3-img2.jpg', 'theWitcher3-img3.jpg', 'theWitcher3-img4.jpg', 'La espada del destino tiene doble filo. Y tú eres uno de ellos.', 'The Witcher', 'theWitcher3-cover.jpg', 'Juego offline', '1 jugador'),
 ('It Takes Two', 'Arcade', 'Disponible', 'Embárcate en el viaje más alocado de tu vida en It Takes Two, una aventura de plataforma puramente cooperativa que desafía los géneros. Invita a un amigo a que se una gratis con el Pase de amigo** y trabajen juntos a través de una gran variedad de desafíos deliciosamente perturbadores. Jueguen como la conflictiva pareja de Cody y May, dos humanos convertidos en muñecos por un hechizo mágico. Juntos, atrapados en un mundo fantástico donde lo impredecible se esconde a la vuelta de cada esquina, tendrán que enfrentar a regañadientes el desafío de salvar su relación fracturada.\n\nDomina habilidades de personaje únicas y conectadas en cada nuevo nivel. Ayúdense uno al otro en una gran cantidad de obstáculos inesperados y momentos hilarantes. Patea las colas peludas de ardillas gángster, pilota un par de calzones, sé DJ de un club ajetreado y ve en trineo por un globo mágico de nieve. Abraza una historia sentida y desternillante donde la narrativa y las mecánicas se entretejen en una experiencia metafórica singular.', 'it takes two portada.jpg', NULL, 1, 20, 1, '2021-03-26', 'Windows, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X', '39.99', 'it takes two 1.jpg', 'it takes two 4.jpg', 'it takes two 2.jpg', 'it takes two 3.jpg', 'it-takes-two-Banner2.jpg', 'Solo hay una certeza en It Takes Two: estamos mejor juntos.', 'It Takes Two', 'it-takes-two-cover.jpg', 'Juego online opcional', '1-2 jugadores'),
 ('Baldur’s Gate 3', 'Estrategia', 'Disponible', 'Reúne a un grupo y emprendan juntos una campaña épica en este RPG de próxima generación ambientado en el mundo de Calabozos y Dragones, que llega de la mano de los creadores de Divinity: Original Sin II.\n\nLa tierra de Faerûn está bajo asedio. Tras ser capturado e infectado por los azotamentes invasores, ¿te resistirás a su corrupción o aceptarás al poder misterioso que empieza a crecer en tu interior?\n\nElige un personaje original o crea tu propio protagonista personalizado, y vive una historia dinámica que cambia de forma cada vez que se lanzan los dados.\n\nUne fuerzas con un grupo de personajes complejos para saquear, luchar y abrirte paso en los Reinos Olvidados y más allá. Lanza los dados y saca provecho de una tirada ventajosa o desventajosa con un combate táctico y fluido.\n\nEl destino de los Reinos Olvidados está en tus manos.', 'baldursGate3-portada.jpg', NULL, 1, 21, 1, '2023-08-03', 'Windows, macOS, PlayStation 5', '59.99', 'banner2-Baldurs.jpg', 'baldursGate3-img1.jpg', 'baldursGate3-img2.jpg', 'baldursGate3-img3.jpg', 'baldursGate3-img4.jpg', 'Deja tu marca en los Reinos Olvidados en esta aventura cinemática por turnos al mejor estilo de Calabozos y Dragones.', 'Baldur´s Gate', 'baldursGate3-cover.jpg', 'Juego online opcional', '1-2 jugadores'),
-('Turtle’s Treasures', 'Emulador', 'Disponible', 'Embárcate en una aventura pixelada llena de calma, curiosidad y pequeñas sorpresas escondidas bajo la tierra. En Turtle’s Treasures, acompañás a una tortuga exploradora cuyo único objetivo es excavar cada vez más profundo para descubrir minerales raros, restos misteriosos, reliquias antiguas… o simplemente cosas raras que alguien dejó enterradas hace siglos.\r\n\r\nA medida que avanzás hacia las capas más oscuras del subsuelo, tu tortuga no solo encuentra tesoros: evoluciona. Mejora su caparazón, desarrolla nuevas habilidades y se vuelve más resistente al terreno, permitiendo excavar cada vez más lejos en busca de riquezas ocultas. Es un viaje tranquilo, sin enemigos, sin presión y sin relojes persiguiéndote. Solo vos, la tierra, y la satisfacción de ver qué aparece cuando das un golpe más.\r\n\r\nCon un diseño encantador en pixel art, Turtle’s Treasures ofrece una experiencia relajante perfecta para desconectarte unos minutos… o perderte durante horas en un bucle de exploración suave y adictivo.', 'Banner1-Turtle.jpg', NULL, 1, 27, 1, '2025-11-25', 'Emulador', '5.00', 'banner2-Turtle.jpg', 'Turtle-img1.png', 'Turtle-img2.png', 'Turtle-img3.png', 'Turtle-img4.png', 'Turtle’s Treasures – ¡Cava, evoluciona y descubre los secretos del subsuelo!', '', 'Turtle-Portada.jpg', 'Juego offline', '1 jugador');
+('Turtle’s Treasures', 'Emulador', 'Disponible', 'Embárcate en una aventura pixelada llena de calma, curiosidad y pequeñas sorpresas escondidas bajo la tierra. En Turtle’s Treasures, acompañás a una tortuga exploradora cuyo único objetivo es excavar cada vez más profundo para descubrir minerales raros, restos misteriosos, reliquias antiguas… o simplemente cosas raras que alguien dejó enterradas hace siglos.\r\n\r\nA medida que avanzás hacia las capas más oscuras del subsuelo, tu tortuga no solo encuentra tesoros: evoluciona. Mejora su caparazón, desarrolla nuevas habilidades y se vuelve más resistente al terreno, permitiendo excavar cada vez más lejos en busca de riquezas ocultas. Es un viaje tranquilo, sin enemigos, sin presión y sin relojes persiguiéndote. Solo vos, la tierra, y la satisfacción de ver qué aparece cuando das un golpe más.\r\n\r\nCon un diseño encantador en pixel art, Turtle’s Treasures ofrece una experiencia relajante perfecta para desconectarte unos minutos… o perderte durante horas en un bucle de exploración suave y adictivo.', 'Banner1-Turtle.jpg', NULL, 1, 27, 1, '2025-11-25', 'Emulador', '5.00', 'banner2-Turtle.jpg', 'Turtle-img1.png', 'Turtle-img2.png', 'Turtle-img3.png', 'Turtle-img4.png', 'Turtle’s Treasures – ¡Cava, evoluciona y descubre los secretos del subsuelo!', '', 'Turtle-Portada.jpg', 'Juego offline', '1 jugador'),
+('Friday Night Funkin\'', 'Emulador', 'Disponible', 'Friday Night Funkin’ (FNF) es un juego de ritmo en el que el jugador controla a Boyfriend, un joven que quiere impresionar a Girlfriend ganando batallas de rap musicales. Para ello, debe presionar las flechas en el momento justo siguiendo las notas que aparecen en pantalla y mantener el ritmo mejor que su oponente.\n\nEl juego se divide en “semanas”, cada una con varios temas musicales y un adversario distinto, desde personajes clásicos como Daddy Dearest y Pico hasta rivales más peculiares o sobrenaturales. Su estilo visual retro, sus canciones pegadizas y la gran cantidad de mods creados por la comunidad han hecho que FNF sea un juego muy popular y en constante expansión.', 'Fnf-banner1.jpg', NULL, 1, 31, 1, '2025-11-25', 'Emulador', '2.00', 'Fnf-banner2.jpg', 'Fnf-Img1.jpg', 'Fnf-Img2.jpg', 'Fnf-Img3.jpg', 'Fnf-Img4.jpg', '¡Diviertete con las teclas!', '', 'Fnf-Cover.jpg', 'Juego offline', '1 jugador'),
+('Fossil quest', 'Emulador', 'Disponible', 'Fossil Quest es un simulador de vida acogedor y relajado centrado en la exploración y excavación de fósiles. En este juego tomas el papel de un entusiasta de la paleontología que siempre soñó con crear su propio museo de dinosaurios, y ahora por fin tiene el espacio y la libertad para hacerlo realidad.\r\n\r\nExplora distintos terrenos, excava con cuidado para desenterrar restos prehistóricos y reúne piezas únicas para reconstruir esqueletos impresionantes. A medida que avanzas, podrás organizar tus descubrimientos en exhibiciones, decorar el museo a tu gusto y atraer visitantes curiosos que quieran aprender sobre las criaturas que habitaron la Tierra hace millones de años. Es una experiencia tranquila y creativa pensada para quienes disfrutan descubrir, coleccionar y construir a su propio ritmo.', 'Fosil-Banner1.jpg', NULL, 1, 32, 1, '2025-11-25', 'Emulador', '2.00', 'Fossil-Banner2.jpg', 'FossilQuest-img1.jpg', 'FossilQuest-img2.jpg', 'FossilQuest-img3.jpg', 'FossilQuest-img4.jpg', 'Explora, excava y da vida a tu museo de dinosaurios.', '', 'FossilQuest-cover.jpg', 'Juego offline', '1 jugador'),
+('Gun Mission', 'Emulador', 'Disponible', 'GunMission es un juego arcade de desplazamiento lateral que captura la esencia de los clásicos como Contra y Rolling Thunder. Enfréntate a oleadas de enemigos mientras avanzas a través de niveles llenos de plataformas, disparos y desafíos rápidos. Equípate con diferentes armas, esquiva ataques letales y derrota a jefes poderosos en una experiencia frenética que combina nostalgia y adrenalina en cada misión.', 'GunMission-Banner1.jpg', NULL, 1, 33, 1, '2025-11-25', 'Emulador', '5.00', 'GunMission-Banner2.jpg', 'GunMission-img2.jpg', 'GunMission-img1.jpg', 'GunMission-img4.jpg', 'GunMission-img3.jpg', 'Acción explosiva al estilo arcade clásico', '', 'GunMission-cover.jpg', 'Juego offline', '1 jugador');
 
 -- --------------------------------------------------------
 
@@ -208,7 +212,8 @@ CREATE TABLE `game_ratings` (
 --
 
 INSERT INTO `game_ratings` (`id`, `idGame`, `rating`, `created_at`, `idUser`) VALUES
-(212, 21, 2, NULL, 1);
+(212, 21, 2, NULL, 1),
+(213, 13, 5, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -235,7 +240,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`, `birthday`, `gender`, `money`, `coins`) VALUES
-('a', 'amydelgado88@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 250, 10),
+('a', 'amydelgado88@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 248, 11),
 ('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png', '1900-01-01', 'indefinido', 50, 0),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
@@ -264,7 +269,8 @@ INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`) VALUES
 (1, 10, '2025-11-25 00:23:29'),
 (1, 13, '2025-11-25 00:23:29'),
 (1, 15, '2025-11-25 00:31:19'),
-(1, 19, '2025-11-25 00:31:01');
+(1, 19, '2025-11-25 00:31:01'),
+(1, 31, '2025-11-25 13:28:25');
 
 --
 -- Índices para tablas volcadas
@@ -337,7 +343,7 @@ ALTER TABLE `user_game`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `idCommentary` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `comment_votes`
@@ -355,13 +361,13 @@ ALTER TABLE `edition`
 -- AUTO_INCREMENT de la tabla `game`
 --
 ALTER TABLE `game`
-  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `game_ratings`
 --
 ALTER TABLE `game_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
