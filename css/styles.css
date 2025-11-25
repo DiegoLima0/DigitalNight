@@ -950,6 +950,15 @@ form input[type="submit"]:hover {
     display: flex;
 }
 
+.cargar-mas{
+    padding: 10px;
+    border-radius: 7px;
+}
+
+#secciones .btnVioletaDifuminado:hover{
+    transform: translateY(-6px);
+}
+
 .juego,
 .juegoCreado {
     width: 60%;
@@ -4870,7 +4879,21 @@ td .botones{
     justify-content: center;
 }
 
-#mainGestion>div, #mainGestion ul{
+#mainGestion>div{
+    width: 60%;
+    background: linear-gradient(#21317a38, #4e356e3b);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.411);
+}
+
+.rowForm{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.rowForm div{
     width: 50%;
 }
 

@@ -23,6 +23,10 @@
             color: #721c24;
             border-color: #f5c6cb;
         }
+
+        h1{
+            font-size: 35px;
+        }
     </style>
 </head>
 

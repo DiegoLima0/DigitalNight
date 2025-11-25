@@ -99,7 +99,7 @@ require_once 'includes/header.php';
                 <?php endif; ?>
                 
                 <?php if (isset($has_more_creados) && $has_more_creados): ?>
-                    <button class="boton-base btnGris cargar-mas" data-target="juegosCreados">Cargar Más</button>
+                    <button class="btnVioletaDifuminado cargar-mas" data-target="juegosCreados">Cargar Más</button>
                 <?php endif; ?>
             </div>
 
@@ -130,7 +130,7 @@ require_once 'includes/header.php';
                 <?php endif; ?>
                 
                 <?php if (isset($has_more_adquiridos) && $has_more_adquiridos): ?>
-                    <button class="boton-base btnGris cargar-mas" data-target="juegos">Cargar Más</button>
+                    <button class="btnVioletaDifuminado cargar-mas" data-target="juegos">Cargar Más</button>
                 <?php endif; ?>
             </div>
 
