@@ -125,13 +125,6 @@
         </section>
 
         <h2 class="section-title">Recomendados para ti</h2>
-
-        <div class="filters" role="tablist">
-            <a href="#"><button class="filter-btn" data-filter="aventura">Aventura</button></a>
-            <a href="#slider-1"><button class="filter-btn" data-filter="rpg">Rol / RPG</button></a>
-            <a href="#slider-1"><button class="filter-btn" data-filter="estrategia">Estrategia</button></a>
-            <a href="#slider-1"><button class="filter-btn" data-filter="accion">Accion</button></a>
-        </div>
     
         <section class="grid" id="productGrid" aria-label="lista de productos">
             <?php 

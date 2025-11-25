@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2025 a las 22:05:49
+-- Tiempo de generación: 25-11-2025 a las 02:15:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -201,8 +201,20 @@ CREATE TABLE `game_ratings` (
   `id` int(11) NOT NULL,
   `idGame` int(10) UNSIGNED NOT NULL,
   `rating` int(11) NOT NULL,
-  `created_at` datetime DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `game_ratings`
+--
+
+INSERT INTO `game_ratings` (`id`, `idGame`, `rating`, `created_at`, `idUser`) VALUES
+(178, 24, 5, NULL, 0),
+(183, 21, 3, NULL, 0),
+(184, 19, 2, NULL, 0),
+(200, 24, 1, NULL, 2),
+(210, 24, 1, NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -229,7 +241,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`, `birthday`, `gender`, `money`, `coins`) VALUES
-('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', 'masculino', 40, 4),
+('a', 'a@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 0, 6),
 ('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png', '1900-01-01', 'indefinido', 50, 0),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
@@ -255,9 +267,7 @@ CREATE TABLE `user_game` (
 --
 
 INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`) VALUES
-(1, 12, '2025-11-02 17:37:15'),
-(1, 21, '2025-11-24 17:11:43'),
-(1, 24, '2025-11-23 17:44:31');
+(1, 20, '2025-11-24 19:08:15');
 
 --
 -- Índices para tablas volcadas
@@ -304,6 +314,8 @@ ALTER TABLE `game`
 --
 ALTER TABLE `game_ratings`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_user_vote` (`idUser`,`idGame`),
+  ADD UNIQUE KEY `unique_vote` (`idGame`,`idUser`),
   ADD KEY `idGame` (`idGame`);
 
 --
@@ -352,7 +364,7 @@ ALTER TABLE `game`
 -- AUTO_INCREMENT de la tabla `game_ratings`
 --
 ALTER TABLE `game_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT de la tabla `user`

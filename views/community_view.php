@@ -73,6 +73,10 @@
                 <input type="hidden" name="action" value="post_community_publication">
                 <input type="hidden" name="idGame" value="<?php echo htmlspecialchars($game_id); ?>">
 
+                <?php 
+                    $current_username = $current_username ?? 'Usuario'; 
+                ?>
+                
                 <div id="imgUsComunidad">
                     <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
                     <p>@<?php echo htmlspecialchars($current_username); ?></p>

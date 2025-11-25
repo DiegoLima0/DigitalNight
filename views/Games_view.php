@@ -1,3 +1,43 @@
+<?php
+require_once "includes/database.php";
+
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+$stmt = $conexion->prepare("
+    SELECT AVG(rating) AS avg_rating, COUNT(*) AS total_votes
+    FROM game_ratings
+    WHERE idGame = ?
+");
+$stmt->bind_param("i", $game_data['idGame']);
+$stmt->execute();
+$result = $stmt->get_result()->fetch_assoc();
+
+$initialAverage = round(floatval($result['avg_rating'] ?? 0), 2);
+$initialCount = intval($result['total_votes'] ?? 0);
+
+$userRating = 0;
+
+if (isset($_SESSION['user_id'])) {
+
+  $stmtUser = $conexion->prepare("
+        SELECT rating
+        FROM game_ratings
+        WHERE idGame = ? AND idUser = ?
+        LIMIT 1
+    ");
+
+  $stmtUser->bind_param("ii", $game_data['idGame'], $_SESSION['user_id']);
+  $stmtUser->execute();
+  $rowRating = $stmtUser->get_result()->fetch_assoc();
+
+  if ($rowRating) {
+    $userRating = intval($rowRating['rating']);
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,7 +58,7 @@
           <h1 class="title"><?php echo $game_data['title']; ?></h1>
           <div class="Calificacion-Games">
             <i class="bi bi-star-fill"></i>
-            <p>7.5</p>
+            <p><?php echo $initialAverage; ?></p>
           </div>
           <p class="plataformas-games-interior">Disponible para <?php echo $game_data['platforms']; ?></p>
           <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
@@ -149,17 +189,18 @@
             <h2>Reseñas</h2>
 
             <div class="rating-box">
-              <div class="stars rating-stars">
+              <div class="stars rating-stars" data-idGame="<?php echo $game_data['idGame']; ?>"
+                data-user-rating="<?php echo $userRating; ?>">
                 <i class="bi bi-star" data-value="1"></i>
                 <i class="bi bi-star" data-value="2"></i>
                 <i class="bi bi-star" data-value="3"></i>
                 <i class="bi bi-star" data-value="4"></i>
                 <i class="bi bi-star" data-value="5"></i>
               </div>
-              <span class="score">7.5/5</span>
+              <span class="score"><?php echo $initialAverage; ?>/5</span>
             </div>
 
-            <p class="count">1.230 Reseñas de usuarios</p>
+            <p class="count"><?php echo $initialCount; ?> Reseñas de usuarios</p>
           </div>
         </aside>
 
@@ -368,36 +409,82 @@
 
     document.addEventListener("DOMContentLoaded", () => {
 
-      const stars = document.querySelectorAll('.rating-stars i');
+      const starsContainer = document.querySelector(".rating-stars");
+      if (!starsContainer) return;
 
-      console.log("ESTRELLAS ENCONTRADAS:", stars.length);
+      const stars = document.querySelectorAll(".rating-stars i");
+      const idGame = starsContainer.dataset.idgame;
+      let savedRating = parseInt(starsContainer.dataset.userRating ?? 0);
 
-      if (stars.length === 0) return;
+      function paintSavedStars() {
+        stars.forEach(star => {
+          const value = parseInt(star.dataset.value);
+          if (value <= savedRating) {
+            star.classList.add("bi-star-fill");
+            star.classList.remove("bi-star");
+          } else {
+            star.classList.remove("bi-star-fill");
+            star.classList.add("bi-star");
+          }
+        });
+      }
+
+      paintSavedStars();
 
       stars.forEach(star => {
-        star.addEventListener('mouseover', function () {
-          const val = this.dataset.value;
+        star.addEventListener("mouseover", function () {
+          const hoverValue = parseInt(this.dataset.value);
 
           stars.forEach(s => {
-            if (s.dataset.value <= val) {
-              s.classList.remove('bi-star');
-              s.classList.add('bi-star-fill');
+            const val = parseInt(s.dataset.value);
+            if (val <= hoverValue) {
+              s.classList.add("bi-star-fill");
+              s.classList.remove("bi-star");
             } else {
-              s.classList.remove('bi-star-fill');
-              s.classList.add('bi-star');
+              s.classList.add("bi-star");
+              s.classList.remove("bi-star-fill");
             }
           });
         });
       });
 
-      document.querySelector('.rating-stars').addEventListener('mouseleave', function () {
-        stars.forEach(s => {
-          s.classList.remove('bi-star-fill');
-          s.classList.add('bi-star');
+      starsContainer.addEventListener("mouseleave", () => {
+        paintSavedStars();
+      });
+
+      stars.forEach(star => {
+        star.addEventListener("click", function () {
+          const value = parseInt(this.dataset.value);
+          savedRating = value;
+          paintSavedStars();
+
+          fetch("rate.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              idGame: idGame,
+              rating: value
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+
+              if (data.status === "success") {
+                document.querySelector(".score").innerText =
+                  `${data.newAverage}/5`;
+
+                document.querySelector(".count").innerText =
+                  `${data.newCount} Reseñas de usuarios`;
+              } else {
+                console.error("Error al guardar:", data.message);
+              }
+            })
+            .catch(err => console.error("Fallo fetch:", err));
         });
       });
 
     });
+
 
   </script>
 </body>
