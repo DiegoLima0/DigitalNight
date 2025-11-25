@@ -86,7 +86,7 @@
                                                 value="<?php echo htmlspecialchars($usuario['password'] ?? ''); ?>" 
                                                 style="width: 100%;"></td> 
 
-                                        <td class="botones">
+                                        <td class="botonesUser">
                                             <button type="submit" name="submit_update" class="btn violetaClaro">Editar</button>
 
                                     </form>

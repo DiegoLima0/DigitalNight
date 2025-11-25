@@ -4887,6 +4887,14 @@ iframe {
     color: white;
 }
 
+.botonesUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    height: fit-content;
+}
+
 .tabla th {
     background: #555eaa86;
 }
