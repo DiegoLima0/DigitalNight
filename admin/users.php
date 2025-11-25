@@ -15,9 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 
     $user_id_to_delete = (int)$_POST['idUser'];
     
-    // Evitar que un admin se borre a sí mismo
+    // 1. Verificar el tipo de usuario a eliminar
+    $sql_check_type = "SELECT type FROM user WHERE idUser = $user_id_to_delete";
+    $result_check_type = $conexion->query($sql_check_type);
+    $user_to_delete_type = 'user'; 
+    if ($result_check_type->num_rows > 0) {
+        $user_to_delete_type = $result_check_type->fetch_assoc()['type'];
+    }
+
+    // Restricción: No se puede eliminar administradores
     if ($user_id_to_delete == ($_SESSION['user_id'] ?? 0)) {
         $mensaje = "Error: No puedes eliminar tu propia cuenta de administrador.";
+    } elseif ($user_to_delete_type === 'admin') { 
+        $mensaje = "Error: No se permite eliminar usuarios con rol 'admin'.";
     } else {
         $sql_delete = "DELETE FROM user WHERE idUser = $user_id_to_delete";
         
@@ -34,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'update_user') {
 
     $user_id_to_update = (int) $_POST['idUser'];
+    $session_user_id = $_SESSION['user_id'] ?? 0;
+
     $new_username = $conexion->real_escape_string($_POST['userName']);
     $new_email = $conexion->real_escape_string($_POST['email']);
 
@@ -41,15 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     $new_user_type = $conexion->real_escape_string($_POST['type']);
 
     $password_update = "";
-    if (!empty($_POST['password'])) {
-        $new_password = $conexion->real_escape_string($_POST['password']);
-        $password_update = ", password = '$new_password'";
+    if (isset($_POST['password'])) {
+        $raw_password = $conexion->real_escape_string($_POST['password']); 
+        $password_update = ", password = '$raw_password'"; 
     }
 
     $sql_update = "UPDATE user SET userName = '$new_username', email = '$new_email', description = '$new_description', type = '$new_user_type' {$password_update} WHERE idUser = $user_id_to_update";
 
     if ($conexion->query($sql_update) === TRUE) {
-        if ($user_id_to_update == ($_SESSION['idUser'] ?? 0)) {
+        if ($user_id_to_update == $session_user_id) {
             $_SESSION['userName'] = $new_username;
             $_SESSION['email'] = $new_email;
             $_SESSION['description'] = $new_description;
@@ -64,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 }
 
 // READ
-$sql_users = "SELECT idUser, userName, email, profile_picture, description, type FROM user";
+$sql_users = "SELECT idUser, userName, email, profile_picture, description, type, password FROM user";
 $resultado_users = $conexion->query($sql_users);
 $usuarios = [];
 if ($resultado_users->num_rows > 0) {

@@ -50,6 +50,7 @@
                             <th>Email</th>
                             <th>Descripción</th>
                             <th>Rol (Type)</th>
+                            <th>Contraseña</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -80,6 +81,10 @@
                                                     Admin</option>
                                             </select>
                                         </td>
+                                        
+                                        <td><input type="text" name="password" 
+                                                value="<?php echo htmlspecialchars($usuario['password'] ?? ''); ?>" 
+                                                style="width: 100%;"></td> 
 
                                         <td class="botones">
                                             <button type="submit" name="submit_update" class="btn violetaClaro">Editar</button>
