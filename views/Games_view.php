@@ -127,11 +127,22 @@ if (isset($_SESSION['user_id'])) {
                   style="display:inline-block; padding:10px 40px; margin-bottom:10px; text-align:center;">
                   Jugar
                 </a>
+
+                <a href="show_game.php?idGame=<?php echo $game_id; ?>" class="<?php echo $oculto; ?>"
+                  style="padding:10px 40px; margin-bottom:10px; text-align:center;">
+                  <?php echo $ocultado;?>
+                </a>
+
               <?php else: ?>
                 <a href="#" onclick="alert('Tu dispositivo no es compatible con este juego'); return false;"
                   class="boton-añadirCarrito"
                   style="display:inline-block; padding:10px 40px; margin-bottom:10px; text-align:center;">
                   Jugar
+
+                  <a href="show_game.php?idGame=<?php echo $game_id; ?>" class="<?php echo $oculto; ?>"
+                  style="padding:10px 40px; margin-bottom:10px; text-align:center;">
+                  <?php echo $ocultado;?>
+                  </a>
                 </a>
               <?php endif; ?>
 

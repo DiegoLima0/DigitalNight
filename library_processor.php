@@ -14,7 +14,8 @@ $sql_select_games = "
   SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
   FROM user_game 
   JOIN game ON user_game.idGame = game.idGame
-  WHERE user_game.idUser = $idUser
+  WHERE user_game.idUser = $idUser 
+  AND user_game.visible=1
   ORDER BY user_game.purchaseDate DESC
 ";
 
@@ -33,7 +34,8 @@ $sql_select_recent_games = "
   SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
   FROM user_game
   JOIN game ON user_game.idGame = game.idGame
-  WHERE user_game.idUser = $idUser
+  WHERE user_game.idUser = $idUser 
+  AND user_game.visible=1
   ORDER BY user_game.purchaseDate DESC
   LIMIT 2;
 ";
@@ -119,5 +121,32 @@ if ($result_other_games && $result_other_games->num_rows > 0) {
     while ($game = $result_other_games->fetch_assoc()) {
         $other_games[] = $game;
     }
+}
+
+$hidden_games = [];
+
+$sql_select_hidden = "
+  SELECT game.idGame, game.title, game.price, game.cover_image AS imagen
+  FROM user_game 
+  JOIN game ON user_game.idGame = game.idGame
+  WHERE user_game.idUser = $idUser 
+    AND user_game.visible = 0
+  ORDER BY user_game.purchaseDate DESC
+";
+
+$result_hidden = $conexion->query($sql_select_hidden);
+
+if ($result_hidden && $result_hidden->num_rows > 0) {
+    while ($game_data = $result_hidden->fetch_assoc()) {
+        $hidden_games[] = $game_data;
+    }
+}
+
+if (count($hidden_games) > 0) {
+    // El usuario tiene juegos ocultos
+    $m_ocultos = "Tus juegos ocultos";
+} else {
+    // El usuario no tiene juegos ocultos
+    $m_ocultos = "No tienes juegos ocultos";
 }
 ?>

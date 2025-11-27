@@ -31,7 +31,7 @@
                       Ver juego
                     </a>
 
-                    <a href="">
+                    <a href="hide_game.php?idGame=<?php echo $game['idGame']; ?>">
                       <i class="bi bi-eye-slash"></i>
                       Ocultar
                     </a>
@@ -107,6 +107,26 @@
               ?>
                   <a href="games.php?idGame=<?php echo $games_list['idGame']; ?>" class="recuadro-juego">
                     <img src="img/<?php echo $games_list['imagen']; ?>" alt="Juego">
+                  </a>
+                <?php
+                endforeach;
+              else:
+                ?>
+                <p>No hay otros juegos.</p>
+              <?php endif; ?>
+            </div>
+          </section>
+
+          <section class="seccion-juegos">
+            <h3><?php echo $m_ocultos; ?></h3>
+
+            <div class="rejilla-juegos">
+              <?php
+              if (isset($hidden_games) && is_array($hidden_games)):
+                foreach ($hidden_games as $hidden_games):
+              ?>
+                  <a href="games.php?idGame=<?php echo $hidden_games['idGame']; ?>" class="recuadro-juego">
+                    <img src="img/<?php echo $hidden_games['imagen']; ?>" alt="Juego">
                   </a>
                 <?php
                 endforeach;

@@ -2,7 +2,10 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 require_once 'includes/database.php';
+
+$idUser = $_SESSION['user_id'];
 
 $game_id = isset($_GET['idGame']) ? (int) $_GET['idGame'] : null;
 $current_user_id = $_SESSION['user_id'] ?? null;
@@ -15,6 +18,25 @@ $editions_list = [];
 $id_creator = null;
 
 if ($game_id) {
+
+    $sql_game_hidden = "SELECT 1
+    FROM user_game
+    WHERE idGame = $game_id AND idUser = $idUser
+    AND visible = 0";
+
+    $result_hidden = $conexion->query($sql_game_hidden);
+
+    if ($result_hidden && $result_hidden->num_rows > 0) {
+        // El juego está oculto
+        $oculto = "boton-añadirCarrito"; // clase para mostrar el botón de desocultar
+        $ocultado="Desocultar";
+    }   
+    else {
+        // El juego no está oculto
+        $oculto = "borrar"; // clase para ocultar el enlace o estilizarlo distinto
+        $ocultado="";
+    }
+
     $sql_game_detail = "SELECT 
         g.idGame, 
         g.title, 

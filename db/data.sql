@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2025 a las 18:47:47
+-- Tiempo de generación: 27-11-2025 a las 18:10:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -249,7 +249,8 @@ INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `descript
 ('cuentanueva', 'nueva@gmail.com', 'nueva', 5, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
 ('idk', 'idk@gmail.com', 'idk', 6, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
 ('admin', 'admin@gmail.com', 'Type_shit', 7, 'admin', 'Cuenta principal de administrador', 'default.png', '1900-01-01', 'indefinido', 50, 0),
-('admin2', 'admin2@gmail.com', 'admin', 8, 'admin', '', 'default.png', '1900-01-01', 'indefinido', 50, 0);
+('admin2', 'admin2@gmail.com', 'admin', 8, 'admin', '', 'default.png', '1900-01-01', 'indefinido', 50, 0),
+('d', 'd@gmail.com', 'd', 9, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 33, 3);
 
 -- --------------------------------------------------------
 
@@ -260,19 +261,23 @@ INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `descript
 CREATE TABLE `user_game` (
   `idUser` int(11) NOT NULL,
   `idGame` int(10) UNSIGNED NOT NULL,
-  `purchaseDate` datetime DEFAULT current_timestamp()
+  `purchaseDate` datetime DEFAULT current_timestamp(),
+  `visible` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `user_game`
 --
 
-INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`) VALUES
-(1, 10, '2025-11-25 00:23:29'),
-(1, 13, '2025-11-25 00:23:29'),
-(1, 15, '2025-11-25 00:31:19'),
-(1, 19, '2025-11-25 00:31:01'),
-(1, 31, '2025-11-25 13:28:25');
+INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`, `visible`) VALUES
+(1, 10, '2025-11-25 00:23:29', 1),
+(1, 13, '2025-11-25 00:23:29', 1),
+(1, 15, '2025-11-25 00:31:19', 1),
+(1, 19, '2025-11-25 00:31:01', 1),
+(1, 31, '2025-11-25 13:28:25', 1),
+(9, 12, '2025-11-27 14:08:00', 1),
+(9, 31, '2025-11-27 13:13:40', 1),
+(9, 33, '2025-11-27 13:13:40', 1);
 
 --
 -- Índices para tablas volcadas
@@ -375,7 +380,7 @@ ALTER TABLE `game_ratings`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
