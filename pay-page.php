@@ -8,5 +8,6 @@
   }
 
   $section="views/pay-page";
+  require_once "pay-page_processor.php";
   require_once "views/layout.php";
 ?>

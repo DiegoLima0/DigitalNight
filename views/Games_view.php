@@ -231,12 +231,11 @@ if (isset($_SESSION['user_id'])) {
                   ?>
                 </p>
 
-                <form method="POST" action="buy.php" style="margin-top: 15px;">
-                  <input type="hidden" name="idGame" value="<?php echo htmlspecialchars($game_data['idGame']); ?>">
-                  <input type="hidden" name="idEdition" value="<?php echo htmlspecialchars($edition['idEdition']); ?>">
-                  <button type="submit" class="boton-añadirCarrito">
-                    Añadir al carrito
-                  </button>
+                <form method="POST" action="add_to_cart.php">
+                  <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
+                  <input type="hidden" name="idEdition" value="<?php echo $edition['idEdition']; ?>">
+                  <input type="hidden" name="precioEdicion" value="<?php echo $edition['price']; ?>">
+                  <button type="submit" class="boton-añadirCarrito" >Añadir al carrito</button>
                 </form>
               </div>
             </div>

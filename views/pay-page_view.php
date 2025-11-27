@@ -122,7 +122,7 @@
       color: var(--fm-subtext);
     ">
       Cantidad de puntos Digital Night:
-      <strong style="color:white;">0</strong>
+      <strong style="color:white;"><?php echo $coins; ?></strong>
     </p>
   </div>
 </details>

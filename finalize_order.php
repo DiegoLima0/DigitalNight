@@ -34,7 +34,10 @@ if ($saldoActual < $total) {
 
 // Actualizar saldo y coins en la base de datos
 $nuevoSaldo = $saldoActual - $total;
-$nuevosCoins = $coinsActual + count($carrito); // ejemplo: 1 coin por cada juego
+
+// Calcular coins como el 10% del total gastado
+$coinsGanados = round($total * 0.10); // redondea hacia abajo, podés usar round() si preferís
+$nuevosCoins = $coinsActual + $coinsGanados;
 
 $updateSql = "UPDATE user SET money = ?, coins = ? WHERE idUser = ?";
 $updateStmt = $conexion->prepare($updateSql);
