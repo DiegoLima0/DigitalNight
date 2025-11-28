@@ -20,7 +20,7 @@ $return_url = $game_id !== null ? "games.php?idGame=" . $game_id : "shop.php";
             </a>
         </div>
         <iframe
-            src="https://html-classic.itch.zone/html/15663145/index.html" 
+            src="https://html-classic.itch.zone/html/15640002/web/index.html" 
             allow="fullscreen">
         </iframe>
 

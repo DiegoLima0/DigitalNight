@@ -4706,6 +4706,7 @@ body.biblioteca {
 #emulador-main {
     position: relative;
     background-color: black;
+    height: 20000px;
 }
 
 #volverJuego {

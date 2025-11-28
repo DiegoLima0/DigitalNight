@@ -14,34 +14,20 @@ $scaled_height = $original_height * $scale_factor;
 <script src="js/ruffle/ruffle.js"></script>
 
 <style>
-    #emulador-main {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 20px;
-    }
-
-    #volverJuego { 
-        margin-bottom: 20px; 
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #volverJuego a { 
-        text-decoration: none; 
-        font-size: 18px; 
-        color: #007bff;
-    }
-    .bi-arrow-left-short { margin-right: 5px; } 
-
     #ruffle_player { 
         width: <?php echo $scaled_width; ?>px; 
-        height: <?php echo $scaled_height; ?>px; 
+        height: 99%; 
         border: 2px solid #333; 
         box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
     }
 </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugar</title>
+</head>
 
 <main id="emulador-main">
     <div id="volverJuego">
