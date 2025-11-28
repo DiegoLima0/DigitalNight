@@ -2,15 +2,17 @@
 $game_id = isset($_GET['idGame']) ? (int) $_GET['idGame'] : null;
 $return_url = $game_id !== null ? "games.php?idGame=" . $game_id : "shop.php";
 
+//escala del juego
 $original_width = 550;
 $original_height = 380;
-$scale_factor = 1.5; 
+$scale_factor = 1.3; 
 
 $scaled_width = $original_width * $scale_factor;
 $scaled_height = $original_height * $scale_factor;
 ?>
 
-<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script src="js/ruffle/ruffle.js"></script>
+
 <style>
     #emulador-main {
         display: flex;
