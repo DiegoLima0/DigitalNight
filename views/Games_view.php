@@ -101,9 +101,14 @@ if (isset($_SESSION['user_id'])) {
                 30 => 'tomato.php',
                 31 => 'fnf.php',
                 32 => 'fossil.php',
-                33 => 'gunsmision.php',
                 34 => 'polytrack.php',
                 35 => 'bad_ice_cream.php',
+                36 => 'mario_minigames.php',
+                37 => 'mario_online.php',
+                38 => 'sushi_gun.php',
+                39 => 'zombotron.php',
+                40 => 'decade_castle.php',
+                41 => 'exhibit_of_sorrows.php',
               ];
 
               $game_id_int = (int) $game_data['idGame'];
@@ -303,14 +308,17 @@ if (isset($_SESSION['user_id'])) {
 
               <div class="contenido">
                 <div class="publicar">
-                  <textarea name="content" placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?" rows="6" required></textarea>
+                  <textarea name="content" placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?"
+                    rows="6" required></textarea>
 
                   <div>
                     <label for="post_image_game" class="btn azul">
                       <i class="bi bi-image"></i> Seleccionar imagen
                     </label>
 
-                    <input type="file" name="publication_image" id="post_image_game" accept="image/*" onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name" style="display:none;">
+                    <input type="file" name="publication_image" id="post_image_game" accept="image/*"
+                      onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name"
+                      style="display:none;">
 
                     <span id="file-name-display-game" class="file-name-display">
                       Ningún archivo seleccionado.
@@ -333,7 +341,8 @@ if (isset($_SESSION['user_id'])) {
                 <div class="publicacionCreador">
 
                   <div id="imgUsComunidad">
-                    <img src="img/profiles/<?php echo htmlspecialchars($comment['profile_image_path']); ?>" alt="Perfil de usuario">
+                    <img src="img/profiles/<?php echo htmlspecialchars($comment['profile_image_path']); ?>"
+                      alt="Perfil de usuario">
 
                     <p>@<?php echo htmlspecialchars($comment['username']); ?></p>
                   </div>
@@ -412,7 +421,7 @@ if (isset($_SESSION['user_id'])) {
 
   </section>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const postsContainer = document.getElementById('publicacionesCreador');
       const loadMoreButton = document.querySelector('.more-btn');
       const postsPerLoad = 4;
@@ -422,7 +431,7 @@ if (isset($_SESSION['user_id'])) {
       }
 
       if (loadMoreButton) {
-        loadMoreButton.addEventListener('click', function(e) {
+        loadMoreButton.addEventListener('click', function (e) {
           e.preventDefault();
 
           const offset = parseInt(postsContainer.getAttribute('data-offset'));
@@ -527,7 +536,7 @@ if (isset($_SESSION['user_id'])) {
       paintSavedStars();
 
       stars.forEach(star => {
-        star.addEventListener("mouseover", function() {
+        star.addEventListener("mouseover", function () {
           const hoverValue = parseInt(this.dataset.value);
 
           stars.forEach(s => {
@@ -548,21 +557,21 @@ if (isset($_SESSION['user_id'])) {
       });
 
       stars.forEach(star => {
-        star.addEventListener("click", function() {
+        star.addEventListener("click", function () {
           const value = parseInt(this.dataset.value);
           savedRating = value;
           paintSavedStars();
 
           fetch("rate.php", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                idGame: idGame,
-                rating: value
-              })
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              idGame: idGame,
+              rating: value
             })
+          })
             .then(res => res.json())
             .then(data => {
 
