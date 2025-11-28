@@ -193,7 +193,7 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
-              <img src="../img/integrante.jpg" alt="Diego Lima">
+              <img src="img/Admins/Diego-Lima.jpeg" alt="Diego Lima">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('luciano')">
@@ -215,7 +215,7 @@
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
-              <img src="../img/integrante.jpg" alt="Diego Lima">
+              <img src="img/Admins/Diego-Lima.jpeg" alt="Diego Lima">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('luciano')">
@@ -235,7 +235,7 @@
 
       <div id="Miembros">
         <div class="tarjetaMiembro" id="diego">
-          <img src="img/integrante.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Admins/Diego-Lima.jpeg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Diego Lima</h3>

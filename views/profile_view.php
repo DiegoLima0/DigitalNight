@@ -79,7 +79,9 @@ require_once 'includes/header.php';
                 <?php if (!empty($juegos_creados)): ?>
                     <?php foreach ($juegos_creados as $index => $juego): ?>
                         <div class="juego <?php echo $index >= 5 ? 'js-hidden-item' : ''; ?>">
+                            <a href="games.php?idGame=<?php echo htmlspecialchars($juego['idGame']); ?>">
                             <img src="img/<?php echo htmlspecialchars($juego['cover_image'] ?? 'default_cover.png'); ?>" alt="Imagen de portada de <?php echo htmlspecialchars($juego['title']); ?>">
+                            </a>
 
                             <div class="infoJuego">
                                 <strong><?php echo htmlspecialchars($juego['title']); ?></strong>
@@ -88,8 +90,6 @@ require_once 'includes/header.php';
                                     <p>Plataforma: <?php echo htmlspecialchars($juego['platforms']); ?> <br>
                                         Genero: <?php echo htmlspecialchars($juego['genre']); ?>
                                     </p>
-
-                                    <button class="btn btnVioletaDifuminado">Comprar</button> 
                                 </div>
                             </div>
                         </div>
@@ -107,8 +107,9 @@ require_once 'includes/header.php';
                 <?php if (!empty($juegos_adquiridos)): ?>
                     <?php foreach ($juegos_adquiridos as $index => $juego): ?>
                         <div class="juego <?php echo $index >= 5 ? 'js-hidden-item' : ''; ?>">
+                            <a href="games.php?idGame=<?php echo htmlspecialchars($juego['idGame']); ?>">
                             <img src="img/<?php echo htmlspecialchars($juego['cover_image'] ?? 'default_cover.png'); ?>" alt="Imagen de portada de <?php echo htmlspecialchars($juego['title']); ?>">
-
+                            </a>
                             <div class="infoJuego">
                                 <strong><?php echo htmlspecialchars($juego['title']); ?></strong>
 
