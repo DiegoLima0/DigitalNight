@@ -35,11 +35,6 @@
                       <i class="bi bi-eye-slash"></i>
                       Ocultar
                     </a>
-
-                    <a href="">
-                      <i class="bi bi-trash3"></i>
-                      Desistalar
-                    </a>
                   </div>
                 </div>
               <?php
