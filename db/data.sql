@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2025 a las 18:10:52
+-- Tiempo de generación: 28-11-2025 a las 04:53:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -193,7 +193,8 @@ INSERT INTO `game` (`title`, `genre`, `state`, `description`, `horizontal_imagen
 ('Friday Night Funkin\'', 'Emulador', 'Disponible', 'Friday Night Funkin’ (FNF) es un juego de ritmo en el que el jugador controla a Boyfriend, un joven que quiere impresionar a Girlfriend ganando batallas de rap musicales. Para ello, debe presionar las flechas en el momento justo siguiendo las notas que aparecen en pantalla y mantener el ritmo mejor que su oponente.\n\nEl juego se divide en “semanas”, cada una con varios temas musicales y un adversario distinto, desde personajes clásicos como Daddy Dearest y Pico hasta rivales más peculiares o sobrenaturales. Su estilo visual retro, sus canciones pegadizas y la gran cantidad de mods creados por la comunidad han hecho que FNF sea un juego muy popular y en constante expansión.', 'Fnf-banner1.jpg', NULL, 1, 31, 1, '2025-11-25', 'Emulador', '2.00', 'Fnf-banner2.jpg', 'Fnf-Img1.jpg', 'Fnf-Img2.jpg', 'Fnf-Img3.jpg', 'Fnf-Img4.jpg', '¡Diviertete con las teclas!', '', 'Fnf-Cover.jpg', 'Juego offline', '1 jugador'),
 ('Fossil quest', 'Emulador', 'Disponible', 'Fossil Quest es un simulador de vida acogedor y relajado centrado en la exploración y excavación de fósiles. En este juego tomas el papel de un entusiasta de la paleontología que siempre soñó con crear su propio museo de dinosaurios, y ahora por fin tiene el espacio y la libertad para hacerlo realidad.\r\n\r\nExplora distintos terrenos, excava con cuidado para desenterrar restos prehistóricos y reúne piezas únicas para reconstruir esqueletos impresionantes. A medida que avanzas, podrás organizar tus descubrimientos en exhibiciones, decorar el museo a tu gusto y atraer visitantes curiosos que quieran aprender sobre las criaturas que habitaron la Tierra hace millones de años. Es una experiencia tranquila y creativa pensada para quienes disfrutan descubrir, coleccionar y construir a su propio ritmo.', 'Fosil-Banner1.jpg', NULL, 1, 32, 1, '2025-11-25', 'Emulador', '2.00', 'Fossil-Banner2.jpg', 'FossilQuest-img1.jpg', 'FossilQuest-img2.jpg', 'FossilQuest-img3.jpg', 'FossilQuest-img4.jpg', 'Explora, excava y da vida a tu museo de dinosaurios.', '', 'FossilQuest-cover.jpg', 'Juego offline', '1 jugador'),
 ('Gun Mission', 'Emulador', 'Disponible', 'GunMission es un juego arcade de desplazamiento lateral que captura la esencia de los clásicos como Contra y Rolling Thunder. Enfréntate a oleadas de enemigos mientras avanzas a través de niveles llenos de plataformas, disparos y desafíos rápidos. Equípate con diferentes armas, esquiva ataques letales y derrota a jefes poderosos en una experiencia frenética que combina nostalgia y adrenalina en cada misión.', 'GunMission-Banner1.jpg', NULL, 1, 33, 1, '2025-11-25', 'Emulador', '5.00', 'GunMission-Banner2.jpg', 'GunMission-img2.jpg', 'GunMission-img1.jpg', 'GunMission-img4.jpg', 'GunMission-img3.jpg', 'Acción explosiva al estilo arcade clásico', '', 'GunMission-cover.jpg', 'Juego offline', '1 jugador'),
-('PolyTrack', 'Emulador', 'Disponible', 'PolyTrack es un juego de carreras de estética low-poly que combina bucles, saltos precisos y velocidades extremas en circuitos diseñados para poner a prueba tus reflejos. Cada milisegundo cuenta mientras compites contra el reloj para perfeccionar tus trazadas y reducir tu tiempo al máximo. Inspirado fuertemente en la serie TrackMania, el juego apuesta por carreras cortas, técnicas y altamente rejugables, donde la habilidad y la consistencia importan más que nunca. Con una variedad de pistas originales, físicas rápidas y un estilo visual limpio y minimalista, PolyTrack ofrece una experiencia intensa y adictiva ideal para quienes disfrutan de dominar cada curva y buscar siempre un nuevo récord personal.', 'PolyTrack-Banner1.jpg', NULL, 1, 34, 1, '2025-11-25', 'Emulador', '7.20', 'PolyTrack-Banner2.jpg', 'PolyTrack-img1.jpg', 'PolyTrack-img2.jpg', 'PolyTrack-img3.jpg', 'PolyTrack-img4.jpg', 'Velocidad pura en pistas de baja poligonización', '', 'PolyTrack-cover.jpg', 'Juego offline', '1 jugador');
+('PolyTrack', 'Emulador', 'Disponible', 'PolyTrack es un juego de carreras de estética low-poly que combina bucles, saltos precisos y velocidades extremas en circuitos diseñados para poner a prueba tus reflejos. Cada milisegundo cuenta mientras compites contra el reloj para perfeccionar tus trazadas y reducir tu tiempo al máximo. Inspirado fuertemente en la serie TrackMania, el juego apuesta por carreras cortas, técnicas y altamente rejugables, donde la habilidad y la consistencia importan más que nunca. Con una variedad de pistas originales, físicas rápidas y un estilo visual limpio y minimalista, PolyTrack ofrece una experiencia intensa y adictiva ideal para quienes disfrutan de dominar cada curva y buscar siempre un nuevo récord personal.', 'PolyTrack-Banner1.jpg', NULL, 1, 34, 1, '2025-11-25', 'Emulador', '7.20', 'PolyTrack-Banner2.jpg', 'PolyTrack-img1.jpg', 'PolyTrack-img2.jpg', 'PolyTrack-img3.jpg', 'PolyTrack-img4.jpg', 'Velocidad pura en pistas de baja poligonización', '', 'PolyTrack-cover.jpg', 'Juego offline', '1 jugador'),
+('Bad Ice Cream', 'Arcade', 'Disponible', 'Bad Ice Cream es un juego.  En Bad Ice Cream 1, te conviertes en un delicioso helado que debe abrirse camino por laberintos congelados para recolectar todas las frutas antes de que los enemigos te atrapen. arcade estilo laberinto en el que el jugador controla un helado que debe recolectar todas las frutas de cada nivel mientras evita a los enemigos, utilizando la habilidad de crear y destruir bloques de hielo para bloquear o abrir caminos.', 'bad-ice-cream-orizontal.jpeg', NULL, 1, 35, 1, '2025-11-25', 'Emulador', '9.99', 'bad-ice-cream-banner.jpeg', 'bad-ice-cream-1.jpeg', 'bad-ice-cream-2.jpeg', 'bad-ice-cream-3.jpeg', 'bad-ice-cream-4.jpeg', '¡Prepárate para una aventura helada llena de acción y estrategia!', NULL, 'bad-ice-cream-cover.jpeg', 'Juego online', '1 - 2 Jugadores');
 
 -- --------------------------------------------------------
 
@@ -242,7 +243,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userName`, `email`, `password`, `idUser`, `type`, `description`, `profile_picture`, `birthday`, `gender`, `money`, `coins`) VALUES
-('a', 'amydelgado88@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 248, 11),
+('a', 'amydelgado88@gmail.com', 'a', 1, 'creator', 'a', '1_1762267798.png', '1900-01-17', '', 238, 12),
 ('nomeacuerdo', 'nomeacuerdo@gmail.com', 'nomeacuerdo', 2, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
 ('nose', 'nose@gmail.com', 'nose', 3, 'user', 'hola', '3_1760458043.png', '1900-01-01', 'indefinido', 50, 0),
 ('random', 'random@gmail.com', 'a', 4, 'user', NULL, 'default.png', '1900-01-01', 'indefinido', 50, 0),
@@ -275,6 +276,7 @@ INSERT INTO `user_game` (`idUser`, `idGame`, `purchaseDate`, `visible`) VALUES
 (1, 15, '2025-11-25 00:31:19', 1),
 (1, 19, '2025-11-25 00:31:01', 1),
 (1, 31, '2025-11-25 13:28:25', 1),
+(1, 35, '2025-11-28 00:52:17', 1),
 (9, 12, '2025-11-27 14:08:00', 1),
 (9, 31, '2025-11-27 13:13:40', 1),
 (9, 33, '2025-11-27 13:13:40', 1);
@@ -368,7 +370,7 @@ ALTER TABLE `edition`
 -- AUTO_INCREMENT de la tabla `game`
 --
 ALTER TABLE `game`
-  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idGame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `game_ratings`

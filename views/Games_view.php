@@ -103,7 +103,7 @@ if (isset($_SESSION['user_id'])) {
                 32 => 'fossil.php',
                 33 => 'gunsmision.php',
                 34 => 'polytrack.php',
-                35 => 'mario.php',
+                35 => 'bad_ice_cream.php',
               ];
 
               $game_id_int = (int) $game_data['idGame'];
