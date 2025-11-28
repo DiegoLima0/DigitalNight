@@ -5,18 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre nosotros</title>
-
-  <style>
-      #aura {
-        font-size: 17px;
-        font-weight: 700;
-      }
-
-      #aura2 {
-        font-size: 18px;
-        font-weight: 900;
-      }
-    </style>
 </head>
 
 <body>
@@ -275,8 +263,7 @@
               Su
               trabajo consiste en interactuar con la base de datos (MySQL), implementar la autenticación de usuarios y
               asegurar que todas las funcionalidades críticas de la aplicación (como el manejo de perfiles y la tienda)
-              operen de manera eficiente y segura. <br>
-              <strong id="aura">Es el miembro con más "<strong id="aura2">aura</strong>" de todo el equipo</strong>
+              operen de manera eficiente y segura.
             </p>
           </div>
         </div>
