@@ -71,6 +71,7 @@
 
             <form action="comment_processor.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="post_community_publication">
+
                 <input type="hidden" name="idGame" value="<?php echo htmlspecialchars($game_id); ?>">
 
                 <?php 
@@ -84,20 +85,19 @@
 
                 <div class="contenido">
                     <div class="publicar">
-                        <textarea name="content" id="publication_content" cols="30" rows="5"
-                            placeholder="¿Qué quieres compartir con la comunidad de <?php echo htmlspecialchars($game_title); ?>?"
-                            required></textarea>
+                        <textarea name="content" id="publication_content" cols="30" rows="5" placeholder="¿Qué quieres compartir con la comunidad de <?php echo htmlspecialchars($game_title); ?>?" required></textarea>
 
                         <div>
                             <label for="publication_image_upload" class="btn azul"
                                 style="cursor:pointer; margin-right: 10px;">
-                                <i class="bi bi-image"></i> Imagen
+                                <i class="bi bi-image"></i> Seleccionar imagen
                             </label>
-                            <input type="file" name="publication_image" id="publication_image_upload"
-                                style="display:none;" accept="image/*">
 
-                            <span id="file-name-display" style="margin-right: 10px; font-size: 0.8em;">Ningún archivo
-                                seleccionado</span>
+                            <input type="file" name="publication_image" id="publication_image_upload" style="display:none;" accept="image/*">
+
+                            <span id="file-name-display" style="margin-right: 10px; font-size: 0.8em;">
+                                Ningún archivo seleccionado
+                            </span>
 
                             <input type="submit" value="Enviar" class="btn azul">
                         </div>

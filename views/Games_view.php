@@ -110,13 +110,12 @@ if (isset($_SESSION['user_id'])) {
               $isEmulator = (strtolower(trim($game_data['platforms'])) === "emulador");
 
               $play_link = "#";
-              $is_playable = false; 
-            
+              $is_playable = false;
+
               if (isset($juego_archivos[$game_id_int])) {
                 $play_link = $juego_archivos[$game_id_int] . "?idGame=" . $game_id_int;
                 $is_playable = true;
-              }
-              elseif ($isEmulator) {
+              } elseif ($isEmulator) {
                 $play_link = "emulator.php?idGame=" . $game_data['idGame'];
                 $is_playable = true;
               }
@@ -130,7 +129,7 @@ if (isset($_SESSION['user_id'])) {
 
                 <a href="show_game.php?idGame=<?php echo $game_id; ?>" class="<?php echo $oculto; ?>"
                   style="padding:10px 40px; margin-bottom:10px; text-align:center;">
-                  <?php echo $ocultado;?>
+                  <?php echo $ocultado; ?>
                 </a>
 
               <?php else: ?>
@@ -140,8 +139,8 @@ if (isset($_SESSION['user_id'])) {
                   Jugar
 
                   <a href="show_game.php?idGame=<?php echo $game_id; ?>" class="<?php echo $oculto; ?>"
-                  style="padding:10px 40px; margin-bottom:10px; text-align:center;">
-                  <?php echo $ocultado;?>
+                    style="padding:10px 40px; margin-bottom:10px; text-align:center;">
+                    <?php echo $ocultado; ?>
                   </a>
                 </a>
               <?php endif; ?>
@@ -235,7 +234,7 @@ if (isset($_SESSION['user_id'])) {
                   <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
                   <input type="hidden" name="idEdition" value="<?php echo $edition['idEdition']; ?>">
                   <input type="hidden" name="precioEdicion" value="<?php echo $edition['price']; ?>">
-                  <button type="submit" class="boton-añadirCarrito" >Añadir al carrito</button>
+                  <button type="submit" class="boton-añadirCarrito">Añadir al carrito</button>
                 </form>
               </div>
             </div>
@@ -294,29 +293,37 @@ if (isset($_SESSION['user_id'])) {
           <h4>Publicaciones del Creador</h4>
 
           <?php if (isset($is_creator) && $is_creator): ?>
-            <div class="post-card create-post">
-              <form method="POST" action="comment_processor.php" enctype="multipart/form-data">
-                <h4>Escribe una nueva publicación</h4>
-                <input type="hidden" name="action" value="post_creator_publication">
-                <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
 
-                <textarea name="content" placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?"
-                  rows="3" required></textarea>
+            <form class="publicar2" method="POST" action="comment_processor.php" enctype="multipart/form-data">
+              <h4>Escribe una nueva publicación</h4>
 
-                <div class="post-form-controls">
-                  <label for="post_image_game" class="boton-base boton-secundario post-image-label">
-                    <i class="bi bi-image" style="margin-right: 5px;"></i> Seleccionar Foto
-                  </label>
-                  <input type="file" id="post_image_game" name="publication_image" accept="image/*"
-                    class="file-input-hidden"
-                    onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name">
-                  <span id="file-name-display-game" class="file-name-display">Ningún archivo
-                    seleccionado.</span>
+              <input type="hidden" name="action" value="post_creator_publication">
 
-                  <button type="submit" class="boton-base boton-primario">Publicar</button>
+              <input type="hidden" name="idGame" value="<?php echo $game_data['idGame']; ?>">
+
+              <div class="contenido">
+                <div class="publicar">
+                  <textarea name="content" placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?" rows="6" required></textarea>
+
+                  <div>
+                    <label for="post_image_game" class="btn azul">
+                      <i class="bi bi-image"></i> Seleccionar imagen
+                    </label>
+
+                    <input type="file" name="publication_image" id="post_image_game" accept="image/*" onchange="document.getElementById('file-name-display-game').innerText = this.files[0].name" style="display:none;">
+
+                    <span id="file-name-display-game" class="file-name-display">
+                      Ningún archivo seleccionado.
+                    </span>
+
+                    <button type="submit" class="btn azul">Publicar</button>
+                  </div>
                 </div>
-              </form>
-            </div>
+
+              </div>
+
+
+            </form>
           <?php endif; ?>
 
           <div id="publicacionesCreador">
@@ -324,20 +331,23 @@ if (isset($_SESSION['user_id'])) {
             <?php if (!empty($creator_comments)): ?>
               <?php foreach ($creator_comments as $comment): ?>
                 <div class="publicacionCreador">
-                  <div class="post-user-meta">
-                    <img src="img/profiles/<?php echo htmlspecialchars($comment['profile_image_path']); ?>"
-                      alt="Perfil de usuario" class="user-profile-img">
-                    <p class="username">@<?php echo htmlspecialchars($comment['username']); ?></p>
+
+                  <div id="imgUsComunidad">
+                    <img src="img/profiles/<?php echo htmlspecialchars($comment['profile_image_path']); ?>" alt="Perfil de usuario">
+
+                    <p>@<?php echo htmlspecialchars($comment['username']); ?></p>
                   </div>
 
-                  <p class="post-content-text"><?php echo nl2br(htmlspecialchars($comment['commentary'])); ?></p>
+                  <div class="contenido">
+                    <p class="post-content-text"><?php echo nl2br(htmlspecialchars($comment['commentary'])); ?></p>
 
-                  <?php if (!empty($comment['imagen'])): ?>
-                    <img src="img/publications/<?php echo htmlspecialchars($comment['imagen']); ?>"
-                      alt="Imagen de publicación" class="post-media-image">
-                  <?php endif; ?>
+                    <?php if (!empty($comment['imagen'])): ?>
+                      <img class="imgPub" src="img/publications/<?php echo htmlspecialchars($comment['imagen']); ?>"
+                        alt="Imagen de publicación">
+                    <?php endif; ?>
 
-                  <div class="interacciones">
+                    <div class="interacciones">
+                    </div>
                   </div>
                 </div>
               <?php endforeach; ?>
@@ -402,7 +412,7 @@ if (isset($_SESSION['user_id'])) {
 
   </section>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const postsContainer = document.getElementById('publicacionesCreador');
       const loadMoreButton = document.querySelector('.more-btn');
       const postsPerLoad = 4;
@@ -412,7 +422,7 @@ if (isset($_SESSION['user_id'])) {
       }
 
       if (loadMoreButton) {
-        loadMoreButton.addEventListener('click', function (e) {
+        loadMoreButton.addEventListener('click', function(e) {
           e.preventDefault();
 
           const offset = parseInt(postsContainer.getAttribute('data-offset'));
@@ -517,7 +527,7 @@ if (isset($_SESSION['user_id'])) {
       paintSavedStars();
 
       stars.forEach(star => {
-        star.addEventListener("mouseover", function () {
+        star.addEventListener("mouseover", function() {
           const hoverValue = parseInt(this.dataset.value);
 
           stars.forEach(s => {
@@ -538,19 +548,21 @@ if (isset($_SESSION['user_id'])) {
       });
 
       stars.forEach(star => {
-        star.addEventListener("click", function () {
+        star.addEventListener("click", function() {
           const value = parseInt(this.dataset.value);
           savedRating = value;
           paintSavedStars();
 
           fetch("rate.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              idGame: idGame,
-              rating: value
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                idGame: idGame,
+                rating: value
+              })
             })
-          })
             .then(res => res.json())
             .then(data => {
 
@@ -569,8 +581,6 @@ if (isset($_SESSION['user_id'])) {
       });
 
     });
-
-
   </script>
 </body>
 

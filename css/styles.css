@@ -589,16 +589,18 @@ footer p {
     justify-content: center;
 }
 
-.carrito-actions button, .carrito-actions form {
-    width: 48%;
-}
-
-.carrito-actions form{
+.carrito-actions a, .carrito-actions form {
+    width: 50%;
     margin: 0;
 }
 
-.carrito-actions form>button{
+.carrito-actions button:hover{
+    transform: translateY(-6px);   
+}
+
+.carrito-actions button{
     width: 100%;
+    transition: 0.3s ease;
 }
 
 .btn-ghost {
@@ -2872,6 +2874,17 @@ input[type="date"] {
     padding: 5px;
 }
 
+.games .publicar2 {
+    background: linear-gradient(to right, #191D33, #463cd357);
+    padding: 0 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px #6351ca3a;
+}
+
+.publicar2 .contenido{
+    padding: 0;
+}
+
 /* sobre nosotros */
 
 #PresentacionEquipo {
@@ -3626,7 +3639,11 @@ body.biblioteca {
 .publicar div {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+}
+
+.publicar .azul{
+    font-size: 15px;
 }
 
 #mainComunidad form {
@@ -3641,7 +3658,7 @@ body.biblioteca {
     margin: 0;
 }
 
-#mainComunidad form textarea {
+#mainComunidad form textarea, .publicar2 textarea {
     color: white;
     background: linear-gradient(to right, #322b4b70, #513fb957);
     border: none;
@@ -3698,7 +3715,6 @@ body.biblioteca {
 
 #postCreador {
     width: 33em;
-    padding: 0 50px;
 }
 
 .publicacion:hover {

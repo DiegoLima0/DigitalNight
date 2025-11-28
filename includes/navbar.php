@@ -10,17 +10,17 @@ $is_logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true
 
 if ($is_logged_in) {
     $clase_perfil = '';
-    
+
     $username = htmlspecialchars($_SESSION['username'] ?? 'usuario');
     $profile_pic = htmlspecialchars($_SESSION['profile_picture'] ?? 'default.png');
     $is_admin = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
-    $is_creator = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'creator'; 
+    $is_creator = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'creator';
 } else {
     $clase_perfil = 'borrar';
     $username = '';
     $profile_pic = 'default.png';
     $is_admin = false;
-    $is_creator = false; 
+    $is_creator = false;
 }
 
 ?>
@@ -46,7 +46,7 @@ if ($is_logged_in) {
                         Configuración
                     </a>
                     <?php if ($is_admin): ?>
-                        <a href="users-connection.php"> 
+                        <a href="users-connection.php">
                             <i class="bi bi-person-fill-gear"></i>
                             Administrar Usuarios
                         </a>
@@ -55,7 +55,7 @@ if ($is_logged_in) {
                         <i class="bi bi-people"></i>
                         Perfil de Creador
                     </a>
-                    <?php if ($is_creator):?>
+                    <?php if ($is_creator): ?>
                         <a href="manage_games.php">
                             <i class="bi bi-controller"></i>
                             Gestor de Juegos
@@ -81,33 +81,33 @@ if ($is_logged_in) {
     <h2 class="carrito-titulo">Mi carrito</h2>
     <ul id="Lista-Productos" class="lista-productos">
         <?php if (!empty($_SESSION['cart'])): ?>
-        <?php foreach ($_SESSION['cart'] as $item): ?>
-            <li class="carrito-item">
-                <div class="thumb">
-                    <img src="img/<?php echo htmlspecialchars($item['imagen']); ?>" width="50">
-                </div>
-                <div class="meta">
-                    <div class="nombre"><?php echo htmlspecialchars($item['nombre']); ?></div>
-                    <div class="plataforma">Plataforma: <?php echo htmlspecialchars($item['plataforma']); ?></div>
-                    <div class="precio">US$<?php echo number_format($item['precio'], 2); ?></div>
-                </div>
-                <div class="controls">
-                    <form method="POST" action="update_cart.php">
-                        <input type="hidden" name="idGame" value="<?php echo $item['idGame']; ?>">
-                        <button type="submit" name="action" value="remove">🗑</button>
-                    </form>
-                </div>
-            </li>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="alert"><?php echo $_SESSION['error']; ?></div>
-            <?php unset($_SESSION['error']); ?>
+            <?php foreach ($_SESSION['cart'] as $item): ?>
+                <li class="carrito-item">
+                    <div class="thumb">
+                        <img src="img/<?php echo htmlspecialchars($item['imagen']); ?>" width="50">
+                    </div>
+                    <div class="meta">
+                        <div class="nombre"><?php echo htmlspecialchars($item['nombre']); ?></div>
+                        <div class="plataforma">Plataforma: <?php echo htmlspecialchars($item['plataforma']); ?></div>
+                        <div class="precio">US$<?php echo number_format($item['precio'], 2); ?></div>
+                    </div>
+                    <div class="controls">
+                        <form method="POST" action="update_cart.php">
+                            <input type="hidden" name="idGame" value="<?php echo $item['idGame']; ?>">
+                            <button type="submit" name="action" value="remove">🗑</button>
+                        </form>
+                    </div>
+                </li>
+            <?php endforeach; ?>
         <?php else: ?>
-            <li>Tu carrito está vacío.</li>
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert"><?php echo $_SESSION['error']; ?></div>
+                <?php unset($_SESSION['error']); ?>
+            <?php else: ?>
+                <li>Tu carrito está vacío.</li>
+            <?php endif; ?>
         <?php endif; ?>
-    <?php endif; ?>
-</ul>
+    </ul>
     <?php
     $total = 0;
     foreach ($_SESSION['cart'] as $item) {
@@ -120,7 +120,9 @@ if ($is_logged_in) {
     </div>
     <p class="nota">Los descuentos y promociones se aplicarán en el carrito</p>
     <div class="carrito-actions">
-        <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
+        <a href="shop.php">
+            <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
+        </a>
         <form method="POST" action="checkout.php">
             <button type="submit" id="iniciarBtn" class="btnVioletaDifuminado">Iniciar compra</button>
         </form>
