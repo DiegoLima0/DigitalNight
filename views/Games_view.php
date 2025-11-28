@@ -97,12 +97,12 @@ if (isset($_SESSION['user_id'])) {
               $juego_archivos = [
                 27 => 'turtle.php',
                 28 => 'egg.php',
-                29 => 'polytrack.php',
+                29 => 'chain.php',
                 30 => 'tomato.php',
                 31 => 'fnf.php',
                 32 => 'fossil.php',
                 33 => 'gunsmision.php',
-                34 => 'chain.php',
+                34 => 'polytrack.php',
                 35 => 'mario.php',
               ];
 
