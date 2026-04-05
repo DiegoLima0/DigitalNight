@@ -250,7 +250,7 @@ if (isset($_SESSION['user_id'])) {
       </section>
 
     <?php else: ?>
-      <div class="sf-page" style="text-align: center; padding: 20px;">
+      <div class="sf-page" style="text-align: center; padding: 20px;"> <!--Styles deberia estar en CSS (sospechoso de IA xd)-->
         <p>Solo disponible la edición estándar del juego. No hay ediciones especiales.</p>
       </div>
     <?php endif; ?>
@@ -309,7 +309,8 @@ if (isset($_SESSION['user_id'])) {
               <div class="contenido">
                 <div class="publicar">
                   <textarea name="content" placeholder="¿Qué hay de nuevo en tu juego, @<?php echo $creator_username; ?>?"
-                    rows="6" required></textarea>
+                    rows="6" required>
+                  </textarea>
 
                   <div>
                     <label for="post_image_game" class="btn azul">
@@ -376,7 +377,7 @@ if (isset($_SESSION['user_id'])) {
 
 
 
-        <aside class="Recomendados-Aside">
+        <aside class="Recomendados-Aside"> <!--En esta parte hay class llamados como "rec" y algo más, se suelen usar en páginas en internet pero también  son nombres q suele poner la IA, aunque no esta mal echo, puede haber un problema con q el equipo no sepa el significado de cada clase-->
           <h4>Recomendados</h4>
 
           <div class="rec-item">

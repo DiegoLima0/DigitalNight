@@ -6,6 +6,9 @@
   <title>Ediciones - Juego</title>
 </head>
 <body>
+  <!--En todo el html se repite reiteradas veces nombres confusos q suele poner la IA y q pueden dificultar el trabajo en conjunto al no todos saber los significados de cada uno, cosas como "meta", "kicker", "sf", "sm", etc
+  También se repite más de una vez la utilización del atributo styles (tipico de la IA) cuando lo mejor seria utilizar un archivo css-->
+  <!--Aunque se q esta página esta descartada puede usarse de ejemplo x si notan algo q yo no-->
   <div class="sf-page">
     <main class="sf-container" role="main">
       <section class="sf-hero">

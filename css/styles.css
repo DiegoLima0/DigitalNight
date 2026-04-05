@@ -1,9 +1,11 @@
+/*Hay cosas en este archivo que son innecesariamente largas, muchas veces x el uso de IA, desconocimiento de como acortarlo o falta de tiempo x la q no se penso en hacerlo*/
+
 /*Estilo general de la pagina*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap');
 
 :root {
     --fondoAzulOscuro: #111425;
-    --accent: #00a3ff;
+    --accent: #00a3ff; /*El nombre de esta variable es uno generico usado x una IA, a parte de q este celeste o parecidos son muy usados x la IA, tampoco cumple con la paleta de colores de la página*/
     --card-gray: rgba(200, 200, 200, 0.18);
     --glass: rgba(255, 255, 255, 0.06);
     --radius: 10px;
@@ -603,7 +605,7 @@ footer p {
     transition: 0.3s ease;
 }
 
-.btn-ghost {
+.btn-ghost { /*No estoy segura de q trata esta clase*/
     flex: 1;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -613,9 +615,9 @@ footer p {
     cursor: pointer;
 }
 
-.btn-primary {
+.btn-primary { /*Este nombre de clase es muy tipica de la IA*/
     flex: 1;
-    background: linear-gradient(90deg, #6fc6ff, #3aa0ff);
+    background: linear-gradient(90deg, #6fc6ff, #3aa0ff); /*Nuevamente un celeste muy parecido al q pone la IA (mencionado al inicio)*/
     border: none;
     color: #08263a;
     padding: 10px 12px;
@@ -667,7 +669,7 @@ footer p {
 }
 
 #Carrousel h6 {
-    font-family: "Bowlby One SC", sans-serif;
+    font-family: "Bowlby One SC", sans-serif; /*Uso innecesario de font-family (usado mucho x IA) cuando ya hay una fuente para toda la página*/
     font-weight: 400;
     font-size: 25px;
 }
@@ -1027,7 +1029,7 @@ form input[type="submit"]:hover {
 }
 
 /*Página Tienda (Shop.php)*/
-*,
+*, /*MUY probablemente echo con IA ya q esto deberia estar en estilos generales*/
 *::before,
 *::after {
     box-sizing: border-box;

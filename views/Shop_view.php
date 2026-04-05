@@ -132,7 +132,7 @@
                 foreach ($games_list as $game): 
             ?>
             
-            <a href="games.php?idGame=<?php echo $game['idGame']; ?>">
+            <a href="games.php?idGame=<?php echo $game['idGame']; ?>"> <!--Nuevamente se repiten cosas como "meta" y "thumb" (Posiblemente IA o reutilización de clases)-->
                 <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
                     <div class="card__thumb">
                         <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">

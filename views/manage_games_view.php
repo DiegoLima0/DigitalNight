@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Juegos</title>
-    <style>
+    <!--Aunque este style no deberia estar aca, una parte fue echa x el equipo backend para no modificar el css y no perjudicar al equipo de frontend-->
+    <style> 
         h1 {
             text-align: center;
             font-size: 35px;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Usuarios</title>
+    <!--Aunque este style no deberia estar aca, una parte fue echa x el equipo backend para no modificar el css y no perjudicar al equipo de frontend-->
     <style>
         .message {
             padding: 10px;
