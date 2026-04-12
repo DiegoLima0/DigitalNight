@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte Digital Night</title>
 </head>
+<!--CÓDIGO A REVISAR-->
 
+<!--Debido a la falta de tiempo y el desconocimiento al hacer las páginas de respuestas de FAQ (Preguntas frecuentes) se hizo multiples copias del mismo código en distintos archivos, cuando muy probablemente se podria haber usado una plantilla
+Este error se repite en todos los archivos nombrados como "answerFAQGeneral" y "answerFAQProblemasPC"-->
 <body>
     <main id="mainSoporteAns">
         <section id="soporteAns">

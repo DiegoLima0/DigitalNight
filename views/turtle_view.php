@@ -5,6 +5,9 @@ $return_url = $game_id !== null ? "games.php?idGame=" . $game_id : "shop.php";
 
 <!DOCTYPE html>
 <html lang="es">
+<!--CÓDIGO A REVISAR-->
+
+<!--Aunque el codigo dentro de todo esta bien repite el mismo error q los archivos de las respuestas de preguntas frecuentes (FAQ), probablemente lo mejor sea buscar una manera de hacer una plantilla para no repetir lo mismo reiteredas veces en distintos archivos-->
 
 <head>
     <meta charset="UTF-8">

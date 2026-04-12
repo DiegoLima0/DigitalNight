@@ -55,7 +55,9 @@
         });
     </script>
 </head>
+<!--CÓDIGO A REVISAR-->
 
+<!--Aunque principalmente el código parece tener un problema de desorden, también repite el uso del atributo "styles" que deberia de ser usado en un archivo de CSS-->
 <body>
     <main id="mainComunidad">
         <section id="secPublicar">

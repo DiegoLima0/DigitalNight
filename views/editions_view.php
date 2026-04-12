@@ -7,8 +7,10 @@
 </head>
 <body>
   <!--En todo el html se repite reiteradas veces nombres confusos q suele poner la IA y q pueden dificultar el trabajo en conjunto al no todos saber los significados de cada uno, cosas como "meta", "kicker", "sf", "sm", etc
-  También se repite más de una vez la utilización del atributo styles (tipico de la IA) cuando lo mejor seria utilizar un archivo css-->
-  <!--Aunque se q esta página esta descartada puede usarse de ejemplo x si notan algo q yo no-->
+  También se repite más de una vez la utilización del atributo styles cuando lo mejor seria utilizar un archivo css
+  Y por ultimo al estar el código desordenado y mal organizado es normal perderse en el o al menos yo siento q hay cosas q no se teminan de entender correctamente-->
+
+  <!--Aunque se q esta página esta descartada puede usarse de ejemplo x si notan algo q yo no en otros archivos-->
   <div class="sf-page">
     <main class="sf-container" role="main">
       <section class="sf-hero">

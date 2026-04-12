@@ -1450,7 +1450,7 @@ h2.section-title {
     height: 100%;
     object-fit: cover;
     display: block;
-    vertical-align: middle;
+    vertical-align: middle; /*No parece cambiar nada en la página de Tienda, probablemente echo con IA*/
 }
 
 

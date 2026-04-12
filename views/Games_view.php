@@ -70,7 +70,9 @@ if (isset($_SESSION['user_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalle de juego</title>
 </head>
+<!--CÓDIGO A REVISAR?-->
 
+<!--Este archivo fue echo x el equipo de backend y ligeramente modificado x el equipo de frondend, hay unicamente unos usos del atributo "styles" ya q para no generar problemas entre ambas partes se puso directamente en el HTML-->
 <body class="games">
   <div class="page">
     <div class="section fondo-img" role="banner" aria-label="Fondo principal">
