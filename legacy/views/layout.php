@@ -8,7 +8,7 @@
 <script>
   const link = document.createElement('link');
   link.rel = 'icon';
-  link.href = '/digitalNight/img/digitalNightLogo.png';
+  link.href = '/digitalNight/legacy/img/digitalNightLogo.png';
   document.head.appendChild(link);
 </script>
 
