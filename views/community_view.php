@@ -119,7 +119,7 @@
                 $is_creator = $publication['is_creator_post'];
                 $profile_img_path = 'img/profiles/' . htmlspecialchars($publication['user_profile_img']);
                 $post_img_path = !empty($publication['publication_image']) ? 'img/publications/' . htmlspecialchars($publication['publication_image']) : null;
-                $publication_link = 'communityPublication.php?id=' . (int) $publication['idPublication'];
+                $publication_link = 'communitypublication.php?id=' . (int) $publication['idPublication'];
                 ?>
 
                 <a class="publicacion" href="<?php echo $publication_link; ?>">

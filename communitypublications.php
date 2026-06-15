@@ -1,5 +1,5 @@
 <?php
-// Asegúrate de que $publication_data y $comments_list estén disponibles desde communityPublication_processor.php
+// Asegúrate de que $publication_data y $comments_list estén disponibles desde communitypublication_processor.php
 if (!$publication_data) {
     echo "<p style='text-align: center; padding: 20px;'>Publicación no encontrada.</p>";
     return; // Sale si no hay datos de la publicación.
@@ -7,7 +7,7 @@ if (!$publication_data) {
 
 $post_creator_id = (int)$publication_data['idUser'];
 // No tenemos el ID del creador del juego aquí para saber si es el creador del juego.
-// Si lo necesitas, habría que modificar communityPublication_processor.php para obtenerlo.
+// Si lo necesitas, habría que modificar communitypublication_processor.php para obtenerlo.
 
 $profile_img_path = 'img/profiles/' . htmlspecialchars($publication_data['user_profile_img']);
 $post_img_path = !empty($publication_data['publication_image']) ? 'img/publications/' . htmlspecialchars($publication_data['publication_image']) : null;

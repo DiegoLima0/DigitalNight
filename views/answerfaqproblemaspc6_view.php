@@ -25,7 +25,7 @@ Este error se repite en todos los archivos nombrados como "answerFAQGeneral" y "
                 <li>
                     Ve a <strong>%localappdata%DigitalNightLauncherSavedSaves[IDdecuentadeDigitalNight][Carpetadeljuego].</strong><br>
 
-                    Nota: Para saber cómo encontrar el ID de tu cuenta de DigitalNight, consulta este artículo: <a href="answerFAQGeneral2.php">¿Cómo encuentro mi ID?</a>
+                    Nota: Para saber cómo encontrar el ID de tu cuenta de DigitalNight, consulta este artículo: <a href="answerfaqgeneral2.php">¿Cómo encuentro mi ID?</a>
                 </li>
             </ul>
 

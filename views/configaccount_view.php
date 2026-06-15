@@ -1,5 +1,5 @@
 <?php
-require_once 'configAccount_processor.php';
+require_once 'configaccount_processor.php';
 require_once 'includes/header.php';
 ?>
 
@@ -30,9 +30,9 @@ require_once 'includes/header.php';
 
         <aside>
             <h2>Configuración</h2>
-            <a href="configAccount.php" class="seccionConfig seccion1 active">Cuenta</a>
-            <a href="configPublicProfile.php" class="seccionConfig seccion2">Perfil publico</a>
-            <a href="configDistributorProfile.php" class="seccionConfig seccion2">Perfil de distribuidor</a>
+            <a href="configaccount.php" class="seccionConfig seccion1 active">Cuenta</a>
+            <a href="configpublicprofile.php" class="seccionConfig seccion2">Perfil publico</a>
+            <a href="configdistributorprofile.php" class="seccionConfig seccion2">Perfil de distribuidor</a>
         </aside>
 
         <div id="cuenta">
@@ -44,12 +44,12 @@ require_once 'includes/header.php';
                     <img src="img/profiles/<?php echo $foto_perfil_actual; ?>" alt="Imagen de perfil">
                     <p>@<?php echo $username_actual; ?></p>
                 </div>
-                <a href="configPublicProfile.php" class="btn azul" style="text-decoration: none;">Editar Perfil</a>
+                <a href="configpublicprofile.php" class="btn azul" style="text-decoration: none;">Editar Perfil</a>
             </div>
 
             <div class="datos">
                 <p>Nombre de usuario: <?php echo $username_actual; ?></p>
-                <form action="configPublicProfile.php" method="GET" style="display:inline;">
+                <form action="configpublicprofile.php" method="GET" style="display:inline;">
                     <button type="submit" class="btn azul">Editar</button>
                 </form>
             </div>

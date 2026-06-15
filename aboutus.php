@@ -1,3 +1,3 @@
 <?php
-  $section="views/answerFAQGeneral4";
+  $section="views/aboutus";
   require_once "views/layout.php";?>

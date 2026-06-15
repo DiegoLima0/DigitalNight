@@ -1,5 +1,5 @@
 <?php
-include_once 'configPublicProfile_processor.php';
+include_once 'configpublicprofile_processor.php';
 require_once 'includes/header.php';
 ?>
 
@@ -42,9 +42,9 @@ require_once 'includes/header.php';
 
         <aside>
             <h2>Configuración</h2>
-            <a href="configAccount.php" class="seccionConfig seccion1">Cuenta</a>
-            <a href="configPublicProfile.php" class="seccionConfig seccion2">Perfil publico</a>
-            <a href="configDistributorProfile.php" class="seccionConfig seccion2 active">Perfil de distribuidor</a>
+            <a href="configaccount.php" class="seccionConfig seccion1">Cuenta</a>
+            <a href="configpublicprofile.php" class="seccionConfig seccion2">Perfil publico</a>
+            <a href="configdistributorprofile.php" class="seccionConfig seccion2 active">Perfil de distribuidor</a>
         </aside>
 
         <div id="DistribuidorPerfil">

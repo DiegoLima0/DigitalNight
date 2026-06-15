@@ -1,5 +1,5 @@
 <?php
-include_once 'configPublicProfile_processor.php';
+include_once 'configpublicprofile_processor.php';
 require_once 'includes/header.php';
 ?>
 
@@ -42,9 +42,9 @@ require_once 'includes/header.php';
 
         <aside>
             <h2>Configuración</h2>
-            <a href="configAccount.php" class="seccionConfig seccion1">Cuenta</a>
-            <a href="configPublicProfile.php" class="seccionConfig seccion2 active">Perfil publico</a>
-            <a href="configDistributorProfile.php" class="seccionConfig seccion2">Perfil de distribuidor</a>
+            <a href="configaccount.php" class="seccionConfig seccion1">Cuenta</a>
+            <a href="configpublicprofile.php" class="seccionConfig seccion2 active">Perfil publico</a>
+            <a href="configdistributorprofile.php" class="seccionConfig seccion2">Perfil de distribuidor</a>
         </aside>
 
         <div id="publicProfile">
@@ -56,7 +56,7 @@ require_once 'includes/header.php';
             <?php endif; ?>
 
             <div id="publicProfileConfig">
-                <form action="configPublicProfile.php" method="POST" id="form_perfil">
+                <form action="configpublicprofile.php" method="POST" id="form_perfil">
                     <input type="hidden" name="actualizar_perfil" value="1">
 
                     <label for="nombre">Nombre</label>
@@ -73,7 +73,7 @@ require_once 'includes/header.php';
                     <input type="submit" value="Actualizar Perfil" class="btn azul">
                 </form>
 
-                <form action="configPublicProfile.php" method="POST" enctype="multipart/form-data" id="form_foto">
+                <form action="configpublicprofile.php" method="POST" enctype="multipart/form-data" id="form_foto">
                     <input type="file" name="foto_perfil" id="foto_perfil" accept="image/jpeg, image/png" style="display:none;" onchange="document.getElementById('form_foto').submit();">
 
                     <div id="fotoPerfil">

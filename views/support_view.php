@@ -18,15 +18,15 @@
                     <h2>Ahorra tiempo usando nuestras herramientas de autoayuda, si no te ayudan, echa un vistazo más abajo.</h2>
 
                     <div id="botones">
-                        <a href="configAccount.php">
+                        <a href="configaccount.php">
                             <button class="btn transparente">Dirección de correo electrónico olvidada</button>
                         </a>
 
-                        <a href="configAccount.php">
+                        <a href="configaccount.php">
                             <button class="btn transparente">Contraseña olvidada</button>
                         </a>
 
-                        <a href="configAccount.php">
+                        <a href="configaccount.php">
                             <button class="btn transparente">Recuperar tu cuenta</button>
                         </a>
                     </div>
@@ -47,12 +47,12 @@
                         <h4>Soporte General</h4>
                     </div>
                     <div class="ans">
-                        <a href="answerFAQGeneral1.php">¿Cómo puedo trabajar en Digital Night?</a>
-                        <a href="answerFAQGeneral2.php">¿Cómo encuentro mi ID?</a>
-                        <a href="answerFAQGeneral3.php">¿Cómo borro mi cuenta?</a>
-                        <a href="answerFAQGeneral4.php">¿Puedo usar imágenes o contenido de Digital Night en mi sitio web o en proyectos personales?</a>
-                        <a href="answerFAQGeneral5.php">Cómo contactar a Asistencia de Digital Night</a>
-                        <a href="answerFAQGeneral6.php">Cómo mantener la sesión iniciada en la página web</a>
+                        <a href="answerfaqgeneral1.php">¿Cómo puedo trabajar en Digital Night?</a>
+                        <a href="answerfaqgeneral2.php">¿Cómo encuentro mi ID?</a>
+                        <a href="answerfaqgeneral3.php">¿Cómo borro mi cuenta?</a>
+                        <a href="answerfaqgeneral4.php">¿Puedo usar imágenes o contenido de Digital Night en mi sitio web o en proyectos personales?</a>
+                        <a href="answerfaqgeneral5.php">Cómo contactar a Asistencia de Digital Night</a>
+                        <a href="answerfaqgeneral6.php">Cómo mantener la sesión iniciada en la página web</a>
                     </div>
                 </div>
 
@@ -63,12 +63,12 @@
                     </div>
 
                     <div class="ans">
-                        <a href="answerFAQProblemasPC1.php">Cómo verificar si tu PC cumple con las especificaciones del sistema</a>
-                        <a href="answerFAQProblemasPC2.php">¿Cómo hacer capturas de pantalla o grabaciones en PC?</a>
-                        <a href="answerFAQProblemasPC3.php">Cómo resolver el error de Windows 0xc000009a</a>
-                        <a href="answerFAQProblemasPC4.php">¿Cómo reinicio mi módem o enrutador para resolver problemas de conexión?</a>
-                        <a href="answerFAQProblemasPC5.php">¿Cómo establezco la tarjeta gráfica principal?</a>
-                        <a href="answerFAQProblemasPC6.php">¿Dónde puedo encontrar las partidas guardadas locales?</a>
+                        <a href="answerfaqproblemaspc1.php">Cómo verificar si tu PC cumple con las especificaciones del sistema</a>
+                        <a href="answerfaqproblemaspc2.php">¿Cómo hacer capturas de pantalla o grabaciones en PC?</a>
+                        <a href="answerfaqproblemaspc3.php">Cómo resolver el error de Windows 0xc000009a</a>
+                        <a href="answerfaqproblemaspc4.php">¿Cómo reinicio mi módem o enrutador para resolver problemas de conexión?</a>
+                        <a href="answerfaqproblemaspc5.php">¿Cómo establezco la tarjeta gráfica principal?</a>
+                        <a href="answerfaqproblemaspc6.php">¿Dónde puedo encontrar las partidas guardadas locales?</a>
                     </div>
                 </div>
 

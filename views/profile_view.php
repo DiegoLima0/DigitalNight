@@ -141,7 +141,7 @@ require_once 'includes/header.php';
                         $is_reply = !empty($publicacion['parent_id']);
                         $onclick_attribute = $is_reply 
                             ? '' 
-                            : "onclick=\"window.location.href='communityPublication.php?id=" . $publicacion['idCommentary'] . "'\"";
+                            : "onclick=\"window.location.href='communitypublication.php?id=" . $publicacion['idCommentary'] . "'\"";
                     ?>
                         <div class="publicacionPerfil <?php echo $index >= 5 ? 'js-hidden-item' : ''; ?>" 
                             <?php echo $onclick_attribute; ?>>
@@ -156,7 +156,7 @@ require_once 'includes/header.php';
                                     $parent_text = htmlspecialchars($publicacion['parent_commentary'] ?? 'Publicación original');
                                     $display_text = (strlen($parent_text) > 50) ? substr($parent_text, 0, 50) . '...' : $parent_text;
                             ?>
-                                <a class="parent-comment-link" href="communityPublication.php?id=<?php echo (int) $publicacion['parent_id']; ?>" onclick="event.stopPropagation();">
+                                <a class="parent-comment-link" href="communitypublication.php?id=<?php echo (int) $publicacion['parent_id']; ?>" onclick="event.stopPropagation();">
                                     <strong>Respuesta de:</strong> <?php echo $display_text; ?>
                                 </a>
                             <?php endif; 

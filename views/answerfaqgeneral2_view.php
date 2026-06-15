@@ -13,13 +13,13 @@ Este error se repite en todos los archivos nombrados como "answerFAQGeneral" y "
 <body>
     <main id="mainSoporteAns">
         <section id="soporteAns">
-            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo borro mi cuenta?</p>
+            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo encuentro mi ID?</p>
         </section>
 
         <section class="respuesta">
-            <h1>¿Cómo borro mi cuenta?</h1>
+            <h1>¿Cómo encuentro mi ID?</h1>
 
-            <p>Si deseas eliminar tu cuenta, accede a la configuración de <a href="configAccount.php">Cuenta</a> en tu perfil. Busca la opción “Eliminar cuenta” o “Cerrar cuenta”. Confirma tu decisión según las instrucciones que aparecerán. Ten en cuenta que al borrar tu cuenta puede perderse el acceso a todo tu contenido, historial y datos asociados. Si eres creador/a y tienes contenido en venta, asegúrate de descargar tus datos antes de eliminar la cuenta.</p>
+            <p>Una vez que hayas iniciado sesión, haz clic en tu perfil o en el ícono de <a href="configaccount.php">Cuenta</a>. Allí verás tu ID o nombre de usuario junto con tus datos de perfil. Puedes copiar ese ID cuando lo necesites para contactarnos o para vincular algún servicio externo.</p>
 
             <div class="utilidad" id="utilidad">
                 <h2>¿Te ha sido de ayuda este artículo?</h2>
