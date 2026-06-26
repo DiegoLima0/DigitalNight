@@ -205,7 +205,7 @@ a.btn:hover {
     border-radius: 20px;
     border: none;
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-decoration: none;
     transition: 0.3s ease;
     cursor: pointer;
@@ -218,7 +218,7 @@ a.btn:hover {
     border-radius: 20px;
     border: none;
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-decoration: none;
     cursor: pointer;
     color: white;
@@ -718,24 +718,30 @@ footer p {
 
 /*PAGINA PRINCIPAL (Index.php)*/
 #bodyPrincipal {
-    background-image: url("../img/FondoIndex.png");
+    background-image: url("../img/FondoIndex.jpg");
 
 }
 
 #MainPrincipal {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex;
     justify-content: center;
     gap: 2em;
+    text-align: right;
     background-size: cover;
     background-position: center;
+    text-align: right;
+}
+
+#MainPrincipal span{
+    color: #773ada;
 }
 
 #MainPrincipal a {
     font-size: 19px;
     width: 150px;
-    padding: 7px 0;
+    padding: 10px 0;
 }
 
 #MainPrincipal>div {
@@ -744,22 +750,23 @@ footer p {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.308);
+    background: linear-gradient(90deg, #000000, #00000000);
     height: 100%;
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 #MainPrincipal p {
     font-size: 20px;
+    text-align: left;
 }
 
 #TextoPaginaPrincipal {
     font-size: 50px;
+    text-align: left;
 }
 
 #MainPrincipal>div>div {
+    margin-top: 10px;
     display: flex;
     gap: 1em;
 }
