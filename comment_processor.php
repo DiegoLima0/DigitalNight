@@ -89,11 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
                        VALUES ('$commentary_seguro', $user_id, $id_game_reply, $image_file_name, NOW(), $parent_id_seguro)";
 
         if ($conexion->query($sql_insert)) {
-            header("Location: communityPublication.php?id=$parent_id&reply=ok");
+            header("Location: communitypublication.php?id=$parent_id&reply=ok");
             exit();
         } else {
             error_log("Error MySQL en respuesta: " . $conexion->error . " - Query: " . $sql_insert);
-            header("Location: communityPublication.php?id=$parent_id&error=db_fail");
+            header("Location: communitypublication.php?id=$parent_id&error=db_fail");
             exit();
         }
     }

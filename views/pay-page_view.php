@@ -6,7 +6,8 @@
   <title>Página de Pago — FM</title>
 </head>
 <body>
-
+<!--Tanto los Id como clases estan nombradas de maneras confusas, asi como se repite constantemente el uso del atributo style.
+    También el código esta muy desordenado por lo q es muy confuso-->
   <main id="fm_page_wrapper">
     <div class="fm_progressbar" aria-hidden="true">
       <div class="fm_step">

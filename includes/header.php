@@ -18,7 +18,7 @@ $nav_class = $is_logged_in ? '' : 'borrar';
 <nav class="<?php echo $nav_class; ?>">
     <a href="shop.php">Tienda</a>
     <a href="library.php">Biblioteca</a>
-    <a href="aboutUs.php">Sobre nosotros</a>
+    <a href="aboutus.php">Sobre nosotros</a>
     <a href="support.php">Soporte</a>
 </nav>
 

@@ -1,9 +1,11 @@
+/*Hay cosas en este archivo que son innecesariamente largas, muchas veces x el uso de IA, desconocimiento de como acortarlo o falta de tiempo x la q no se penso en hacerlo*/
+
 /*Estilo general de la pagina*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap');
 
 :root {
     --fondoAzulOscuro: #111425;
-    --accent: #00a3ff;
+    --accent: #00a3ff; /*El nombre de esta variable es uno generico usado x una IA, a parte de q este celeste o parecidos son muy usados x la IA, tampoco cumple con la paleta de colores de la página*/
     --card-gray: rgba(200, 200, 200, 0.18);
     --glass: rgba(255, 255, 255, 0.06);
     --radius: 10px;
@@ -203,7 +205,7 @@ a.btn:hover {
     border-radius: 20px;
     border: none;
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-decoration: none;
     transition: 0.3s ease;
     cursor: pointer;
@@ -216,7 +218,7 @@ a.btn:hover {
     border-radius: 20px;
     border: none;
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-decoration: none;
     cursor: pointer;
     color: white;
@@ -603,7 +605,7 @@ footer p {
     transition: 0.3s ease;
 }
 
-.btn-ghost {
+.btn-ghost { /*No estoy segura de q trata esta clase*/
     flex: 1;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -613,9 +615,9 @@ footer p {
     cursor: pointer;
 }
 
-.btn-primary {
+.btn-primary { /*Este nombre de clase es muy tipica de la IA*/
     flex: 1;
-    background: linear-gradient(90deg, #6fc6ff, #3aa0ff);
+    background: linear-gradient(90deg, #6fc6ff, #3aa0ff); /*Nuevamente un celeste muy parecido al q pone la IA (mencionado al inicio)*/
     border: none;
     color: #08263a;
     padding: 10px 12px;
@@ -667,7 +669,7 @@ footer p {
 }
 
 #Carrousel h6 {
-    font-family: "Bowlby One SC", sans-serif;
+    font-family: "Bowlby One SC", sans-serif; /*Uso innecesario de font-family (usado mucho x IA) cuando ya hay una fuente para toda la página*/
     font-weight: 400;
     font-size: 25px;
 }
@@ -716,24 +718,30 @@ footer p {
 
 /*PAGINA PRINCIPAL (Index.php)*/
 #bodyPrincipal {
-    background-image: url("../img/FondoIndex.png");
+    background-image: url("../img/FondoIndex.jpg");
 
 }
 
 #MainPrincipal {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex;
     justify-content: center;
     gap: 2em;
+    text-align: right;
     background-size: cover;
     background-position: center;
+    text-align: right;
+}
+
+#MainPrincipal span{
+    color: #773ada;
 }
 
 #MainPrincipal a {
     font-size: 19px;
     width: 150px;
-    padding: 7px 0;
+    padding: 10px 0;
 }
 
 #MainPrincipal>div {
@@ -742,22 +750,23 @@ footer p {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.308);
+    background: linear-gradient(90deg, #000000, #00000000);
     height: 100%;
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 #MainPrincipal p {
     font-size: 20px;
+    text-align: left;
 }
 
 #TextoPaginaPrincipal {
     font-size: 50px;
+    text-align: left;
 }
 
 #MainPrincipal>div>div {
+    margin-top: 10px;
     display: flex;
     gap: 1em;
 }
@@ -1027,7 +1036,7 @@ form input[type="submit"]:hover {
 }
 
 /*Página Tienda (Shop.php)*/
-*,
+*, /*MUY probablemente echo con IA ya q esto deberia estar en estilos generales*/
 *::before,
 *::after {
     box-sizing: border-box;
@@ -1448,7 +1457,7 @@ h2.section-title {
     height: 100%;
     object-fit: cover;
     display: block;
-    vertical-align: middle;
+    vertical-align: middle; /*No parece cambiar nada en la página de Tienda, probablemente echo con IA*/
 }
 
 

@@ -55,7 +55,9 @@
         });
     </script>
 </head>
+<!--CÓDIGO A REVISAR-->
 
+<!--Aunque principalmente el código parece tener un problema de desorden, también repite el uso del atributo "styles" que deberia de ser usado en un archivo de CSS-->
 <body>
     <main id="mainComunidad">
         <section id="secPublicar">
@@ -117,7 +119,7 @@
                 $is_creator = $publication['is_creator_post'];
                 $profile_img_path = 'img/profiles/' . htmlspecialchars($publication['user_profile_img']);
                 $post_img_path = !empty($publication['publication_image']) ? 'img/publications/' . htmlspecialchars($publication['publication_image']) : null;
-                $publication_link = 'communityPublication.php?id=' . (int) $publication['idPublication'];
+                $publication_link = 'communitypublication.php?id=' . (int) $publication['idPublication'];
                 ?>
 
                 <a class="publicacion" href="<?php echo $publication_link; ?>">

@@ -41,7 +41,7 @@ if ($is_logged_in) {
                         <i class="bi bi-person"></i>
                         Ver perfil
                     </a>
-                    <a href="configAccount.php">
+                    <a href="configaccount.php">
                         <i class="bi bi-gear"></i>
                         Configuración
                     </a>
@@ -51,7 +51,7 @@ if ($is_logged_in) {
                             Administrar Usuarios
                         </a>
                     <?php endif; ?>
-                    <a href="configDistributorProfile.php">
+                    <a href="configdistributorprofile.php">
                         <i class="bi bi-people"></i>
                         Perfil de Creador
                     </a>
