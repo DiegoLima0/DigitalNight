@@ -6,32 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte Digital Night</title>
 </head>
-<!--CÓDIGO A REVISAR-->
 
-<!--Debido a la falta de tiempo y el desconocimiento al hacer las páginas de respuestas de FAQ (Preguntas frecuentes) se hizo multiples copias del mismo código en distintos archivos, cuando muy probablemente se podria haber usado una plantilla
-Este error se repite en todos los archivos nombrados como "answerFAQGeneral" y "answerFAQProblemasPC"-->
+<!--Esta página es un ejemplo de plantilla para las respuestas de soporte-->
+
 <body>
     <main id="mainSoporteAns">
         <section id="soporteAns">
-            <p><a href="support.php">Soporte Tecnico</a> / ¿Cómo hacer capturas de pantalla o grabaciones en PC?</p>
+            <p>
+                <a href="support.php">Soporte Tecnico</a> <!--Este link jamas cambia--> / ¿Cómo puedo trabajar en Digital Night? <!--Luego del / debe estar la pregunta a responder-->
+            </p> 
         </section>
 
         <section class="respuesta">
-            <h1>¿Cómo hacer capturas de pantalla o grabaciones en PC?</h1>
+            <h1>¿Cómo puedo trabajar en Digital Night?</h1> <!--H1 donde siempre va a estar la pregunta frecuente o el problema de PC-->
 
-            <p>Para saber cómo hacer capturas de pantalla o grabaciones en PC, consulta estos artículos del soporte técnico de Windows según tu versión de Windows:</p>
-
-            <ul>
-                <li>
-                    <a href="https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b" target="_blank">Usar Recortes para realizar capturas de pantalla en Windows 11 y 10</a>
-                </li>
-                <li>
-                    <a href="https://www.microsoft.com/en-us/windows/learning-center/how-to-record-screen-windows-11" target="_blank">Cómo grabar la pantalla en Windows 11</a>
-                </li>
-                <li>
-                    <a href="https://support.microsoft.com/en-gb/topic/how-to-make-a-screen-recording-8797f456-7edd-4176-b525-28b954ff5e4d" target="_blank">Cómo realizar una grabación de pantalla en Windows 10</a>
-                </li>
-            </ul>
+            <!--A partir de acá va la respuesta a la pregunta frecuente o solución de problema de PC, donde podemos poner texto, imagenes, listas, iconos y otros links, no debe ser necesariamente como este ejemplo-->
+            <p>Puedes obtener información sobre oportunidades o colaboraciones escribiendo a <a href="">empleos@digitalnight.com <i class="bi bi-arrow-up-right"></i></a></p>
 
             <div class="utilidad" id="utilidad">
                 <h2>¿Te ha sido de ayuda este artículo?</h2>
