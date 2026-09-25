@@ -17,71 +17,72 @@ if (empty($_SESSION['token'])) {
 
 <body id="bodyFormulario">
 
-<main class="MainFormulario">
+    <main class="MainFormulario">
 
-<form action="register.php" method="post" autocomplete="off">
+        <form action="register.php" method="post" autocomplete="off">
 
-<label class="titulo">Crear cuenta</label>
+            <label class="titulo">Crear cuenta</label>
 
-<input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+            <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
 
-<div>
-<label for="nombre">Nombre de usuario</label>
+            <div>
+                <label for="nombre">Nombre de usuario</label>
 
-<input 
-type="text"
-name="nombre"
-placeholder="Nombre de usuario"
-required
-minlength="3"
-maxlength="20"
-pattern="[A-Za-z0-9_]+"
-title="Solo letras, números o guiones bajos">
-</div>
-
-
-<div>
-<label for="correo">Correo electrónico</label>
-
-<input 
-type="email"
-name="correo"
-placeholder="correoelectronico@ejemplo.com"
-required
-maxlength="100">
-</div>
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Nombre de usuario"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[A-Za-z0-9_]+"
+                    title="Solo letras, números o guiones bajos">
+            </div>
 
 
-<div>
-<label for="password">Contraseña</label>
+            <div>
+                <label for="correo">Correo electrónico</label>
 
-<div class="input-pass-wrapper">
-
-<input 
-type="password"
-name="password"
-id="password"
-placeholder="Ingrese una contraseña"
-required
-minlength="8"
-maxlength="64"
-pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}"
-title="Debe tener mínimo 8 caracteres, una mayúscula, una minúscula y un número">
-
-<i class="bi bi-eye-slash toggle-pass" id="toggleEye"></i>
-
-</div>
-</div>
+                <input
+                    type="email"
+                    name="correo"
+                    placeholder="correoelectronico@ejemplo.com"
+                    required
+                    maxlength="100">
+            </div>
 
 
-<div>
-<a href="login.php">¿Ya tenes una cuenta?</a>
-<input type="submit" value="Registrarse">
-</div>
+            <div>
+                <label for="password">Contraseña</label>
 
-</form>
+                <div class="input-pass-wrapper">
 
-</main>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Ingrese una contraseña"
+                        required
+                        minlength="8"
+                        maxlength="64"
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}"
+                        title="Debe tener mínimo 8 caracteres, una mayúscula, una minúscula y un número">
+
+                    <i class="bi bi-eye-slash toggle-pass" id="toggleEye"></i>
+
+                </div>
+            </div>
+
+
+            <div>
+                <a href="login.php">¿Ya tenes una cuenta?</a>
+                <input type="submit" value="Registrarse">
+            </div>
+
+        </form>
+
+    </main>
 
 </body>
+
 </html>

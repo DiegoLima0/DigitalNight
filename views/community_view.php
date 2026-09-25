@@ -10,7 +10,7 @@
 
             document.querySelectorAll('#publicaciones .interacciones p.btn-like, #publicaciones .interacciones p.btn-dislike').forEach(button => {
 
-                button.addEventListener('click', function (e) {
+                button.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -24,12 +24,12 @@
                     interactionDiv.style.pointerEvents = 'none';
 
                     fetch('comment_processor.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: `action=process_vote&id=${idCommentary}&vote_action=${voteAction}`
-                    })
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `action=process_vote&id=${idCommentary}&vote_action=${voteAction}`
+                        })
                         .then(response => {
                             if (!response.ok) throw new Error("Error de red o servidor: " + response.status);
                             return response.json();
@@ -58,6 +58,7 @@
 <!--CÓDIGO A REVISAR-->
 
 <!--Aunque principalmente el código parece tener un problema de desorden, también repite el uso del atributo "styles" que deberia de ser usado en un archivo de CSS-->
+
 <body>
     <main id="mainComunidad">
         <section id="secPublicar">
@@ -76,10 +77,10 @@
 
                 <input type="hidden" name="idGame" value="<?php echo htmlspecialchars($game_id); ?>">
 
-                <?php 
-                    $current_username = $current_username ?? 'Usuario'; 
+                <?php
+                $current_username = $current_username ?? 'Usuario';
                 ?>
-                
+
                 <div id="imgUsComunidad">
                     <img src="img/profiles/<?php echo htmlspecialchars($foto_perfil_actual); ?>" alt="Imagen de perfil">
                     <p>@<?php echo htmlspecialchars($current_username); ?></p>
@@ -120,7 +121,7 @@
                 $profile_img_path = 'img/profiles/' . htmlspecialchars($publication['user_profile_img']);
                 $post_img_path = !empty($publication['publication_image']) ? 'img/publications/' . htmlspecialchars($publication['publication_image']) : null;
                 $publication_link = 'communitypublication.php?id=' . (int) $publication['idPublication'];
-                ?>
+            ?>
 
                 <a class="publicacion" href="<?php echo $publication_link; ?>">
                     <div id="imgUsComunidad">

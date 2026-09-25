@@ -25,7 +25,7 @@
             border-color: #f5c6cb;
         }
 
-        h1{
+        h1 {
             font-size: 35px;
         }
     </style>
@@ -82,10 +82,10 @@
                                                     Admin</option>
                                             </select>
                                         </td>
-                                        
-                                        <td><input type="text" name="password" 
-                                                value="<?php echo htmlspecialchars($usuario['password'] ?? ''); ?>" 
-                                                style="width: 100%;"></td> 
+
+                                        <td><input type="text" name="password"
+                                                value="<?php echo htmlspecialchars($usuario['password'] ?? ''); ?>"
+                                                style="width: 100%;"></td>
 
                                         <td class="botonesUser">
                                             <button type="submit" name="submit_update" class="btn violetaClaro">Editar</button>

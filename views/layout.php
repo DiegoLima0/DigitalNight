@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <script>
-  const link = document.createElement('link');
-  link.rel = 'icon';
-  link.href = '/img/digitalNightLogo.png';
-  document.head.appendChild(link);
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.href = '/img/digitalNightLogo.png';
+    document.head.appendChild(link);
 </script>
 
 <body>
@@ -19,7 +19,7 @@
 
     <?php
     $section = (isset($section)) ? $section : 'home';
-    require_once $section . '_view.php'; 
+    require_once $section . '_view.php';
     ?>
 
     <footer>

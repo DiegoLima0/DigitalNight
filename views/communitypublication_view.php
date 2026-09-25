@@ -71,7 +71,8 @@ $current_username = $_SESSION['username'] ?? 'Usuario';
 <!--CÓDIGO A REVISAR?-->
 
 <!--Hay un uso del atributo "styles" pero creo q parece ser usado por el equipo de backend al momento de agregar la parte de PHP-->
-<body> 
+
+<body>
     <main id="mainPublicacion">
 
         <div id="volver">

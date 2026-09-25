@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Juegos</title>
     <!--Aunque este style no deberia estar aca, una parte fue echa x el equipo backend para no modificar el css y no perjudicar al equipo de frontend-->
-    <style> 
+    <style>
         h1 {
             text-align: center;
             font-size: 35px;
         }
 
-        h2{
+        h2 {
             font-size: 20px;
         }
 
-        h3{
+        h3 {
             font-size: 16px;
         }
 

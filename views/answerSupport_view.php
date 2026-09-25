@@ -14,7 +14,7 @@
         <section id="soporteAns">
             <p>
                 <a href="support.php">Soporte Tecnico</a> <!--Este link jamas cambia--> / ¿Cómo puedo trabajar en Digital Night? <!--Luego del / debe estar la pregunta a responder-->
-            </p> 
+            </p>
         </section>
 
         <section class="respuesta">

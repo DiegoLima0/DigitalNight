@@ -34,7 +34,7 @@
                 <div class="filtros-col">
                     <h4>Plataforma</h4>
                     <?php
-                    $plataformas = ['Windows', 'MacOs', 'Linux', 'Android', 'iOS', 'PlayStation 5','Emulador']; //añado play station 5 y funciona en filtros
+                    $plataformas = ['Windows', 'MacOs', 'Linux', 'Android', 'iOS', 'PlayStation 5', 'Emulador']; //añado play station 5 y funciona en filtros
                     foreach ($plataformas as $plataforma) {
                         $activo = ($current_plataforma === $plataforma);
                         $url = $activo
@@ -74,30 +74,30 @@
         <section class="container-carrusel">
             <div class="slider-wrapper">
                 <div class="slider">
-                    <?php 
-                        $id_juego_1 = 10; 
-                        $id_juego_2 = 13; 
-                        $id_juego_3 = 9; 
-                        $id_juego_4 = 18; 
+                    <?php
+                    $id_juego_1 = 10;
+                    $id_juego_2 = 13;
+                    $id_juego_3 = 9;
+                    $id_juego_4 = 18;
 
-                        $url_1 = "games.php?idGame=" . $id_juego_1;
-                        $url_2 = "games.php?idGame=" . $id_juego_2;
-                        $url_3 = "games.php?idGame=" . $id_juego_3;
-                        $url_4 = "games.php?idGame=" . $id_juego_4;
+                    $url_1 = "games.php?idGame=" . $id_juego_1;
+                    $url_2 = "games.php?idGame=" . $id_juego_2;
+                    $url_3 = "games.php?idGame=" . $id_juego_3;
+                    $url_4 = "games.php?idGame=" . $id_juego_4;
                     ?>
-                    
+
                     <a href="<?php echo $url_1; ?>">
                         <img id="slider-1" src="img/MetalGear-Promocional.jpg" alt="">
                     </a>
-                    
+
                     <a href="<?php echo $url_2; ?>">
                         <img id="slider-2" src="img/LittleNightmares3Promocional.jpg" alt="">
                     </a>
-                    
+
                     <a href="<?php echo $url_3; ?>">
                         <img id="slider-3" src="img/RedDeadOnline.jpg" alt="">
                     </a>
-                    
+
                     <a href="<?php echo $url_4; ?>">
                         <img id="slider-4" src="img/GodOfWarPromocional.jpg" alt="">
                     </a>
@@ -125,108 +125,109 @@
         </section>
 
         <h2 class="section-title">Recomendados para ti</h2>
-    
+
         <section class="grid" id="productGrid" aria-label="lista de productos">
-            <?php 
-            if (isset($games_list) && is_array($games_list)): 
-                foreach ($games_list as $game): 
+            <?php
+            if (isset($games_list) && is_array($games_list)):
+                foreach ($games_list as $game):
             ?>
-            
-            <a href="games.php?idGame=<?php echo $game['idGame']; ?>"> <!--Nuevamente se repiten cosas como "meta" y "thumb" (Posiblemente IA o reutilización de clases)-->
-                <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
-                    <div class="card__thumb">
-                        <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
-                    </div>
 
-                    <div class="card__meta">
-                        <div style="display:flex;align-items:center;gap:8px;width:100%">
-                            <div class="card__title"><?php echo $game['title']; ?></div>
-                            <div class="card__price">US$<?php echo $game['price']; ?></div>
-                        </div>
+                    <a href="games.php?idGame=<?php echo $game['idGame']; ?>"> <!--Nuevamente se repiten cosas como "meta" y "thumb" (Posiblemente IA o reutilización de clases)-->
+                        <article class="card card--item" aria-label="producto <?php echo $game['idGame']; ?>">
+                            <div class="card__thumb">
+                                <img src="img/<?php echo $game['imagen']; ?>" alt="<?php echo $game['title']; ?>">
+                            </div>
 
-                        <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div> 
-                    </div>
-                </article>
-            </a>
-            
-            <?php 
+                            <div class="card__meta">
+                                <div style="display:flex;align-items:center;gap:8px;width:100%">
+                                    <div class="card__title"><?php echo $game['title']; ?></div>
+                                    <div class="card__price">US$<?php echo $game['price']; ?></div>
+                                </div>
+
+                                <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div>
+                            </div>
+                        </article>
+                    </a>
+
+                <?php
                 endforeach;
-            else: 
-            ?>
-            <p>No hay juegos disponibles en la tienda.</p>
+            else:
+                ?>
+                <p>No hay juegos disponibles en la tienda.</p>
             <?php endif; ?>
         </section>
 
 
         <nav class="pag-nav" role="navigation" aria-label="paginacion">
-  <?php
-    // función auxiliar para mantener filtros en la URL
-    function build_page_url($p) {
-      $qs = [];
-      if (!empty($_GET['genero'])) $qs[] = 'genero=' . urlencode($_GET['genero']);
-      if (!empty($_GET['plataforma'])) $qs[] = 'plataforma=' . urlencode($_GET['plataforma']);
-      if (isset($_GET['precio']) && $_GET['precio'] !== '') $qs[] = 'precio=' . urlencode($_GET['precio']);
-      $qs[] = 'page=' . $p;
-      return '?' . implode('&', $qs);
-    }
-  ?>
+            <?php
+            // función auxiliar para mantener filtros en la URL
+            function build_page_url($p)
+            {
+                $qs = [];
+                if (!empty($_GET['genero'])) $qs[] = 'genero=' . urlencode($_GET['genero']);
+                if (!empty($_GET['plataforma'])) $qs[] = 'plataforma=' . urlencode($_GET['plataforma']);
+                if (isset($_GET['precio']) && $_GET['precio'] !== '') $qs[] = 'precio=' . urlencode($_GET['precio']);
+                $qs[] = 'page=' . $p;
+                return '?' . implode('&', $qs);
+            }
+            ?>
 
-  <?php if ($page > 1): ?>
-    <a href="<?php echo build_page_url($page - 1); ?>">
-      <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
-    </a>
-  <?php else: ?>
-    <button class="pag-nav__btn" aria-label="anterior" disabled>&lt;</button>
-  <?php endif; ?>
+            <?php if ($page > 1): ?>
+                <a href="<?php echo build_page_url($page - 1); ?>">
+                    <button class="pag-nav__btn" aria-label="anterior">&lt;</button>
+                </a>
+            <?php else: ?>
+                <button class="pag-nav__btn" aria-label="anterior" disabled>&lt;</button>
+            <?php endif; ?>
 
-  <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-    <a href="<?php echo build_page_url($i); ?>">
-      <button class="pag-nav__btn <?php echo $i === $page ? 'pag-nav__btn--active' : ''; ?>">
-        <?php echo $i; ?>
-      </button>
-    </a>
-  <?php endfor; ?>
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="<?php echo build_page_url($i); ?>">
+                    <button class="pag-nav__btn <?php echo $i === $page ? 'pag-nav__btn--active' : ''; ?>">
+                        <?php echo $i; ?>
+                    </button>
+                </a>
+            <?php endfor; ?>
 
-  <?php if ($page < $total_pages): ?>
-    <a href="<?php echo build_page_url($page + 1); ?>">
-      <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
-    </a>
-  <?php else: ?>
-    <button class="pag-nav__btn" aria-label="siguiente" disabled>&gt;</button>
-  <?php endif; ?>
-</nav>
+            <?php if ($page < $total_pages): ?>
+                <a href="<?php echo build_page_url($page + 1); ?>">
+                    <button class="pag-nav__btn" aria-label="siguiente">&gt;</button>
+                </a>
+            <?php else: ?>
+                <button class="pag-nav__btn" aria-label="siguiente" disabled>&gt;</button>
+            <?php endif; ?>
+        </nav>
 
 
-<div id="purchaseModal" class="modal-overlay" hidden aria-hidden="true">
-  <div class="modal purchase-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="illustration">
-  
-      <img src="img/bolsa.png" alt="bolsa de compra" class="bag-img" />
-    
-    </div>
+        <div id="purchaseModal" class="modal-overlay" hidden aria-hidden="true">
+            <div class="modal purchase-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="illustration">
 
-    <p>Número de pedido 131283298982389</p>
+                    <img src="img/bolsa.png" alt="bolsa de compra" class="bag-img" />
 
-    <h1 class="">¡Gracias por tu pedido!</h1>
-    <p>¿Listo para instalar tu producto?</p>
+                </div>
 
-    <div class="modal-actions">
-      <a href="shop.php" class="btnVioletaDifuminado" role="button">Continuar explorando</a>
-      <a href="library.php" class="btnAzulDifuminado" role="button">Ver en la biblioteca</a>
-    </div>
-  </div>
-</div>
+                <p>Número de pedido 131283298982389</p>
+
+                <h1 class="">¡Gracias por tu pedido!</h1>
+                <p>¿Listo para instalar tu producto?</p>
+
+                <div class="modal-actions">
+                    <a href="shop.php" class="btnVioletaDifuminado" role="button">Continuar explorando</a>
+                    <a href="library.php" class="btnAzulDifuminado" role="button">Ver en la biblioteca</a>
+                </div>
+            </div>
+        </div>
     </main>
     <?php if (isset($_GET['pago']) && $_GET['pago'] === 'exitoso'): ?>
-<script>
-  // Mostrar el modal automáticamente
-  document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById("purchaseModal");
-    modal.removeAttribute("hidden");
-    modal.setAttribute("aria-hidden", "false");
-  });
-</script>
-<?php endif; ?>
+        <script>
+            // Mostrar el modal automáticamente
+            document.addEventListener("DOMContentLoaded", function() {
+                const modal = document.getElementById("purchaseModal");
+                modal.removeAttribute("hidden");
+                modal.setAttribute("aria-hidden", "false");
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

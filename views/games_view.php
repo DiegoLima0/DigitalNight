@@ -73,6 +73,7 @@ if (isset($_SESSION['user_id'])) {
 <!--CÓDIGO A REVISAR?-->
 
 <!--Este archivo fue echo x el equipo de backend y ligeramente modificado x el equipo de frondend, hay unicamente unos usos del atributo "styles" ya q para no generar problemas entre ambas partes se puso directamente en el HTML-->
+
 <body class="games">
   <div class="page">
     <div class="section fondo-img" role="banner" aria-label="Fondo principal">
@@ -424,7 +425,7 @@ if (isset($_SESSION['user_id'])) {
 
   </section>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const postsContainer = document.getElementById('publicacionesCreador');
       const loadMoreButton = document.querySelector('.more-btn');
       const postsPerLoad = 4;
@@ -434,7 +435,7 @@ if (isset($_SESSION['user_id'])) {
       }
 
       if (loadMoreButton) {
-        loadMoreButton.addEventListener('click', function (e) {
+        loadMoreButton.addEventListener('click', function(e) {
           e.preventDefault();
 
           const offset = parseInt(postsContainer.getAttribute('data-offset'));
@@ -539,7 +540,7 @@ if (isset($_SESSION['user_id'])) {
       paintSavedStars();
 
       stars.forEach(star => {
-        star.addEventListener("mouseover", function () {
+        star.addEventListener("mouseover", function() {
           const hoverValue = parseInt(this.dataset.value);
 
           stars.forEach(s => {
@@ -560,21 +561,21 @@ if (isset($_SESSION['user_id'])) {
       });
 
       stars.forEach(star => {
-        star.addEventListener("click", function () {
+        star.addEventListener("click", function() {
           const value = parseInt(this.dataset.value);
           savedRating = value;
           paintSavedStars();
 
           fetch("rate.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              idGame: idGame,
-              rating: value
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                idGame: idGame,
+                rating: value
+              })
             })
-          })
             .then(res => res.json())
             .then(data => {
 
