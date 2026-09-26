@@ -66,7 +66,7 @@ require_once 'includes/header.php';
                 </p>
             </div>
 
-            <a href="CreatorForm.php" class="btn azul">Primeros pasos</a>
+            <a href="creatorform.php" class="btn azul">Primeros pasos</a>
         </div>
     </main>
 </body>

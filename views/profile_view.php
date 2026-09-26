@@ -42,7 +42,6 @@ require_once 'includes/header.php';
                 <div id="contenidoPerfil">
                     <p>@<?php echo htmlspecialchars($_SESSION['username'] ?? 'Usuario'); ?></p>
                     
-                    <?php echo "Tu saldo actual es: $" . htmlspecialchars($_SESSION['money'] ?? 0); ?>
                     
                     <div>
                         <p>Biografia</p>

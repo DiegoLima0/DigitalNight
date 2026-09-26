@@ -141,7 +141,7 @@
                     <div class="card__meta">
                         <div style="display:flex;align-items:center;gap:8px;width:100%">
                             <div class="card__title"><?php echo $game['title']; ?></div>
-                            <div class="card__price">US$<?php echo $game['price']; ?></div>
+                            
                         </div>
 
                         <div class="card__details">Plataforma: <?php echo $game['platforms']; ?></div> 

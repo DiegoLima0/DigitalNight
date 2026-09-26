@@ -80,7 +80,7 @@ $nav_class = 'borrar';
     <main>
         <div id="ruffle_player">
             <embed 
-                src="bad_ice_cream_LF.swf" 
+                src="bad_ice_cream_lf.swf" 
                 type="application/x-shockwave-flash" 
                 width="100%" 
                 height="100%">

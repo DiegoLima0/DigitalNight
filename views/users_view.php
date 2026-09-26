@@ -59,7 +59,7 @@
                         <?php if (!empty($usuarios)): ?>
                             <?php foreach ($usuarios as $usuario): ?>
                                 <tr>
-                                    <form method="POST" action="/DigitalNight/users-connection.php">
+                                    <form method="POST" action="/users-connection.php">
                                         <input type="hidden" name="action" value="update_user">
                                         <input type="hidden" name="idUser" value="<?php echo $usuario['idUser']; ?>">
 
@@ -91,7 +91,7 @@
                                             <button type="submit" name="submit_update" class="btn violetaClaro">Editar</button>
 
                                     </form>
-                                    <form method="POST" action="/DigitalNight/users-connection.php" style="display:inline;"
+                                    <form method="POST" action="/users-connection.php" style="display:inline;"
                                         onsubmit="return confirm('¿Estás seguro de ELIMINAR al usuario <?php echo htmlspecialchars($usuario['userName']); ?>?');">
                                         <input type="hidden" name="action" value="delete_user">
                                         <input type="hidden" name="idUser" value="<?php echo $usuario['idUser']; ?>">

@@ -162,7 +162,7 @@
 
     <div id="Separador-Seccion2">
       <p>02</p>
-      <span></span>
+      <span></span> 
       <span></span>
       <span></span>
     </div>
@@ -177,7 +177,7 @@
         <div class="carruselM"> <!--Carrusel infinito-->
           <div class="grupo">
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('amy')">
-              <img src="../img/Amy-ScrumMaster.jpg" alt="Amy Delgado">
+              <img src="img/Admins/Amy-Delgado.jpeg" alt="Amy Delgado">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
@@ -188,18 +188,16 @@
               <img src="img/Admins/Luciano-Ferrari.jpg" alt="Luciano Ferrari">
             </a>
 
-            <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
-              <img src="../img/Facundo-Fronted.jpg" alt="Facundo Montes">
+            <a href="#miembros" class="cardM" onclick="mostrarTarjeta('adrian')">
+              <img src="img/Admins/integrante.jpg" alt="Adrian Vega">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('tamara')">
-              <img src="../img/Tamara-Fronted-Diseñadora.jpg" alt="Tamara Britez">
+              <img src="img/Admins/integrante.jpg" alt="Tamara Britez">
             </a>
-          </div>
 
-          <div aria-hidden class="grupo">
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('amy')">
-              <img src="../img/Amy-ScrumMaster.jpg" alt="Amy Delgado">
+              <img src="img/Admins/Amy-Delgado.jpeg" alt="Amy Delgado">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('diego')">
@@ -210,13 +208,14 @@
               <img src="img/Admins/Luciano-Ferrari.jpg" alt="Luciano Ferrari">
             </a>
 
-            <a href="#miembros" class="cardM" onclick="mostrarTarjeta('facundo')">
-              <img src="../img/Facundo-Fronted.jpg" alt="Facundo Montes">
+            <a href="#miembros" class="cardM" onclick="mostrarTarjeta('adrian')">
+              <img src="img/Admins/integrante.jpg" alt="Adrian Vega">
             </a>
 
             <a href="#miembros" class="cardM" onclick="mostrarTarjeta('tamara')">
-              <img src="../img/integrante.jpg" alt="Tamara Britez">
+              <img src="img/Admins/integrante.jpg" alt="Tamara Britez">
             </a>
+            
           </div>
         </div>
       </div>
@@ -269,7 +268,7 @@
         </div>
 
         <div class="tarjetaMiembro activa" id="amy">
-          <img src="../img/Amy-ScrumMaster.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Admins/Amy-Delgado.jpeg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Amy Delgado</h3>
@@ -290,33 +289,27 @@
           </div>
         </div>
 
-        <div class="tarjetaMiembro" id="facundo">
-          <img src="../img/Facundo-Fronted.jpg" alt="Miembro" class="miembroImg2">
+        <div class="tarjetaMiembro activa" id="adrian">
+          <img src="img/Admins/integrante.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
-            <h3>Facundo Montes</h3>
+            <h3>Adrain Vega</h3>
 
-            <p><strong>Rol(es):</strong> Desarrollador Frontend + Diseñador UX<br>
-              <strong>Edad:</strong> 16<br>
-              <strong>Fecha de nacimiento:</strong> 15 de Diciembre del 2008
+            <p><strong>Rol(es):</strong> Tester<br>
+              <strong>Edad:</strong> 17<br>
+              <strong>Fecha de nacimiento:</strong> ?
             </p>
 
             <hr>
 
             <p>
-              Como desarrollador Frontend me encargo del apartado visual de la página, además de diseñarla para que se
-              vea
-              tanto satisfactoriamente como visualmente agradable con el fin de complacer al usuario, también me ocupo
-              de
-              testear el sitio web en busca de algún error el cual pueda comprometer la experiencia de nuestra
-              comunidad.
-
+              ?
             </p>
           </div>
         </div>
 
         <div class="tarjetaMiembro" id="tamara">
-          <img src="../img/Tamara-Fronted-Diseñadora.jpg" alt="Miembro" class="miembroImg2">
+          <img src="img/Admins/integrante.jpg" alt="Miembro" class="miembroImg2">
 
           <div>
             <h3>Tamara Britez</h3>
@@ -341,3 +334,28 @@
 </body>
 
 </html>
+
+<!-- <div class="tarjetaMiembro" id="facundo">
+          <img src="../img/Facundo-Fronted.jpg" alt="Miembro" class="miembroImg2">
+
+          <div>
+            <h3>Facundo Montes</h3>
+
+            <p><strong>Rol(es):</strong> Desarrollador Frontend + Diseñador UX<br>
+              <strong>Edad:</strong> 16<br>
+              <strong>Fecha de nacimiento:</strong> 15 de Diciembre del 2008
+            </p>
+
+            <hr>
+
+            <p>
+              Como desarrollador Frontend me encargo del apartado visual de la página, además de diseñarla para que se
+              vea
+              tanto satisfactoriamente como visualmente agradable con el fin de complacer al usuario, también me ocupo
+              de
+              testear el sitio web en busca de algún error el cual pueda comprometer la experiencia de nuestra
+              comunidad.
+
+            </p>
+          </div>
+        </div> -->

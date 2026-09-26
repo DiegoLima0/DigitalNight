@@ -68,66 +68,9 @@ if ($is_logged_in) {
                 </div>
             </div>
 
-            <div id="carritoBtn">
-                <button id="Btn-Carrito" class="Btn-Carrito">
-                    <i class="bi bi-cart"></i>
-                </button>
-            </div>
         </div>
     </div>
 </div>
-
-<aside id="carritoLateral" aria-hidden="true" class="carrito-panel <?php echo $clase_perfil; ?>">
-    <h2 class="carrito-titulo">Mi carrito</h2>
-    <ul id="Lista-Productos" class="lista-productos">
-        <?php if (!empty($_SESSION['cart'])): ?>
-            <?php foreach ($_SESSION['cart'] as $item): ?>
-                <li class="carrito-item">
-                    <div class="thumb">
-                        <img src="img/<?php echo htmlspecialchars($item['imagen']); ?>" width="50">
-                    </div>
-                    <div class="meta">
-                        <div class="nombre"><?php echo htmlspecialchars($item['nombre']); ?></div>
-                        <div class="plataforma">Plataforma: <?php echo htmlspecialchars($item['plataforma']); ?></div>
-                        <div class="precio">US$<?php echo number_format($item['precio'], 2); ?></div>
-                    </div>
-                    <div class="controls">
-                        <form method="POST" action="update_cart.php">
-                            <input type="hidden" name="idGame" value="<?php echo $item['idGame']; ?>">
-                            <button type="submit" name="action" value="remove">🗑</button>
-                        </form>
-                    </div>
-                </li>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error'])): ?>
-                <div class="alert"><?php echo $_SESSION['error']; ?></div>
-                <?php unset($_SESSION['error']); ?>
-            <?php else: ?>
-                <li>Tu carrito está vacío.</li>
-            <?php endif; ?>
-        <?php endif; ?>
-    </ul>
-    <?php
-    $total = 0;
-    foreach ($_SESSION['cart'] as $item) {
-        $total += $item['precio'];
-    }
-    ?>
-    <div class="carrito-total-row">
-        <div class="total-label">Total</div>
-        <div id="Suma-Total-Precios" class="total-price">$<?php echo number_format($total, 2); ?></div>
-    </div>
-    <p class="nota">Los descuentos y promociones se aplicarán en el carrito</p>
-    <div class="carrito-actions">
-        <a href="shop.php">
-            <button id="seguirBtn" class="btnAzulDifuminado">Continuar comprando</button>
-        </a>
-        <form method="POST" action="checkout.php">
-            <button type="submit" id="iniciarBtn" class="btnVioletaDifuminado">Iniciar compra</button>
-        </form>
-    </div>
-</aside>
 
 </div>
 </div>

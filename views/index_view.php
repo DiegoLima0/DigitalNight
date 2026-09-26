@@ -11,8 +11,8 @@
 <body id="bodyPrincipal">
     <main id="MainPrincipal">
         <div>
-            <h1 id="TextoPaginaPrincipal">Bienvenido a DigitalNight</h1>
-            <p>Descubrí, descargá y jugá tus títulos favoritos en un solo lugar. DigitalNight reúne a la comunidad gamer que nunca duerme.</p>
+            <h1 id="TextoPaginaPrincipal">Descubre, crea y <br> comparte <span>juegos educativos</span></h1>
+            <p>Unite a nuestra comunidad y forma parte <br>de la experiencia <span>DigitalNight</span></p>
 
             <div>
                 <a href="login.php" class="btnAzulDifuminado" id="<?php echo $id_variable; ?>">

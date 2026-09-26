@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/database.php'; 
+require_once __DIR__ . '/../includes/database.php';
 
 // VERIFICACIÓN DE ACCESO DE ADMINISTRADOR
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_type'] ?? '') !== 'admin') {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         $sql_delete = "DELETE FROM user WHERE idUser = $user_id_to_delete";
         
         if ($conexion->query($sql_delete) === TRUE) {
-            header("Location: /DigitalNight/users-connection.php?message=delete_success"); 
+            header("Location: /users-connection.php?message=delete_success");
             exit();
         } else {
             $mensaje = "Error al eliminar: " . $conexion->error;
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
             $_SESSION['user_type'] = $new_user_type;
         }
 
-        header("Location: /DigitalNight/users-connection.php?message=update_success");
+        header("Location: /users-connection.php?message=update_success");
         exit();
     } else {
         $mensaje = "Error al actualizar: " . $conexion->error;

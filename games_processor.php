@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once 'includes/database.php';
 
-$idUser = $_SESSION['user_id'];
+$idUser = $_SESSION['user_id'] ?? null;
 
 $game_id = isset($_GET['idGame']) ? (int) $_GET['idGame'] : null;
 $current_user_id = $_SESSION['user_id'] ?? null;
@@ -16,28 +16,27 @@ $creator_username = 'Creador';
 $has_editions = false;
 $editions_list = [];
 $id_creator = null;
+$oculto = "borrar";
+$ocultado = "";
 
 if ($game_id) {
 
-    $sql_game_hidden = "SELECT 1
-    FROM user_game
-    WHERE idGame = $game_id AND idUser = $idUser
-    AND visible = 0";
+    if ($idUser !== null) {
+        $sql_game_hidden = "SELECT 1
+        FROM user_game
+        WHERE idGame = $game_id AND idUser = $idUser
+        AND visible = 0";
 
-    $result_hidden = $conexion->query($sql_game_hidden);
+        $result_hidden = $conexion->query($sql_game_hidden);
 
-    if ($result_hidden && $result_hidden->num_rows > 0) {
-        // El juego está oculto
-        $oculto = "boton-añadirCarrito"; // clase para mostrar el botón de desocultar
-        $ocultado="Desocultar";
-    }   
-    else {
-        // El juego no está oculto
-        $oculto = "borrar"; // clase para ocultar el enlace o estilizarlo distinto
-        $ocultado="";
+        if ($result_hidden && $result_hidden->num_rows > 0) {
+            // El juego está oculto
+            $oculto = "boton-añadirCarrito"; // clase para mostrar el botón de desocultar
+            $ocultado="Desocultar";
+        }
     }
 
-    $sql_game_detail = "SELECT 
+    $sql_game_detail = "SELECT
         g.idGame, 
         g.title, 
         g.description,

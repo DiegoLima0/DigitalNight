@@ -5,16 +5,19 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-// Saber si el usuario ya compró este juego
-$hasGame = false;
-
+// Ownership (biblioteca) DESACTIVADO temporalmente: los juegos se juegan
+// directo desde la tienda sin pasar por "comprar" (biblioteca sigue oculta,
+// ver includes/header.php). Restaurar el chequeo de user_game de abajo
+// cuando se reactive biblioteca.
+$hasGame = true;
+/*
 if (isset($_SESSION['user_id'])) {
   $idUser = $_SESSION['user_id'];
   $idGame = $game_data['idGame'];
 
   $stmtOwned = $conexion->prepare("
-        SELECT 1 
-        FROM user_game 
+        SELECT 1
+        FROM user_game
         WHERE idUser = ? AND idGame = ?
         LIMIT 1
     ");
@@ -27,6 +30,7 @@ if (isset($_SESSION['user_id'])) {
     $hasGame = true;
   }
 }
+*/
 
 
 $stmt = $conexion->prepare("
@@ -88,7 +92,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
           <p class="plataformas-games-interior">Disponible para <?php echo $game_data['platforms']; ?></p>
           <?php if ($hasGame): ?>
-            <p class="subtitle">Ya está en tu biblioteca</p>
+            <p class="subtitle">Gratis por ahora</p>
           <?php else: ?>
             <p class="subtitle">US$<?php echo $game_data['price']; ?></p>
           <?php endif; ?>
